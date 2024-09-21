@@ -7,7 +7,7 @@ import { updateLocation } from '../location/action';
 import type { locationInterface } from '../location/interface';
 
 import { characters } from '../character/state';
-import { updateCharacter } from '../character/action';
+import { addNearByCharacter, removeAllNearByCharaters } from '../character/action';
 import type { characterInterface } from '../character/interface';
 
 
@@ -28,9 +28,9 @@ function setUpperBookmarks(input: bookmarkInterface[]) {
 
 // EXPORT
 export function updateNearbyBookmarks(bookmarks: bookmarkInterface[]) {
-  
   const newInnerBookmarks = [] as bookmarkInterface[];
   const newUpperBookmarks = [] as bookmarkInterface[];
+  removeAllNearByCharaters();
 
   for (const bookmark of bookmarks) {
     if (bookmark && bookmark.intersectionInfo) {
@@ -42,6 +42,11 @@ export function updateNearbyBookmarks(bookmarks: bookmarkInterface[]) {
       }
       if (bookmark.intersectionInfo.screenAreaToBookmarkRatio < 1) {
         newInnerBookmarks.push(bookmark as bookmarkInterface);
+
+        const character = characters.value.find(c => c.name === bookmark.name);
+        if (character && bookmark.intersectionInfo.screenAreaToBookmarkRatio > 0.015) {
+          addNearByCharacter(character as characterInterface, bookmark as bookmarkInterface);
+        }
       }
     }
   }
@@ -61,11 +66,6 @@ export function updateNearbyBookmarks(bookmarks: bookmarkInterface[]) {
       const location = locations.value.find(l => l.name === newBookmark.name);
       if (location) {
         updateLocation(location as locationInterface);
-      }
-
-      const character = characters.value.find(c => c.name === newBookmark.name);
-      if (character) {
-        updateCharacter(character as characterInterface);
       }
     }
   }

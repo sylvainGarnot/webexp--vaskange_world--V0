@@ -2,16 +2,17 @@ import { defineStore } from "pinia";
 import { readonly } from 'vue';
 
 
-import { character, characters } from './state';
-import { updateCharacter } from './action';
+import { nearByCharacters, characters } from './state';
+import { addNearByCharacter, removeAllNearByCharaters } from './action';
 
 
 export const useCharacterStore = defineStore("Character", () => {
   
   return {
-    character: readonly(character),
+    nearByCharacters: readonly(nearByCharacters),
     characters: readonly(characters),
 
-    updateCharacter,
+    addNearByCharacter,
+    removeAllNearByCharaters,
   }
 })

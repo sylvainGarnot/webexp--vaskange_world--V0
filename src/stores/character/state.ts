@@ -2,7 +2,8 @@ import { ref } from 'vue';
 import type { characterInterface } from './interface';
 
 
-export const character = ref(null as unknown as characterInterface);
+export const nearByCharacters = ref([] as characterInterface[]);
+
 export const characters = ref([
   {
     id: "1",
@@ -10,6 +11,12 @@ export const characters = ref([
     found: false,
     found_date: new Date(0),
     dialog: '1',
+    callBubble: {
+      width: 0,
+      height: 0,
+      top: 0,
+      left: 0,
+    }
   },
   {
     id: "2",
@@ -17,6 +24,12 @@ export const characters = ref([
     found: false,
     found_date: new Date(0),
     dialog: '1',
+    callBubble: {
+      width: 0,
+      height: 0,
+      top: 0,
+      left: 0,
+    }
   },
   {
     id: "3",
@@ -24,5 +37,11 @@ export const characters = ref([
     found: false,
     found_date: new Date(0),
     dialog: '1',
+    callBubble: {
+      width: 0,
+      height: 0,
+      top: 0,
+      left: 0,
+    }
   },
 ] as characterInterface[]);
