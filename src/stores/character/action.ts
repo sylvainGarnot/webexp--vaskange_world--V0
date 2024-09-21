@@ -22,6 +22,7 @@ export function addNearByCharacter(inputCharacter: characterInterface, inputBook
   // newNearByCharacter.callBubble.height = height*0.25,
   // newNearByCharacter.callBubble.left = left - width*0.25,
   // newNearByCharacter.callBubble.top = top + height*0.125,
+  newNearByCharacter.screenAreaToBookmarkRatio = inputBookmark.intersectionInfo.screenAreaToBookmarkRatio;
 
   nearByCharacters.value.push(newNearByCharacter as characterInterface);
 };

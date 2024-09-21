@@ -9,5 +9,6 @@ export interface characterInterface {
     height: number,
     top: number,
     left: number,
-  }
+  },
+  screenAreaToBookmarkRatio: number,
 }

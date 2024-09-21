@@ -6,17 +6,16 @@ export interface bookmarkInterface {
     visibleBookmarkRatio: number,
   },
   name: string,
-  screenSpacePosition: {
-    bottomLeft: {
-      x: number,
-      y: number,
-    },
-    topRight: {
-      x: number,
-      y: number,
-    },
-  }
-  zoomFactor: {
-    zoomFactor: number
-  }
+  // value missing
+  // screenSpacePosition: {
+  //   bottomLeft: {
+  //     x: number,
+  //     y: number,
+  //   },
+  //   topRight: {
+  //     x: number,
+  //     y: number,
+  //   },
+  // }
+  zoomFactor: number
 }

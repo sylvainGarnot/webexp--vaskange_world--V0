@@ -16,7 +16,8 @@ export const characters = ref([
       height: 0,
       top: 0,
       left: 0,
-    }
+    },
+    screenAreaToBookmarkRatio: 0,
   },
   {
     id: "2",
@@ -29,7 +30,8 @@ export const characters = ref([
       height: 0,
       top: 0,
       left: 0,
-    }
+    },
+    screenAreaToBookmarkRatio: 0,
   },
   {
     id: "3",
@@ -42,6 +44,7 @@ export const characters = ref([
       height: 0,
       top: 0,
       left: 0,
-    }
+    },
+    screenAreaToBookmarkRatio: 0,
   },
 ] as characterInterface[]);
