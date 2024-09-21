@@ -2,7 +2,7 @@ import { ref } from 'vue';
 import type { locationInterface } from './interface';
 
 export const location = ref(null as unknown as locationInterface);
-export const locations_found = ref([
+export const locations = ref([
   {
     id: "1",
     name: "bureau 🏠",
