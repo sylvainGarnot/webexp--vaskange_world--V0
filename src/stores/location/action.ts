@@ -1,4 +1,4 @@
-import { location, locations_found } from './state';
+import { location, locations } from './state';
 import type { locationInterface } from './interface';
 
 
@@ -6,17 +6,14 @@ import type { locationInterface } from './interface';
 
 
 // EXPORT
-export function getLocationsFound() {
-  // GET LOCATIONS FOUND
-  // const response = { }
-  // locations_found.value = response;
-}
-
 export function updateLocation(input: locationInterface) {
-  location.value = input as locationInterface;
-  if (!locations_found.value.find(l => l.id === input.id)) {
-    // POST new location_found with input
-    // Then :
-    locations_found.value.push(input as locationInterface);
+  location.value = JSON.parse(JSON.stringify(input)) as locationInterface;
+  location.value.found = true;
+  location.value.found_date = new Date;
+
+  const index = locations.value.findIndex(l => l.id === input.id);
+  if (index >= 0 && !locations.value[index].found) {
+      locations.value[index].found = true;
+      locations.value[index].found_date = new Date;
   }
 };

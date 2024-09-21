@@ -3,7 +3,7 @@ import { readonly } from 'vue';
 
 
 import { location, locations } from './state';
-import { getLocationsFound, updateLocation } from './action';
+import { updateLocation } from './action';
 
 
 export const useLocationStore = defineStore("Location", () => {
@@ -12,7 +12,6 @@ export const useLocationStore = defineStore("Location", () => {
     location: readonly(location),
     locations: readonly(locations),
 
-    getLocationsFound,
     updateLocation,
   }
 })

@@ -20,6 +20,7 @@ import { storeToRefs } from 'pinia'
 import { useApi } from "./WebExperienceApi.js";
 
 import { useBookmarkStore } from "@/stores/bookmark/index.ts";
+import { useLocationStore } from "@/stores/location/index.ts";
 import { useCharacterStore } from "@/stores/character/index.ts";
 
 
@@ -34,6 +35,7 @@ const bookmarkStore = useBookmarkStore();
 const { updateNearbyBookmarks } = bookmarkStore;
 // const { bookmarks } = storeToRefs(bookmarkStore);
 
+const locationStore = useLocationStore();
 const characterStore = useCharacterStore();
 
 
