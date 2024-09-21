@@ -3,7 +3,7 @@ import { readonly } from 'vue';
 
 
 import { character, characters } from './state';
-import { getCharactersFound, updateCharacter, updateCharacterState } from './action';
+import { updateCharacter } from './action';
 
 
 export const useCharacterStore = defineStore("Character", () => {
@@ -12,8 +12,6 @@ export const useCharacterStore = defineStore("Character", () => {
     character: readonly(character),
     characters: readonly(characters),
 
-    getCharactersFound,
     updateCharacter,
-    updateCharacterState,
   }
 })

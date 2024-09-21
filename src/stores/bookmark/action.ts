@@ -1,7 +1,10 @@
 import { bookmark, lastBookmark, innerBookmarks, upperBookmarks } from './state';
 import { innerBookmarksSorted, upperBookmarksSorted, closestInnerBookmark, closestUpperBookmark } from './getter';
 import type { bookmarkInterface } from './interface';
+
+import { characters } from '../character/state';
 import { updateCharacter } from '../character/action';
+import type { characterInterface } from '../character/interface';
 
 
 // PRIVATE
@@ -51,9 +54,10 @@ export function updateNearbyBookmarks(bookmarks: bookmarkInterface[]) {
     if (!bookmark || !bookmark.value || !bookmark.value.name || bookmark.value.name !== newBookmark.name) {
       setBookmark(newBookmark as bookmarkInterface);
 
-      // GET isBookmarkCharacter
-      // if true then
-      // updateCharacter()
+      const character = characters.value.find(c => c.name === newBookmark.name);
+      if (character) {
+        updateCharacter(character as characterInterface);
+      }
 
       // GET isBookmarkLocation
       // if true then

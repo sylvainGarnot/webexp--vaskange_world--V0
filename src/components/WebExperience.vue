@@ -20,6 +20,7 @@ import { storeToRefs } from 'pinia'
 import { useApi } from "./WebExperienceApi.js";
 
 import { useBookmarkStore } from "@/stores/bookmark/index.ts";
+import { useCharacterStore } from "@/stores/character/index.ts";
 
 
 const route = useRoute();
@@ -32,6 +33,9 @@ const { EndlessPaper } = useApi();
 const bookmarkStore = useBookmarkStore();
 const { updateNearbyBookmarks } = bookmarkStore;
 // const { bookmarks } = storeToRefs(bookmarkStore);
+
+const characterStore = useCharacterStore();
+
 
 
 
