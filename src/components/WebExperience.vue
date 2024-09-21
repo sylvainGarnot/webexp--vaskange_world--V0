@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="j8vvd53"></div>
-    test gfsd gfdsg
     <!-- <WebExperienceCharacterCall v-for="bookmarkToast in bookmarkToasts" :height="bookmarkToast.height"
       :width="bookmarkToast.width" :top="bookmarkToast.top" :left="bookmarkToast.left" /> -->
 
@@ -20,10 +19,7 @@ import { storeToRefs } from 'pinia'
 
 import { useApi } from "./WebExperienceApi.js";
 
-// import { useToastStore } from "@/stores/toast/index.ts";
-// import { useBookmarkToastStore } from "@/stores/character/index.js";
-// import { useLocationStore } from "@/stores/location";
-// import type { locationsGlossaryInterface } from '@/stores/location/interface';
+import { useBookmarkStore } from "@/stores/bookmark/index.ts";
 
 
 const route = useRoute();
@@ -33,12 +29,9 @@ const { EndlessPaper } = useApi();
 // const toastStore = useToastStore();
 // const { addToast } = toastStore;
 
-// const bookmarkToastStore = useBookmarkToastStore();
-// const { bookmarkToasts } = storeToRefs(bookmarkToastStore);
-
-// const locationStore = useLocationStore();
-// const { locationsGlossary } = locationStore;
-// const { updateNearbyLocations } = locationStore;
+const bookmarkStore = useBookmarkStore();
+const { updateNearbyBookmarks } = bookmarkStore;
+// const { bookmarks } = storeToRefs(bookmarkStore);
 
 
 
@@ -56,7 +49,7 @@ onMounted(() => {
 
     EndlessPaper.showNavBar(false);
     EndlessPaper.showTravelButtons(false);
-    EndlessPaper.onBookmarkNearby(test);
+    EndlessPaper.onBookmarkNearby(updateNearbyBookmarks);
 
     setTimeout(() => {
       // const locationGlossary = locationsGlossary[0] as locationsGlossaryInterface;

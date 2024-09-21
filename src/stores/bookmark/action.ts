@@ -21,7 +21,7 @@ function setUpperBookmarks(input: bookmarkInterface[]) {
 
 // EXPORT
 export function updateNearbyBookmarks(bookmarks: bookmarkInterface[]) {
-
+  
   const newInnerBookmarks = [] as bookmarkInterface[];
   const newUpperBookmarks = [] as bookmarkInterface[];
 
@@ -47,15 +47,17 @@ export function updateNearbyBookmarks(bookmarks: bookmarkInterface[]) {
   } else if (upperBookmarksSorted.value.length > 0) {
     newBookmark = closestUpperBookmark.value as bookmarkInterface;
   }
-  if (newBookmark && newBookmark.name !== bookmark.value.name ) {
-    setBookmark(newBookmark as bookmarkInterface);
+  if (newBookmark && newBookmark.name) {
+    if (!bookmark || !bookmark.value || !bookmark.value.name || bookmark.value.name !== newBookmark.name) {
+      setBookmark(newBookmark as bookmarkInterface);
 
-    // GET isBookmarkCharacter
-    // if true then
-    // updateCharacter()
+      // GET isBookmarkCharacter
+      // if true then
+      // updateCharacter()
 
-    // GET isBookmarkLocation
-    // if true then
-    // updateLocation()
+      // GET isBookmarkLocation
+      // if true then
+      // updateLocation()
+    }
   }
 }
