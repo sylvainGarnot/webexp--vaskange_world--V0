@@ -12,5 +12,5 @@ export const dialog = computed(() => {
 })
 
 export const isDialogActive = computed(() => {
-  return closestNearByCharacter && closestNearByCharacter.value && closestNearByCharacter.value.screenAreaToBookmarkRatio && closestNearByCharacter.value.screenAreaToBookmarkRatio > 0.15;
+  return closestNearByCharacter && closestNearByCharacter.value && closestNearByCharacter.value.screenAreaToBookmarkRatio && closestNearByCharacter.value.screenAreaToBookmarkRatio > 0.2;
 })
