@@ -24,7 +24,7 @@ export const characters = ref([
     name: "rick 🐝",
     found: false,
     found_date: new Date(0),
-    dialog: '1',
+    dialog: '2',
     callBubble: {
       width: 0,
       height: 0,
@@ -38,7 +38,7 @@ export const characters = ref([
     name: "astro 1",
     found: false,
     found_date: new Date(0),
-    dialog: '1',
+    dialog: '3',
     callBubble: {
       width: 0,
       height: 0,
