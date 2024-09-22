@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <div class="vsk-dialog-response-container">
-      <div class="vsk-dialog-response" v-for="answer in dialog_answers" @click="true">
-        <p>{{ answer.speech_writen }}</p>
-      </div>
+  <div class="vsk-dialog-response-container">
+    <div class="vsk-dialog-response" v-for="answer in dialog_answers" @click="$emit(answer.type)">
+      <p>{{ answer.speech_writen }}</p>
     </div>
   </div>
 </template>

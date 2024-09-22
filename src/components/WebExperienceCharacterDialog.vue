@@ -9,7 +9,10 @@
         icon="$vuetify" @click="dialogStepNumber++"></v-icon>
     </div>
 
-    <WebExperienceCharacterDialogAnswer v-if="dialogStepNumber >= dialog!.speech_written.length - 1" />
+    <TransitionGroup name="fade-top" tag="div">
+      <WebExperienceCharacterDialogAnswer v-if="dialogStepNumber >= dialog!.speech_written.length - 1"
+        @repeat="dialogStepNumber = 0" />
+    </TransitionGroup>
   </div>
 </template>
 
