@@ -4,8 +4,7 @@
     <!-- <WebExperienceCharacterCall v-for="bookmarkToast in bookmarkToasts" :height="bookmarkToast.height"
       :width="bookmarkToast.width" :top="bookmarkToast.top" :left="bookmarkToast.left" /> -->
 
-    <!-- <WebExperienceCharacterDialog /> -->
-
+    <WebExperienceCharacterDialog />
   </div>
 </template>
 
@@ -15,7 +14,7 @@ import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia'
 
 // import WebExperienceCharacterCall from "@/components/WebExperienceCharacterCall.vue";
-// import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
+import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
 
 import { useApi } from "./WebExperienceApi.js";
 

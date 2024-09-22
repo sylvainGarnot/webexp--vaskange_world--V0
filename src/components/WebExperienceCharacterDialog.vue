@@ -1,49 +1,35 @@
 <template>
   <TransitionGroup name="vsk-dialog" tag="div" class="vsk-dialog-container">
-    <div v-if="isActive" class="vsk-dialog-npc">
+    <div v-if="dialog && isDialogActive" class="vsk-dialog-npc">
       <span class="vsk-dialog-npc-author">Astro</span>
-      <div v-for="(dialog, index) in dialogs">
-        <p v-if="index === stepNumber" class="vsk-dialog-npc-dialog">
-          {{ dialog }}
-        </p>
-      </div>
-      <v-icon v-if="stepNumber + 1 < dialogs.length" class="vsk-dialog-npc-next-icon" icon="$vuetify"
-        @click="handleNextDialog()"></v-icon>
+      <p class="vsk-dialog-npc-dialog">
+        {{ dialog.speech_written[dialogStepNumber] }}
+      </p>
+      <v-icon v-if="dialogStepNumber + 1 < dialog.speech_written.length" class="vsk-dialog-npc-next-icon"
+        icon="$vuetify" @click="dialogStepNumber++"></v-icon>
     </div>
 
-    <div v-if="isActive && responses && responses.length > 0 && stepNumber + 1 >= dialogs.length"
+    <!-- <div v-if="isActive && responses && responses.length > 0 && stepNumber + 1 >= dialogs.length"
       class="vsk-dialog-response-container">
       <div class="vsk-dialog-response" v-for="(response, index) in responses" @click="handleReponse(index)">
         <p>{{ response }}</p>
       </div>
-    </div>
+    </div> -->
   </TransitionGroup>
 </template>
 
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia'
-import { useDialogStore } from "@/stores/dialog/index.ts";
-import { useEffectStore } from "@/stores/effect";
+import { useDialogStore } from "@/stores/dialog";
 
 const dialogStore = useDialogStore();
-const { isActive, dialogs, responses, stepNumber, image } = storeToRefs(dialogStore);
-const { setIsActive, setStepNumber } = dialogStore;
+const { dialog, isDialogActive } = storeToRefs(dialogStore);
 
-const { playEffect } = useEffectStore();
+let dialogStepNumber = 0 as number;
 
-function handleNextDialog() {
-  setStepNumber(stepNumber.value + 1);
-  playEffect('patu');
-}
+// import { useEffectStore } from "@/stores/effect";
+// const { playEffect } = useEffectStore();
 
-function handleReponse(index: number) {
-  if (index === 0 || index === 2) {
-    setIsActive(false);
-  } else if (index === 1) {
-    setStepNumber(0);
-  }
-  playEffect('patu');
-}
 </script>
 
 <style lang="scss" scoped>

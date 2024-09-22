@@ -1,19 +1,25 @@
 import { ref } from 'vue';
+import type { dialogInterface } from './interface';
 
-export const isActive = ref(false as boolean);
 export const dialogs = ref([
-    'Lorem ipsum dolor sit amet elit.',
-    'Libero ab vero perferendis molestias ut dicta hic maxime',
-    'voluptate iste minus facilis nobis?'] as string[]);
-export const responses = ref([
-    'Yes ! Let s go !!',
-    'Tu peux répéter ?',
-    'Bof ça ne m intéresse pas, bye'] as string[]);
-export const author = ref('Astro' as string);
-export const stepNumber = ref(0 as number);
-export const image = ref('nonnonon' as string);
-
-// export const dialogs = ref([] as string[]);
-// export const author = ref('' as string);
-// export const stepNumber = ref(0 as number);
-// export const image = ref('' as string);
+  {
+    id: '1',
+    speech_written: [
+      'Lorem ipsum dolor sit amet elit.',
+      'Libero ab vero perferendis molestias ut dicta hic maxime',
+      'voluptate iste minus facilis nobis?'
+    ],
+    item_provided: '1',
+    answers: ['1','2'],
+  },
+  {
+    id: '2',
+    speech_written: [
+      '22222 ipsum dolor sit amet elit.',
+      '222 ab vero perferendis molestias ut dicta hic maxime',
+      '222222 iste minus facilis nobis?'
+    ],
+    item_provided: '2',
+    answers: ['1','2'],
+  },
+] as dialogInterface[]);
