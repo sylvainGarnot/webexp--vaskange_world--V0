@@ -22,7 +22,7 @@ export function updateLocation(input: locationInterface) {
       locations.value[index].found = true;
       locations.value[index].found_date = new Date;
     }
-    console.log('TEST - updateLocation', location.value.name);
+    console.log('TEST - Location', location.value.name); // TEST
 
     addToast(location.value.message as string, 'info');
     changeMusicByLocation(location.value as locationInterface);

@@ -97,7 +97,7 @@ export async function changeMusicByLocation(location: locationInterface, fadeDur
       setMusic(musics.value[0] as musicInterface);
     }
 
-    console.log('TEST - changeMusicByLocation', music.value.file);
+    console.log('TEST - Music', music.value.file); // TEST
 
     await fadeOutMusic(lastMusic.value as musicInterface, fadeDuration as number);
     await fadeInMusic(music.value as musicInterface, fadeDuration as number);

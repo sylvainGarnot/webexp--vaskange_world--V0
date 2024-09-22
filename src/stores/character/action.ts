@@ -1,4 +1,5 @@
 import { nearByCharacters } from './state';
+import { closestNearByCharacter } from './getter';
 import type { characterInterface } from './interface';
 import type { bookmarkInterface } from '../bookmark/interface';
 
@@ -25,6 +26,8 @@ export function addNearByCharacter(inputCharacter: characterInterface, inputBook
   newNearByCharacter.screenAreaToBookmarkRatio = inputBookmark.intersectionInfo.screenAreaToBookmarkRatio;
 
   nearByCharacters.value.push(newNearByCharacter as characterInterface);
+
+  console.log('TEST - closestCharacter', closestNearByCharacter.value.name); // TEST
 };
 
 export function removeAllNearByCharaters() {
