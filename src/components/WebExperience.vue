@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, onUpdated } from "vue";
 import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
@@ -20,11 +20,11 @@ import { storeToRefs } from 'pinia';
 import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
 
 import { useApi } from "./WebExperienceApi.js";
-import { useBookmarkStore } from "@/stores/bookmark/index.ts";
-import { useLocationStore } from "@/stores/location/index.ts";
-
+import { useBookmarkStore } from "@/stores/bookmark";
+import { useLocationStore } from "@/stores/location";
 import { useDialogStore } from "@/stores/dialog";
 import { useToastStore } from "@/stores/toast";
+import type { locationInterface } from "@/stores/location/interface.js";
 
 const route = useRoute();
 const { EndlessPaper } = useApi();
@@ -44,24 +44,22 @@ const { addToast } = toastStore;
 // UPDATED
 onUpdated(() => {
   if (route?.query?.location) {
-    // teleportTo(route?.query?.location);
+    teleportTo(route?.query?.location as string);
   }
 });
 
 // MOUNTED
 onMounted(() => {
-  EndlessPaper.onLoad(function (iframe) {
-    console.log("WebXP at " + iframe.src + " has been loaded !"); // TEST
+  EndlessPaper.onLoad(function () {
+    console.log("TEST - WebXP has been loaded !"); // TEST
 
     EndlessPaper.showNavBar(false);
     EndlessPaper.showTravelButtons(false);
     EndlessPaper.onBookmarkNearby(updateNearbyBookmarks);
 
     setTimeout(() => {
-      addToast(locations.value[0].message, "info");
-
       if (route?.query?.location) {
-        // teleportTo(route?.query?.location);
+        teleportTo(route?.query?.location as string);
       }
     }, 900);
   });
@@ -69,12 +67,10 @@ onMounted(() => {
 
 
 // METHODS
-function teleportTo(location) {
-  //   if (locationsGlossary.find(l => l.name === location) as locationsGlossaryInterface) {
-  //     EndlessPaper.visitBookmark(location as string);
-  //   } else {
-  //     // addToast('Localisation introuvable', "error", 2000);
-  //   }
+function teleportTo(input: string) {
+  if (locations.value.find(l => l.name === input)) {
+    EndlessPaper.visitBookmark(input as string);
+  }
 }
 function test() {
   console.log('TEST HEY');
