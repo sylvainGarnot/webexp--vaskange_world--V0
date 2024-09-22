@@ -19,35 +19,32 @@ function removeToast(value: ToastInterface) {
   if (indexToDelete > -1) {
     newToasts.splice(indexToDelete, 1);
     setToasts(newToasts as ToastInterface[]);
-  } else {
-    console.error(
-      `Le toast avec le message "${value.message}" n'a pas été trouvé et n'a donc pas pu être supprimé`,
-    );
   }
 };
 
 
 // EXPORT
-export function addToast(message: string, type: string, duration: number) {
+export function addToast(message: string, type: string = 'info') {
+  let duration;
+  if (type === "success") {
+    duration = 2400;
+  } else if (type === "info") {
+    duration = 2400;
+  } else if (type === 'warning') {
+    duration = 2400;
+  } else if (type === 'error') {
+    duration = 2400;
+  }
+
   const newToast = {
     id: toasts.value.length,
     timestamp: Date.now(),
-    message: message || "",
-    type: type || "default",
-    duration: duration || null,
+    message: message,
+    type: type,
+    duration,
   } as ToastInterface;
-
-  if (!duration) {
-    if (newToast.type === "success") {
-      newToast.duration = 1600 as number;
-    } else if (newToast.type === "error") {
-      newToast.duration = 3000 as number;
-    } else {
-      newToast.duration = 1200 as number;
-    }
-  }
+  
   unshiftToast(newToast as ToastInterface);
-
   setTimeout(() => {
     removeToast(newToast);
   }, newToast.duration);

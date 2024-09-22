@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { useToastStore } from "@/stores/toast/index.ts";
+import { useToastStore } from "@/stores/toast";
 
 const toastStore = useToastStore();
 
@@ -21,8 +21,9 @@ const { toasts } = storeToRefs(toastStore);
 
 function getBackgroundColor(type: string) {
   if (type === 'success') { return 'green' }
+  else if (type === 'info') { return 'blue' }
+  else if (type === 'warning') { return 'orange' }
   else if (type === 'error') { return 'red' }
-  else return 'transparent'
 };
 </script>
 

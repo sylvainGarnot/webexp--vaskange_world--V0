@@ -1,6 +1,7 @@
 import { location, lastLocation, locations } from './state';
 import type { locationInterface } from './interface';
 
+import { addToast } from '../toast/action';
 import { changeMusicByLocation } from '../music/action';
 
 
@@ -9,17 +10,21 @@ import { changeMusicByLocation } from '../music/action';
 
 // EXPORT
 export function updateLocation(input: locationInterface) {
-  lastLocation.value = JSON.parse(JSON.stringify(location.value)) as locationInterface;
+  if (location?.value?.name !== input.name) {
+    lastLocation.value = JSON.parse(JSON.stringify(location.value)) as locationInterface;
 
-  location.value = JSON.parse(JSON.stringify(input)) as locationInterface;
-  location.value.found = true;
-  location.value.found_date = new Date;
+    location.value = JSON.parse(JSON.stringify(input)) as locationInterface;
+    location.value.found = true;
+    location.value.found_date = new Date;
 
-  changeMusicByLocation(location.value as locationInterface);
-
-  const index = locations.value.findIndex(l => l.id === input.id);
-  if (index >= 0 && !locations.value[index].found) {
+    const index = locations.value.findIndex(l => l.id === input.id);
+    if (index >= 0 && !locations.value[index].found) {
       locations.value[index].found = true;
       locations.value[index].found_date = new Date;
+    }
+    console.log('TEST - updateLocation', location.value.name);
+
+    addToast(location.value.message as string, 'info');
+    changeMusicByLocation(location.value as locationInterface);
   }
 };

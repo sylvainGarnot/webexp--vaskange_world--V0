@@ -30,7 +30,7 @@ export const locations = ref([
   {
     id: "3",
     name: "boite de nuit insectes 🪲🪩",
-    message: '',
+    message: 'boite de nuit insectes 🪲🪩',
     upper_location: 'bureau 🏠',
     is_hidden_place: false,
     found: false,
@@ -43,7 +43,7 @@ export const locations = ref([
   {
     id: "4",
     name: "prairie 🌳",
-    message: '',
+    message: 'prairie 🌳',
     upper_location: 'bureau 🏠',
     is_hidden_place: false,
     found: false,
@@ -65,7 +65,7 @@ export const locations = ref([
   {
     id: "6",
     name: "snorkeling 🐠",
-    message: '',
+    message: 'snorkeling 🐠',
     upper_location: 'vac-mer 🏝️',
     is_hidden_place: false,
     found: false,
@@ -76,7 +76,7 @@ export const locations = ref([
   {
     id: "7",
     name: "meduses 🪼",
-    message: '',
+    message: 'meduses 🪼',
     upper_location: 'snorkeling 🐠',
     is_hidden_place: false,
     found: false,
@@ -87,7 +87,7 @@ export const locations = ref([
   {
     id: "8",
     name: "monstre marin 🦕",
-    message: '',
+    message: 'monstre marin 🦕',
     upper_location: 'meduses 🪼',
     is_hidden_place: false,
     found: false,
@@ -212,7 +212,7 @@ export const locations = ref([
   {
     id: "19",
     name: "coccibar 🐞",
-    message: '',
+    message: 'coccibar 🐞',
     upper_location: 'galaxie ✨',
     is_hidden_place: false,
     found: false,
@@ -236,7 +236,7 @@ export const locations = ref([
   {
     id: "21",
     name: "matrix 📺",
-    message: '',
+    message: 'matrix 📺',
     upper_location: 'support city 🛖',
     is_hidden_place: false,
     found: false,
