@@ -2,6 +2,8 @@ import { ref } from 'vue';
 import type { locationInterface } from './interface';
 
 export const location = ref(null as unknown as locationInterface);
+export const lastLocation = ref(null as unknown as locationInterface);
+
 export const locations = ref([
   {
     id: "1",
@@ -12,7 +14,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['0','1','2','3'],
   },
   {
     id: "2",
@@ -23,7 +25,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   {
     id: "3",
@@ -34,7 +36,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   
   // HOLIDAYS
@@ -47,7 +49,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['4','5','6'],
   },
   {
     id: "5",
@@ -58,7 +60,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   {
     id: "6",
@@ -69,7 +71,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   {
     id: "7",
@@ -80,7 +82,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   {
     id: "8",
@@ -91,7 +93,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   {
     id: "9",
@@ -102,7 +104,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   {
     id: "10",
@@ -113,7 +115,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   {
     id: "11",
@@ -124,7 +126,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   {
     id: "12",
@@ -135,7 +137,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   
   // QUEST 3
@@ -148,7 +150,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   {
     id: "14",
@@ -159,7 +161,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
 
   // SPACE
@@ -172,7 +174,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   {
     id: "16",
@@ -183,7 +185,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   {
     id: "17",
@@ -194,7 +196,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   {
     id: "18",
@@ -205,7 +207,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   {
     id: "19",
@@ -216,7 +218,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   
   // Support
@@ -229,7 +231,7 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
   {
     id: "21",
@@ -240,6 +242,6 @@ export const locations = ref([
     found: false,
     found_date: new Date(0),
     character: "1",
-    music: "1",
+    musics: ['1','2'],
   },
 ] as locationInterface[]);

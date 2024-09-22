@@ -7,5 +7,5 @@ export interface locationInterface {
   found: boolean,
   found_date: Date,
   character: string,
-  music: string,
+  musics: string[],
 }

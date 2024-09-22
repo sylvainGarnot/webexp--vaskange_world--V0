@@ -2,8 +2,7 @@
   <div id="TheSettings">
     <v-row no-gutters class="pt-4">
       <v-col cols="6" class="pr-4">
-        <!-- <SettingsSoundGlobal /> -->
-        <SettingsFullScreen />
+        <SettingsSoundGlobal />
       </v-col>
       <v-col cols="6" class="pr-4">
         <SettingsFullScreen />

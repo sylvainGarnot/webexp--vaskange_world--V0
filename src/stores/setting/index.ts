@@ -4,7 +4,7 @@ import { readonly } from 'vue';
 import { isFullscreen } from './state';
 import { setIsFullscreen, toggleFullscreen } from './action';
 
-export const useSettingStore = defineStore("setting", () => {
+export const useSettingStore = defineStore("Setting", () => {
   
   return {
     isFullscreen: readonly(isFullscreen),

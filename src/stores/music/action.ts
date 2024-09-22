@@ -1,115 +1,95 @@
-import { currentMusic, currentMusicName, isMusicPlaying, lastMusic, musicCaches } from './state';
-import { musicVolume } from '../setting/state';
-
-import { locationsGlossary } from '../location/state';
-import type { locationsGlossaryInterface } from '../location/interface';
-
+import { music, lastMusic, isMusicPlaying, musics } from './state';
+import type { musicInterface } from './interface';
+import type { locationInterface } from '../location/interface';
 
 let fadeOutMusicInterval = 0 as number;
 let fadeInMusicInterval = 0 as number;
 
 
 // PRIVATE
-function setCurrentMusic(locationName: string) {
-  const locationGlossary = locationsGlossary.value.find((l) => l.name === locationName) as locationsGlossaryInterface;
-  const musicsToArtist = locationGlossary?.musicsToArtist as string[];
+function setMusic(input: musicInterface) {
 
-  if (musicsToArtist && musicsToArtist.length > 0) {
-    const randomArtist = musicsToArtist[Math.floor(Math.random() * musicsToArtist.length)] as string;
-    const src = `/src/assets/music/${randomArtist}/${locationName}.aac` as string;
-    console.log(`Loading music from : ${randomArtist} - ${locationName} - ${src}`); // TEST
+  // lastMusic.value = JSON.parse(JSON.stringify(music.value)) as musicInterface;
+  // lastMusic.value.audio.pause();
+  // lastMusic.value.audio.currentTime = 0;
 
-    const musicCache = musicCaches.value.find((e) => e.src === src);
-    if (musicCache) {
-      currentMusic.value = musicCache as HTMLAudioElement;
-    } else {
-      const audio = new Audio();
-      audio.preload = "auto";
-      audio.loop = true as boolean;
-      audio.src = src as string;
-      audio.volume = musicVolume.value as number;
-      addMusicCache(audio as HTMLAudioElement);
+  const audio = new Audio() as HTMLAudioElement;
+  audio.currentTime = 0;
+  audio.preload = "auto";
+  audio.loop = true;
+  audio.src = `/src/assets/music/free/${input.file}.aac`;
+  audio.volume = 1 as number;
+  music.value = {
+    id: input.id,
+    file: input.file,
+    audio,
+  };
 
-      audio.addEventListener("error", function (e) {
-        console.error("Erreur de chargement audio", e);
-        console.error("Audio source:", src);
-      });
-      currentMusic.value = audio as HTMLAudioElement;
-      currentMusicName.value = locationName as string;
-    }
-  }
+  // if (!isMusicPlaying.value) {
+  //   music.value.audio.play();
+  // }
 }
 
-function addMusicCache(audio: HTMLAudioElement) {
-  const newMusicCaches = Array.from(musicCaches.value) as HTMLAudioElement[];
-  newMusicCaches.push(audio as HTMLAudioElement);
-  setMusicCaches(newMusicCaches as HTMLAudioElement[]);
-}
+// function setLastMusic(input: musicInterface) {
+//   const audio = new Audio() as HTMLAudioElement;
+//   audio.currentTime = 0;
+//   audio.preload = "auto";
+//   audio.loop = true;
+//   audio.src = `/src/assets/music/free/${input.file}.aac`;
+//   audio.volume = 1 as number;
+//   lastMusic.value = {
+//     id: input.id,
+//     file: input.file,
+//     audio,
+//   };
+// }
 
-function setMusicCaches(audios: HTMLAudioElement[]) {
-  musicCaches.value = audios as HTMLAudioElement[];
-}
-
-function setLastMusic(audio: HTMLAudioElement) {
-  lastMusic.value = audio as HTMLAudioElement;
-}
-
-function stopAllMusicExcept(audio: HTMLAudioElement) {
-  musicCaches.value.forEach(musicCache => {
-    if (musicCache !== audio) {
-      musicCache.pause();
-      musicCache.currentTime = 0 as number;
-    }
-  });
-}
-
-function fadeOutMusic(audio: HTMLAudioElement, duration: number) {
+function fadeOutMusic(input: musicInterface, duration: number) {
   const step = 0.01 as number;
   const interval = duration * step as number;
 
   if (fadeOutMusicInterval) {
     clearInterval(fadeOutMusicInterval);
-    audio.pause();
-    audio.currentTime = 0 as number;
-    audio.volume = 1 as number;
+    input.audio.pause();
+    input.audio.currentTime = 0 as number;
+    input.audio.volume = 1 as number;
   }
 
   fadeOutMusicInterval = window.setInterval(() => {
-    if (audio.volume > step) {
-      audio.volume -= step as number;
+    if (input.audio.volume > step) {
+      input.audio.volume -= step as number;
     } else {
       clearInterval(fadeOutMusicInterval);
       fadeOutMusicInterval = 0 as number;
-      audio.pause();
-      audio.currentTime = 0 as number;
-      audio.volume = 1 as number;
+      input.audio.pause();
+      input.audio.currentTime = 0 as number;
+      input.audio.volume = 1 as number;
     }
   }, interval);
 }
 
-function fadeInMusic(audio: HTMLAudioElement, duration: number) {
+function fadeInMusic(input: musicInterface, duration: number) {
   const step = 0.01 as number;
   const interval = duration * step as number;
 
   if (fadeInMusicInterval) {
     clearInterval(fadeInMusicInterval);
-    audio.pause();
-    audio.currentTime = 0 as number;
-    audio.volume = 1 as number;
+    input.audio.pause();
+    input.audio.currentTime = 0 as number;
+    input.audio.volume = 1 as number;
   }
-  audio.volume = 0 as number;
-  audio.play();
+  input.audio.volume = 0 as number;
+  input.audio.play();
 
   fadeInMusicInterval = window.setInterval(() => {
-    if (audio.volume < 1 - step) {
-      audio.volume += step as number;
-      musicVolume.value = audio.volume * 100 as number;
+    if (input.audio.volume < 1 - step) {
+      input.audio.volume += step as number;
     } else {
       clearInterval(fadeInMusicInterval);
       fadeInMusicInterval = 0 as number;
-      audio.volume = 1 as number;
-      musicVolume.value = 100 as number;
-      stopAllMusicExcept(audio as HTMLAudioElement);
+      input.audio.volume = 1 as number;
+      // lastMusic.value.audio.pause();
+      // lastMusic.value.audio.currentTime = 0 as number;
     }
   }, interval);
 }
@@ -118,32 +98,39 @@ function fadeInMusic(audio: HTMLAudioElement, duration: number) {
 // EXPORT
 export function toggleMusic() {
   if (!isMusicPlaying.value) {
-    if (!currentMusic.value.src) {
-      setCurrentMusic("bureau 🏠" as string);
+    if (!music?.value?.audio?.src) {
+      setMusic(musics.value[0] as musicInterface);
     }
-    currentMusic.value.play();
-    isMusicPlaying.value = true as boolean;
+    music.value.audio.play();
+    isMusicPlaying.value = true;
   } else {
-    currentMusic.value.pause();
-    lastMusic.value.pause();
-    isMusicPlaying.value = false as boolean;
-    isMusicPlaying.value = false as boolean;
+    music.value.audio.pause();
+    isMusicPlaying.value = false;
   }
 }
 
 
-export async function changeMusicByLocationName(locationName: string, fadeDuration: number = 1800) {
+export async function changeMusicByLocation(location: locationInterface, fadeDuration: number = 1800) {
   if (isMusicPlaying.value) {
 
-    const locationGlossary = locationsGlossary.value.find((l) => l.name === locationName) as locationsGlossaryInterface;
-    const musicsToArtist = locationGlossary?.musicsToArtist as string[];
-    if (musicsToArtist && musicsToArtist.length > 0 && currentMusicName.value !== locationName) {
+    // lastMusic.value = JSON.parse(JSON.stringify(music.value)) as musicInterface;
+    lastMusic.value = music.value as musicInterface;
+    lastMusic.value.audio.pause();
+    lastMusic.value.audio.currentTime = 0;
+    // setLastMusic(music.value as musicInterface);
 
-      setLastMusic(currentMusic.value as HTMLAudioElement);
-      setCurrentMusic(locationName as string);
-      await fadeOutMusic(lastMusic.value as HTMLAudioElement, fadeDuration as number);
-      await fadeInMusic(currentMusic.value as HTMLAudioElement, fadeDuration as number);
+    if (musics?.value.length > 0 && location?.musics.length > 0) {
+      const randomNumber = Math.floor(Math.random() * location.musics.length)
+      const randomMusicId = location.musics[randomNumber];
+      setMusic(musics.value.find(m => m.id === randomMusicId) as musicInterface);
+    } else {
+      setMusic(musics.value[0] as musicInterface);
     }
+
+    music.value.audio.play();
+
+    // await fadeOutMusic(lastMusic.value as musicInterface, fadeDuration as number);
+    // await fadeInMusic(music.value as musicInterface, fadeDuration as number);
   }
 }
   
