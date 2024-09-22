@@ -1,20 +1,15 @@
 <template>
   <div class="vsk-dialog-container">
-    <div v-if="dialog" class="vsk-dialog-npc">
+    <div class="vsk-dialog-npc">
       <span class="vsk-dialog-npc-author">{{ closestNearByCharacter!.name }}</span>
       <p class="vsk-dialog-npc-dialog">
         {{ dialog!.speech_written[dialogStepNumber] }}
       </p>
-      <v-icon v-if="dialogStepNumber + 1 < dialog.speech_written.length" class="vsk-dialog-npc-next-icon"
+      <v-icon v-if="dialogStepNumber + 1 < dialog!.speech_written.length" class="vsk-dialog-npc-next-icon"
         icon="$vuetify" @click="dialogStepNumber++"></v-icon>
     </div>
 
-    <!-- <div v-if="isActive && responses && responses.length > 0 && stepNumber + 1 >= dialogs.length"
-      class="vsk-dialog-response-container">
-      <div class="vsk-dialog-response" v-for="(response, index) in responses" @click="handleReponse(index)">
-        <p>{{ response }}</p>
-      </div>
-    </div> -->
+    <WebExperienceCharacterDialogAnswer v-if="dialogStepNumber >= dialog!.speech_written.length - 1" />
   </div>
 </template>
 
@@ -23,12 +18,14 @@ import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDialogStore } from "@/stores/dialog";
 import { useCharacterStore } from "@/stores/character";
+import WebExperienceCharacterDialogAnswer from "@/components/WebExperienceCharacterDialogAnswer.vue";
+
 
 const characterStore = useCharacterStore();
 const { closestNearByCharacter } = storeToRefs(characterStore);
 
 const dialogStore = useDialogStore();
-const { dialog, isDialogActive } = storeToRefs(dialogStore);
+const { dialog } = storeToRefs(dialogStore);
 
 const dialogStepNumber = ref(0);
 
@@ -80,34 +77,6 @@ const dialogStepNumber = ref(0);
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
       cursor: pointer;
       animation: bounce 2s ease infinite;
-    }
-  }
-
-  .vsk-dialog-response-container {
-    position: absolute;
-    bottom: 100%;
-    right: 5%;
-
-    .vsk-dialog-response {
-      margin-top: 12px;
-      background-color: rgba(29, 27, 25, 0.9);
-      border-radius: 65px;
-      width: 520px;
-      height: 65px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: rgba(70, 68, 66, 0.9);
-        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-      }
-
-      p {
-        text-align: center;
-        line-height: 65px;
-        font-size: 34px;
-        color: white;
-      }
-
     }
   }
 }
