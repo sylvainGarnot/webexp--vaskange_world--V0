@@ -4,7 +4,7 @@ import { readonly } from 'vue';
 import { dialogs } from './state';
 import { dialog, isDialogActive } from './getter';
 
-export const useDialogStore = defineStore("dialog", () => {
+export const useDialogStore = defineStore("Dialog", () => {
 
   return {
     dialogs: readonly(dialogs),

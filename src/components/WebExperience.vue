@@ -4,14 +4,17 @@
     <!-- <WebExperienceCharacterCall v-for="bookmarkToast in bookmarkToasts" :height="bookmarkToast.height"
       :width="bookmarkToast.width" :top="bookmarkToast.top" :left="bookmarkToast.left" /> -->
 
-    <WebExperienceCharacterDialog />
+    <TransitionGroup name="fade-top" tag="div">
+      <WebExperienceCharacterDialog v-if="dialog && isDialogActive" />
+    </TransitionGroup>
   </div>
 </template>
 
 <script setup>
 import { onMounted, onUpdated } from "vue";
 import { useRoute } from 'vue-router';
-import { storeToRefs } from 'pinia'
+import { storeToRefs } from 'pinia';
+
 
 // import WebExperienceCharacterCall from "@/components/WebExperienceCharacterCall.vue";
 import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
@@ -21,6 +24,11 @@ import { useApi } from "./WebExperienceApi.js";
 import { useBookmarkStore } from "@/stores/bookmark/index.ts";
 import { useLocationStore } from "@/stores/location/index.ts";
 import { useCharacterStore } from "@/stores/character/index.ts";
+
+
+import { useDialogStore } from "@/stores/dialog";
+const dialogStore = useDialogStore();
+const { dialog, isDialogActive } = storeToRefs(dialogStore);
 
 
 const route = useRoute();
@@ -36,9 +44,6 @@ const { updateNearbyBookmarks } = bookmarkStore;
 
 const locationStore = useLocationStore();
 const characterStore = useCharacterStore();
-
-
-
 
 // UPDATED
 onUpdated(() => {

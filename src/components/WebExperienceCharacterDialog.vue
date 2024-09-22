@@ -1,9 +1,9 @@
 <template>
-  <TransitionGroup name="vsk-dialog" tag="div" class="vsk-dialog-container">
-    <div v-if="dialog && isDialogActive" class="vsk-dialog-npc">
-      <span class="vsk-dialog-npc-author">Astro</span>
+  <div class="vsk-dialog-container">
+    <div v-if="dialog" class="vsk-dialog-npc">
+      <span class="vsk-dialog-npc-author">{{ closestNearByCharacter!.name }}</span>
       <p class="vsk-dialog-npc-dialog">
-        {{ dialog.speech_written[dialogStepNumber] }}
+        {{ dialog!.speech_written[dialogStepNumber] }}
       </p>
       <v-icon v-if="dialogStepNumber + 1 < dialog.speech_written.length" class="vsk-dialog-npc-next-icon"
         icon="$vuetify" @click="dialogStepNumber++"></v-icon>
@@ -15,17 +15,22 @@
         <p>{{ response }}</p>
       </div>
     </div> -->
-  </TransitionGroup>
+  </div>
 </template>
 
 <script lang="ts" setup>
-import { storeToRefs } from 'pinia'
+import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
 import { useDialogStore } from "@/stores/dialog";
+import { useCharacterStore } from "@/stores/character";
+
+const characterStore = useCharacterStore();
+const { closestNearByCharacter } = storeToRefs(characterStore);
 
 const dialogStore = useDialogStore();
 const { dialog, isDialogActive } = storeToRefs(dialogStore);
 
-let dialogStepNumber = 0 as number;
+const dialogStepNumber = ref(0);
 
 // import { useEffectStore } from "@/stores/effect";
 // const { playEffect } = useEffectStore();
@@ -65,18 +70,6 @@ let dialogStepNumber = 0 as number;
       top: 50%;
       transform: translate(-50%, -50%);
       font-size: 34px;
-
-      // TEXT ANIMATION
-      // animation: animated-text 800ms steps(29, end) 100ms 1 normal both,
-      //   animated-cursor 600ms steps(29, end) infinite;
-
-      // border-right: solid 3px rgba(0, 255, 0, .75);
-      // white-space: nowrap;
-      // overflow: hidden;
-      // margin: 0 auto;
-
-      // border: solid 1px red;
-      // width: 1000px;
     }
 
     .vsk-dialog-npc-next-icon {
@@ -86,7 +79,7 @@ let dialogStepNumber = 0 as number;
       font-size: 40px;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
       cursor: pointer;
-      animation: bounce2 2s ease infinite;
+      animation: bounce 2s ease infinite;
     }
   }
 
@@ -119,19 +112,7 @@ let dialogStepNumber = 0 as number;
   }
 }
 
-.vsk-dialog-move,
-.vsk-dialog-enter-active,
-.vsk-dialog-leave-active {
-  transition: all 0.5s ease;
-}
-
-.vsk-dialog-enter-from,
-.vsk-dialog-leave-to {
-  opacity: 0;
-  transform: translateY(-30px);
-}
-
-@keyframes bounce2 {
+@keyframes bounce {
 
   0%,
   20%,
@@ -149,25 +130,4 @@ let dialogStepNumber = 0 as number;
     transform: translateX(-50%) translateY(-10px);
   }
 }
-
-/* text animation */
-// @keyframes animated-text {
-//   from {
-//     width: 0;
-//   }
-
-//   to {
-//     width: 472px;
-//   }
-// }
-
-/* cursor animations */
-// @keyframes animated-cursor {
-//   from {
-//     border-right-color: rgba(0, 255, 0, .75);
-//   }
-
-//   to {
-//     border-right-color: transparent;
-//   }
-// }</style>
+</style>

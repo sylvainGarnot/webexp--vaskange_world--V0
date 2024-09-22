@@ -1,1 +1,17 @@
 @import '_global_variable.scss';
+
+
+// ANIMATION
+.fade-top-move,
+.fade-top-enter-active,
+.fade-top-leave-active {
+    transition: all 0.5s ease;
+}
+
+.fade-top-enter-from,
+.fade-top-leave-to {
+    opacity: 0;
+    transform: translateY(-45px);
+}
+
+
