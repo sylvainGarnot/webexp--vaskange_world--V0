@@ -8,11 +8,6 @@ let fadeInMusicInterval = 0 as number;
 
 // PRIVATE
 function setMusic(input: musicInterface) {
-
-  // lastMusic.value = JSON.parse(JSON.stringify(music.value)) as musicInterface;
-  // lastMusic.value.audio.pause();
-  // lastMusic.value.audio.currentTime = 0;
-
   const audio = new Audio() as HTMLAudioElement;
   audio.currentTime = 0;
   audio.preload = "auto";
@@ -24,25 +19,7 @@ function setMusic(input: musicInterface) {
     file: input.file,
     audio,
   };
-
-  // if (!isMusicPlaying.value) {
-  //   music.value.audio.play();
-  // }
 }
-
-// function setLastMusic(input: musicInterface) {
-//   const audio = new Audio() as HTMLAudioElement;
-//   audio.currentTime = 0;
-//   audio.preload = "auto";
-//   audio.loop = true;
-//   audio.src = `/src/assets/music/free/${input.file}.aac`;
-//   audio.volume = 1 as number;
-//   lastMusic.value = {
-//     id: input.id,
-//     file: input.file,
-//     audio,
-//   };
-// }
 
 function fadeOutMusic(input: musicInterface, duration: number) {
   const step = 0.01 as number;
@@ -88,8 +65,6 @@ function fadeInMusic(input: musicInterface, duration: number) {
       clearInterval(fadeInMusicInterval);
       fadeInMusicInterval = 0 as number;
       input.audio.volume = 1 as number;
-      // lastMusic.value.audio.pause();
-      // lastMusic.value.audio.currentTime = 0 as number;
     }
   }, interval);
 }
@@ -113,12 +88,7 @@ export function toggleMusic() {
 export async function changeMusicByLocation(location: locationInterface, fadeDuration: number = 1800) {
   if (isMusicPlaying.value) {
 
-    // lastMusic.value = JSON.parse(JSON.stringify(music.value)) as musicInterface;
     lastMusic.value = music.value as musicInterface;
-    lastMusic.value.audio.pause();
-    lastMusic.value.audio.currentTime = 0;
-    // setLastMusic(music.value as musicInterface);
-
     if (musics?.value.length > 0 && location?.musics.length > 0) {
       const randomNumber = Math.floor(Math.random() * location.musics.length)
       const randomMusicId = location.musics[randomNumber];
@@ -127,10 +97,8 @@ export async function changeMusicByLocation(location: locationInterface, fadeDur
       setMusic(musics.value[0] as musicInterface);
     }
 
-    music.value.audio.play();
-
-    // await fadeOutMusic(lastMusic.value as musicInterface, fadeDuration as number);
-    // await fadeInMusic(music.value as musicInterface, fadeDuration as number);
+    await fadeOutMusic(lastMusic.value as musicInterface, fadeDuration as number);
+    await fadeInMusic(music.value as musicInterface, fadeDuration as number);
   }
 }
   
