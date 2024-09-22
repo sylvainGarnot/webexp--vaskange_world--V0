@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { readonly } from 'vue';
 
 import { isFullscreen } from './state';
-import { setIsFullscreen } from './action';
+import { setIsFullscreen, toggleFullscreen } from './action';
 
 export const useSettingStore = defineStore("setting", () => {
   
@@ -10,5 +10,6 @@ export const useSettingStore = defineStore("setting", () => {
     isFullscreen: readonly(isFullscreen),
 
     setIsFullscreen,
+    toggleFullscreen,
   }
 })
