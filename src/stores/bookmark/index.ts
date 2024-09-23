@@ -4,7 +4,7 @@ import { readonly } from 'vue';
 
 import { bookmark, lastBookmark, innerBookmarks, upperBookmarks } from './state';
 import { innerBookmarksSorted, upperBookmarksSorted, closestInnerBookmark, closestUpperBookmark } from './getter';
-import { updateNearbyBookmarks } from './action';
+import { updateBookmark } from './action';
 
 
 export const useBookmarkStore = defineStore("Bookmark", () => {
@@ -20,6 +20,6 @@ export const useBookmarkStore = defineStore("Bookmark", () => {
     closestInnerBookmark: readonly(closestInnerBookmark),
     closestUpperBookmark: readonly(closestUpperBookmark),
 
-    updateNearbyBookmarks
+    updateBookmark
   }
 })

@@ -24,13 +24,12 @@ import { useBookmarkStore } from "@/stores/bookmark";
 import { useLocationStore } from "@/stores/location";
 import { useDialogStore } from "@/stores/dialog";
 import { useToastStore } from "@/stores/toast";
-import type { locationInterface } from "@/stores/location/interface.js";
 
 const route = useRoute();
 const { EndlessPaper } = useApi();
 
 const bookmarkStore = useBookmarkStore();
-const { updateNearbyBookmarks } = bookmarkStore;
+const { updateBookmark } = bookmarkStore;
 
 const locationStore = useLocationStore();
 const { locations } = storeToRefs(locationStore);;
@@ -55,7 +54,7 @@ onMounted(() => {
 
     EndlessPaper.showNavBar(false);
     EndlessPaper.showTravelButtons(false);
-    EndlessPaper.onBookmarkNearby(updateNearbyBookmarks);
+    EndlessPaper.onBookmarkNearby(updateBookmark);
 
     setTimeout(() => {
       if (route?.query?.location) {
