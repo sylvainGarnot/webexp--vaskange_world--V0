@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUpdated } from "vue";
+import { onMounted, onUpdated, watch } from "vue";
 import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
 
@@ -23,7 +23,6 @@ import { useApi } from "./WebExperienceApi.js";
 import { useBookmarkStore } from "@/stores/bookmark";
 import { useLocationStore } from "@/stores/location";
 import { useDialogStore } from "@/stores/dialog";
-import { useToastStore } from "@/stores/toast";
 
 const route = useRoute();
 const { EndlessPaper } = useApi();
@@ -37,15 +36,13 @@ const { locations } = storeToRefs(locationStore);;
 const dialogStore = useDialogStore();
 const { dialog, isDialogActive } = storeToRefs(dialogStore);
 
-const toastStore = useToastStore();
-const { addToast } = toastStore;
-
-// UPDATED
-onUpdated(() => {
-  if (route?.query?.location) {
-    teleportTo(route?.query?.location as string);
+// WATCHER
+watch(
+  () => route.query.location,
+  async location => {
+    teleportTo(location as string);
   }
-});
+)
 
 // MOUNTED
 onMounted(() => {
@@ -70,9 +67,6 @@ function teleportTo(input: string) {
   if (locations.value.find(l => l.name === input)) {
     EndlessPaper.visitBookmark(input as string);
   }
-}
-function test() {
-  console.log('TEST HEY');
 }
 
 </script>

@@ -1,22 +1,36 @@
 <template>
   <div>
-    <div class="vsk-thumbnail" @click="router.push({ name: 'home', query: { location: location } })">
-      <img :src="`src/assets/${image}`" />
+    <div class="vsk-thumbnail" @click="onClick()">
+      <img :src="imageUrl" />
       <span>{{ title }}</span>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 const router = useRouter();
+const route = useRoute();
+const emit = defineEmits(['router-push'])
 
 const props = defineProps({
   title: String,
-  image: String,
+  imageUrl: String,
   location: String,
   link: String,
 })
+
+function onClick() {
+  if (route.query.location === props.location) {
+    router.push({ name: 'home' });
+    setTimeout(() => {
+      router.push({ name: 'home', query: { location: props.location } });
+    }, 100);
+  } else {
+    router.push({ name: 'home', query: { location: props.location } });
+  }
+  emit('router-push')
+}
 </script>
 
 <style lang="scss" scoped>

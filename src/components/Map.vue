@@ -1,61 +1,32 @@
 <template>
   <div>
-    <v-row no-gutters>
-      <v-col cols="12" class="mt-3" v-for="location in locations">
-        <VskThumbnail :location="location.name" :title="location.title" :image="location.image" />
-      </v-col>
-    </v-row>
+    <VskBtn :width=46 image="map" @click="menu = !menu" />
 
-    <v-row no-gutters class="mt-6">
-      <div>
-        <p class="text-center">
-          secret places 🕵️:
-        </p>
-      </div>
-      <v-col cols="12" class="mt-1" v-for="location in secret_locations">
-        <VskThumbnail :location="location.name" :title="location.title" :image="location.image" />
-      </v-col>
-    </v-row>
+    <v-dialog v-model="menu" max-width="500">
+      <v-card min-width="300">
+        <v-row no-gutters>
+          <v-col cols="12" class="mt-3" v-for="location in locations_found">
+            <VskThumbnail :title="location.name" :location="location.name"
+              :imageUrl="`src/assets/images/${location.image_url}.png`" @router-push="menu = false" />
+          </v-col>
+        </v-row>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
 import VskThumbnail from '@/layouts/VskThumbnail.vue'
+import VskBtn from '@/layouts/VskBtn.vue'
 
-const locations = ref([
-  {
-    title: 'Home',
-    image: 'images/home.png',
-    name: 'bureau 🏠',
-  },
-  {
-    title: 'Rocks',
-    image: 'images/rock-world2.png',
-    name: 'galaxie ✨',
-  },
-  {
-    title: 'Holidays',
-    image: 'images/holiday.png',
-    name: 'prairie 🌳',
-  },
-  {
-    title: 'Space',
-    image: 'images/space.png',
-    name: 'galaxie ✨',
-  },
-])
-const secret_locations = ref([
-  {
-    title: 'Explore to find secret places!',
-    image: 'images/q3 start.png',
-    name: 'galaxie ✨',
-  },
-])
+import { useLocationStore } from "@/stores/location"
+
+const locationStore = useLocationStore()
+const { locations_found } = storeToRefs(locationStore)
+
+const menu = ref(false);
 </script>
 
-<style lang="scss" scoped>
-p {
-  color: rgb(139, 139, 139);
-}
-</style>
+<style lang="scss" scoped></style>

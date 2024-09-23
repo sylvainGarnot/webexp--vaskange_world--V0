@@ -1,14 +1,14 @@
 <template>
   <div>
     <WebExperience />
-    <TheSettings />
+    <TheMenu />
     <VskToast />
   </div>
 </template>
 
 <script setup>
 import WebExperience from "@/components/WebExperience.vue";
-import TheSettings from "@/layouts/TheSettings.vue";
+import TheMenu from "@/layouts/TheMenu.vue";
 import VskToast from "@/layouts/VskToast.vue";
 </script>
 
