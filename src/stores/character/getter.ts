@@ -4,7 +4,7 @@ import type { characterInterface } from './interface';
 
 
 
-export const closestNearByCharacter = computed(() => {
+export const closestCharacter = computed(() => {
   let result = null;
   for (const character of nearByCharacters.value) {
     if (result) {
