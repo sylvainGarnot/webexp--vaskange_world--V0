@@ -15,7 +15,6 @@ export const locations = ref([
     upper_location: 'galaxie ✨',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['0','1','2','3'],
   },
   {
@@ -26,7 +25,6 @@ export const locations = ref([
     upper_location: 'bureau 🏠',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   {
@@ -37,7 +35,6 @@ export const locations = ref([
     upper_location: 'bureau 🏠',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   
@@ -50,7 +47,6 @@ export const locations = ref([
     upper_location: 'bureau 🏠',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['4','5','6'],
   },
   {
@@ -61,7 +57,6 @@ export const locations = ref([
     upper_location: 'prairie 🌳',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   {
@@ -72,7 +67,6 @@ export const locations = ref([
     upper_location: 'vac-mer 🏝️',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   {
@@ -83,7 +77,6 @@ export const locations = ref([
     upper_location: 'snorkeling 🐠',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   {
@@ -94,7 +87,6 @@ export const locations = ref([
     upper_location: 'meduses 🪼',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   {
@@ -105,7 +97,6 @@ export const locations = ref([
     upper_location: 'vac-mer 🏝️',
     is_hidden_place: true,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   {
@@ -116,7 +107,6 @@ export const locations = ref([
     upper_location: 'cocciland 🐞',
     is_hidden_place: true,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   {
@@ -127,7 +117,6 @@ export const locations = ref([
     upper_location: 'snorkeling 🐠',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   {
@@ -138,7 +127,6 @@ export const locations = ref([
     upper_location: 'vac-mer 🏝️',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   
@@ -151,7 +139,6 @@ export const locations = ref([
     upper_location: 'cantine coccinelle 🕌',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   {
@@ -162,7 +149,6 @@ export const locations = ref([
     upper_location: 'ile dragon 🐉',
     is_hidden_place: true,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
 
@@ -175,7 +161,6 @@ export const locations = ref([
     upper_location: '',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   {
@@ -186,7 +171,6 @@ export const locations = ref([
     upper_location: 'ending',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   {
@@ -197,7 +181,6 @@ export const locations = ref([
     upper_location: 'big bang 🪐',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   {
@@ -208,7 +191,6 @@ export const locations = ref([
     upper_location: 'galaxie ✨',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   {
@@ -219,7 +201,6 @@ export const locations = ref([
     upper_location: 'galaxie ✨',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   
@@ -232,7 +213,6 @@ export const locations = ref([
     upper_location: 'bureau 🏠',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
   {
@@ -243,7 +223,6 @@ export const locations = ref([
     upper_location: 'support city 🛖',
     is_hidden_place: false,
     found_date: new Date(0),
-    character: "1",
     musics: ['1','2'],
   },
 ] as locationInterface[]);
