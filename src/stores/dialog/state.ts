@@ -10,7 +10,7 @@ export const dialogs = ref([
       '111 voluptate iste minus facilis nobis?'
     ],
     item_provided: '',
-    answers: ['0','1'],
+    answers: ['1','0'],
   },
   {
     id: '2',
@@ -20,7 +20,7 @@ export const dialogs = ref([
       '222222 iste minus facilis nobis?'
     ],
     item_provided: '0',
-    answers: ['0','2'],
+    answers: ['2','0'],
   },
   {
     id: '3',
@@ -30,6 +30,6 @@ export const dialogs = ref([
       '333333 iste minus facilis nobis?'
     ],
     item_provided: '1',
-    answers: ['0','2'],
+    answers: ['2','0'],
   },
 ] as dialogInterface[]);
