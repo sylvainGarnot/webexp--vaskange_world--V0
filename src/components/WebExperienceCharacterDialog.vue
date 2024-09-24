@@ -1,5 +1,5 @@
 <template>
-  <div class="vsk-dialog-container">
+  <div class="vsk-dialog-container" v-if="dialogStepNumber < dialog!.speech_written.length">
     <div class="vsk-dialog-npc">
       <span class="vsk-dialog-npc-author">{{ closestCharacter!.name }}</span>
       <p class="vsk-dialog-npc-dialog">
@@ -11,7 +11,7 @@
 
     <TransitionGroup name="fade-top" tag="div">
       <WebExperienceCharacterDialogAnswer v-if="dialogStepNumber >= dialog!.speech_written.length - 1"
-        @repeat="dialogStepNumber = 0" />
+        @repeat="dialogStepNumber = 0" @leave="dialogStepNumber = dialog!.speech_written.length" />
     </TransitionGroup>
   </div>
 </template>
