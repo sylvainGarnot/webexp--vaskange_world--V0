@@ -1,0 +1,10 @@
+export interface itemInterface {
+  id: string,
+  name: string,
+  image_url: Date,
+  // image_url: string,
+}
+
+export interface itemAcquiredInterface extends itemInterface {
+  acquired_date: Date,
+}

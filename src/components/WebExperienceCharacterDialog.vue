@@ -1,5 +1,5 @@
 <template>
-  <div class="vsk-dialog-container" v-if="dialogStepNumber < dialog!.speech_written.length">
+  <div class="vsk-dialog-container" v-if="dialogStepNumber !== -1">
     <div class="vsk-dialog-npc">
       <span class="vsk-dialog-npc-author">{{ closestCharacter!.name }}</span>
       <p class="vsk-dialog-npc-dialog">
@@ -11,7 +11,7 @@
 
     <TransitionGroup name="fade-top" tag="div">
       <WebExperienceCharacterDialogAnswer v-if="dialogStepNumber >= dialog!.speech_written.length - 1"
-        @repeat="dialogStepNumber = 0" @leave="dialogStepNumber = dialog!.speech_written.length" />
+        @repeat="dialogStepNumber = 0" @leave="handleLeave()" @accepted="handleAccepted()" />
     </TransitionGroup>
   </div>
 </template>
@@ -21,6 +21,8 @@ import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDialogStore } from "@/stores/dialog";
 import { useCharacterStore } from "@/stores/character";
+import { useItemStore } from "@/stores/item";
+import type { itemInterface } from '@/stores/item/interface';
 import WebExperienceCharacterDialogAnswer from "@/components/WebExperienceCharacterDialogAnswer.vue";
 
 
@@ -30,10 +32,27 @@ const { closestCharacter } = storeToRefs(characterStore);
 const dialogStore = useDialogStore();
 const { dialog } = storeToRefs(dialogStore);
 
+const itemStore = useItemStore();
+const { items } = storeToRefs(itemStore);
+const { onItemProvided } = itemStore;
+
 const dialogStepNumber = ref(0);
 
-// import { useEffectStore } from "@/stores/effect";
-// const { playEffect } = useEffectStore();
+
+// FUNCTION
+function handleLeave() {
+  dialogStepNumber.value = -1;
+}
+
+function handleAccepted() {
+  if (dialog.value?.item_provided) {
+    const item_provided = items.value.find(i => i.id === dialog.value?.item_provided);
+    if (item_provided) {
+      onItemProvided(item_provided as itemInterface);
+      handleLeave();
+    }
+  }
+}
 
 </script>
 
