@@ -2,7 +2,7 @@ import { bookmark, innerBookmarks, upperBookmarks } from './state';
 import { innerBookmarksSorted, upperBookmarksSorted, closestInnerBookmark, closestUpperBookmark } from './getter';
 import type { bookmarkInterface } from './interface';
 
-import { locations } from '../location/state';
+import { locations, location, locations_found } from '../location/state';
 import { onLocationFound } from '../location/action';
 import type { locationInterface } from '../location/interface';
 
@@ -13,6 +13,7 @@ import type { characterFoundInterface } from '../character/interface';
 
 // PRIVATE
 function setBookmark(input: bookmarkInterface) {
+  console.log('TEST - setBookmark', 'TEST', input.name); // TEST
   bookmark.value = input as bookmarkInterface;
 };
 
@@ -78,10 +79,16 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
   if (newBookmark && newBookmark.name) {
     if (!bookmark || !bookmark.value || !bookmark.value.name || bookmark.value.name !== newBookmark.name) {
       setBookmark(newBookmark as bookmarkInterface);
-
-      const location = locations.value.find(l => l.name === newBookmark.name);
-      if (location) {
-        onLocationFound(location as locationInterface);
+      
+      // REQUEST GET isBookmarkLocation
+      if (location?.value?.name !== newBookmark.name) {
+        let locationFound = locations_found.value.find(l => l.name === newBookmark.name) as locationInterface;
+        if (!locationFound) {
+          locationFound = locations.value.find(l => l.name === newBookmark.name) as locationInterface; // REQUEST GET isBookmarkLocation
+        }
+        if (locationFound) {
+          onLocationFound(locationFound as locationInterface);
+        }
       }
     }
   }
