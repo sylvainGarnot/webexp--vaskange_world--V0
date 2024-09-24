@@ -31,6 +31,6 @@ export function onLocationFound(input: locationInterface) {
     setLocation(locationFound as locationFoundInterface);
 
     addToast(input.message as string, 'info');
-    changeMusicByLocation(input as locationInterface);
+    changeMusicByLocation();
   }
 };

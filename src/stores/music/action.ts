@@ -1,6 +1,6 @@
 import { music, lastMusic, isMusicPlaying, musics } from './state';
 import type { musicInterface } from './interface';
-import type { locationInterface } from '../location/interface';
+import { location, locations } from '../location/state';
 
 let fadeOutMusicInterval = 0 as number;
 let fadeInMusicInterval = 0 as number;
@@ -19,6 +19,25 @@ function setMusic(input: musicInterface) {
     file: input.file,
     audio,
   };
+}
+
+function setRandomMusic() {
+  let musicId;
+  if (musics?.value.length > 0 && location?.value?.musics?.length > 0) {
+    musicId = location.value.musics[
+      Math.floor(Math.random() * location.value.musics.length)
+    ];
+  } else if (musics?.value.length > 0 && locations?.value[0]?.musics?.length > 0) {
+    musicId = locations.value[0].musics[
+      Math.floor(Math.random() * locations.value[0].musics.length)
+    ];
+  }
+  if (musicId) {
+    const music = musics.value.find(m => m.id === musicId) as musicInterface;
+    if (music) {
+      setMusic(music as musicInterface);
+    }
+  }
 }
 
 function fadeOutMusic(input: musicInterface, duration: number) {
@@ -74,7 +93,7 @@ function fadeInMusic(input: musicInterface, duration: number) {
 export function toggleMusic() {
   if (!isMusicPlaying.value) {
     if (!music?.value?.audio?.src) {
-      setMusic(musics.value[0] as musicInterface);
+      setRandomMusic();
     }
     music.value.audio.play();
     isMusicPlaying.value = true;
@@ -85,19 +104,13 @@ export function toggleMusic() {
 }
 
 
-export async function changeMusicByLocation(location: locationInterface, fadeDuration: number = 1800) {
+export async function changeMusicByLocation(fadeDuration: number = 1800) {
   if (isMusicPlaying.value) {
 
     lastMusic.value = music.value as musicInterface;
-    if (musics?.value.length > 0 && location?.musics.length > 0) {
-      const randomNumber = Math.floor(Math.random() * location.musics.length)
-      const randomMusicId = location.musics[randomNumber];
-      setMusic(musics.value.find(m => m.id === randomMusicId) as musicInterface);
-    } else {
-      setMusic(musics.value[0] as musicInterface);
-    }
+    setRandomMusic();
 
-    console.log('TEST - Music', music.value.file); // TEST
+    console.log('TEST - changeMusicByLocation', music.value.file); // TEST
 
     await fadeOutMusic(lastMusic.value as musicInterface, fadeDuration as number);
     await fadeInMusic(music.value as musicInterface, fadeDuration as number);
