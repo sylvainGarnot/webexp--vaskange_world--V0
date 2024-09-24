@@ -1,13 +1,16 @@
 export interface characterInterface {
   id: string,
   name: string,
-  found_date: Date,
   dialog: string,
-  callBubble: {
-    width: number,
-    height: number,
-    top: number,
-    left: number,
-  },
+}
+
+export interface characterFoundInterface extends characterInterface {
+  found_date: Date,
+  // callBubble: {
+  //   width: number,
+  //   height: number,
+  //   top: number,
+  //   left: number,
+  // },
   screenAreaToBookmarkRatio: number,
 }

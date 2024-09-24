@@ -1,10 +1,10 @@
 import { ref } from 'vue';
-import type { locationInterface } from './interface';
+import type { locationInterface, locationFoundInterface } from './interface';
 
-export const location = ref({} as locationInterface);
-export const lastLocation = ref({} as locationInterface);
+export const location = ref({} as locationFoundInterface);
+export const lastLocation = ref({} as locationFoundInterface);
 
-export const locations_found = ref([] as locationInterface[]);
+export const locations_found = ref([] as locationFoundInterface[]);
 
 export const locations = ref([
   {
@@ -14,7 +14,6 @@ export const locations = ref([
     image_url: 'big bang 🪐',
     upper_location: 'galaxie ✨',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['0','1','2','3'],
   },
   {
@@ -24,7 +23,6 @@ export const locations = ref([
     image_url: 'big bang 🪐',
     upper_location: 'bureau 🏠',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   {
@@ -34,7 +32,6 @@ export const locations = ref([
     image_url: 'big bang 🪐',
     upper_location: 'bureau 🏠',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   
@@ -46,7 +43,6 @@ export const locations = ref([
     image_url: 'rock-world2',
     upper_location: 'bureau 🏠',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['4','5','6'],
   },
   {
@@ -56,7 +52,6 @@ export const locations = ref([
     image_url: 'big bang 🪐',
     upper_location: 'prairie 🌳',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   {
@@ -66,7 +61,6 @@ export const locations = ref([
     image_url: 'Eson Island 🗿',
     upper_location: 'vac-mer 🏝️',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   {
@@ -76,7 +70,6 @@ export const locations = ref([
     image_url: 'Eson Island 🗿',
     upper_location: 'snorkeling 🐠',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   {
@@ -86,7 +79,6 @@ export const locations = ref([
     image_url: 'Eson Island 🗿',
     upper_location: 'meduses 🪼',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   {
@@ -96,7 +88,6 @@ export const locations = ref([
     image_url: 'rock-world2',
     upper_location: 'vac-mer 🏝️',
     is_hidden_place: true,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   {
@@ -106,7 +97,6 @@ export const locations = ref([
     image_url: 'grotte 🐳',
     upper_location: 'cocciland 🐞',
     is_hidden_place: true,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   {
@@ -116,7 +106,6 @@ export const locations = ref([
     image_url: 'grotte 🐳',
     upper_location: 'snorkeling 🐠',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   {
@@ -126,7 +115,6 @@ export const locations = ref([
     image_url: 'grotte 🐳',
     upper_location: 'vac-mer 🏝️',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   
@@ -138,7 +126,6 @@ export const locations = ref([
     image_url: 'grotte 🐳',
     upper_location: 'cantine coccinelle 🕌',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   {
@@ -148,7 +135,6 @@ export const locations = ref([
     image_url: 'rock-world2',
     upper_location: 'ile dragon 🐉',
     is_hidden_place: true,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
 
@@ -160,7 +146,6 @@ export const locations = ref([
     image_url: 'oatly end',
     upper_location: '',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   {
@@ -170,7 +155,6 @@ export const locations = ref([
     image_url: 'oatly end',
     upper_location: 'ending',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   {
@@ -180,7 +164,6 @@ export const locations = ref([
     image_url: 'oatly end',
     upper_location: 'big bang 🪐',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   {
@@ -190,7 +173,6 @@ export const locations = ref([
     image_url: 'partager 💌',
     upper_location: 'galaxie ✨',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   {
@@ -200,7 +182,6 @@ export const locations = ref([
     image_url: 'partager 💌',
     upper_location: 'galaxie ✨',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   
@@ -212,7 +193,6 @@ export const locations = ref([
     image_url: 'partager 💌',
     upper_location: 'bureau 🏠',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
   {
@@ -222,7 +202,6 @@ export const locations = ref([
     image_url: 'rock-world2',
     upper_location: 'support city 🛖',
     is_hidden_place: false,
-    found_date: new Date(0),
     musics: ['1','2'],
   },
 ] as locationInterface[]);

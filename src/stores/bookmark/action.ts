@@ -8,7 +8,7 @@ import type { locationInterface } from '../location/interface';
 
 import { characters } from '../character/state';
 import { updateCharacter } from '../character/action';
-import type { characterInterface } from '../character/interface';
+import type { characterFoundInterface } from '../character/interface';
 
 
 // PRIVATE
@@ -32,7 +32,7 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
 
   const newInnerBookmarks = [] as bookmarkInterface[];
   const newUpperBookmarks = [] as bookmarkInterface[];
-  const charactersFound = [] as characterInterface[];
+  const charactersFound = [] as characterFoundInterface[];
 
   for (const bookmark of bookmarks) {
     if (bookmark && bookmark.intersectionInfo) {
@@ -53,21 +53,21 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
           // const top = inputBookmark.screenSpacePosition.topRight.y;
           // const left = inputBookmark.screenSpacePosition.bottomLeft.x;
 
-          const characterFound = JSON.parse(JSON.stringify(character)) as characterInterface;
+          const characterFound = JSON.parse(JSON.stringify(character)) as characterFoundInterface;
           // characterFound.callBubble.width = width*0.5,
           // characterFound.callBubble.height = height*0.25,
           // characterFound.callBubble.left = left - width*0.25,
           // characterFound.callBubble.top = top + height*0.125,
           characterFound.screenAreaToBookmarkRatio = bookmark.intersectionInfo.screenAreaToBookmarkRatio;
 
-          charactersFound.push(characterFound);
+          charactersFound.push(characterFound as characterFoundInterface);
         }
       }
     }
   }
   setInnerBookmarks(newInnerBookmarks as bookmarkInterface[]);
   setUpperBookmarks(newUpperBookmarks as bookmarkInterface[]);
-  updateCharacter(charactersFound as characterInterface[]);
+  updateCharacter(charactersFound as characterFoundInterface[]);
 
   let newBookmark;
   if (innerBookmarksSorted.value.length > 0 && closestInnerBookmark.value.intersectionInfo.screenAreaToBookmarkRatio > 0.2) {
