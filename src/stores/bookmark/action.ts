@@ -1,4 +1,4 @@
-import { bookmark, lastBookmark, innerBookmarks, upperBookmarks } from './state';
+import { bookmark, innerBookmarks, upperBookmarks } from './state';
 import { innerBookmarksSorted, upperBookmarksSorted, closestInnerBookmark, closestUpperBookmark } from './getter';
 import type { bookmarkInterface } from './interface';
 
@@ -13,7 +13,6 @@ import type { characterInterface } from '../character/interface';
 
 // PRIVATE
 function setBookmark(input: bookmarkInterface) {
-  lastBookmark.value = bookmark.value as bookmarkInterface;
   bookmark.value = input as bookmarkInterface;
 };
 

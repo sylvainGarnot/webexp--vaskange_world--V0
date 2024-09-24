@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { readonly } from 'vue';
 
 
-import { bookmark, lastBookmark, innerBookmarks, upperBookmarks } from './state';
+import { bookmark, innerBookmarks, upperBookmarks } from './state';
 import { innerBookmarksSorted, upperBookmarksSorted, closestInnerBookmark, closestUpperBookmark } from './getter';
 import { updateBookmark } from './action';
 
@@ -11,7 +11,6 @@ export const useBookmarkStore = defineStore("Bookmark", () => {
   
   return {
     bookmark: readonly(bookmark),
-    lastBookmark: readonly(lastBookmark),
     innerBookmarks: readonly(innerBookmarks),
     upperBookmarks: readonly(upperBookmarks),
 

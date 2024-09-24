@@ -1,5 +1,5 @@
 import { computed } from 'vue';
-import { bookmark, innerBookmarks, upperBookmarks } from './state';
+import { innerBookmarks, upperBookmarks } from './state';
 import type { bookmarkInterface } from './interface';
 
 
