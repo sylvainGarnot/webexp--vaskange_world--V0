@@ -7,16 +7,16 @@ import { changeMusicByLocation } from '../music/action';
 
 // PRIVATE
 function addLocationFound(input: locationFoundInterface) {
-  console.log('TEST - addLocationFound', input.name); // TEST
+  console.log('TEST 2- addLocationFound', input.name); // TEST
   locations_found.value.push(input as locationFoundInterface);
 }
 
 // EXPORT
 export function setCurrentLocation(input: locationFoundInterface) {
-  console.log('TEST - setCurrentLocation', input.name); // TEST
+  console.log('TEST 3- setCurrentLocation', input.name); // TEST
   lastCurrentLocation.value = currentLocation.value as locationFoundInterface;
   currentLocation.value = input as locationFoundInterface;
-  
+
   addToast(input.message as string, 'info');
   changeMusicByLocation();
 };

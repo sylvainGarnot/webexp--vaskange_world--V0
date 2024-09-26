@@ -6,13 +6,13 @@ import type { bookmarkInterface } from '../bookmark/interface';
 
 // PRIVATE
 function addCharacterFound(input: characterFoundInterface) {
-  console.log('TEST - addCharacterFound', input.name); // TEST
+  console.log('TEST 2- addCharacterFound', input.name); // TEST
   characters_found.value.push(input as characterFoundInterface);
 };
 
 // EXPORT
 export function setCurrentCharacter(inputCharacterFound: characterFoundInterface, inputBookmark: bookmarkInterface) {
-  // console.log('TEST - setCurrentCharacter', inputCharacterFound.name); // TEST
+  console.log('TEST 3- setCurrentCharacter', inputCharacterFound.name); // TEST
   
   // screenSpacePosition missing
   // const width = inputBookmark.screenSpacePosition.topRight.x - inputBookmark.screenSpacePosition.bottomLeft.x;
@@ -50,21 +50,6 @@ export function onCharacterFound(inputCharacter: characterInterface, inputBookma
   if (!characters_found.value.find(c => c.id === characterFound.id)) {
     addCharacterFound(characterFound as characterFoundInterface);
   }
-  
-  // const { EndlessPaper } = useApi();
-  // const lisur = EndlessPaper.onBookmarkNearby(test(inputCharacter.name));
-
-
-  // setTimeout(() => {
-  //   console.log('test removeEventListener');
-  //   window.removeEventListener("", lisur, true);
-  //   console.log('test removeEventListener');
-  // }, 2000);
-
 
   setCurrentCharacter(characterFound as characterFoundInterface, inputBookmark as bookmarkInterface);
 };
-
-// function test(input: string) {
-//   console.log('test liserugdfgfd', input);
-// }
