@@ -6,9 +6,9 @@ import { currentLocation, locations, locations_found } from '../location/state';
 import { onLocationFound, setCurrentLocation } from '../location/action';
 import type { locationInterface, locationFoundInterface } from '../location/interface';
 
-import { characters, character, characters_found } from '../character/state';
-import { updateCharacter } from '../character/action';
-import type { characterFoundInterface } from '../character/interface';
+import { characters, currentCharacter, characters_found } from '../character/state';
+import { onCharacterFound, setCurrentCharacter, emptyCurrentCharacter } from '../character/action';
+import type { characterInterface, characterFoundInterface } from '../character/interface';
 
 
 // PRIVATE
@@ -32,7 +32,6 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
   // 1- SET INNER ET UPPER BOOKMARK
   const newInnerBookmarks = [] as bookmarkInterface[];
   const newUpperBookmarks = [] as bookmarkInterface[];
-  // const charactersFound = [] as characterFoundInterface[];
 
   for (const bookmark of bookmarks) {
     if (bookmark && bookmark.intersectionInfo) {
@@ -44,30 +43,11 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
       }
       if (bookmark.intersectionInfo.screenAreaToBookmarkRatio < 1) {
         newInnerBookmarks.push(bookmark as bookmarkInterface);
-
-        // const character = characters.value.find(c => c.name === bookmark.name);
-        // if (character && bookmark.intersectionInfo.screenAreaToBookmarkRatio > 0.015) {
-          // screenSpacePosition missing
-          // const width = inputBookmark.screenSpacePosition.topRight.x - inputBookmark.screenSpacePosition.bottomLeft.x;
-          // const height = inputBookmark.screenSpacePosition.bottomLeft.y - inputBookmark.screenSpacePosition.topRight.y;
-          // const top = inputBookmark.screenSpacePosition.topRight.y;
-          // const left = inputBookmark.screenSpacePosition.bottomLeft.x;
-
-          // const characterFound = JSON.parse(JSON.stringify(character)) as characterFoundInterface;
-          // characterFound.callBubble.width = width*0.5,
-          // characterFound.callBubble.height = height*0.25,
-          // characterFound.callBubble.left = left - width*0.25,
-          // characterFound.callBubble.top = top + height*0.125,
-          // characterFound.screenAreaToBookmarkRatio = bookmark.intersectionInfo.screenAreaToBookmarkRatio;
-
-          // charactersFound.push(characterFound  as characterFoundInterface);
-        // }
       }
     }
   }
   setInnerBookmarks(newInnerBookmarks as bookmarkInterface[]);
   setUpperBookmarks(newUpperBookmarks as bookmarkInterface[]);
-  // updateCharacter(charactersFound as characterFoundInterface[]);
 
   
   
@@ -97,11 +77,11 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
     newBookmark = closestUpperBookmark.value as bookmarkInterface;
   } else if (innerBookmarksSorted.value.length > 0) {
     console.log('TEST closestInner.upper_location 3', closestInnerBookmark.value.name); // TEST
-    closestInnerBookmarkName = closestInnerBookmark.value.name as string; // DÉZOOM - location = closest inner . upper_location
+    closestInnerBookmarkName = closestInnerBookmark.value.name as string;
   } else {
     // 2.0- NOTHING
     console.log('TEST NONE 4'); // TEST
-    // EMPTY CHARACTER
+    emptyCurrentCharacter();
   }
 
   // 2.A- BOOKMARK is LOCATION ou CHARACTER
@@ -113,73 +93,77 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
       if (locationFound) {
         if (locationFound.name !== currentLocation?.value?.name) {
           setCurrentLocation(locationFound as locationFoundInterface);
-          // EMPTY CHARACTER
+          emptyCurrentCharacter();
         }
       }
       else {
         const characterFound = characters_found.value.find(c => c.name === newBookmark.name) as characterFoundInterface;
         if (characterFound) {
-          if (newBookmark.name !== character?.value?.name) {
-            // set new character
+          if (newBookmark.name !== currentCharacter?.value?.name) {
+            setCurrentCharacter(characterFound as characterFoundInterface);
           }
         } else {
-        // Request GET /bookmark/:name (newBookmark.name)
-        const newLocation = locations.value.find(l => l.name === newBookmark.name) as locationInterface
-        if (newLocation) {
-          // POST /location_found
-          onLocationFound(newLocation as locationInterface);
-          // EMPTY character_store
-        } else {
-          const characterFound = characters.value.find(c => c.name === newBookmark.name)
-          if (characterFound) {
-            // POST /character_found
-          }
-          else {
-            // Bookmark inconnu en base
+          // Request GET /bookmark/:name (newBookmark.name)
+          const newLocation = locations.value.find(l => l.name === newBookmark.name) as locationInterface
+          if (newLocation) {
+            onLocationFound(newLocation as locationInterface);
+            emptyCurrentCharacter();
+          } else {
+            const characterFound = characters.value.find(c => c.name === newBookmark.name) as characterInterface;
+            if (characterFound) {
+              // Request POST /character_found TODO
+              onCharacterFound(characterFound as characterInterface, newBookmark as bookmarkInterface)
+            }
+            else {
+              // Bookmark inconnu en base
+            }
           }
         }
-      }
       }
     }
   }
 
   // 2.B- BOOKMARK is LOCATION
   else if (closestInnerBookmarkName) {
-    const closestInnerLocationFound = locations_found.value.find(l => l.name === closestInnerBookmarkName) as locationFoundInterface;
-    if (closestInnerLocationFound) {
-      if (closestInnerLocationFound.upper_location !== currentLocation?.value?.id) {
-        const locationFound = locations_found.value.find(l => l.id === closestInnerLocationFound.upper_location) as locationFoundInterface;
-        if (locationFound) {
-          setCurrentLocation(locationFound as locationFoundInterface);
+    if (!currentBookmark || !currentBookmark.value || !currentBookmark.value.name || currentBookmark.value.name !== closestInnerBookmarkName) {
+      setCurrentBookmark(closestInnerBookmark.value as bookmarkInterface);
+      emptyCurrentCharacter();
+
+      const closestInnerLocationFound = locations_found.value.find(l => l.name === closestInnerBookmarkName) as locationFoundInterface;
+      if (closestInnerLocationFound) {
+        if (closestInnerLocationFound.upper_location !== currentLocation?.value?.id) {
+          const locationFound = locations_found.value.find(l => l.id === closestInnerLocationFound.upper_location) as locationFoundInterface;
+          if (locationFound) {
+            setCurrentLocation(locationFound as locationFoundInterface);
+          }
+          else {
+            // Request GET /location/:id (closestInnerLocation.upper_location)
+            const newLocation = locations.value.find(l => l.id === closestInnerLocationFound.upper_location) as locationInterface;
+            if (newLocation) {
+              onLocationFound(newLocation as locationInterface);
+            } else {
+              // Location inconnu en base
+            }
+          }
         }
         else {
-          // Request GET /location/:id (closestInnerLocation.upper_location)
-          const newLocation = locations.value.find(l => l.id === closestInnerLocationFound.upper_location) as locationInterface;
+          // END
+        }
+      }
+      else {
+        // Request GET /location/:inner-name (closestInnerBookmarkName)
+        const closestInnerLocation = locations.value.find(l => l.name === closestInnerBookmarkName) as locationInterface
+        if (closestInnerLocation) {
+          const newLocation = locations.value.find(l => l.id === closestInnerLocation.upper_location) as locationInterface;
           if (newLocation) {
             onLocationFound(newLocation as locationInterface);
           } else {
             // Location inconnu en base
           }
-        }
-      }
-      else {
-        // END
-      }
-    }
-    else {
-      // Request GET /location/:inner-name (closestInnerBookmarkName)
-      const closestInnerLocation = locations.value.find(l => l.name === closestInnerBookmarkName) as locationInterface
-      if (closestInnerLocation) {
-        const newLocation = locations.value.find(l => l.id === closestInnerLocation.upper_location) as locationInterface;
-        if (newLocation) {
-          onLocationFound(newLocation as locationInterface);
         } else {
-        // Location inconnu en base
+          // Location inconnu en base
         }
-      } else {
-        // Location inconnu en base
       }
     }
-    // EMPTY CHARACTER
   }
 }

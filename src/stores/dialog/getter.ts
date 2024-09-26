@@ -1,16 +1,16 @@
 import { computed } from 'vue';
 import { dialogs } from './state';
 import type { dialogInterface } from './interface';
-import { character } from '../character/state';
+import { currentCharacter } from '../character/state';
 
 
 export const dialog = computed(() => {
-  if (dialogs && dialogs.value && dialogs.value.length > 0 && character && character.value && character.value.dialog) {
-    return dialogs.value.find(d => d.id === character.value.dialog) as dialogInterface;
+  if (dialogs && dialogs.value && dialogs.value.length > 0 && currentCharacter && currentCharacter.value && currentCharacter.value.dialog) {
+    return dialogs.value.find(d => d.id === currentCharacter.value.dialog) as dialogInterface;
   }
   return null;
 })
 
 export const isDialogActive = computed(() => {
-  return character && character.value && character.value.screenAreaToBookmarkRatio && character.value.screenAreaToBookmarkRatio > 0.2;
+  return currentCharacter && currentCharacter.value && currentCharacter.value.screenAreaToBookmarkRatio && currentCharacter.value.screenAreaToBookmarkRatio > 0.2;
 })

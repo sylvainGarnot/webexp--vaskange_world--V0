@@ -9,9 +9,6 @@ import { changeMusicByLocation } from '../music/action';
 function addLocationFound(input: locationFoundInterface) {
   console.log('TEST - addLocationFound', input.name); // TEST
   locations_found.value.push(input as locationFoundInterface);
-
-  addToast(input.message as string, 'info');
-  changeMusicByLocation();
 }
 
 // EXPORT
@@ -19,16 +16,21 @@ export function setCurrentLocation(input: locationFoundInterface) {
   console.log('TEST - setCurrentLocation', input.name); // TEST
   lastCurrentLocation.value = currentLocation.value as locationFoundInterface;
   currentLocation.value = input as locationFoundInterface;
+  
+  addToast(input.message as string, 'info');
+  changeMusicByLocation();
 };
 
 export function onLocationFound(input: locationInterface) {
 
+  // Request POST /location_found/ (id location & id player)
+  
   const locationFound = {
     ...input,
     found_date: new Date()
   } as locationFoundInterface;
 
-  if (!locations_found.value.find(l => l.id === input.id)) {
+  if (!locations_found.value.find(l => l.id === locationFound.id)) {
     addLocationFound(locationFound as locationFoundInterface);
   }
 

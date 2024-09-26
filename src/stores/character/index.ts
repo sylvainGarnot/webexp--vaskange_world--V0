@@ -2,17 +2,18 @@ import { defineStore } from "pinia";
 import { readonly } from 'vue';
 
 
-import { character, characters_found, characters } from './state';
-import { updateCharacter } from './action';
+import { currentCharacter, characters_found, characters } from './state';
+import { emptyCurrentCharacter, onCharacterFound } from './action';
 
 
 export const useCharacterStore = defineStore("Character", () => {
   
   return {
-    character: readonly(character),
+    currentCharacter: readonly(currentCharacter),
     characters_found: readonly(characters_found),
     characters: readonly(characters),
 
-    updateCharacter,
+    onCharacterFound,
+    emptyCurrentCharacter,
   }
 })
