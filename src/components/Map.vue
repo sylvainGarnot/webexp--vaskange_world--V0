@@ -5,9 +5,9 @@
     <v-dialog v-model="menu" max-width="500">
       <v-card min-width="300">
         <v-row no-gutters>
-          <v-col cols="12" class="mt-3" v-for="location in locations_found">
-            <VskThumbnail :title="location.name" :location="location.name"
-              :imageUrl="`src/assets/images/${location.image_url}.png`" @router-push="menu = false" />
+          <v-col cols="12" class="mt-3" v-for="locationFound in locations_found">
+            <VskThumbnail :title="locationFound.name" :location="locationFound.name"
+              :imageUrl="`src/assets/images/${locationFound.image_url}.png`" @router-push="menu = false" />
           </v-col>
         </v-row>
       </v-card>

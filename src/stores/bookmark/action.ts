@@ -33,16 +33,16 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
   const newInnerBookmarks = [] as bookmarkInterface[];
   const newUpperBookmarks = [] as bookmarkInterface[];
 
-  for (const bookmark of bookmarks) {
-    if (bookmark && bookmark.intersectionInfo) {
+  for (const b of bookmarks) {
+    if (b && b.intersectionInfo) {
       if (
-        bookmark.intersectionInfo.screenAreaToBookmarkRatio === 1 &&
-        bookmark.intersectionInfo.visibleBookmarkRatio < 1
+        b.intersectionInfo.screenAreaToBookmarkRatio === 1 &&
+        b.intersectionInfo.visibleBookmarkRatio < 1
       ) {
-        newUpperBookmarks.push(bookmark as bookmarkInterface);
+        newUpperBookmarks.push(b as bookmarkInterface);
       }
-      if (bookmark.intersectionInfo.screenAreaToBookmarkRatio < 1) {
-        newInnerBookmarks.push(bookmark as bookmarkInterface);
+      if (b.intersectionInfo.screenAreaToBookmarkRatio < 1) {
+        newInnerBookmarks.push(b as bookmarkInterface);
       }
     }
   }
