@@ -6,7 +6,7 @@
       :width="bookmarkToast.width" :top="bookmarkToast.top" :left="bookmarkToast.left" /> -->
 
     <TransitionGroup name="fade-top" tag="div">
-      <WebExperienceCharacterDialog v-if="dialog && isDialogActive" />
+      <WebExperienceCharacterDialog v-if="currentDialog && isDialogActive" />
     </TransitionGroup>
   </div>
 </template>
@@ -34,7 +34,7 @@ const locationStore = useLocationStore();
 const { locations } = storeToRefs(locationStore);;
 
 const dialogStore = useDialogStore();
-const { dialog, isDialogActive } = storeToRefs(dialogStore);
+const { currentDialog, isDialogActive } = storeToRefs(dialogStore);
 
 // WATCHER
 watch(

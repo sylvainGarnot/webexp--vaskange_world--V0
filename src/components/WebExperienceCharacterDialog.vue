@@ -1,16 +1,16 @@
 <template>
   <div class="vsk-dialog-container" v-if="dialogStepNumber !== -1">
     <div class="vsk-dialog-npc">
-      <span class="vsk-dialog-npc-author">{{ character!.name }}</span>
+      <span class="vsk-dialog-npc-author">{{ currentCharacter!.name }}</span>
       <p class="vsk-dialog-npc-dialog">
-        {{ dialog!.speech_written[dialogStepNumber] }}
+        {{ currentDialog!.speech_written[dialogStepNumber] }}
       </p>
-      <v-icon v-if="dialogStepNumber + 1 < dialog!.speech_written.length" class="vsk-dialog-npc-next-icon"
+      <v-icon v-if="dialogStepNumber + 1 < currentDialog!.speech_written.length" class="vsk-dialog-npc-next-icon"
         icon="$vuetify" @click="dialogStepNumber++"></v-icon>
     </div>
 
     <TransitionGroup name="fade-top" tag="div">
-      <WebExperienceCharacterDialogAnswer v-if="dialogStepNumber >= dialog!.speech_written.length - 1"
+      <WebExperienceCharacterDialogAnswer v-if="dialogStepNumber >= currentDialog!.speech_written.length - 1"
         @repeat="dialogStepNumber = 0" @leave="handleLeave()" @accepted="handleAccepted()" />
     </TransitionGroup>
   </div>
@@ -27,10 +27,10 @@ import WebExperienceCharacterDialogAnswer from "@/components/WebExperienceCharac
 
 
 const characterStore = useCharacterStore();
-const { character } = storeToRefs(characterStore);
+const { currentCharacter } = storeToRefs(characterStore);
 
 const dialogStore = useDialogStore();
-const { dialog } = storeToRefs(dialogStore);
+const { currentDialog } = storeToRefs(dialogStore);
 
 const itemStore = useItemStore();
 const { items } = storeToRefs(itemStore);
@@ -45,8 +45,8 @@ function handleLeave() {
 }
 
 function handleAccepted() {
-  if (dialog.value?.item_provided) {
-    const item_provided = items.value.find(i => i.id === dialog.value?.item_provided);
+  if (currentDialog.value?.item_provided) {
+    const item_provided = items.value.find(i => i.id === currentDialog.value?.item_provided);
     if (item_provided) {
       onItemProvided(item_provided as itemInterface);
       handleLeave();

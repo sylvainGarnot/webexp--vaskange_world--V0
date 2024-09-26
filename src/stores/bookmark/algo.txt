@@ -6,7 +6,7 @@ IF newBookmark.name in locations_found {
         // setCharacter({})
     }
 }
-ELSE IF newBookmark.name in character found {
+ELSE IF newBookmark.name in character_found {
     IF newBookmark.name !== currentCharacter.name {
         // set new character
     }

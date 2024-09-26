@@ -1,6 +1,6 @@
 <template>
   <div class="vsk-dialog-response-container">
-    <div class="vsk-dialog-response" v-for="answer in dialog_answers" @click="$emit(answer.type)">
+    <div class="vsk-dialog-response" v-for="answer in currentDialog_answers" @click="$emit(answer.type)">
       <p>{{ answer.speech_writen }}</p>
     </div>
   </div>
@@ -11,7 +11,7 @@ import { storeToRefs } from 'pinia';
 import { useAnswerStore } from "@/stores/answer";
 
 const answerStore = useAnswerStore();
-const { dialog_answers } = storeToRefs(answerStore);
+const { currentDialog_answers } = storeToRefs(answerStore);
 
 </script>
 

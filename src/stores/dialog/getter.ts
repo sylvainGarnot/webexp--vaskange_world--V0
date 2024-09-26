@@ -4,7 +4,7 @@ import type { dialogInterface } from './interface';
 import { currentCharacter } from '../character/state';
 
 
-export const dialog = computed(() => {
+export const currentDialog = computed(() => {
   if (dialogs && dialogs.value && dialogs.value.length > 0 && currentCharacter && currentCharacter.value && currentCharacter.value.dialog) {
     return dialogs.value.find(d => d.id === currentCharacter.value.dialog) as dialogInterface;
   }
