@@ -1,8 +1,8 @@
 import { ref } from 'vue';
-import type { characterFoundInterface, characterInterface } from './interface';
+import type { characterFoundInterface, characterInterface, currentCharacterInterface } from './interface';
 
 
-export const currentCharacter = ref({} as characterFoundInterface);
+export const currentCharacter = ref({} as currentCharacterInterface);
 
 export const characters_found = ref([] as characterFoundInterface[]);
 

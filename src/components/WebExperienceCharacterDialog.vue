@@ -1,23 +1,23 @@
 <template>
-  <div class="vsk-dialog-container" v-if="dialogStepNumber !== -1">
+  <div id="vsk-dialog" class="vsk-dialog-container" v-if="isActive" @keyup.enter="handleNextDialog()">
     <div class="vsk-dialog-npc">
       <span class="vsk-dialog-npc-author">{{ currentCharacter!.name }}</span>
       <p class="vsk-dialog-npc-dialog">
         {{ currentDialog!.speech_written[dialogStepNumber] }}
       </p>
-      <v-icon v-if="dialogStepNumber + 1 < currentDialog!.speech_written.length" class="vsk-dialog-npc-next-icon"
-        icon="$vuetify" @click="dialogStepNumber++"></v-icon>
+      <v-icon v-if="!isAnswersActive" class="vsk-dialog-npc-next-icon" icon="$vuetify"
+        @click="handleNextDialog()"></v-icon>
     </div>
 
     <TransitionGroup name="fade-top" tag="div">
-      <WebExperienceCharacterDialogAnswer v-if="dialogStepNumber >= currentDialog!.speech_written.length - 1"
-        @repeat="dialogStepNumber = 0" @leave="handleLeave()" @accepted="handleAccepted()" />
+      <WebExperienceCharacterDialogAnswer v-if="isAnswersActive" @repeat="dialogStepNumber = 0" @leave="handleLeave()"
+        @accepted="handleAccepted()" />
     </TransitionGroup>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDialogStore } from "@/stores/dialog";
 import { useCharacterStore } from "@/stores/character";
@@ -36,7 +36,31 @@ const itemStore = useItemStore();
 const { items } = storeToRefs(itemStore);
 const { onItemProvided } = itemStore;
 
+
+// DATA
 const dialogStepNumber = ref(0);
+
+
+// COMPUTED
+const isActive = computed(() => {
+  return dialogStepNumber.value !== -1 ? true : false;
+})
+const isAnswersActive = computed(() => {
+  return dialogStepNumber.value + 1 >= currentDialog.value!.speech_written.length ? true : false;
+})
+
+
+// WATCH
+// watch(isActive, (newValue, oldValue) => {
+//   console.log('NONONN focus')
+//   if (newValue) {
+//     const d = document.getElementById("vsk-dialog");
+//     if (d) {
+//       d.focus();
+//       console.log('focus')
+//     }
+//   }
+// })
 
 
 // FUNCTION
@@ -51,6 +75,12 @@ function handleAccepted() {
       onItemProvided(item_provided as itemInterface);
       handleLeave();
     }
+  }
+}
+
+function handleNextDialog() {
+  if (dialogStepNumber.value + 1 < currentDialog.value!.speech_written.length) {
+    dialogStepNumber.value++
   }
 }
 

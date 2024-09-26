@@ -1,6 +1,7 @@
 import { currentCharacter, characters_found } from './state';
-import type { characterFoundInterface, characterInterface } from './interface';
+import type { currentCharacterInterface, characterFoundInterface, characterInterface } from './interface';
 import type { bookmarkInterface } from '../bookmark/interface';
+// import { useApi } from "../../components/WebExperienceApi.js";
 
 
 // PRIVATE
@@ -10,20 +11,9 @@ function addCharacterFound(input: characterFoundInterface) {
 };
 
 // EXPORT
-export function setCurrentCharacter(input: characterFoundInterface) {
-  console.log('TEST - setCurrentCharacter', input.name); // TEST
-  currentCharacter.value = input as characterFoundInterface;
-};
-
-export function emptyCurrentCharacter() {
-  console.log('TEST - emptyCurrentCharacter'); // TEST
-  currentCharacter.value = {} as characterFoundInterface;
-}
-
-export function onCharacterFound(inputCharacter: characterInterface, inputBookmark: bookmarkInterface) {
-
-  // Request POST /character_found/ (id character & id player)
-
+export function setCurrentCharacter(inputCharacterFound: characterFoundInterface, inputBookmark: bookmarkInterface) {
+  console.log('TEST - setCurrentCharacter', inputCharacterFound.name); // TEST
+  
   // screenSpacePosition missing
   // const width = inputBookmark.screenSpacePosition.topRight.x - inputBookmark.screenSpacePosition.bottomLeft.x;
   // const height = inputBookmark.screenSpacePosition.bottomLeft.y - inputBookmark.screenSpacePosition.topRight.y;
@@ -36,14 +26,45 @@ export function onCharacterFound(inputCharacter: characterInterface, inputBookma
   //   top: top + height*0.125,
   // }
   const characterFound = {
+    ...inputCharacterFound,
+    screenAreaToBookmarkRatio: inputBookmark.intersectionInfo.screenAreaToBookmarkRatio,
+  } as currentCharacterInterface;
+
+  currentCharacter.value = characterFound as currentCharacterInterface;
+};
+
+export function emptyCurrentCharacter() {
+  // console.log('TEST - emptyCurrentCharacter'); // TEST
+  currentCharacter.value = {} as currentCharacterInterface;
+}
+
+export function onCharacterFound(inputCharacter: characterInterface, inputBookmark: bookmarkInterface) {
+
+  // Request POST /character_found/ (id character & id player)
+
+  const characterFound = {
     ...inputCharacter,
     found_date: new Date(),
-    screenAreaToBookmarkRatio: inputBookmark.intersectionInfo.screenAreaToBookmarkRatio,
   } as characterFoundInterface;
 
   if (!characters_found.value.find(c => c.id === characterFound.id)) {
     addCharacterFound(characterFound as characterFoundInterface);
   }
+  
+  // const { EndlessPaper } = useApi();
+  // const lisur = EndlessPaper.onBookmarkNearby(test(inputCharacter.name));
 
-  setCurrentCharacter(characterFound as characterFoundInterface);
+
+  // setTimeout(() => {
+  //   console.log('test removeEventListener');
+  //   window.removeEventListener("", lisur, true);
+  //   console.log('test removeEventListener');
+  // }, 2000);
+
+
+  setCurrentCharacter(characterFound as characterFoundInterface, inputBookmark as bookmarkInterface);
 };
+
+// function test(input: string) {
+//   console.log('test liserugdfgfd', input);
+// }

@@ -6,6 +6,9 @@ export interface characterInterface {
 
 export interface characterFoundInterface extends characterInterface {
   found_date: Date,
+}
+
+export interface currentCharacterInterface extends characterFoundInterface {
   // callBubble: {
   //   width: number,
   //   height: number,
