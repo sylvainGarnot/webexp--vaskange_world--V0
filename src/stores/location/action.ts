@@ -1,4 +1,4 @@
-import { location, lastLocation, locations_found } from './state';
+import { currentLocation, lastCurrentLocation, locations_found } from './state';
 import type { locationInterface, locationFoundInterface } from './interface';
 
 import { addToast } from '../toast/action';
@@ -6,17 +6,21 @@ import { changeMusicByLocation } from '../music/action';
 
 
 // PRIVATE
-function setLocation(input: locationFoundInterface) {
-  console.log('TEST - setLocation', input.name); // TEST
-  lastLocation.value = location.value as locationFoundInterface;
-  location.value = input as locationFoundInterface;
-};
 function addLocationFound(input: locationFoundInterface) {
   console.log('TEST - addLocationFound', input.name); // TEST
   locations_found.value.push(input as locationFoundInterface);
+
+  addToast(input.message as string, 'info');
+  changeMusicByLocation();
 }
 
 // EXPORT
+export function setCurrentLocation(input: locationFoundInterface) {
+  console.log('TEST - setCurrentLocation', input.name); // TEST
+  lastCurrentLocation.value = currentLocation.value as locationFoundInterface;
+  currentLocation.value = input as locationFoundInterface;
+};
+
 export function onLocationFound(input: locationInterface) {
 
   const locationFound = {
@@ -28,8 +32,5 @@ export function onLocationFound(input: locationInterface) {
     addLocationFound(locationFound as locationFoundInterface);
   }
 
-  setLocation(locationFound as locationFoundInterface);
-
-  addToast(input.message as string, 'info');
-  changeMusicByLocation();
+  setCurrentLocation(locationFound as locationFoundInterface);
 };

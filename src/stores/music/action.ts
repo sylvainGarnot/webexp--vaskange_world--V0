@@ -1,6 +1,6 @@
 import { music, lastMusic, isMusicPlaying, musics } from './state';
 import type { musicInterface } from './interface';
-import { location, locations } from '../location/state';
+import { currentLocation, locations } from '../location/state';
 
 let fadeOutMusicInterval = 0 as number;
 let fadeInMusicInterval = 0 as number;
@@ -23,9 +23,9 @@ function setMusic(input: musicInterface) {
 
 function setRandomMusic() {
   let musicId;
-  if (musics?.value.length > 0 && location?.value?.musics?.length > 0) {
-    musicId = location.value.musics[
-      Math.floor(Math.random() * location.value.musics.length)
+  if (musics?.value.length > 0 && currentLocation?.value?.musics?.length > 0) {
+    musicId = currentLocation.value.musics[
+      Math.floor(Math.random() * currentLocation.value.musics.length)
     ];
   } else if (musics?.value.length > 0 && locations?.value[0]?.musics?.length > 0) {
     musicId = locations.value[0].musics[

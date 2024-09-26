@@ -1,8 +1,8 @@
 import { ref } from 'vue';
 import type { locationInterface, locationFoundInterface } from './interface';
 
-export const location = ref({} as locationFoundInterface);
-export const lastLocation = ref({} as locationFoundInterface);
+export const currentLocation = ref({} as locationFoundInterface);
+export const lastCurrentLocation = ref({} as locationFoundInterface);
 
 export const locations_found = ref([] as locationFoundInterface[]);
 

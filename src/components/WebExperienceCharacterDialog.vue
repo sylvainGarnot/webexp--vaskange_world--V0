@@ -1,7 +1,7 @@
 <template>
   <div class="vsk-dialog-container" v-if="dialogStepNumber !== -1">
     <div class="vsk-dialog-npc">
-      <span class="vsk-dialog-npc-author">{{ closestCharacter!.name }}</span>
+      <span class="vsk-dialog-npc-author">{{ character!.name }}</span>
       <p class="vsk-dialog-npc-dialog">
         {{ dialog!.speech_written[dialogStepNumber] }}
       </p>
@@ -27,7 +27,7 @@ import WebExperienceCharacterDialogAnswer from "@/components/WebExperienceCharac
 
 
 const characterStore = useCharacterStore();
-const { closestCharacter } = storeToRefs(characterStore);
+const { character } = storeToRefs(characterStore);
 
 const dialogStore = useDialogStore();
 const { dialog } = storeToRefs(dialogStore);

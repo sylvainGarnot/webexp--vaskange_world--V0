@@ -2,7 +2,7 @@ import { ref } from 'vue';
 import type { characterFoundInterface, characterInterface } from './interface';
 
 
-export const nearByCharacters = ref([] as characterFoundInterface[]);
+export const character = ref({} as characterFoundInterface);
 
 export const characters_found = ref([] as characterFoundInterface[]);
 

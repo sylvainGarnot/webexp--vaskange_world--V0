@@ -1,0 +1,26 @@
+
+
+IF newBookmark.name in locations_found {
+    IF newBookmark.name !== currentLocation.name {
+        // set new location
+        // setCharacter({})
+    }
+}
+ELSE IF newBookmark.name in character found {
+    IF newBookmark.name !== currentCharacter.name {
+        // set new character
+    }
+}   
+ELSE {
+    Request GET /bookmark/:name
+    IF (response type === location) {
+        POST /location_found
+        // setCharacter({})
+    }
+    ELSE IF (response type === location) {
+        POST /character_found
+    }
+    ELSE {
+        "bookmark non connu en BDD"
+    }
+}  

@@ -1,6 +1,6 @@
 import { computed } from 'vue';
 import { musics, isMusicPlaying } from './state';
-import { location, lastLocation } from '../location/state';
+import { currentLocation, lastCurrentLocation } from '../location/state';
 import type { musicInterface } from './interface';
 
 
@@ -11,9 +11,9 @@ export const music = computed(() => {
   //   music.value.audio.currentTime = 0;
   // }
   let result = {} as musicInterface;
-  if (musics?.value.length > 0 && location?.value?.musics.length > 0) {
-    const random = Math.floor(Math.random() * location.value.musics.length)
-    const randomMusicId = location.value.musics[random];
+  if (musics?.value.length > 0 && currentLocation?.value?.musics.length > 0) {
+    const random = Math.floor(Math.random() * currentLocation.value.musics.length)
+    const randomMusicId = currentLocation.value.musics[random];
     result = musics.value.find(m => m.id === randomMusicId) as musicInterface;
     result = JSON.parse(JSON.stringify(result));
   } else {
@@ -41,9 +41,9 @@ export const lastMusic = computed(() => {
     music.value.audio.currentTime = 0;
   }
   let result = {} as musicInterface;
-  if (musics?.value.length > 0 && lastLocation?.value?.musics.length > 0) {
-    const random = Math.floor(Math.random() * lastLocation.value.musics.length)
-    const randomMusicId = lastLocation.value.musics[random];
+  if (musics?.value.length > 0 && lastCurrentLocation?.value?.musics.length > 0) {
+    const random = Math.floor(Math.random() * lastCurrentLocation.value.musics.length)
+    const randomMusicId = lastCurrentLocation.value.musics[random];
     result = musics.value.find(m => m.id === randomMusicId) as musicInterface;
     result = JSON.parse(JSON.stringify(result));
   } else {
