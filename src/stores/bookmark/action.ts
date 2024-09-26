@@ -29,8 +29,6 @@ function setUpperBookmarks(input: bookmarkInterface[]) {
 // EXPORT
 export function updateBookmark(bookmarks: bookmarkInterface[]) {
 
-  // console.log('TEST bookmarks', bookmarks.find(b => b.name === "prairie 🌳")?.intersectionInfo); // TEST
-
   // 1- SET INNER ET UPPER BOOKMARK
   const newInnerBookmarks = [] as bookmarkInterface[];
   const newUpperBookmarks = [] as bookmarkInterface[];
@@ -71,28 +69,42 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
   setUpperBookmarks(newUpperBookmarks as bookmarkInterface[]);
   // updateCharacter(charactersFound as characterFoundInterface[]);
 
+  
+  
+  // TEST :
+  // console.log('TEST bookmarks', bookmarks.find(b => b.name === "prairie 🌳")?.zoomFactor); // TEST
   // console.log('TEST INNER', innerBookmarksSorted.value.map(b => b.name), innerBookmarksSorted.value.map(b => b.intersectionInfo.screenAreaToBookmarkRatio)); // TEST
   // console.log('TEST UPPER', upperBookmarksSorted.value.map(b => b.name), upperBookmarksSorted.value.map(b => b.intersectionInfo.visibleBookmarkRatio)); // TEST
+  // console.log('TEST INNER', innerBookmarksSorted.value.map(b => b.name), innerBookmarksSorted.value.map(b => b.zoomFactor)); // TEST
+  // console.log('TEST UPPER', upperBookmarksSorted.value.map(b => b.name), upperBookmarksSorted.value.map(b => b.zoomFactor)); // TEST
+  // console.log('TEST INNER', innerBookmarksSorted.value.map(b => b.name)); // TEST
+  // console.log('TEST INNER ZOOM', bookmarks.filter(b => b.intersectionInfo && b.zoomFactor > 1).map(b => b.name)); // TEST
+  // console.log('TEST UPPER', upperBookmarksSorted.value.map(b => b.name)); // TEST
+  // console.log('TEST UPPER ZOOM', bookmarks.filter(b => b.intersectionInfo && b.zoomFactor <= 1).map(b => b.name)); // TEST
   // console.log('TEST INNER', innerBookmarksSorted.value.map(b => b.name), closestInnerBookmark?.value?.name); // TEST
   // console.log('TEST UPPER', upperBookmarksSorted.value.map(b => b.name), closestUpperBookmark?.value?.name); // TEST
+
+  
 
   // 2- SET LOCATION or CHARACTER
   let newBookmark = {} as bookmarkInterface;
   let closestInnerBookmarkName = '' as string;
   if (innerBookmarksSorted.value.length > 0 && closestInnerBookmark.value.intersectionInfo.screenAreaToBookmarkRatio > 0.2) {
+    console.log('TEST IINER 1', closestInnerBookmark.value.name); // TEST
     newBookmark = closestInnerBookmark.value as bookmarkInterface;
-    // console.log('TEST IINER 1', newBookmark?.name); // TEST
   } else if (upperBookmarksSorted.value.length > 0) {
+    console.log('TEST UPPER 2', closestUpperBookmark.value.name); // TEST
     newBookmark = closestUpperBookmark.value as bookmarkInterface;
-    // console.log('TEST UPPER 2', newBookmark?.name); // TEST
   } else if (innerBookmarksSorted.value.length > 0) {
+    console.log('TEST closestInner.upper_location 3', closestInnerBookmark.value.name); // TEST
     closestInnerBookmarkName = closestInnerBookmark.value.name as string; // DÉZOOM - location = closest inner . upper_location
-    // console.log('TEST innerBookmarksSorted 3', closestInnerBookmarkName); // TEST
-    // EMPTY CHARACTER
   } else {
-    // console.log('TEST NONE 4'); // TEST
+    // 2.0- NOTHING
+    console.log('TEST NONE 4'); // TEST
     // EMPTY CHARACTER
   }
+
+  // 2.A- BOOKMARK is LOCATION ou CHARACTER
   if (newBookmark && newBookmark.name) {
     if (!currentBookmark || !currentBookmark.value || !currentBookmark.value.name || currentBookmark.value.name !== newBookmark.name) {
       setCurrentBookmark(newBookmark as bookmarkInterface);
@@ -103,14 +115,15 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
           setCurrentLocation(locationFound as locationFoundInterface);
           // EMPTY CHARACTER
         }
-      } else {
+      }
+      else {
         const characterFound = characters_found.value.find(c => c.name === newBookmark.name) as characterFoundInterface;
         if (characterFound) {
           if (newBookmark.name !== character?.value?.name) {
             // set new character
           }
         } else {
-        // Request GET /bookmark/:name
+        // Request GET /bookmark/:name (newBookmark.name)
         const newLocation = locations.value.find(l => l.name === newBookmark.name) as locationInterface
         if (newLocation) {
           // POST /location_found
@@ -128,7 +141,45 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
       }
       }
     }
-  } else if (closestInnerBookmarkName) {
+  }
 
+  // 2.B- BOOKMARK is LOCATION
+  else if (closestInnerBookmarkName) {
+    const closestInnerLocationFound = locations_found.value.find(l => l.name === closestInnerBookmarkName) as locationFoundInterface;
+    if (closestInnerLocationFound) {
+      if (closestInnerLocationFound.upper_location !== currentLocation?.value?.id) {
+        const locationFound = locations_found.value.find(l => l.id === closestInnerLocationFound.upper_location) as locationFoundInterface;
+        if (locationFound) {
+          setCurrentLocation(locationFound as locationFoundInterface);
+        }
+        else {
+          // Request GET /location/:id (closestInnerLocation.upper_location)
+          const newLocation = locations.value.find(l => l.id === closestInnerLocationFound.upper_location) as locationInterface;
+          if (newLocation) {
+            onLocationFound(newLocation as locationInterface);
+          } else {
+            // Location inconnu en base
+          }
+        }
+      }
+      else {
+        // END
+      }
+    }
+    else {
+      // Request GET /location/:inner-name (closestInnerBookmarkName)
+      const closestInnerLocation = locations.value.find(l => l.name === closestInnerBookmarkName) as locationInterface
+      if (closestInnerLocation) {
+        const newLocation = locations.value.find(l => l.id === closestInnerLocation.upper_location) as locationInterface;
+        if (newLocation) {
+          onLocationFound(newLocation as locationInterface);
+        } else {
+        // Location inconnu en base
+        }
+      } else {
+        // Location inconnu en base
+      }
+    }
+    // EMPTY CHARACTER
   }
 }
