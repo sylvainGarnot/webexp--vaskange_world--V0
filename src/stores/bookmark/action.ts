@@ -29,9 +29,10 @@ function setUpperBookmarks(input: bookmarkInterface[]) {
 // EXPORT
 export function updateBookmark(bookmarks: bookmarkInterface[]) {
 
-  // 1- SET INNER ET UPPER BOOKMARK
+  // STEP-1) SET INNER, UPPER BOOKMARK & CURRENT_CHARACTER already FOUND
   const newInnerBookmarks = [] as bookmarkInterface[];
   const newUpperBookmarks = [] as bookmarkInterface[];
+  let characterFound
 
   for (const b of bookmarks) {
     if (b && b.intersectionInfo) {
@@ -45,7 +46,7 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
         newInnerBookmarks.push(b as bookmarkInterface);
       }
       if (b.intersectionInfo.screenAreaToBookmarkRatio < 1 && b.intersectionInfo.screenAreaToBookmarkRatio > 0.2) {
-        const characterFound = characters_found.value.find(c => c.name === b.name) as characterFoundInterface;
+        characterFound = characters_found.value.find(c => c.name === b.name) as characterFoundInterface;
         if (characterFound) {
           setCurrentCharacter(characterFound as characterFoundInterface, b as bookmarkInterface);
         }
@@ -74,34 +75,35 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
 
   
 
-  // 2- SET LOCATION or CHARACTER
+  // STEP-2) SET LOCATION or CHARACTER
   let newBookmark = {} as bookmarkInterface;
   let closestInnerBookmarkName = '' as string;
   if (innerBookmarksSorted.value.length > 0 && closestInnerBookmark.value.intersectionInfo.screenAreaToBookmarkRatio > 0.2) {
-    console.log('TEST IINER 1', closestInnerBookmark.value.name); // TEST
+    console.log('TEST-A.1 IINER', closestInnerBookmark.value.name); // TEST
     newBookmark = closestInnerBookmark.value as bookmarkInterface;
   } else if (upperBookmarksSorted.value.length > 0) {
-    console.log('TEST UPPER 2', closestUpperBookmark.value.name); // TEST
+    console.log('TEST-A.2 UPPER', closestUpperBookmark.value.name); // TEST
     newBookmark = closestUpperBookmark.value as bookmarkInterface;
   } else if (innerBookmarksSorted.value.length > 0) {
-    console.log('TEST closestInner.upper_location 3', closestInnerBookmark.value.name); // TEST
+    console.log('TEST-B closestInner.upper_location', closestInnerBookmark.value.name); // TEST
     closestInnerBookmarkName = closestInnerBookmark.value.name as string;
   } else {
     // 2.0- NOTHING
-    console.log('TEST NONE 4'); // TEST
+    console.log('TEST-C NONE'); // TEST
   }
 
-  // 2.A- BOOKMARK
+  // STEP-3.A
   if (newBookmark && newBookmark.name) {
-    if (!currentBookmark || !currentBookmark.value || !currentBookmark.value.name || currentBookmark.value.name !== newBookmark.name) {
-      setCurrentBookmark(newBookmark as bookmarkInterface);
+    setCurrentBookmark(newBookmark as bookmarkInterface);
 
-      const locationFound = locations_found.value.find(l => l.name === newBookmark.name) as locationFoundInterface
-      if (locationFound) {
-        if (locationFound.name !== currentLocation?.value?.name) {
-          setCurrentLocation(locationFound as locationFoundInterface);
-        }
-      } else {
+    const locationFound = locations_found.value.find(l => l.name === newBookmark.name) as locationFoundInterface
+    if (locationFound) {
+      if (locationFound.name !== currentLocation?.value?.name) {
+        setCurrentLocation(locationFound as locationFoundInterface);
+      }
+    } else {
+      characterFound = characters_found.value.find(c => c.name === newBookmark.name) as characterFoundInterface;
+      if (!characterFound) {
         // Request GET /bookmark/:name (newBookmark.name)
         const newLocation = locations.value.find(l => l.name === newBookmark.name) as locationInterface
         if (newLocation) {
@@ -113,14 +115,14 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
             onCharacterFound(characterFound as characterInterface, newBookmark as bookmarkInterface)
           }
           else {
-            // Bookmark inconnu en base
+            console.log('Bookmark inconnu')
           }
         }
       }
     }
   }
 
-  // 2.B- BOOKMARK
+  // STEP-3.B
   else if (closestInnerBookmarkName) {
     if (!currentBookmark || !currentBookmark.value || !currentBookmark.value.name || currentBookmark.value.name !== closestInnerBookmarkName) {
       setCurrentBookmark(closestInnerBookmark.value as bookmarkInterface);
@@ -138,7 +140,7 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
             if (newLocation) {
               onLocationFound(newLocation as locationInterface);
             } else {
-              // Location inconnu en base
+              console.log('Location inconnu')
             }
           }
         }
@@ -154,10 +156,10 @@ export function updateBookmark(bookmarks: bookmarkInterface[]) {
           if (newLocation) {
             onLocationFound(newLocation as locationInterface);
           } else {
-            // Location inconnu en base
+            console.log('Location inconnu')
           }
         } else {
-          // Location inconnu en base
+          console.log('Location inconnu')
         }
       }
     }

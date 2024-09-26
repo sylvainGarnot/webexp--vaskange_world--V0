@@ -12,7 +12,7 @@ function addCharacterFound(input: characterFoundInterface) {
 
 // EXPORT
 export function setCurrentCharacter(inputCharacterFound: characterFoundInterface, inputBookmark: bookmarkInterface) {
-  console.log('TEST - setCurrentCharacter', inputCharacterFound.name); // TEST
+  // console.log('TEST - setCurrentCharacter', inputCharacterFound.name); // TEST
   
   // screenSpacePosition missing
   // const width = inputBookmark.screenSpacePosition.topRight.x - inputBookmark.screenSpacePosition.bottomLeft.x;
