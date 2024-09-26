@@ -2,6 +2,7 @@ export interface characterInterface {
   id: string,
   name: string,
   dialog: string,
+  location: string,
 }
 
 export interface characterFoundInterface extends characterInterface {
