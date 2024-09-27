@@ -14,7 +14,6 @@ import { locationsName } from '../location/getter';
 
 // PRIVATE
 function setCurrentBookmark(input: bookmarkInterface) {
-  // console.log('TEST 1- setCurrentBookmark', input.name); // TEST
   currentBookmark.value = input as bookmarkInterface;
 };
 
@@ -25,95 +24,82 @@ function setZoomIn(input: boolean) {
 
 // EXPORT
 export function updateBookmark(inputBookmarks: bookmarkInterface[]) {
-  
-  // STEP-0) SET INNER BOOKMARK
-  let innerBookmarks = [] as bookmarkInterface[];
-  for (let index = 0; index < inputBookmarks.length; index++) {
-    if (
-      inputBookmarks[index]?.intersectionInfo?.visibleBookmarkRatio === 1 &&
-      inputBookmarks[index]?.intersectionInfo?.screenAreaToBookmarkRatio < 1
-    ) {
-      innerBookmarks.push(inputBookmarks[index] as bookmarkInterface);
-    }
-  }
-  innerBookmarks = innerBookmarks.sort((a, b) => b.intersectionInfo.screenAreaToBookmarkRatio - a.intersectionInfo.screenAreaToBookmarkRatio);
-  const closestInnerBookmark = innerBookmarks[0] as bookmarkInterface;
+
+
 
   // console.log('TEST', closestInnerBookmark?.name, closestInnerBookmark?.intersectionInfo)
   // console.log('TEST bookmarks', inputBookmarks.find(b => b.name === "prairie 🌳")?.intersectionInfo); // TEST
 
-
   
-  // STEP-1) Filter Bookmarks by charactersName & LocationsName
+  
+  // STEP-0) Filter Bookmarks by charactersName & LocationsName
   const bookmarksLocation = [] as bookmarkInterface[];
   const bookmarksCharacter = [] as bookmarkInterface[];
-  for (let index = 0; index < innerBookmarks.length; index++) {
-    if (locationsName.value.includes(innerBookmarks[index].name)) {
-      bookmarksLocation.push(innerBookmarks[index]);
-    } else if (charactersName.value.includes(innerBookmarks[index].name)) {
-      bookmarksCharacter.push(innerBookmarks[index]);
+  for (let index = 0; index < inputBookmarks.length; index++) {
+    if (locationsName.value.includes(inputBookmarks[index].name)) {
+      bookmarksLocation.push(inputBookmarks[index]);
+    } else if (charactersName.value.includes(inputBookmarks[index].name)) {
+      bookmarksCharacter.push(inputBookmarks[index]);
     }
   }
-  const closestBookmarkLocation = bookmarksLocation[0] as bookmarkInterface;
-  const closestBookmarkCharacter = bookmarksCharacter[0] as bookmarkInterface;
+
 
   
-
-  // STEP-2) SET CHARACTER
-  if (closestBookmarkCharacter?.intersectionInfo?.screenAreaToBookmarkRatio < 1 && closestBookmarkCharacter?.intersectionInfo?.screenAreaToBookmarkRatio > 0.2) {
-    // console.log('TEST IF', closestBookmarkCharacter?.intersectionInfo?.screenAreaToBookmarkRatio)
-    const characterFound = characters_found.value.find(c => c.name === closestBookmarkCharacter.name) as characterFoundInterface;
-    if (characterFound) {
-      setCurrentCharacter(characterFound as characterFoundInterface, closestBookmarkCharacter as bookmarkInterface);
+  // STEP-A) SET INNER BOOKMARKS LOCATION
+  let innerBookmarksLocation = [] as bookmarkInterface[];
+  for (let index = 0; index < bookmarksLocation.length; index++) {
+    if (
+      bookmarksLocation[index]?.intersectionInfo?.visibleBookmarkRatio === 1 &&
+      bookmarksLocation[index]?.intersectionInfo?.screenAreaToBookmarkRatio < 1 && 
+      bookmarksLocation[index]?.intersectionInfo?.screenAreaToBookmarkRatio > 0.2
+    ) {
+      innerBookmarksLocation.push(bookmarksLocation[index] as bookmarkInterface);
     }
-  } else {
-    // console.log('TEST ELSE', closestBookmarkCharacter)
-    emptyCurrentCharacter();
   }
+  innerBookmarksLocation = innerBookmarksLocation.sort((a, b) => b.intersectionInfo.screenAreaToBookmarkRatio - a.intersectionInfo.screenAreaToBookmarkRatio);
+  const closestInnerBookmarkLocation = innerBookmarksLocation[0] as bookmarkInterface;
 
   
-  
-  // STEP-3) SET ZOOMIN
-  if (closestInnerBookmark?.zoomFactor) {
+
+  // STEP-A.1) SET ZOOMIN
+  if (closestInnerBookmarkLocation?.zoomFactor) {
     if (currentBookmark?.value?.zoomFactor) {
-      if (closestInnerBookmark.zoomFactor < currentBookmark.value.zoomFactor) {
+      if (closestInnerBookmarkLocation.zoomFactor < currentBookmark.value.zoomFactor) {
         setZoomIn(true);
       } else {
         setZoomIn(false);
       }
     }
-    setCurrentBookmark(closestInnerBookmark as bookmarkInterface);
+    setCurrentBookmark(closestInnerBookmarkLocation as bookmarkInterface);
   }
 
   
 
-  // STEP-4.A) Zoom in/out Location
-  if (closestBookmarkLocation?.intersectionInfo?.screenAreaToBookmarkRatio > 0.2) {
-    if (zoomIn?.value) {
-      if (closestBookmarkLocation?.name !== currentLocation?.value?.name) {
+  // STEP-A.2) Zoom in/out Location
+  if (zoomIn?.value) {
+    if (closestInnerBookmarkLocation?.name !== currentLocation?.value?.name) {
 
-        const locationFound = locations_found.value.find(l => l.name === closestBookmarkLocation.name) as locationFoundInterface
-        if (locationFound) {
-          setCurrentLocation(locationFound as locationFoundInterface);
-        } else {
-          const newLocation = locations.value.find(l => l.name === closestBookmarkLocation.name) as locationInterface
-          if (newLocation) {
-            onLocationFound(newLocation as locationInterface);
-          }
+      const locationFound = locations_found.value.find(l => l.name === closestInnerBookmarkLocation.name) as locationFoundInterface
+      if (locationFound) {
+        setCurrentLocation(locationFound as locationFoundInterface);
+      } else {
+        const newLocation = locations.value.find(l => l.name === closestInnerBookmarkLocation.name) as locationInterface
+        if (newLocation) {
+          onLocationFound(newLocation as locationInterface);
         }
       }
     }
-    else if (!zoomIn?.value) {
-      const closestInnerLocation = locations.value.find(l => l.name === closestBookmarkLocation.name) as locationInterface
-      if (closestInnerLocation?.upper_location !== currentLocation?.value?.id) {
-        const locationFound = locations_found.value.find(l => l.id === closestInnerLocation.upper_location) as locationFoundInterface;
-        if (locationFound) {
-          setCurrentLocation(locationFound as locationFoundInterface);
-        } else {
-          const newLocation = locations.value.find(l => l.id === closestInnerLocation.upper_location) as locationInterface
-          if (newLocation) {
-            onLocationFound(newLocation as locationInterface);
-          }
+  }
+  else if (!zoomIn?.value) {
+    const closestInnerLocation = locations.value.find(l => l.name === closestInnerBookmarkLocation?.name) as locationInterface
+    if (closestInnerLocation?.upper_location !== currentLocation?.value?.id) {
+      const locationFound = locations_found.value.find(l => l.id === closestInnerLocation?.upper_location) as locationFoundInterface;
+      if (locationFound) {
+        setCurrentLocation(locationFound as locationFoundInterface);
+      } else {
+        const newLocation = locations.value.find(l => l.id === closestInnerLocation?.upper_location) as locationInterface
+        if (newLocation) {
+          onLocationFound(newLocation as locationInterface);
         }
       }
     }
@@ -121,15 +107,42 @@ export function updateBookmark(inputBookmarks: bookmarkInterface[]) {
 
   
   
-  // STEP-4.B) Zoom in Character
-  if (closestBookmarkCharacter?.intersectionInfo?.screenAreaToBookmarkRatio > 0.2) {
-    if (closestBookmarkCharacter?.name !== currentLocation?.value?.name) {
+  // STEP-B) SET CLOSEST NEARBY BOOKMARKS CHARACTER
+  let nearByBookmarksCharacter = [] as bookmarkInterface[];
+  for (let index = 0; index < bookmarksCharacter.length; index++) {
+    if (
+      bookmarksCharacter[index]?.intersectionInfo?.visibleBookmarkRatio > 0.25 &&
+      bookmarksCharacter[index]?.intersectionInfo?.screenAreaToBookmarkRatio < 1 &&
+      bookmarksCharacter[index]?.intersectionInfo?.screenAreaToBookmarkRatio > 0.25
+    ) {
+      nearByBookmarksCharacter.push(bookmarksCharacter[index] as bookmarkInterface);
+    }
+  }
+  nearByBookmarksCharacter = nearByBookmarksCharacter.sort((a, b) => b.zoomFactor - a.zoomFactor);
+  const closestNearByBookmarkCharacter = nearByBookmarksCharacter[0] as bookmarkInterface;
 
-      const characterFound = characters_found.value.find(c => c.name === closestBookmarkCharacter.name) as characterFoundInterface
+  
+
+  // STEP-B.1) SET CHARACTER
+  if (closestNearByBookmarkCharacter) {
+    const characterFound = characters_found.value.find(c => c.name === closestNearByBookmarkCharacter.name) as characterFoundInterface;
+    if (characterFound) {
+      setCurrentCharacter(characterFound as characterFoundInterface, closestNearByBookmarkCharacter as bookmarkInterface);
+    }
+  } else {
+    emptyCurrentCharacter();
+  }
+
+
+
+  // STEP-B.2) Zoom in Character
+  if (closestNearByBookmarkCharacter) {
+    if (closestNearByBookmarkCharacter?.name !== currentLocation?.value?.name) {
+      const characterFound = characters_found.value.find(c => c.name === closestNearByBookmarkCharacter.name) as characterFoundInterface
       if (!characterFound) {
-        const newCharacter = characters.value.find(c => c.name === closestBookmarkCharacter.name) as characterInterface
+        const newCharacter = characters.value.find(c => c.name === closestNearByBookmarkCharacter.name) as characterInterface
         if (newCharacter) {
-          onCharacterFound(newCharacter as characterInterface, closestBookmarkCharacter as bookmarkInterface);
+          onCharacterFound(newCharacter as characterInterface, closestNearByBookmarkCharacter as bookmarkInterface);
         }
       }
     }
