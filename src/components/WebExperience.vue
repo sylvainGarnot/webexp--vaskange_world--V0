@@ -24,6 +24,12 @@ import { useBookmarkStore } from "@/stores/bookmark";
 import { useLocationStore } from "@/stores/location";
 import { useDialogStore } from "@/stores/dialog";
 
+import { locations_found } from "@/stores/location/state.js";
+import { characters_found } from "@/stores/character/state.js";
+import { setCurrentLocation } from "@/stores/location/action.js";
+import type { characterFoundInterface } from "@/stores/character/interface.js";
+import type { locationFoundInterface } from "@/stores/location/interface.js";
+
 const route = useRoute();
 const { EndlessPaper } = useApi();
 
@@ -31,7 +37,7 @@ const bookmarkStore = useBookmarkStore();
 const { updateBookmark } = bookmarkStore;
 
 const locationStore = useLocationStore();
-const { locations } = storeToRefs(locationStore);;
+// const { locations } = storeToRefs(locationStore);;
 
 const dialogStore = useDialogStore();
 const { currentDialog, isDialogActive } = storeToRefs(dialogStore);
@@ -40,7 +46,7 @@ const { currentDialog, isDialogActive } = storeToRefs(dialogStore);
 watch(
   () => route.query.location,
   async location => {
-    teleportTo(location as string);
+    teleportTo("rick 🐝");
   }
 )
 
@@ -64,8 +70,19 @@ onMounted(() => {
 
 // METHODS
 function teleportTo(input: string) {
-  if (locations.value.find(l => l.name === input)) {
+  console.log('TEST TELEPORT')
+  if (locations_found.value.find(l => l.name === input)) {
     EndlessPaper.visitBookmark(input as string);
+  } else {
+    const characterFound = characters_found.value.find(l => l.name === input) as characterFoundInterface;
+    if (characterFound) {
+      EndlessPaper.visitBookmark(input as string);
+      const locationFound = locations_found.value.find(l => l.id === characterFound.location) as locationFoundInterface;
+      if (locationFound) {
+        console.log('YES TELEPORT', locationFound.name);
+        setCurrentLocation(locationFound as locationFoundInterface); // BUGGY
+      }
+    }
   }
 }
 
