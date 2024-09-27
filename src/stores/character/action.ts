@@ -6,13 +6,13 @@ import type { bookmarkInterface } from '../bookmark/interface';
 
 // PRIVATE
 function addCharacterFound(input: characterFoundInterface) {
-  console.log('TEST 2- addCharacterFound', input.name); // TEST
+  console.log('TEST - addCharacterFound', input.name); // TEST
   characters_found.value.push(input as characterFoundInterface);
 };
 
 // EXPORT
 export function setCurrentCharacter(inputCharacterFound: characterFoundInterface, inputBookmark: bookmarkInterface) {
-  console.log('TEST 3- setCurrentCharacter', inputCharacterFound.name); // TEST
+  console.log('TEST - setCurrentCharacter', inputCharacterFound.name); // TEST
   
   // screenSpacePosition missing
   // const width = inputBookmark.screenSpacePosition.topRight.x - inputBookmark.screenSpacePosition.bottomLeft.x;
