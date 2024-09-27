@@ -4,16 +4,17 @@ import type { bookmarkInterface } from './interface';
 import { currentLocation, locations, locations_found } from '../location/state';
 import { onLocationFound, setCurrentLocation } from '../location/action';
 import type { locationInterface, locationFoundInterface } from '../location/interface';
+import { locationsName } from '../location/getter';
 
-import { characters, currentCharacter, characters_found } from '../character/state';
+import { characters, characters_found } from '../character/state';
 import { onCharacterFound, setCurrentCharacter, emptyCurrentCharacter } from '../character/action';
 import type { characterInterface, characterFoundInterface } from '../character/interface';
 import { charactersName } from '../character/getter';
-import { locationsName } from '../location/getter';
 
 
 // PRIVATE
 function setCurrentBookmark(input: bookmarkInterface) {
+  console.log('TEST setCurrentBookmark', input.name); // TEST
   currentBookmark.value = input as bookmarkInterface;
 };
 
@@ -51,7 +52,7 @@ export function updateBookmark(inputBookmarks: bookmarkInterface[]) {
     if (
       bookmarksLocation[index]?.intersectionInfo?.visibleBookmarkRatio === 1 &&
       bookmarksLocation[index]?.intersectionInfo?.screenAreaToBookmarkRatio < 1 && 
-      bookmarksLocation[index]?.intersectionInfo?.screenAreaToBookmarkRatio > 0.2
+      bookmarksLocation[index]?.intersectionInfo?.screenAreaToBookmarkRatio > 0.1
     ) {
       innerBookmarksLocation.push(bookmarksLocation[index] as bookmarkInterface);
     }
@@ -76,30 +77,32 @@ export function updateBookmark(inputBookmarks: bookmarkInterface[]) {
   
 
   // STEP-A.2) Zoom in/out Location
-  if (zoomIn?.value) {
-    if (closestInnerBookmarkLocation?.name !== currentLocation?.value?.name) {
+  if (closestInnerBookmarkLocation?.intersectionInfo?.screenAreaToBookmarkRatio > 0.2) {
+    if (zoomIn?.value) {
+      if (closestInnerBookmarkLocation?.name !== currentLocation?.value?.name) {
 
-      const locationFound = locations_found.value.find(l => l.name === closestInnerBookmarkLocation.name) as locationFoundInterface
-      if (locationFound) {
-        setCurrentLocation(locationFound as locationFoundInterface);
-      } else {
-        const newLocation = locations.value.find(l => l.name === closestInnerBookmarkLocation.name) as locationInterface
-        if (newLocation) {
-          onLocationFound(newLocation as locationInterface);
+        const locationFound = locations_found.value.find(l => l.name === closestInnerBookmarkLocation.name) as locationFoundInterface
+        if (locationFound) {
+          setCurrentLocation(locationFound as locationFoundInterface);
+        } else {
+          const newLocation = locations.value.find(l => l.name === closestInnerBookmarkLocation.name) as locationInterface
+          if (newLocation) {
+            onLocationFound(newLocation as locationInterface);
+          }
         }
       }
     }
-  }
-  else if (!zoomIn?.value) {
-    const closestInnerLocation = locations.value.find(l => l.name === closestInnerBookmarkLocation?.name) as locationInterface
-    if (closestInnerLocation?.upper_location !== currentLocation?.value?.id) {
-      const locationFound = locations_found.value.find(l => l.id === closestInnerLocation?.upper_location) as locationFoundInterface;
-      if (locationFound) {
-        setCurrentLocation(locationFound as locationFoundInterface);
-      } else {
-        const newLocation = locations.value.find(l => l.id === closestInnerLocation?.upper_location) as locationInterface
-        if (newLocation) {
-          onLocationFound(newLocation as locationInterface);
+    else if (!zoomIn?.value) {
+      const closestInnerLocation = locations.value.find(l => l.name === closestInnerBookmarkLocation?.name) as locationInterface
+      if (closestInnerLocation?.upper_location !== currentLocation?.value?.id) {
+        const locationFound = locations_found.value.find(l => l.id === closestInnerLocation?.upper_location) as locationFoundInterface;
+        if (locationFound) {
+          setCurrentLocation(locationFound as locationFoundInterface);
+        } else {
+          const newLocation = locations.value.find(l => l.id === closestInnerLocation?.upper_location) as locationInterface
+          if (newLocation) {
+            onLocationFound(newLocation as locationInterface);
+          }
         }
       }
     }
