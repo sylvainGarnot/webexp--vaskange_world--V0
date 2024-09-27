@@ -29,6 +29,8 @@ import { characters_found } from "@/stores/character/state.js";
 import { setCurrentLocation } from "@/stores/location/action.js";
 import type { characterFoundInterface } from "@/stores/character/interface.js";
 import type { locationFoundInterface } from "@/stores/location/interface.js";
+import { locationsName } from "@/stores/location/getter.js";
+import { charactersName } from "@/stores/character/getter.js";
 
 const route = useRoute();
 const { EndlessPaper } = useApi();
@@ -37,7 +39,7 @@ const bookmarkStore = useBookmarkStore();
 const { updateBookmark } = bookmarkStore;
 
 const locationStore = useLocationStore();
-// const { locations } = storeToRefs(locationStore);;
+const { locations } = storeToRefs(locationStore);;
 
 const dialogStore = useDialogStore();
 const { currentDialog, isDialogActive } = storeToRefs(dialogStore);
@@ -46,7 +48,7 @@ const { currentDialog, isDialogActive } = storeToRefs(dialogStore);
 watch(
   () => route.query.location,
   async location => {
-    teleportTo("rick 🐝");
+    teleportTo(location as string);
   }
 )
 
@@ -62,26 +64,32 @@ onMounted(() => {
     setTimeout(() => {
       if (route?.query?.location) {
         teleportTo(route?.query?.location as string);
+      } else {
+        EndlessPaper.visitBookmark(locations?.value[0]?.name as string);
       }
-    }, 900);
+    }, 250);
   });
 });
 
 
 // METHODS
 function teleportTo(input: string) {
-  console.log('TEST TELEPORT')
-  if (locations_found.value.find(l => l.name === input)) {
-    EndlessPaper.visitBookmark(input as string);
-  } else {
+  if (locationsName.value.includes(input)) {
+    if (locations_found.value.find(l => l.name === input)) {
+      EndlessPaper.visitBookmark(input as string);
+    } else {
+      console.log('Location not found yet')
+    }
+  } else if (charactersName.value.includes(input)) {
     const characterFound = characters_found.value.find(l => l.name === input) as characterFoundInterface;
     if (characterFound) {
       EndlessPaper.visitBookmark(input as string);
-      const locationFound = locations_found.value.find(l => l.id === characterFound.location) as locationFoundInterface;
-      if (locationFound) {
-        console.log('YES TELEPORT', locationFound.name);
-        setCurrentLocation(locationFound as locationFoundInterface); // BUGGY
+      const characterFoundLocation = locations_found.value.find(l => l.id === characterFound.location) as locationFoundInterface;
+      if (characterFoundLocation) {
+        setCurrentLocation(characterFoundLocation as locationFoundInterface);
       }
+    } else {
+      console.log('Character not found yet')
     }
   }
 }
