@@ -1,4 +1,4 @@
-import { currentLocation, lastCurrentLocation, isLocationIsChanging, locations_found } from './state';
+import { currentLocation, isLocationIsChanging, locations_found } from './state';
 import type { locationInterface, locationFoundInterface } from './interface';
 
 import { addToast } from '../toast/action';
@@ -17,7 +17,6 @@ export function setCurrentLocation(input: locationFoundInterface) {
     isLocationIsChanging.value = true;
     setTimeout(() => {
       console.log('TEST - setCurrentLocation', input.name); // TEST
-      lastCurrentLocation.value = currentLocation.value as locationFoundInterface;
       currentLocation.value = input as locationFoundInterface;
 
       addToast(input.message as string, 'info');
