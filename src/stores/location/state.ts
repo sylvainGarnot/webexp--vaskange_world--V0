@@ -3,6 +3,8 @@ import type { locationInterface, locationFoundInterface } from './interface';
 
 export const currentLocation = ref({} as locationFoundInterface);
 export const lastCurrentLocation = ref({} as locationFoundInterface);
+export const isLocationIsChanging = ref(false as boolean);
+
 
 export const locations_found = ref([] as locationFoundInterface[]);
 

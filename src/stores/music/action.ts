@@ -104,7 +104,7 @@ export function toggleMusic() {
 }
 
 
-export async function changeMusicByLocation(fadeDuration: number = 900) {
+export async function changeMusicByLocation(fadeDuration: number = 250) {
   if (isMusicPlaying.value) {
 
     lastMusic.value = music.value as musicInterface;

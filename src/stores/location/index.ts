@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { readonly } from 'vue';
 
 
-import { currentLocation, lastCurrentLocation, locations_found, locations } from './state';
+import { currentLocation, lastCurrentLocation, isLocationIsChanging, locations_found, locations } from './state';
 import { locationsName } from './getter';
 import { setCurrentLocation, onLocationFound } from './action';
 
@@ -14,6 +14,7 @@ export const useLocationStore = defineStore("Location", () => {
     lastCurrentLocation: readonly(lastCurrentLocation),
     locations: readonly(locations),
     locations_found: readonly(locations_found),
+    isLocationIsChanging: readonly(isLocationIsChanging),
 
     locationsName: readonly(locationsName),
     

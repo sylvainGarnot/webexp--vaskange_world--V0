@@ -26,9 +26,9 @@ import { useDialogStore } from "@/stores/dialog";
 
 import { locations_found } from "@/stores/location/state.js";
 import { characters_found } from "@/stores/character/state.js";
-import { setCurrentLocation } from "@/stores/location/action.js";
+import { setCurrentLocation, onLocationFound } from "@/stores/location/action.js";
 import type { characterFoundInterface } from "@/stores/character/interface.js";
-import type { locationFoundInterface } from "@/stores/location/interface.js";
+import type { locationFoundInterface, locationInterface } from "@/stores/location/interface.js";
 import { locationsName } from "@/stores/location/getter.js";
 import { charactersName } from "@/stores/character/getter.js";
 
@@ -65,7 +65,7 @@ onMounted(() => {
       if (route?.query?.location) {
         teleportTo(route?.query?.location as string);
       } else {
-        setCurrentLocation(locations?.value[0] as locationFoundInterface);
+        onLocationFound(locations?.value[0] as locationInterface);
       }
     }, 250);
   });
@@ -75,8 +75,10 @@ onMounted(() => {
 // METHODS
 function teleportTo(input: string) {
   if (locationsName.value.includes(input)) {
-    if (locations_found.value.find(l => l.name === input)) {
+    const locationFound = locations_found.value.find(l => l.name === input)
+    if (locationFound) {
       EndlessPaper.visitBookmark(input as string);
+      setCurrentLocation(locationFound as locationFoundInterface);
     } else {
       console.log('Location not found yet')
     }
