@@ -44,6 +44,30 @@ const { locations } = storeToRefs(locationStore);;
 const dialogStore = useDialogStore();
 const { currentDialog, isDialogActive } = storeToRefs(dialogStore);
 
+
+const shapes = [
+  {
+    "name": "bmc-coffee-machine",
+    "tileId": 1389,
+    "points": [
+      -0.3427531652580639,
+      0.49258527861820034,
+      0.08888745974193613,
+      0.46524152861820034,
+      0.08888745974193613,
+      -0.6558522213817997,
+      -0.3564250402580639,
+      -0.45858659638179966
+    ]
+  },
+]
+
+
+function handleShapeClick(shape: any) {
+  console.log('TEST shape', shape);
+}
+
+
 // WATCHER
 watch(
   () => route.query.location,
@@ -60,6 +84,10 @@ onMounted(() => {
     EndlessPaper.showNavBar(false);
     EndlessPaper.showTravelButtons(false);
     EndlessPaper.onBookmarkNearby(updateBookmark);
+
+    EndlessPaper.addShapeEventListener("click", handleShapeClick);
+    EndlessPaper.addShapeEventListener("touchend", handleShapeClick);
+    EndlessPaper.setShapes(shapes);
 
     setTimeout(() => {
       if (route?.query?.location) {
