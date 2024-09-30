@@ -65,7 +65,7 @@ onMounted(() => {
       if (route?.query?.location) {
         teleportTo(route?.query?.location as string);
       } else {
-        EndlessPaper.visitBookmark(locations?.value[0]?.name as string);
+        setCurrentLocation(locations?.value[0] as locationFoundInterface);
       }
     }, 250);
   });

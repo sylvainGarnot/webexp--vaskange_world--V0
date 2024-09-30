@@ -27,9 +27,10 @@ function setZoomIn(input: boolean) {
 export function updateBookmark(inputBookmarks: bookmarkInterface[]) {
 
 
-
-  // console.log('TEST', closestInnerBookmark?.name, closestInnerBookmark?.intersectionInfo)
-  // console.log('TEST bookmarks', inputBookmarks.find(b => b.name === "prairie 🌳")?.intersectionInfo); // TEST
+  // const test = inputBookmarks.find(b => b.name === "prairie 🌳") as bookmarkInterface; // TEST
+  // const test = inputBookmarks.find(b => b.name === "vac-mer 🏝️") as bookmarkInterface; // TEST
+  // const test = inputBookmarks.find(b => b.name === "jump-q1") as bookmarkInterface; // TEST
+  // console.log('TEST bookmarks v/s/z', test?.intersectionInfo?.visibleBookmarkRatio, test?.intersectionInfo?.screenAreaToBookmarkRatio, test?.zoomFactor);
 
   
   
@@ -50,14 +51,14 @@ export function updateBookmark(inputBookmarks: bookmarkInterface[]) {
   let innerBookmarksLocation = [] as bookmarkInterface[];
   for (let index = 0; index < bookmarksLocation.length; index++) {
     if (
-      bookmarksLocation[index]?.intersectionInfo?.visibleBookmarkRatio === 1 &&
-      bookmarksLocation[index]?.intersectionInfo?.screenAreaToBookmarkRatio < 1 && 
-      bookmarksLocation[index]?.intersectionInfo?.screenAreaToBookmarkRatio > 0.1
+      bookmarksLocation[index]?.intersectionInfo?.visibleBookmarkRatio > 0.02 &&
+      bookmarksLocation[index]?.zoomFactor > 0.8 &&
+      bookmarksLocation[index]?.zoomFactor < 3.5
     ) {
       innerBookmarksLocation.push(bookmarksLocation[index] as bookmarkInterface);
     }
   }
-  innerBookmarksLocation = innerBookmarksLocation.sort((a, b) => b.intersectionInfo.screenAreaToBookmarkRatio - a.intersectionInfo.screenAreaToBookmarkRatio);
+  innerBookmarksLocation = innerBookmarksLocation.sort((a, b) => b.zoomFactor - a.zoomFactor);
   const closestInnerBookmarkLocation = innerBookmarksLocation[0] as bookmarkInterface;
 
   
@@ -115,8 +116,8 @@ export function updateBookmark(inputBookmarks: bookmarkInterface[]) {
   for (let index = 0; index < bookmarksCharacter.length; index++) {
     if (
       bookmarksCharacter[index]?.intersectionInfo?.visibleBookmarkRatio > 0.25 &&
-      bookmarksCharacter[index]?.intersectionInfo?.screenAreaToBookmarkRatio < 1 &&
-      bookmarksCharacter[index]?.intersectionInfo?.screenAreaToBookmarkRatio > 0.25
+      bookmarksCharacter[index]?.zoomFactor > 1 &&
+      bookmarksCharacter[index]?.zoomFactor < 3.5
     ) {
       nearByBookmarksCharacter.push(bookmarksCharacter[index] as bookmarkInterface);
     }
