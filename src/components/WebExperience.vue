@@ -12,28 +12,24 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUpdated, watch } from "vue";
+import { onMounted, watch } from "vue";
 import { useRoute } from 'vue-router';
-import { storeToRefs } from 'pinia';
 
 // import WebExperienceCharacterCall from "@/components/WebExperienceCharacterCall.vue";
 import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
 
 import { useApi } from "./WebExperienceApi.js";
 import { shapes } from "../assets/constants/shapes";
+
+import { storeToRefs } from 'pinia';
 import { useBookmarkStore } from "@/stores/bookmark";
 import { useLocationStore } from "@/stores/location";
+import { useCharacterStore } from "@/stores/character";
 import { useDialogStore } from "@/stores/dialog";
-import { useShapeStore } from "@/stores/shape";
 
-import { locations_found } from "@/stores/location/state.js";
-import { characters_found } from "@/stores/character/state.js";
-import { setCurrentLocation, onLocationFound } from "@/stores/location/action.js";
-import type { characterFoundInterface } from "@/stores/character/interface.js";
 import type { locationFoundInterface, locationInterface } from "@/stores/location/interface.js";
-import { locationsName } from "@/stores/location/getter.js";
-import { charactersName } from "@/stores/character/getter.js";
-import type { shapeInterface } from "@/stores/shape/interface.js";
+import type { characterFoundInterface } from "@/stores/character/interface.js";
+
 
 const route = useRoute();
 const { EndlessPaper } = useApi();
@@ -42,11 +38,14 @@ const bookmarkStore = useBookmarkStore();
 const { updateBookmark } = bookmarkStore;
 
 const locationStore = useLocationStore();
-const { locations } = storeToRefs(locationStore);;
+const { locations, locations_found, locationsName } = storeToRefs(locationStore);
+const { setCurrentLocation, onLocationFound } = locationStore;
+
+const characterStore = useCharacterStore();
+const { characters_found, charactersName } = storeToRefs(characterStore);
 
 const dialogStore = useDialogStore();
 const { currentDialog, isDialogActive } = storeToRefs(dialogStore);
-
 
 
 
@@ -61,7 +60,7 @@ watch(
 // MOUNTED
 onMounted(() => {
   EndlessPaper.onLoad(function () {
-    console.log("TEST - WebXP has been loaded !"); // TEST
+    console.log("TEST - WebXP LOADED !"); // TEST
 
     EndlessPaper.showNavBar(false);
     EndlessPaper.showTravelButtons(false);
