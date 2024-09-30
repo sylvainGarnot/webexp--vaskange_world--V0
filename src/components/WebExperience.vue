@@ -20,9 +20,11 @@ import { storeToRefs } from 'pinia';
 import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
 
 import { useApi } from "./WebExperienceApi.js";
+import { shapes } from "../assets/constants/shapes";
 import { useBookmarkStore } from "@/stores/bookmark";
 import { useLocationStore } from "@/stores/location";
 import { useDialogStore } from "@/stores/dialog";
+import { useShapeStore } from "@/stores/shape";
 
 import { locations_found } from "@/stores/location/state.js";
 import { characters_found } from "@/stores/character/state.js";
@@ -31,6 +33,7 @@ import type { characterFoundInterface } from "@/stores/character/interface.js";
 import type { locationFoundInterface, locationInterface } from "@/stores/location/interface.js";
 import { locationsName } from "@/stores/location/getter.js";
 import { charactersName } from "@/stores/character/getter.js";
+import type { shapeInterface } from "@/stores/shape/interface.js";
 
 const route = useRoute();
 const { EndlessPaper } = useApi();
@@ -45,27 +48,6 @@ const dialogStore = useDialogStore();
 const { currentDialog, isDialogActive } = storeToRefs(dialogStore);
 
 
-const shapes = [
-  {
-    "name": "bmc-coffee-machine",
-    "tileId": 1389,
-    "points": [
-      -0.3427531652580639,
-      0.49258527861820034,
-      0.08888745974193613,
-      0.46524152861820034,
-      0.08888745974193613,
-      -0.6558522213817997,
-      -0.3564250402580639,
-      -0.45858659638179966
-    ]
-  },
-]
-
-
-function handleShapeClick(shape: any) {
-  console.log('TEST shape', shape);
-}
 
 
 // WATCHER
@@ -122,6 +104,10 @@ function teleportTo(input: string) {
       console.log('Character not found yet')
     }
   }
+}
+
+function handleShapeClick(shape: any) {
+  console.log('TEST shape', shape);
 }
 
 </script>
