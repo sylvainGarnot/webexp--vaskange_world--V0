@@ -1,4 +1,4 @@
-import { currentBookmark, zoomIn } from './state';
+import { currentBookmark, zoomIn, isZoomStarted } from './state';
 import type { bookmarkInterface } from './interface';
 
 import { currentLocation, locations, locations_found } from '../location/state';
@@ -20,6 +20,7 @@ function setCurrentBookmark(input: bookmarkInterface) {
 
 function setZoomIn(input: boolean) {
   zoomIn.value = input as boolean;
+  isZoomStarted.value = true;
 };
 
 
@@ -79,7 +80,7 @@ export function updateBookmark(inputBookmarks: bookmarkInterface[]) {
 
   // STEP-A.2) Zoom in/out Location
   if (closestInnerBookmarkLocation?.intersectionInfo?.screenAreaToBookmarkRatio > 0.2) {
-    if (zoomIn?.value) {
+    if (zoomIn?.value && isZoomStarted.value) {
       if (closestInnerBookmarkLocation?.name !== currentLocation?.value?.name) {
 
         const locationFound = locations_found.value.find(l => l.name === closestInnerBookmarkLocation.name) as locationFoundInterface
@@ -93,7 +94,7 @@ export function updateBookmark(inputBookmarks: bookmarkInterface[]) {
         }
       }
     }
-    else if (!zoomIn?.value) {
+    else if (!zoomIn?.value && isZoomStarted.value) {
       const closestInnerLocation = locations.value.find(l => l.name === closestInnerBookmarkLocation?.name) as locationInterface
       if (closestInnerLocation?.upper_location !== currentLocation?.value?.id) {
         const locationFound = locations_found.value.find(l => l.id === closestInnerLocation?.upper_location) as locationFoundInterface;
