@@ -1,4 +1,4 @@
-import { music, lastMusic, isMusicPlaying, musics } from './state';
+import { music, lastMusic, musicsCache, isMusicPlaying, musics } from './state';
 import type { musicInterface } from './interface';
 import { currentLocation, locations } from '../location/state';
 
@@ -8,16 +8,36 @@ let fadeInMusicInterval = 0 as number;
 
 // PRIVATE
 function setMusic(input: musicInterface) {
-  const audio = new Audio() as HTMLAudioElement;
-  audio.currentTime = 0;
-  audio.preload = "auto";
-  audio.loop = true;
-  audio.src = `/src/assets/music/free/${input.file}.aac`;
-  audio.volume = 1 as number;
-  music.value = {
-    id: input.id,
-    file: input.file,
-    audio,
+  const musicCache = musicsCache.value.find(m => m.id === input.id);
+  if (musicCache) {
+    music.value = musicCache as musicInterface;
+  } else {
+    const audio = new Audio() as HTMLAudioElement;
+    audio.currentTime = 0;
+    audio.preload = "auto";
+    audio.loop = true;
+    audio.src = `/src/assets/music/free/${input.file}.aac`;
+    audio.volume = 1 as number;
+
+    music.value = {
+      id: input.id,
+      file: input.file,
+      audio,
+    } as musicInterface;
+    addMusicsCache(music.value as musicInterface);
+  }
+}
+
+function addMusicsCache(input: musicInterface) {
+  musicsCache.value.push(input as musicInterface);
+}
+
+function stopAllMusicExcept(input: musicInterface) {
+  for (let index = 0; index < musicsCache.value.length; index++) {
+    if (musicsCache.value[index].id !== input.id) {
+      musicsCache.value[index].audio.pause();
+      musicsCache.value[index].audio.currentTime = 0 as number;
+    }
   };
 }
 
@@ -84,6 +104,7 @@ function fadeInMusic(input: musicInterface, duration: number) {
       clearInterval(fadeInMusicInterval);
       fadeInMusicInterval = 0 as number;
       input.audio.volume = 1 as number;
+      stopAllMusicExcept(input as musicInterface);
     }
   }, interval);
 }
@@ -104,7 +125,7 @@ export function toggleMusic() {
 }
 
 
-export async function changeMusicByLocation(fadeDuration: number = 250) {
+export async function changeMusicByLocation(fadeDuration: number = 800) {
   if (isMusicPlaying.value) {
 
     lastMusic.value = music.value as musicInterface;

@@ -3,6 +3,7 @@ import type { musicInterface } from './interface';
 
 export const music = ref({} as musicInterface);
 export const lastMusic = ref({} as musicInterface);
+export const musicsCache = ref([] as musicInterface[]);
 
 export const isMusicPlaying = ref(false as boolean);
 
