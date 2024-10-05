@@ -1,26 +1,27 @@
 <template>
   <div>
-    <div v-if="!isActive" class="vsk-bookmark-toast-container"
-      :style="`top: ${top}px; left: ${left}px; width: ${width}px; height: ${height}px;`">
+    <div v-if="currentCharacter" class="vsk-bookmark-toast-container"
+      :style="`top: ${currentCharacter.callBubble?.top}px; left: ${currentCharacter.callBubble?.left}px; width: ${currentCharacter.callBubble?.width}px; height: ${currentCharacter.callBubble?.height}px;`">
       <div class="vsk-bookmark-toast-arrow-container"
-        :style="`width: ${(width * 0.2 + 6) * 2}px; height: ${width * 0.4 + 6}px;`">
+        :style="`width: ${(currentCharacter.callBubble?.width * 0.2 + 6) * 2}px; height: ${currentCharacter.callBubble?.width * 0.4 + 6}px;`">
         <div class="vsk-bookmark-toast-arrow-border"
-          :style="`border-left: ${width * 0.2 + 6}px solid transparent; border-right: ${width * 0.2 + 6}px solid transparent; border-top: ${width * 0.4 + 6}px solid black;`">
+          :style="`border-left: ${currentCharacter.callBubble?.width * 0.2 + 6}px solid transparent; border-right: ${currentCharacter.callBubble?.width * 0.2 + 6}px solid transparent; border-top: ${currentCharacter.callBubble?.width * 0.4 + 6}px solid black;`">
         </div>
         <div class="vsk-bookmark-toast-arrow"
-          :style="`border-left: ${width * 0.2}px solid transparent; border-right: ${width * 0.2}px solid transparent; border-top: ${width * 0.4}px solid white;`">
+          :style="`border-left: ${currentCharacter.callBubble?.width * 0.2}px solid transparent; border-right: ${currentCharacter.callBubble?.width * 0.2}px solid transparent; border-top: ${currentCharacter.callBubble?.width * 0.4}px solid white;`">
         </div>
       </div>
-      <div class="vsk-bookmark-toast-content" v-if="!isNearby">
+      <div class="vsk-bookmark-toast-content" v-if="true">
         <span class="vsk-bookmark-toast-content-1"
-          :style="`line-height: ${height}px; font-size: ${height * 0.3}px;`">Hello
+          :style="`line-height: ${currentCharacter.callBubble?.height}px; font-size: ${currentCharacter.callBubble?.height * 0.3}px;`">Hello
           !!</span>
       </div>
       <div class="vsk-bookmark-toast-content" v-else>
         <span class="vsk-bookmark-toast-content-2"
-          :style="`line-height: ${height * 0.75}px; font-size: ${height * 0.2}px;`">Wanna Talk ?</span>
-        <v-btn variant="elevated" color="blue" prepend-icon="$vuetify" :style="`font-size: ${height * 0.075}px;`"
-          @click="handleDialog()">
+          :style="`line-height: ${currentCharacter.callBubble?.height * 0.75}px; font-size: ${currentCharacter.callBubble?.height * 0.2}px;`">Wanna
+          Talk ?</span>
+        <v-btn variant="elevated" color="blue" prepend-icon="$vuetify"
+          :style="`font-size: ${currentCharacter.callBubble?.height * 0.075}px;`" @click="handleDialog()">
           Yes
         </v-btn>
       </div>
@@ -32,38 +33,35 @@
 import { computed, watch } from 'vue';
 import { storeToRefs } from 'pinia'
 
-import { useEffectStore } from "@/stores/effect/index";
-import { useDialogStore } from "@/stores/dialog/index";
+// import { useEffectStore } from "@/stores/effect/index";
+// import { useDialogStore } from "@/stores/dialog/index";
+import { useCharacterStore } from "@/stores/character";
 
-const dialogStore = useDialogStore();
-const { isActive } = storeToRefs(dialogStore);
-const { setIsActive, setStepNumber } = useDialogStore();
+const characterStore = useCharacterStore();
+const { currentCharacter } = storeToRefs(characterStore);
 
-const { playEffect } = useEffectStore();
+// const dialogStore = useDialogStore();
+// const { isActive } = storeToRefs(dialogStore);
+// const { setIsActive, setStepNumber } = useDialogStore();
+// const { playEffect } = useEffectStore();
 
-const props = defineProps({
-  top: Number,
-  left: Number,
-  width: Number,
-  height: Number,
-})
 
 function handleDialog() {
-  setIsActive(true);
-  setStepNumber(0);
-  playEffect('patu');
+  // setIsActive(true);
+  // setStepNumber(0);
+  // playEffect('patu');
 }
 
 
-const isNearby = computed(() => {
-  return props.width >= 250 as boolean;
-})
+// const isNearby = computed(() => {
+//   return props.width >= 250 as boolean;
+// })
 
-watch(isNearby, value => {
-  if (value) {
-    playEffect('patu');
-  }
-});
+// watch(isNearby, value => {
+//   if (value) {
+//     playEffect('patu');
+//   }
+// });
 
 
 </script>

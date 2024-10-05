@@ -2,8 +2,9 @@
   <div class="container">
     <div id="webxp" class="ep-webxp" data-webxp-author="optitest" data-webxp-id="j8vvd53"></div>
 
-    <!-- <WebExperienceCharacterCall v-for="bookmarkToast in bookmarkToasts" :height="bookmarkToast.height"
-      :width="bookmarkToast.width" :top="bookmarkToast.top" :left="bookmarkToast.left" /> -->
+    <TransitionGroup name="fade-top" tag="div">
+      <WebExperienceCharacterCall v-if="currentCharacter && isDialogActive" />
+    </TransitionGroup>
 
     <TransitionGroup name="fade-top" tag="div">
       <WebExperienceCharacterDialog v-if="currentDialog && isDialogActive" />
@@ -15,7 +16,7 @@
 import { onMounted, watch } from "vue";
 import { useRoute } from 'vue-router';
 
-// import WebExperienceCharacterCall from "@/components/WebExperienceCharacterCall.vue";
+import WebExperienceCharacterCall from "@/components/WebExperienceCharacterCall.vue";
 import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
 
 import { useApi } from "./WebExperienceApi.js";
@@ -42,7 +43,8 @@ const { locations, locations_found, locationsName } = storeToRefs(locationStore)
 const { setCurrentLocation, onLocationFound } = locationStore;
 
 const characterStore = useCharacterStore();
-const { characters_found, charactersName } = storeToRefs(characterStore);
+const { currentCharacter, characters_found, charactersName } = storeToRefs(characterStore);
+const { emptyCurrentCharacter } = characterStore;
 
 const dialogStore = useDialogStore();
 const { currentDialog, isDialogActive } = storeToRefs(dialogStore);
@@ -77,8 +79,8 @@ onMounted(() => {
     EndlessPaper.onBookmarkNearby(
       {
         name: charactersName.value,
-        visibleBookmarkRatio: '> 0.25',
-        zoomFactor: '< 3.5',
+        visibleBookmarkRatio: '> 0.125',
+        zoomFactor: '< 5',
       },
       updateBookmarkHasCharacter
     );

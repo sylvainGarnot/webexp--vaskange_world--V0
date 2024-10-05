@@ -94,7 +94,11 @@ export function updateBookmarkHasCharacter(inputBookmarks: bookmarkInterface[]) 
   // STEP-B) SET CLOSEST NEARBY BOOKMARKS CHARACTER
   let nearByBookmarksCharacter = [] as bookmarkInterface[];
   for (let index = 0; index < inputBookmarks.length; index++) {
-    if (inputBookmarks[index]?.zoomFactor > 1) {
+    if (
+      inputBookmarks[index]?.intersectionInfo?.visibleBookmarkRatio > 0.25 &&
+      inputBookmarks[index]?.zoomFactor > 1 &&
+      inputBookmarks[index]?.zoomFactor < 3.5
+    ) {
       nearByBookmarksCharacter.push(inputBookmarks[index] as bookmarkInterface);
     }
   }
