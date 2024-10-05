@@ -34,13 +34,9 @@ import { storeToRefs } from 'pinia'
 import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
 
 import { useCharacterStore } from "@/stores/character";
-import { useDialogStore } from "@/stores/dialog";
 
 const characterStore = useCharacterStore();
 const { currentCharacter } = storeToRefs(characterStore);
-
-const dialogStore = useDialogStore();
-const { currentDialog, isDialogActive } = storeToRefs(dialogStore);
 
 const isActive = ref(true);
 

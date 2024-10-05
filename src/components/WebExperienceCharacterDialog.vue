@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, watch } from 'vue';
+import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useDialogStore } from "@/stores/dialog";
 import { useCharacterStore } from "@/stores/character";
@@ -49,18 +49,6 @@ const isAnswersActive = computed(() => {
   return dialogStepNumber.value + 1 >= currentDialog.value!.speech_written.length ? true : false;
 })
 
-
-// WATCH
-// watch(isActive, (newValue, oldValue) => {
-//   console.log('NONONN focus')
-//   if (newValue) {
-//     const d = document.getElementById("vsk-dialog");
-//     if (d) {
-//       d.focus();
-//       console.log('focus')
-//     }
-//   }
-// })
 
 
 // FUNCTION

@@ -36,7 +36,7 @@ const { locations, locations_found, locationsName } = storeToRefs(locationStore)
 const { setCurrentLocation, onLocationFound } = locationStore;
 
 const characterStore = useCharacterStore();
-const { currentCharacter, characters_found, charactersName } = storeToRefs(characterStore);
+const { characters_found, charactersName } = storeToRefs(characterStore);
 
 const dialogStore = useDialogStore();
 const { currentDialog, isDialogActive } = storeToRefs(dialogStore);
