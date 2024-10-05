@@ -25,4 +25,11 @@ export const characters = ref([
     dialog: '3',
     location: '1',
   },
+  {
+    id: '4',
+    name: 'shop 🖼️',
+    shape: 'shop',
+    dialog: '3',
+    location: '1',
+  },
 ] as characterInterface[]);

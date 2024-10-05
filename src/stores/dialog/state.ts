@@ -19,7 +19,7 @@ export const dialogs = ref([
       '222222 ab vero perferendis molestias ut dicta hic maxime',
       '222222 iste minus facilis nobis?'
     ],
-    item_provided: '0',
+    item_provided: '',
     answers: ['2','0'],
   },
   {
@@ -29,7 +29,7 @@ export const dialogs = ref([
       '333333 ab vero perferendis molestias ut dicta hic maxime',
       '333333 iste minus facilis nobis?'
     ],
-    item_provided: '1',
+    item_provided: '',
     answers: ['2','0'],
   },
 ] as dialogInterface[]);
