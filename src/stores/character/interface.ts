@@ -10,11 +10,11 @@ export interface characterFoundInterface extends characterInterface {
 }
 
 export interface currentCharacterInterface extends characterFoundInterface {
-  // callBubble: {
-  //   width: number,
-  //   height: number,
-  //   top: number,
-  //   left: number,
-  // },
+  callBubble: {
+    width: number,
+    height: number,
+    top: number,
+    left: number,
+  },
   screenAreaToBookmarkRatio: number,
 }

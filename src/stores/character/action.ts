@@ -1,7 +1,6 @@
 import { currentCharacter, characters_found } from './state';
 import type { currentCharacterInterface, characterFoundInterface, characterInterface } from './interface';
 import type { bookmarkInterface } from '../bookmark/interface';
-// import { useApi } from "../../components/WebExperienceApi.js";
 
 
 // PRIVATE
@@ -14,19 +13,19 @@ function addCharacterFound(input: characterFoundInterface) {
 export function setCurrentCharacter(inputCharacterFound: characterFoundInterface, inputBookmark: bookmarkInterface) {
   console.log('TEST - setCurrentCharacter', inputCharacterFound.name); // TEST
   
-  // screenSpacePosition missing
-  // const width = inputBookmark.screenSpacePosition.topRight.x - inputBookmark.screenSpacePosition.bottomLeft.x;
-  // const height = inputBookmark.screenSpacePosition.bottomLeft.y - inputBookmark.screenSpacePosition.topRight.y;
-  // const top = inputBookmark.screenSpacePosition.topRight.y;
-  // const left = inputBookmark.screenSpacePosition.bottomLeft.x;
-  // const callBubble = {
-  //   width: width * 0.5,
-  //   height: height*0.25,
-  //   left: left - width*0.25,
-  //   top: top + height*0.125,
-  // }
+  const width = inputBookmark.screenSpacePosition.topRight.x - inputBookmark.screenSpacePosition.bottomLeft.x;
+  const height = inputBookmark.screenSpacePosition.bottomLeft.y - inputBookmark.screenSpacePosition.topRight.y;
+  const top = inputBookmark.screenSpacePosition.topRight.y;
+  const left = inputBookmark.screenSpacePosition.bottomLeft.x;
+  const callBubble = {
+    width: width * 0.5,
+    height: height*0.25,
+    left: left - width*0.25,
+    top: top + height*0.125,
+  }
   const characterFound = {
     ...inputCharacterFound,
+    callBubble,
     screenAreaToBookmarkRatio: inputBookmark.intersectionInfo.screenAreaToBookmarkRatio,
   } as currentCharacterInterface;
 
