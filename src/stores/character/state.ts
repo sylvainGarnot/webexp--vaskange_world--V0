@@ -28,7 +28,6 @@ export const characters = ref([
   {
     id: '4',
     name: 'shop 🖼️',
-    shape: 'shop',
     dialog: '3',
     location: '1',
   },

@@ -3,4 +3,5 @@ export interface dialogInterface {
   speech_written: string[],
   item_provided: string,
   answers: string[],
+  type: string,
 }

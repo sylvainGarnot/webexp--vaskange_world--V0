@@ -5,7 +5,11 @@
     <WebExperienceCharacterCall v-if="currentDialog && isCallDialogActive && !isDialogActive" />
 
     <TransitionGroup name="fade-top" tag="div">
-      <WebExperienceCharacterDialog v-if="isDialogActive" />
+      <WebExperienceCharacterDialog v-if="isDialogActive && currentDialog?.type === 'default'" />
+    </TransitionGroup>
+
+    <TransitionGroup name="fade-top" tag="div">
+      <WebExperienceCharacterGift v-if="isDialogActive && currentDialog?.type === 'gift'" />
     </TransitionGroup>
   </div>
 </template>
@@ -16,6 +20,7 @@ import { useRoute } from 'vue-router';
 
 import WebExperienceCharacterCall from "@/components/WebExperienceCharacterCall.vue";
 import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
+import WebExperienceCharacterGift from "@/components/WebExperienceCharacterGift.vue";
 
 import { useApi } from "./WebExperienceApi.js";
 import { shapes } from "../assets/constants/shapes";
@@ -46,6 +51,7 @@ const { emptyCurrentCharacter } = characterStore;
 
 const dialogStore = useDialogStore();
 const { currentDialog, isDialogActive, isCallDialogActive } = storeToRefs(dialogStore);
+const { setIsDialogActive } = dialogStore;
 
 
 
@@ -126,6 +132,7 @@ function teleportTo(input: string) {
 
 function handleShapeClick(shape: any) {
   console.log('TEST shape', shape);
+  setIsDialogActive(true);
 }
 
 </script>
