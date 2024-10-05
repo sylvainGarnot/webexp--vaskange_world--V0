@@ -13,5 +13,4 @@ export const currentDialog = computed(() => {
 
 export const isDialogActive = computed(() => {
   return currentCharacter && currentCharacter.value;
-  // return currentCharacter && currentCharacter.value && currentCharacter.value.screenAreaToBookmarkRatio && currentCharacter.value.screenAreaToBookmarkRatio > 0.2;
 })

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="currentCharacter" class="vsk-bookmark-toast-container"
+    <div v-if="isActive" class="vsk-bookmark-toast-container" @click="handleCallDialog()"
       :style="`top: ${currentCharacter.callBubble?.top}px; left: ${currentCharacter.callBubble?.left}px; width: ${currentCharacter.callBubble?.width}px; height: ${currentCharacter.callBubble?.height}px;`">
       <div class="vsk-bookmark-toast-arrow-container"
         :style="`width: ${(currentCharacter.callBubble?.width * 0.2 + 6) * 2}px; height: ${currentCharacter.callBubble?.width * 0.4 + 6}px;`">
@@ -20,43 +20,33 @@
         </p>
       </div>
     </div>
+
+    <TransitionGroup name="fade-top" tag="div">
+      <WebExperienceCharacterDialog v-if="!isActive" />
+    </TransitionGroup>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { computed, watch } from 'vue';
+import { ref } from 'vue';
 import { storeToRefs } from 'pinia'
 
-// import { useEffectStore } from "@/stores/effect/index";
-// import { useDialogStore } from "@/stores/dialog/index";
+import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
+
 import { useCharacterStore } from "@/stores/character";
+import { useDialogStore } from "@/stores/dialog";
 
 const characterStore = useCharacterStore();
 const { currentCharacter } = storeToRefs(characterStore);
 
-// const dialogStore = useDialogStore();
-// const { isActive } = storeToRefs(dialogStore);
-// const { setIsActive, setStepNumber } = useDialogStore();
-// const { playEffect } = useEffectStore();
+const dialogStore = useDialogStore();
+const { currentDialog, isDialogActive } = storeToRefs(dialogStore);
 
+const isActive = ref(true);
 
-function handleDialog() {
-  // setIsActive(true);
-  // setStepNumber(0);
-  // playEffect('patu');
+function handleCallDialog() {
+  isActive.value = false;
 }
-
-
-// const isNearby = computed(() => {
-//   return props.width >= 250 as boolean;
-// })
-
-// watch(isNearby, value => {
-//   if (value) {
-//     playEffect('patu');
-//   }
-// });
-
 
 </script>
 

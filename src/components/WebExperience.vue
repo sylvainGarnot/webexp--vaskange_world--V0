@@ -3,10 +3,6 @@
     <div id="webxp" class="ep-webxp" data-webxp-author="optitest" data-webxp-id="j8vvd53"></div>
 
     <WebExperienceCharacterCall v-if="currentDialog && isDialogActive" />
-
-    <TransitionGroup name="fade-top" tag="div">
-      <WebExperienceCharacterDialog v-if="currentDialog && isDialogActive" />
-    </TransitionGroup>
   </div>
 </template>
 
@@ -15,7 +11,6 @@ import { onMounted, watch } from "vue";
 import { useRoute } from 'vue-router';
 
 import WebExperienceCharacterCall from "@/components/WebExperienceCharacterCall.vue";
-import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
 
 import { useApi } from "./WebExperienceApi.js";
 import { shapes } from "../assets/constants/shapes";
