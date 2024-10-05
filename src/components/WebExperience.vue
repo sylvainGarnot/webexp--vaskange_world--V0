@@ -2,9 +2,7 @@
   <div class="container">
     <div id="webxp" class="ep-webxp" data-webxp-author="optitest" data-webxp-id="j8vvd53"></div>
 
-    <TransitionGroup name="fade-top" tag="div">
-      <WebExperienceCharacterCall v-if="currentCharacter && isDialogActive" />
-    </TransitionGroup>
+    <WebExperienceCharacterCall v-if="currentDialog && isDialogActive" />
 
     <TransitionGroup name="fade-top" tag="div">
       <WebExperienceCharacterDialog v-if="currentDialog && isDialogActive" />

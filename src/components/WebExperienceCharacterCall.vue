@@ -11,19 +11,13 @@
           :style="`border-left: ${currentCharacter.callBubble?.width * 0.2}px solid transparent; border-right: ${currentCharacter.callBubble?.width * 0.2}px solid transparent; border-top: ${currentCharacter.callBubble?.width * 0.4}px solid white;`">
         </div>
       </div>
-      <div class="vsk-bookmark-toast-content" v-if="true">
-        <span class="vsk-bookmark-toast-content-1"
-          :style="`line-height: ${currentCharacter.callBubble?.height}px; font-size: ${currentCharacter.callBubble?.height * 0.3}px;`">Hello
-          !!</span>
-      </div>
-      <div class="vsk-bookmark-toast-content" v-else>
-        <span class="vsk-bookmark-toast-content-2"
-          :style="`line-height: ${currentCharacter.callBubble?.height * 0.75}px; font-size: ${currentCharacter.callBubble?.height * 0.2}px;`">Wanna
-          Talk ?</span>
-        <v-btn variant="elevated" color="blue" prepend-icon="$vuetify"
-          :style="`font-size: ${currentCharacter.callBubble?.height * 0.075}px;`" @click="handleDialog()">
-          Yes
-        </v-btn>
+      <div class="vsk-bookmark-toast-content">
+        <p
+          :style="`line-height: ${currentCharacter.callBubble?.height}px; font-size: ${currentCharacter.callBubble?.height * 0.3}px; padding-right: ${currentCharacter.callBubble?.height * 0.1}px;`">
+          Hey
+          <span :style="`margin-left: ${currentCharacter.callBubble?.height * 0.1}px;`">
+            !!</span>
+        </p>
       </div>
     </div>
   </div>
@@ -73,6 +67,7 @@ function handleDialog() {
 .vsk-bookmark-toast-arrow,
 .vsk-bookmark-toast-content {
   position: absolute;
+  cursor: pointer;
 }
 
 .vsk-bookmark-toast-container {
@@ -83,9 +78,6 @@ function handleDialog() {
     right: -15%;
     top: 65%;
     transform: rotate(-40deg);
-    // border: solid 1px green; // TEST
-
-    .vsk-bookmark-toast-arrow-border {}
 
     .vsk-bookmark-toast-arrow {
       top: 3px;
@@ -104,6 +96,11 @@ function handleDialog() {
       top: -10%;
       width: 35%;
       height: 20%;
+    }
+
+    span {
+      position: absolute;
+      animation: bounce 2s ease infinite;
     }
   }
 }

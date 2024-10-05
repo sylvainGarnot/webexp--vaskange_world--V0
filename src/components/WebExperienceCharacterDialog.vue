@@ -132,23 +132,4 @@ function handleNextDialog() {
     }
   }
 }
-
-@keyframes bounce {
-
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateX(-50%) translateY(0);
-  }
-
-  40% {
-    transform: translateX(-50%) translateY(-20px);
-  }
-
-  60% {
-    transform: translateX(-50%) translateY(-10px);
-  }
-}
 </style>
