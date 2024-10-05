@@ -44,7 +44,6 @@ const { setCurrentLocation, onLocationFound } = locationStore;
 
 const characterStore = useCharacterStore();
 const { currentCharacter, characters_found, charactersName } = storeToRefs(characterStore);
-const { emptyCurrentCharacter } = characterStore;
 
 const dialogStore = useDialogStore();
 const { currentDialog, isDialogActive } = storeToRefs(dialogStore);
@@ -79,8 +78,8 @@ onMounted(() => {
     EndlessPaper.onBookmarkNearby(
       {
         name: charactersName.value,
-        visibleBookmarkRatio: '> 0.125',
-        zoomFactor: '< 5',
+        visibleBookmarkRatio: '>= 0.25',
+        zoomFactor: '<= 6',
       },
       updateBookmarkHasCharacter
     );
