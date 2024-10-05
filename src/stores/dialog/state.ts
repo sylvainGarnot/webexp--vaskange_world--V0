@@ -1,6 +1,8 @@
 import { ref } from 'vue';
 import type { dialogInterface } from './interface';
 
+export const isDialogActive = ref(false as boolean);
+
 export const dialogs = ref([
   {
     id: '1',

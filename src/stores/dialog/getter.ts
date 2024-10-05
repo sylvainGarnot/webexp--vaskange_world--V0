@@ -11,6 +11,6 @@ export const currentDialog = computed(() => {
   return null;
 })
 
-export const isDialogActive = computed(() => {
-  return currentCharacter && currentCharacter.value;
+export const isCallDialogActive = computed(() => {
+  return (currentCharacter && currentCharacter.value && currentCharacter.value.name) ? true : false;
 })

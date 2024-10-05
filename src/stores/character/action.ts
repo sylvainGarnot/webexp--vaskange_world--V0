@@ -2,6 +2,8 @@ import { currentCharacter, characters_found } from './state';
 import type { currentCharacterInterface, characterFoundInterface, characterInterface } from './interface';
 import type { bookmarkInterface } from '../bookmark/interface';
 
+import { setIsDialogActive } from '../dialog/action';
+
 
 // PRIVATE
 function addCharacterFound(input: characterFoundInterface) {
@@ -30,11 +32,13 @@ export function setCurrentCharacter(inputCharacterFound: characterFoundInterface
   } as currentCharacterInterface;
 
   currentCharacter.value = characterFound as currentCharacterInterface;
+  setIsDialogActive(false);
 };
 
 export function emptyCurrentCharacter() {
   // console.log('TEST - emptyCurrentCharacter'); // TEST
   currentCharacter.value = {} as currentCharacterInterface;
+  setIsDialogActive(false);
 }
 
 export function onCharacterFound(inputCharacter: characterInterface, inputBookmark: bookmarkInterface) {

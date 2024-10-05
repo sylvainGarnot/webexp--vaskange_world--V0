@@ -2,7 +2,11 @@
   <div class="container">
     <div id="webxp" class="ep-webxp" data-webxp-author="optitest" data-webxp-id="j8vvd53"></div>
 
-    <WebExperienceCharacterCall v-if="currentDialog && isDialogActive" />
+    <WebExperienceCharacterCall v-if="currentDialog && isCallDialogActive && !isDialogActive" />
+
+    <TransitionGroup name="fade-top" tag="div">
+      <WebExperienceCharacterDialog v-if="isDialogActive" />
+    </TransitionGroup>
   </div>
 </template>
 
@@ -11,6 +15,7 @@ import { onMounted, watch } from "vue";
 import { useRoute } from 'vue-router';
 
 import WebExperienceCharacterCall from "@/components/WebExperienceCharacterCall.vue";
+import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
 
 import { useApi } from "./WebExperienceApi.js";
 import { shapes } from "../assets/constants/shapes";
@@ -37,9 +42,10 @@ const { setCurrentLocation, onLocationFound } = locationStore;
 
 const characterStore = useCharacterStore();
 const { characters_found, charactersName } = storeToRefs(characterStore);
+const { emptyCurrentCharacter } = characterStore;
 
 const dialogStore = useDialogStore();
-const { currentDialog, isDialogActive } = storeToRefs(dialogStore);
+const { currentDialog, isDialogActive, isCallDialogActive } = storeToRefs(dialogStore);
 
 
 
@@ -100,6 +106,7 @@ function teleportTo(input: string) {
     if (locationFound) {
       EndlessPaper.visitBookmark(input as string);
       setCurrentLocation(locationFound as locationFoundInterface);
+      emptyCurrentCharacter();
     } else {
       console.log('Location not found yet')
     }

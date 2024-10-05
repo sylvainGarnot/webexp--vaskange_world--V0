@@ -3,7 +3,7 @@
     <div class="vsk-dialog-npc">
       <span class="vsk-dialog-npc-author">{{ currentCharacter!.name }}</span>
       <p class="vsk-dialog-npc-dialog">
-        {{ currentDialog!.speech_written[dialogStepNumber] }}
+        {{ currentDialog?.speech_written[dialogStepNumber] }}
       </p>
       <v-icon v-if="!isAnswersActive" class="vsk-dialog-npc-next-icon" icon="$vuetify"
         @click="handleNextDialog()"></v-icon>
@@ -43,10 +43,10 @@ const dialogStepNumber = ref(0);
 
 // COMPUTED
 const isActive = computed(() => {
-  return dialogStepNumber.value !== -1 ? true : false;
+  return dialogStepNumber.value !== -1;
 })
 const isAnswersActive = computed(() => {
-  return dialogStepNumber.value + 1 >= currentDialog.value!.speech_written.length ? true : false;
+  return currentDialog.value && dialogStepNumber.value + 1 >= currentDialog.value.speech_written!.length;
 })
 
 
@@ -67,7 +67,7 @@ function handleAccepted() {
 }
 
 function handleNextDialog() {
-  if (dialogStepNumber.value + 1 < currentDialog.value!.speech_written.length) {
+  if (currentDialog.value && dialogStepNumber.value + 1 < currentDialog.value.speech_written!.length) {
     dialogStepNumber.value++
   }
 }

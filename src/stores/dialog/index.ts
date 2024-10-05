@@ -1,12 +1,19 @@
 import { defineStore } from "pinia";
 import { readonly } from 'vue';
 
-import { currentDialog, isDialogActive } from './getter';
+import { isDialogActive } from './state';
+import { currentDialog, isCallDialogActive } from './getter';
+import { setIsDialogActive } from './action';
+
 
 export const useDialogStore = defineStore("Dialog", () => {
 
   return {
-    currentDialog: readonly(currentDialog),
     isDialogActive: readonly(isDialogActive),
+
+    currentDialog: readonly(currentDialog),
+    isCallDialogActive: readonly(isCallDialogActive),
+
+    setIsDialogActive
   }
 });
