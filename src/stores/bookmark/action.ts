@@ -4,12 +4,10 @@ import type { bookmarkInterface } from './interface';
 import { currentLocation, locations, locations_found } from '../location/state';
 import { onLocationFound, setCurrentLocation } from '../location/action';
 import type { locationInterface, locationFoundInterface } from '../location/interface';
-import { locationsName } from '../location/getter';
 
 import { characters, characters_found } from '../character/state';
 import { onCharacterFound, setCurrentCharacter, emptyCurrentCharacter } from '../character/action';
 import type { characterInterface, characterFoundInterface } from '../character/interface';
-import { charactersName } from '../character/getter';
 
 
 // PRIVATE
@@ -25,44 +23,22 @@ function setZoomIn(input: boolean) {
 
 
 // EXPORT
-export function updateBookmark(inputBookmarks: bookmarkInterface[]) {
-
-
+export function updateBookmarkHasLocation(inputBookmarks: bookmarkInterface[]) {
+  // TEST
   // const test = inputBookmarks.find(b => b.name === "prairie 🌳") as bookmarkInterface; // TEST
   // const test = inputBookmarks.find(b => b.name === "vac-mer 🏝️") as bookmarkInterface; // TEST
-  // const test = inputBookmarks.find(b => b.name === "jump-q1") as bookmarkInterface; // TEST
-  // console.log('TEST bookmarks v/s/z', test?.intersectionInfo?.visibleBookmarkRatio, test?.intersectionInfo?.screenAreaToBookmarkRatio, test?.zoomFactor);
+  // console.log('TEST Bookmark Location bookmarks v/s/z', test?.intersectionInfo?.visibleBookmarkRatio, test?.intersectionInfo?.screenAreaToBookmarkRatio, test?.zoomFactor);
+  // console.log('TEST Bookmark Location', inputBookmarks);
 
-  
-  
-  // STEP-0) Filter Bookmarks by charactersName & LocationsName
-  const bookmarksLocation = [] as bookmarkInterface[];
-  const bookmarksCharacter = [] as bookmarkInterface[];
-  for (let index = 0; index < inputBookmarks.length; index++) {
-    if (locationsName.value.includes(inputBookmarks[index].name)) {
-      bookmarksLocation.push(inputBookmarks[index]);
-    } else if (charactersName.value.includes(inputBookmarks[index].name)) {
-      bookmarksCharacter.push(inputBookmarks[index]);
-    }
-  }
-
-
-  
   // STEP-A) SET INNER BOOKMARKS LOCATION
   let innerBookmarksLocation = [] as bookmarkInterface[];
-  for (let index = 0; index < bookmarksLocation.length; index++) {
-    if (
-      bookmarksLocation[index]?.intersectionInfo?.visibleBookmarkRatio > 0.02 &&
-      bookmarksLocation[index]?.zoomFactor > 0.8 &&
-      bookmarksLocation[index]?.zoomFactor < 3.5
-    ) {
-      innerBookmarksLocation.push(bookmarksLocation[index] as bookmarkInterface);
+  for (let index = 0; index < inputBookmarks.length; index++) {
+    if (inputBookmarks[index]?.zoomFactor > 0.8) {
+      innerBookmarksLocation.push(inputBookmarks[index] as bookmarkInterface);
     }
   }
   innerBookmarksLocation = innerBookmarksLocation.sort((a, b) => b.zoomFactor - a.zoomFactor);
   const closestInnerBookmarkLocation = innerBookmarksLocation[0] as bookmarkInterface;
-
-  
 
   // STEP-A.1) SET ZOOMIN
   if (closestInnerBookmarkLocation?.zoomFactor) {
@@ -75,11 +51,9 @@ export function updateBookmark(inputBookmarks: bookmarkInterface[]) {
     }
     setCurrentBookmark(closestInnerBookmarkLocation as bookmarkInterface);
   }
-
   
-
   // STEP-A.2) Zoom in/out Location
-  if (closestInnerBookmarkLocation?.intersectionInfo?.screenAreaToBookmarkRatio > 0.2) {
+  if (closestInnerBookmarkLocation?.intersectionInfo?.visibleBookmarkRatio > 0.02) {
     if (zoomIn?.value && isZoomStarted.value) {
       if (closestInnerBookmarkLocation?.name !== currentLocation?.value?.name) {
 
@@ -109,24 +83,23 @@ export function updateBookmark(inputBookmarks: bookmarkInterface[]) {
       }
     }
   }
+}
 
-  
+
+export function updateBookmarkHasCharacter(inputBookmarks: bookmarkInterface[]) {
+  // TEST
+  // console.log('TEST Bookmark Character bookmarks v/s/z', test?.intersectionInfo?.visibleBookmarkRatio, test?.intersectionInfo?.screenAreaToBookmarkRatio, test?.zoomFactor);
+  // console.log('TEST Bookmark Character', inputBookmarks);
   
   // STEP-B) SET CLOSEST NEARBY BOOKMARKS CHARACTER
   let nearByBookmarksCharacter = [] as bookmarkInterface[];
-  for (let index = 0; index < bookmarksCharacter.length; index++) {
-    if (
-      bookmarksCharacter[index]?.intersectionInfo?.visibleBookmarkRatio > 0.25 &&
-      bookmarksCharacter[index]?.zoomFactor > 1 &&
-      bookmarksCharacter[index]?.zoomFactor < 3.5
-    ) {
-      nearByBookmarksCharacter.push(bookmarksCharacter[index] as bookmarkInterface);
+  for (let index = 0; index < inputBookmarks.length; index++) {
+    if (inputBookmarks[index]?.zoomFactor > 1) {
+      nearByBookmarksCharacter.push(inputBookmarks[index] as bookmarkInterface);
     }
   }
   nearByBookmarksCharacter = nearByBookmarksCharacter.sort((a, b) => b.zoomFactor - a.zoomFactor);
   const closestNearByBookmarkCharacter = nearByBookmarksCharacter[0] as bookmarkInterface;
-
-  
 
   // STEP-B.1) SET CHARACTER
   if (closestNearByBookmarkCharacter) {
@@ -137,8 +110,6 @@ export function updateBookmark(inputBookmarks: bookmarkInterface[]) {
   } else {
     emptyCurrentCharacter();
   }
-
-
 
   // STEP-B.2) Zoom in Character
   if (closestNearByBookmarkCharacter) {
@@ -152,6 +123,4 @@ export function updateBookmark(inputBookmarks: bookmarkInterface[]) {
       }
     }
   }
-
-
 }

@@ -1,15 +1,15 @@
 import { onMounted } from "vue";
 
 export function useApi() {
-  var t =
+  var y =
     "function" == typeof Object.defineProperties
       ? Object.defineProperty
-      : function (d, g, c) {
+      : function (d, h, c) {
           if (d == Array.prototype || d == Object.prototype) return d;
-          d[g] = c.value;
+          d[h] = c.value;
           return d;
         };
-  function u(d) {
+  function B(d) {
     d = [
       "object" == typeof globalThis && globalThis,
       d,
@@ -17,54 +17,63 @@ export function useApi() {
       "object" == typeof self && self,
       "object" == typeof global && global,
     ];
-    for (var g = 0; g < d.length; ++g) {
-      var c = d[g];
+    for (var h = 0; h < d.length; ++h) {
+      var c = d[h];
       if (c && c.Math == Math) return c;
     }
     throw Error("Cannot find global object");
   }
-  var v = u(this);
-  function w(d, g) {
-    if (g)
+  var C = B(this);
+  function D(d, h) {
+    if (h)
       a: {
-        var c = v;
+        var c = C;
         d = d.split(".");
-        for (var h = 0; h < d.length - 1; h++) {
-          var l = d[h];
+        for (var k = 0; k < d.length - 1; k++) {
+          var l = d[k];
           if (!(l in c)) break a;
           c = c[l];
         }
         d = d[d.length - 1];
-        h = c[d];
-        g = g(h);
-        g != h &&
-          null != g &&
-          t(c, d, { configurable: !0, writable: !0, value: g });
+        k = c[d];
+        h = h(k);
+        h != k &&
+          null != h &&
+          y(c, d, { configurable: !0, writable: !0, value: h });
       }
   }
-  w("Array.prototype.includes", function (d) {
+  D("Array.prototype.includes", function (d) {
     return d
       ? d
-      : function (g, c) {
-          var h = this;
-          h instanceof String && (h = String(h));
-          var l = h.length;
+      : function (h, c) {
+          var k = this;
+          k instanceof String && (k = String(k));
+          var l = k.length;
           c = c || 0;
           for (0 > c && (c = Math.max(c + l, 0)); c < l; c++) {
-            var n = h[c];
-            if (n === g || Object.is(n, g)) return !0;
+            var q = k[c];
+            if (q === h || Object.is(q, h)) return !0;
           }
           return !1;
         };
   });
+  D("String.prototype.trimLeft", function (d) {
+    function h() {
+      return this.replace(/^[\s\xa0]+/, "");
+    }
+    return d || h;
+  });
+  D("String.prototype.trimStart", function (d) {
+    return d || String.prototype.trimLeft;
+  });
   const EndlessPaper = (function () {
     function d(a, b, ...f) {
-      let k = {};
-      k.fct = b;
-      k.data = f;
-      a.contentWindow.postMessage(k, "*");
+      let g = {};
+      g.fct = b;
+      g.data = f;
+      a.contentWindow.postMessage(g, "*");
     }
-    function g(a, b) {
+    function h(a, b) {
       a = e.h.get(a);
       void 0 !== a &&
         a.includes(b) &&
@@ -84,7 +93,7 @@ export function useApi() {
       console.error("EndlessPaper: invalid iframe provided");
       return null;
     }
-    function h() {
+    function k() {
       let a = document.getElementsByClassName("ep-webxp");
       return 0 === a.length
         ? (console.error("EndlessPaper: no WebXP exists"), null)
@@ -95,19 +104,91 @@ export function useApi() {
             null)
           : a[0].children.item(0);
     }
-    const l =
+    function l(a) {
+      function b(p, r) {
+        if (void 0 == p || "function" != typeof p[Symbol.iterator])
+          console.error("EndlessPaper.onBookmarkNearby: invalid criterias");
+        else {
+          p = [...p];
+          for (let z of p)
+            if ("string" != typeof z) {
+              console.error(
+                "EndlessPaper.onBookmarkNearby: invalid bookmark names"
+              );
+              return;
+            }
+          r.names = p;
+        }
+      }
+      function f(p, r, z) {
+        var n = r[p];
+        if (void 0 == n) return !1;
+        if ("string" != typeof n)
+          return (
+            console.error("EndlessPaper.onBookmarkNearby: invalid comparison"),
+            !0
+          );
+        n = n.trimStart();
+        r = null;
+        let w = 0;
+        ">" == n[0]
+          ? "=" == n[1]
+            ? ((r = ">="), (w = 2))
+            : ((r = ">"), (w = 1))
+          : "<" == n[0]
+            ? "=" == n[1]
+              ? ((r = "<="), (w = 2))
+              : ((r = "<"), (w = 1))
+            : "=" == n[0] && "=" == n[1] && ((r = "=="), (w = 2));
+        if (null == n)
+          return (
+            console.error(
+              "EndlessPaper.onBookmarkNearby: invalid comparison operator"
+            ),
+            !0
+          );
+        n = Number.parseFloat(n.slice(w));
+        if (Number.isNaN(n))
+          return (
+            console.error(
+              "EndlessPaper.onBookmarkNearby: invalid comparison value"
+            ),
+            !0
+          );
+        z[p] = { op: r, value: n };
+        return !1;
+      }
+      let g = {};
+      if ("function" == typeof a[Symbol.iterator]) b(a, g);
+      else if ("object" == typeof a) {
+        if (
+          (b(a.name, g),
+          f("zoomFactor", a, g) ||
+            f("visibleBookmarkRatio", a, g) ||
+            f("screenAreaToBookmarkRatio", a, g))
+        )
+          return null;
+      } else
+        return (
+          console.error("EndlessPaper.onBookmarkNearby: invalid criterias"),
+          null
+        );
+      return g;
+    }
+    const q =
       /iPad|iPhone|iPod/.test(navigator.userAgent) ||
       (/Mac/.test(navigator.userAgent) &&
         navigator.maxTouchPoints &&
         2 < navigator.maxTouchPoints);
-    let n = new Map(),
-      q = new Map(),
-      p = new Map(),
+    let u = new Map(),
+      v = new Map(),
+      t = new Map(),
       m = [],
-      r = new Map(),
-      e = { j: [] };
+      x = new Map(),
+      A = !1,
+      e = { l: [] };
     e.h = new Map();
-    e.i = new Map();
+    e.j = new Map();
     e.g = null;
     e.EP_FUNCTIONS = {
       receiveNonAvailableFeatures: function (a, b) {
@@ -121,23 +202,30 @@ export function useApi() {
                 "' are unavailable. Your WebXP script needs to be updated. Please contact support."
             ));
       },
-      onBookmarkNearby: function (a, b) {
+      onBookmarkNearby: function (a, b, f) {
         a = c(a);
-        if (null != a && ((a = n.get(a)), void 0 !== a))
-          for (const f of a) f(b);
+        if (null != a && ((a = u.get(a)), void 0 !== a)) {
+          void 0 !== f ||
+            A ||
+            (console.warn(
+              "EndlessPaper: your WebXP is using an older version, nearby bookmarks filtering is not supported. Your WebXP script needs to be updated. Please contact support."
+            ),
+            (A = !0));
+          for (const g of a) void 0 === f ? g.i(b) : f === g.id && g.i(b);
+        }
       },
       onShapeEvent: function (a, b, f) {
         a = c(a);
-        if (null != a && ((a = q.get(a)), void 0 !== a && !(a.length <= b)))
+        if (null != a && ((a = v.get(a)), void 0 !== a && !(a.length <= b)))
           a[b](f);
       },
       receiveViewportAnchor: function (a, b) {
         a = c(a);
         if (null != a) {
-          var f = p.get(a);
+          var f = t.get(a);
           if (void 0 !== f) {
-            for (const k of f) k(b);
-            p.delete(a);
+            for (const g of f) g(b);
+            t.delete(a);
           }
         }
       },
@@ -145,7 +233,7 @@ export function useApi() {
         a = c(a);
         if (null != a) {
           var b,
-            f = null != (b = e.i.get(a)) ? b : a.parentElement;
+            f = null != (b = e.j.get(a)) ? b : a.parentElement;
           document.fullscreenElement
             ? (document.exitFullscreen(), (e.g = null))
             : void 0 !== f.requestFullscreen
@@ -167,16 +255,16 @@ export function useApi() {
       receiveLogoSize: function (a, b) {
         a = c(a);
         if (null != a) {
-          var f = r.get(a);
+          var f = x.get(a);
           if (void 0 !== f) {
-            for (const k of f) k(b);
-            r.delete(a);
+            for (const g of f) g(b);
+            x.delete(a);
           }
         }
       },
     };
     e.toggleClassIfOnIOS = function (a, b, f) {
-      a.classList.toggle(l ? b : f);
+      a.classList.toggle(q ? b : f);
     };
     e.getId = function (a, b) {
       return "ep-webxp-" + a + "-" + b;
@@ -185,11 +273,11 @@ export function useApi() {
       return document.getElementById(e.getId(a, b));
     };
     e.fixIOSTouchEvent = function (a) {
-      l && a && a.contentWindow && a.addEventListener("touchstart", {});
+      q && a && a.contentWindow && a.addEventListener("touchstart", {});
     };
     e.onLoad = function (a) {
       a && "function" == typeof a
-        ? e.j.push(a)
+        ? e.l.push(a)
         : console.error("EndlessPaper.onLoad: invalid callback");
     };
     e.onReady = function (a) {
@@ -200,7 +288,7 @@ export function useApi() {
     e.visitBookmark = function (...a) {
       let b, f;
       if (1 === a.length) {
-        if (((b = h()), (f = a[0]), !b)) return;
+        if (((b = k()), (f = a[0]), !b)) return;
       } else if (2 === a.length) {
         if (((f = a[0]), (b = c(a[1])), !b)) return;
       } else if (3 === a.length) (f = a[0]), (b = e.getIframe(a[1], a[2]));
@@ -210,32 +298,49 @@ export function useApi() {
       }
       f && "string" == typeof f
         ? b && b.contentWindow
-          ? (g(b, "visitBookmark"), d(b, "visitBookmark", f))
+          ? (h(b, "visitBookmark"), d(b, "visitBookmark", f))
           : console.error("EndlessPaper.visitBookmark: invalid WebXP")
         : console.error("EndlessPaper.visitBookmark: invalid bookmark");
     };
     e.onBookmarkNearby = function (...a) {
       let b, f;
-      if (1 == a.length) (b = h()), (f = a[0]);
-      else if (2 == a.length) (f = a[0]), (b = c(a[1]));
-      else if (3 === a.length) (f = a[0]), (b = e.getIframe(a[1], a[2]));
+      var g = null;
+      if (1 == a.length) (b = k()), (f = a[0]);
+      else if (2 == a.length)
+        "function" == typeof a[0]
+          ? ((f = a[0]), (b = c(a[1])))
+          : ((b = k()), (g = a[0]), (f = a[1]));
+      else if (3 === a.length)
+        "function" == typeof a[0]
+          ? ((f = a[0]), (b = e.getIframe(a[1], a[2])))
+          : ((g = a[0]), (f = a[1]), (b = c(a[2])));
+      else if (4 == a.length)
+        (g = a[0]), (f = a[1]), (b = e.getIframe(a[2], a[3]));
       else {
         console.error("EndlessPaper.onBookmarkNearby: invalid args");
         return;
       }
-      f && "function" == typeof f
-        ? b && b.contentWindow
-          ? (g(b, "onBookmarkNearby"),
-            (a = n.get(b)),
-            void 0 == a && (a = []),
-            a.push(f),
-            n.set(b, a))
-          : console.error("EndlessPaper.onBookmarkNearby: invalid WebXP")
-        : console.error("EndlessPaper.onBookmarkNearby: invalid callback");
+      if (f && "function" == typeof f)
+        if (b && b.contentWindow) {
+          h(b, "onBookmarkNearby");
+          a = void 0;
+          if (
+            null != g &&
+            (h(b, "nearbyBookmarkFiltering"), (a = l(g)), null == a)
+          )
+            return;
+          g = u.get(b);
+          void 0 == g && (g = []);
+          var p = g.length;
+          g.push({ id: p, i: f });
+          u.set(b, g);
+          d(b, "nearbyBookmarkRequest", p, a);
+        } else console.error("EndlessPaper.onBookmarkNearby: invalid WebXP");
+      else console.error("EndlessPaper.onBookmarkNearby: invalid callback");
     };
     e.setBookmarks = function (...a) {
       let b;
-      if (1 == a.length) (b = a[0]), (a = h());
+      if (1 == a.length) (b = a[0]), (a = k());
       else if (2 == a.length) (b = a[0]), (a = c(a[1]));
       else if (3 === a.length) (b = a[0]), (a = e.getIframe(a[1], a[2]));
       else {
@@ -243,12 +348,12 @@ export function useApi() {
         return;
       }
       Array.isArray(b)
-        ? (g(a, "setBookmarks"), d(a, "setBookmarks", b))
+        ? (h(a, "setBookmarks"), d(a, "setBookmarks", b))
         : console.error("EndlessPaper.setBookmarks: invalid args");
     };
     e.addShapeEventListener = function (...a) {
       let b, f;
-      if (2 == a.length) (b = a[0]), (f = a[1]), (a = h());
+      if (2 == a.length) (b = a[0]), (f = a[1]), (a = k());
       else if (3 == a.length) (b = a[0]), (f = a[1]), (a = c(a[2]));
       else if (4 === a.length)
         (b = a[0]), (f = a[1]), (a = e.getIframe(a[2], a[3]));
@@ -259,13 +364,13 @@ export function useApi() {
       if (a && a.contentWindow)
         if (f && "function" == typeof f)
           if (b && "string" === typeof b) {
-            g(a, "addShapeEventListener");
-            var k = q.get(a);
-            void 0 == k && (k = []);
-            var x = k.length;
-            k.push(f);
-            q.set(a, k);
-            d(a, "addShapeEventListener", x, b);
+            h(a, "addShapeEventListener");
+            var g = v.get(a);
+            void 0 == g && (g = []);
+            var p = g.length;
+            g.push(f);
+            v.set(a, g);
+            d(a, "addShapeEventListener", p, b);
           } else
             console.error(
               "EndlessPaper.addShapeEventListener: invalid eventType"
@@ -276,7 +381,7 @@ export function useApi() {
     };
     e.setShapes = function (...a) {
       let b;
-      if (1 == a.length) (b = a[0]), (a = h());
+      if (1 == a.length) (b = a[0]), (a = k());
       else if (2 == a.length) (b = a[0]), (a = c(a[1]));
       else if (3 === a.length) (b = a[0]), (a = e.getIframe(a[1], a[2]));
       else {
@@ -284,12 +389,12 @@ export function useApi() {
         return;
       }
       Array.isArray(b)
-        ? (g(a, "setShapes"), d(a, "setShapes", b))
+        ? (h(a, "setShapes"), d(a, "setShapes", b))
         : console.error("EndlessPaper.setShapes: invalid args");
     };
     e.showTravelButtons = function (...a) {
       let b;
-      if (1 == a.length) (b = a[0]), (a = h());
+      if (1 == a.length) (b = a[0]), (a = k());
       else if (2 == a.length) (b = a[0]), (a = c(a[1]));
       else if (3 === a.length) (b = a[0]), (a = e.getIframe(a[1], a[2]));
       else {
@@ -298,11 +403,11 @@ export function useApi() {
       }
       void 0 === b || "boolean" !== typeof b
         ? console.error("EndlessPaper.showTravelButtons: invalid args")
-        : (g(a, "showTravelButtons"), d(a, "showTravelButtons", b));
+        : (h(a, "showTravelButtons"), d(a, "showTravelButtons", b));
     };
     e.showNavBar = function (...a) {
       let b;
-      if (1 == a.length) (b = a[0]), (a = h());
+      if (1 == a.length) (b = a[0]), (a = k());
       else if (2 == a.length) (b = a[0]), (a = c(a[1]));
       else if (3 === a.length) (b = a[0]), (a = e.getIframe(a[1], a[2]));
       else {
@@ -311,23 +416,23 @@ export function useApi() {
       }
       void 0 === b || "boolean" !== typeof b
         ? console.error("EndlessPaper.showNavBar: invalid args")
-        : (g(a, "showNavBar"), d(a, "showNavBar", b));
+        : (h(a, "showNavBar"), d(a, "showNavBar", b));
     };
     e.getViewportAnchor = function (...a) {
       let b;
-      if (0 == a.length) b = h();
+      if (0 == a.length) b = k();
       else if (1 == a.length) b = c(a[0]);
       else if (2 === a.length) b = e.getIframe(a[0], a[1]);
       else {
         console.error("EndlessPaper.getViewportAnchor: invalid args");
         return;
       }
-      g(b, "getViewportAnchor");
+      h(b, "getViewportAnchor");
       return new Promise((f) => {
-        let k = p.get(b);
-        void 0 == k && (k = []);
-        k.push(f);
-        p.set(b, k);
+        let g = t.get(b);
+        void 0 == g && (g = []);
+        g.push(f);
+        t.set(b, g);
         d(b, "getViewportAnchor");
       });
     };
@@ -340,7 +445,7 @@ export function useApi() {
     };
     e.setFullscreenTarget = function (...a) {
       let b;
-      if (1 == a.length) (b = a[0]), (a = h());
+      if (1 == a.length) (b = a[0]), (a = k());
       else if (2 == a.length) (b = a[0]), (a = c(a[1]));
       else if (3 === a.length) (b = a[0]), (a = e.getIframe(a[1], a[2]));
       else {
@@ -349,10 +454,10 @@ export function useApi() {
       }
       (void 0 !== b && b instanceof HTMLElement) ||
         console.error("EndlessPaper.setFullscreenTarget: invalid HTML element");
-      e.i.set(a, b);
+      e.j.set(a, b);
     };
     e.toggleFullscreen = function (...a) {
-      if (0 == a.length) a = h();
+      if (0 == a.length) a = k();
       else if (1 == a.length) a = c(a[0]);
       else if (2 === a.length) a = e.getIframe(a[0], a[1]);
       else {
@@ -366,7 +471,7 @@ export function useApi() {
     };
     e.setLoadingIndicatorColor = function (...a) {
       let b;
-      if (1 == a.length) (b = a[0]), (a = h());
+      if (1 == a.length) (b = a[0]), (a = k());
       else if (2 == a.length) (b = a[0]), (a = c(a[1]));
       else if (3 === a.length) (b = a[0]), (a = e.getIframe(a[1], a[2]));
       else {
@@ -375,12 +480,12 @@ export function useApi() {
       }
       void 0 === b || "string" !== typeof b
         ? console.error("EndlessPaper.setLoadingIndicatorColor: invalid args")
-        : (g(a, "setLoadingIndicatorColor"),
+        : (h(a, "setLoadingIndicatorColor"),
           d(a, "setLoadingIndicatorColor", b));
     };
     e.computeNewShapes = function (...a) {
       let b;
-      if (1 == a.length) (b = a[0]), (a = h());
+      if (1 == a.length) (b = a[0]), (a = k());
       else if (2 == a.length) (b = a[0]), (a = c(a[1]));
       else if (3 === a.length) (b = a[0]), (a = e.getIframe(a[1], a[2]));
       else {
@@ -389,11 +494,11 @@ export function useApi() {
       }
       void 0 === b || "string" !== typeof b
         ? console.error("EndlessPaper.computeNewShapes: invalid args")
-        : (g(a, "computeNewShapes"), d(a, "computeNewShapes", b));
+        : (h(a, "computeNewShapes"), d(a, "computeNewShapes", b));
     };
     e.computeNewBookmarks = function (...a) {
       let b;
-      if (1 == a.length) (b = a[0]), (a = h());
+      if (1 == a.length) (b = a[0]), (a = k());
       else if (2 == a.length) (b = a[0]), (a = c(a[1]));
       else if (3 === a.length) (b = a[0]), (a = e.getIframe(a[1], a[2]));
       else {
@@ -402,11 +507,11 @@ export function useApi() {
       }
       void 0 === b || "string" !== typeof b
         ? console.error("EndlessPaper.computeNewBookmarks: invalid args")
-        : (g(a, "computeNewBookmarks"), d(a, "computeNewBookmarks", b));
+        : (h(a, "computeNewBookmarks"), d(a, "computeNewBookmarks", b));
     };
     e.setLogoPosition = function (...a) {
       let b;
-      if (1 == a.length) (b = a[0]), (a = h());
+      if (1 == a.length) (b = a[0]), (a = k());
       else if (2 == a.length) (b = a[0]), (a = c(a[1]));
       else if (3 === a.length) (b = a[0]), (a = e.getIframe(a[1], a[2]));
       else {
@@ -415,25 +520,38 @@ export function useApi() {
       }
       "topleft" !== b && "bottomleft" !== b && "bottomright" !== b
         ? console.error("Endless Paper: invalid logo position")
-        : (g(a, "setLogoPosition"), d(a, "setLogoPosition", b));
+        : (h(a, "setLogoPosition"), d(a, "setLogoPosition", b));
     };
     e.getLogoSize = function (...a) {
       let b;
-      if (0 == a.length) b = h();
+      if (0 == a.length) b = k();
       else if (1 == a.length) b = c(a[0]);
       else if (2 === a.length) b = e.getIframe(a[0], a[1]);
       else {
         console.error("EndlessPaper.getLogoSize: invalid args");
         return;
       }
-      g(b, "getLogoSize");
+      h(b, "getLogoSize");
       return new Promise((f) => {
-        let k = r.get(b);
-        void 0 == k && (k = []);
-        k.push(f);
-        r.set(b, k);
+        let g = x.get(b);
+        void 0 == g && (g = []);
+        g.push(f);
+        x.set(b, g);
         d(b, "getLogoSize");
       });
+    };
+    e.showNavInstructions = function (...a) {
+      let b;
+      if (1 == a.length) (b = a[0]), (a = k());
+      else if (2 == a.length) (b = a[0]), (a = c(a[1]));
+      else if (3 === a.length) (b = a[0]), (a = e.getIframe(a[1], a[2]));
+      else {
+        console.error("EndlessPaper.showNavInstructions: invalid args");
+        return;
+      }
+      void 0 === b || "boolean" !== typeof b
+        ? console.error("EndlessPaper.showNavInstructions: invalid args")
+        : (h(a, "showNavInstructions"), d(a, "showNavInstructions", b));
     };
     e.LOGO_POSITIONS = Object.freeze({
       topLeft: "topleft",
@@ -444,12 +562,12 @@ export function useApi() {
   })();
   onMounted(() => {
     const d = EndlessPaper,
-      g =
-        "visitBookmark setBookmarks onBookmarkNearby addShapeEventListener setShapes showTravelButtons showNavBar getViewportAnchor toggleFullscreen setLoadingIndicatorColor computeNewShapes computeNewBookmarks readyEvent setLogoPosition getLogoSize".split(
+      h =
+        "visitBookmark setBookmarks onBookmarkNearby addShapeEventListener setShapes showTravelButtons showNavBar getViewportAnchor toggleFullscreen setLoadingIndicatorColor computeNewShapes computeNewBookmarks readyEvent setLogoPosition getLogoSize showNavInstructions".split(
           " "
         );
     Array.from(document.getElementsByClassName("ep-webxp")).map(function (c) {
-      var h =
+      var k =
           c.dataset && void 0 !== c.dataset.webxpUrl
             ? c.dataset.webxpUrl
             : void 0,
@@ -457,36 +575,43 @@ export function useApi() {
           c.dataset && void 0 !== c.dataset.webxpAuthor
             ? c.dataset.webxpAuthor
             : "webxp";
-      let n =
+      let q =
           c.dataset && void 0 !== c.dataset.webxpId
             ? c.dataset.webxpId
             : void 0,
-        q =
+        u =
           c.dataset && void 0 !== c.dataset.webxpShowTravelButtons
             ? "false" !== c.dataset.webxpShowTravelButtons.toLowerCase()
             : void 0,
-        p =
+        v =
           c.dataset && void 0 !== c.dataset.webxpShowNavbar
             ? "false" !== c.dataset.webxpShowNavbar.toLowerCase()
+            : void 0,
+        t =
+          c.dataset && void 0 !== c.dataset.webxpShowNavinstructions
+            ? "false" !== c.dataset.webxpShowNavinstructions.toLowerCase()
             : void 0;
-      if (n || h)
-        if (null !== d.getIframe(l, n))
+      if (q || k)
+        if (null !== d.getIframe(l, q))
           console.error(
-            "EndlessPaper: The WebXP '" + l + "/" + n + "' already exists"
+            "EndlessPaper: The WebXP '" + l + "/" + q + "' already exists"
           );
         else {
           var m = document.createElement("iframe");
-          h
-            ? ((l = new URL(h)),
-              void 0 !== q &&
-                l.searchParams.append("showTravelButtons", String(q)),
-              void 0 !== p && l.searchParams.append("showNavBar", String(p)),
+          k
+            ? ((l = new URL(k)),
+              void 0 !== u &&
+                l.searchParams.append("showTravelButtons", String(u)),
+              void 0 !== v && l.searchParams.append("showNavBar", String(v)),
+              void 0 !== t &&
+                l.searchParams.append("showNavInstructions", String(t)),
               (m.src = l.toString()))
-            : ((h = "https://endlesspaper.net/" + l + "/?id=" + n),
-              void 0 !== q && (h += "&showTravelButtons=" + String(q)),
-              void 0 !== p && (h += "&showNavBar=" + String(p)),
-              (m.id = d.getId(l, n)),
-              (m.src = h));
+            : ((k = "https://endlesspaper.net/" + l + "/?id=" + q),
+              void 0 !== u && (k += "&showTravelButtons=" + String(u)),
+              void 0 !== v && (k += "&showNavBar=" + String(v)),
+              void 0 !== t && (k += "&showNavInstructions=" + String(t)),
+              (m.id = d.getId(l, q)),
+              (m.src = k));
           m.style.width = "100%";
           m.style.height = "100%";
           m.setAttribute("allowFullScreen", "");
@@ -501,7 +626,7 @@ export function useApi() {
                 "https://endlesspaper.net/"
               );
             m.contentWindow.postMessage(
-              { fct: "areFeaturesAvailable", data: [g] },
+              { fct: "areFeaturesAvailable", data: [h] },
               "*"
             );
             setTimeout(function () {
@@ -510,7 +635,7 @@ export function useApi() {
                   "EndlessPaper: your WebXP uses an old version. Some features may not be supported. Please contact support."
                 );
             }, 2e3);
-            for (const r of d.j) r(m);
+            for (const x of d.l) x(m);
           };
         }
       else
@@ -523,21 +648,21 @@ export function useApi() {
     let d = document.getElementsByClassName("ep-webxp");
     if (1 != d.length) console.log("more than 1 iframe");
     else
-      for (let g = 0; g < d.length; g++)
-        d[g].children
+      for (let h = 0; h < d.length; h++)
+        d[h].children
           .item(0)
           .contentWindow.postMessage("orientationchange", "*");
   });
   window.addEventListener("message", function (d) {
-    var g = EndlessPaper;
+    var h = EndlessPaper;
     const c = d.data.fct,
-      h = d.data.url;
+      k = d.data.url;
     d = d.data.data;
     void 0 !== c &&
-      void 0 !== h &&
+      void 0 !== k &&
       (void 0 === d && (d = []),
-      (g = g.EP_FUNCTIONS[c]),
-      void 0 !== g && g(h, ...d));
+      (h = h.EP_FUNCTIONS[c]),
+      void 0 !== h && h(k, ...d));
   });
   document.addEventListener("fullscreenchange", function () {
     const d = EndlessPaper;

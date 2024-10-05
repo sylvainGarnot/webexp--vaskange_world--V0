@@ -35,7 +35,7 @@ const route = useRoute();
 const { EndlessPaper } = useApi();
 
 const bookmarkStore = useBookmarkStore();
-const { updateBookmark } = bookmarkStore;
+const { updateBookmarkHasLocation, updateBookmarkHasCharacter } = bookmarkStore;
 
 const locationStore = useLocationStore();
 const { locations, locations_found, locationsName } = storeToRefs(locationStore);
@@ -64,7 +64,25 @@ onMounted(() => {
 
     EndlessPaper.showNavBar(false);
     EndlessPaper.showTravelButtons(false);
-    EndlessPaper.onBookmarkNearby(updateBookmark);
+
+    EndlessPaper.onBookmarkNearby(
+      {
+        name: locationsName.value,
+        visibleBookmarkRatio: '> 0.01',
+        zoomFactor: '< 3.5',
+      },
+      updateBookmarkHasLocation
+    );
+
+    EndlessPaper.onBookmarkNearby(
+      {
+        name: charactersName.value,
+        visibleBookmarkRatio: '> 0.25',
+        zoomFactor: '< 3.5',
+      },
+      updateBookmarkHasCharacter
+    );
+
 
     EndlessPaper.addShapeEventListener("click", handleShapeClick);
     EndlessPaper.addShapeEventListener("touchend", handleShapeClick);

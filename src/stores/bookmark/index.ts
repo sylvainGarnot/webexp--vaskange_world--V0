@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 
 // import { currentBookmark, zoomIn } from './state';
-import { updateBookmark } from './action';
+import { updateBookmarkHasLocation , updateBookmarkHasCharacter} from './action';
 
 
 export const useBookmarkStore = defineStore("Bookmark", () => {
@@ -11,6 +11,7 @@ export const useBookmarkStore = defineStore("Bookmark", () => {
     // currentBookmark: readonly(currentBookmark),
     // zoomIn: readonly(zoomIn),
 
-    updateBookmark
+    updateBookmarkHasLocation,
+    updateBookmarkHasCharacter,
   }
 })
