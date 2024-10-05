@@ -1,11 +1,23 @@
 <template>
-  <div class="vsk-gift-container" v-if="isActive">
-    <span class="vsk-gift-author">{{ currentCharacter!.name }}</span>
-    <div class="vsk-gift-content">
-      <p v-for="line in currentDialog?.speech_written">
-        {{ line }}
-      </p>
-    </div>
+  <div>
+    <v-dialog class="vsk-gift-container" v-model="isActive">
+      <template v-slot:default="{ isActive }">
+        <v-card class="vsk-gift">
+          <v-card-title class="vsk-gift-author">
+            {{ currentCharacter?.name }}
+          </v-card-title>
+          <v-card-text>
+            <p v-for="line in currentDialog?.speech_written">
+              {{ line }}
+            </p>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn text="Close Dialog" @click="isActive.value = false"></v-btn>
+          </v-card-actions>
+        </v-card>
+      </template>
+    </v-dialog>
   </div>
 </template>
 
@@ -29,34 +41,19 @@ const isActive = ref(true);
 
 <style lang="scss" scoped>
 .vsk-gift-container {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   width: 620px;
-  height: auto;
-  padding: 140px 140px;
-  background-color: rgba(29, 27, 25, 0.9);
-  border-radius: 50px;
-  color: white;
+  font-size: 22px;
 
-
-  .vsk-gift-author {
-    position: absolute;
-    left: 20%;
-    top: 0;
-    transform: translate(-50%, -50%);
-    font-size: 34px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  .vsk-gift {
+    padding: 20px;
+    background-color: rgba(29, 27, 25, 0.9);
+    border-radius: 50px;
+    color: white;
+    border: solid 1px grey;
   }
 
-  .vsk-gift-content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 22px;
-    text-align: center;
+  .vsk-gift-author {
+    font-size: 42px;
   }
 }
 </style>
