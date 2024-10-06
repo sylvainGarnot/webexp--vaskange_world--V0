@@ -10,7 +10,7 @@ export const characters = ref([
   {
     id: "1",
     name: "jump-q1",
-    dialog: '1',
+    dialog: '0',
     location: '1',
   },
   {
@@ -22,13 +22,13 @@ export const characters = ref([
   {
     id: "3",
     name: "astro 1",
-    dialog: '3',
+    dialog: '1',
     location: '1',
   },
   {
     id: '4',
     name: 'shop 🖼️',
-    dialog: '3',
+    dialog: '2',
     location: '1',
   },
 ] as characterInterface[]);

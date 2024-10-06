@@ -9,7 +9,7 @@
     </TransitionGroup>
 
     <TransitionGroup name="fade-top" tag="div">
-      <WebExperienceCharacterGift v-if="isDialogActive && currentDialog?.type === 'gift'" />
+      <WebExperienceCharacterDialogGift v-if="isDialogActive && currentDialog?.type === 'gift'" />
     </TransitionGroup>
   </div>
 </template>
@@ -20,7 +20,7 @@ import { useRoute } from 'vue-router';
 
 import WebExperienceCharacterCall from "@/components/WebExperienceCharacterCall.vue";
 import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
-import WebExperienceCharacterGift from "@/components/WebExperienceCharacterGift.vue";
+import WebExperienceCharacterDialogGift from "@/components/WebExperienceCharacterDialogGift.vue";
 
 import { useApi } from "./WebExperienceApi.js";
 import { shapes } from "../assets/constants/shapes";
