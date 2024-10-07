@@ -84,7 +84,7 @@ onMounted(() => {
       {
         name: charactersName.value,
         visibleBookmarkRatio: '>= 0.25',
-        zoomFactor: '<= 6',
+        zoomFactor: '<= 12',
       },
       updateBookmarkHasCharacter
     );

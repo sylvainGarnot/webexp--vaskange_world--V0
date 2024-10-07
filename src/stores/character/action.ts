@@ -15,15 +15,15 @@ function addCharacterFound(input: characterFoundInterface) {
 export function setCurrentCharacter(inputCharacterFound: characterFoundInterface, inputBookmark: bookmarkInterface) {
   console.log('TEST - setCurrentCharacter', inputCharacterFound.name); // TEST
   
-  const width = inputBookmark.screenSpacePosition.topRight.x - inputBookmark.screenSpacePosition.bottomLeft.x;
-  const height = inputBookmark.screenSpacePosition.bottomLeft.y - inputBookmark.screenSpacePosition.topRight.y;
-  const top = inputBookmark.screenSpacePosition.topRight.y;
-  const left = inputBookmark.screenSpacePosition.bottomLeft.x;
+  const bookmarkWidth = inputBookmark.screenSpacePosition.topRight.x - inputBookmark.screenSpacePosition.bottomLeft.x;
+  const bookmarkHeight = inputBookmark.screenSpacePosition.bottomLeft.y - inputBookmark.screenSpacePosition.topRight.y;
+  const bookmarkTop = inputBookmark.screenSpacePosition.topRight.y;
+  const bookmarkLeft = inputBookmark.screenSpacePosition.bottomLeft.x;
   const callBubble = {
-    width: width * 0.5,
-    height: height*0.25,
-    left: left - width*0.25,
-    top: top + height*0.125,
+    width: bookmarkWidth * 0.25,
+    height: bookmarkHeight*0.125,
+    left: bookmarkLeft,
+    top: bookmarkTop + bookmarkHeight*0.25,
   }
   const characterFound = {
     ...inputCharacterFound,
