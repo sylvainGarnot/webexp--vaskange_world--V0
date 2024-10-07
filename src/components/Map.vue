@@ -15,7 +15,7 @@
             </v-row>
 
             <!-- FILTRES -->
-            <VskSwitchGroup class="v-row v-row--no-gutters mt-3 mb-3 px-8" :fields="sortTypes"
+            <VskSwitchGroup class="v-row v-row--no-gutters mt-5 mb-2 px-8" :fields="sortTypes"
               @select="changeSwitchValue" />
 
             <!-- CONTENT -->

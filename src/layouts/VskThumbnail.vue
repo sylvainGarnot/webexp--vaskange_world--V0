@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="vsk-thumbnail" @click="onClick()">
+      <div v-if="location" class="vsk-thumbnail-background"></div>
       <img :src="imageUrl" />
       <span>{{ title }}</span>
     </div>
@@ -21,28 +22,30 @@ const props = defineProps({
 })
 
 function onClick() {
-  if (route.query.location === props.location) {
-    router.push({ name: 'home' });
-    setTimeout(() => {
+  if (props.location) {
+    if (route.query.location === props.location) {
+      router.push({ name: 'home' });
+      setTimeout(() => {
+        router.push({ name: 'home', query: { location: props.location } });
+      }, 100);
+    } else {
       router.push({ name: 'home', query: { location: props.location } });
-    }, 100);
-  } else {
-    router.push({ name: 'home', query: { location: props.location } });
+    }
+    emit('router-push')
   }
-  emit('router-push')
 }
 </script>
 
 <style lang="scss" scoped>
 .vsk-thumbnail,
-.vsk-thumbnail img {
+.vsk-thumbnail img,
+.vsk-thumbnail .vsk-thumbnail-background {
   border-radius: 0.8vh;
 }
 
 .vsk-thumbnail {
   width: 100%;
   height: 12vh;
-  cursor: pointer;
   position: relative;
 
   span {
@@ -65,5 +68,18 @@ function onClick() {
     object-fit: cover;
     border: 2px solid #9A843A;
   }
+
+  .vsk-thumbnail-background {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+}
+
+.vsk-thumbnail-background:hover {
+  background-color: rgba(255, 255, 255, 0.454);
+  transition: background-color 250ms ease-in;
 }
 </style>

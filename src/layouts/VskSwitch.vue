@@ -23,6 +23,8 @@ span {
   font-size: 1.8vh;
   cursor: pointer;
 
+  transition: all 250ms ease-in;
+
   &.selected {
     border: solid 1px white;
     color: white;
