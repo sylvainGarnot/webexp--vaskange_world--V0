@@ -64,44 +64,47 @@ const isActive = ref(true);
 
 <style lang="scss" scoped>
 .vsk-gift-v-dialog {
-  width: 620px;
-  font-size: 22px;
+  width: 100%;
+  max-width: 780px;
 
   .vsk-gift-container {
     border-radius: 8px;
     background-color: rgba(29, 27, 25, 0.8);
 
+
     .vsk-gift-content {
-      margin: 10px;
-      padding: 20px;
-      border-radius: 8px;
+      margin: 1vh;
+      padding: 2vh 1vh;
+      border-radius: 0.8vh;
+
       border: solid 1px grey;
       background-color: rgba(29, 27, 25, 0.8);
 
       .vsk-gift-current-dialog-speech {
         text-align: center;
         color: white;
-        font-size: 1.8vh;
+        font-size: 2.6vh;
         font-weight: 500;
         line-height: 1.5;
       }
 
       .vsk-gift-item-image {
-        width: 60%;
+        width: 90%;
+        max-width: 160px;
         left: 50%;
         transform: translateX(-50%);
       }
 
       .vsk-gift-item-name {
         color: white;
-        font-size: 2.5vh;
+        font-size: 2.6vh;
         font-weight: 700;
         line-height: 1;
       }
 
       .vsk-gift-item-description {
         color: white;
-        font-size: 1.3vh;
+        font-size: 1.6vh;
         font-weight: 300;
         line-height: 1;
       }

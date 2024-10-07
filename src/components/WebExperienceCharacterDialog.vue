@@ -87,8 +87,8 @@ function handleNextDialog() {
     left: 50%;
     transform: translateX(-50%);
 
-    max-width: 96vw;
-    width: 780px;
+    width: 96vw;
+    max-width: 780px;
     height: 18vh;
     border-radius: 18vh;
     background-color: rgba(29, 27, 25, 0.9);
