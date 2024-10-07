@@ -6,11 +6,19 @@
       <template v-slot:default>
         <v-card class="vsk-map-v-card">
           <div class="vsk-map-content">
-            <v-row no-gutters class="vsk-map-title mt-8 mb-8">
+
+            <!-- TITRE -->
+            <v-row no-gutters class="vsk-map-title mt-8">
               <v-col cols="12">
                 <h3>Lieux découverts</h3>
               </v-col>
             </v-row>
+
+            <!-- FILTRES -->
+            <VskSwitchGroup class="v-row v-row--no-gutters mt-3 mb-3 px-8" :fields="filters"
+              @select="changeSwitchValue" />
+
+            <!-- CONTENT -->
             <v-row no-gutters class="vsk-map-locations pb-2 px-2">
               <v-col cols="12" class="mt-2" v-for="locationFound in locations_found">
                 <VskThumbnail :title="locationFound.name" :location="locationFound.name"
@@ -28,10 +36,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia'
 import VskThumbnail from '@/layouts/VskThumbnail.vue'
 import VskBtn from '@/layouts/VskBtn.vue'
+import VskSwitchGroup from '@/layouts/VskSwitchGroup.vue'
 
 import { useLocationStore } from "@/stores/location"
 
@@ -39,6 +48,40 @@ const locationStore = useLocationStore()
 const { locations_found, locations } = storeToRefs(locationStore)
 
 const isActive = ref(false);
+
+const filters = ref([
+  {
+    label: 'default',
+    selected: true,
+  },
+  {
+    label: 'date',
+    selected: false,
+  },
+  {
+    label: 'alpha',
+    selected: false,
+  },
+]);
+
+const filter = computed(() => {
+  for (const filter of filters.value) {
+    if (filter.selected) {
+      return filter.label
+    }
+  }
+})
+
+function changeSwitchValue(value: string) {
+  for (const filter of filters.value) {
+    if (filter.label === value) {
+      filter.selected = true
+    } else {
+      filter.selected = false
+    }
+  }
+}
+
 </script>
 
 <style lang="scss" scoped>
