@@ -43,7 +43,7 @@ const { updateBookmarkHasLocation, updateBookmarkHasCharacter } = bookmarkStore;
 
 const locationStore = useLocationStore();
 const { locations, locations_found, locationsName } = storeToRefs(locationStore);
-const { setCurrentLocation, onLocationFound } = locationStore;
+const { setCurrentLocation, onLocationFound, setDefaultLocationFound } = locationStore;
 
 const characterStore = useCharacterStore();
 const { characters_found, charactersName } = storeToRefs(characterStore);
@@ -94,11 +94,10 @@ onMounted(() => {
     EndlessPaper.addShapeEventListener("touchend", handleShapeClick);
     EndlessPaper.setShapes(shapes);
 
+    setDefaultLocationFound();
     setTimeout(() => {
       if (route?.query?.location) {
         teleportTo(route?.query?.location as string);
-      } else {
-        onLocationFound(locations?.value[0] as locationInterface);
       }
     }, 250);
   });

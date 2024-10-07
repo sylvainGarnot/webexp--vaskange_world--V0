@@ -1,4 +1,4 @@
-import { currentLocation, isLocationIsChanging, locations_found } from './state';
+import { currentLocation, isLocationIsChanging, locations_found, locations } from './state';
 import type { locationInterface, locationFoundInterface } from './interface';
 
 import { addToast } from '../toast/action';
@@ -42,3 +42,9 @@ export function onLocationFound(input: locationInterface) {
 
   setCurrentLocation(locationFound as locationFoundInterface);
 };
+
+export function setDefaultLocationFound() {
+  addLocationFound(locations.value[0] as locationFoundInterface);
+  addLocationFound(locations.value[16] as locationFoundInterface);
+  addLocationFound(locations.value[19] as locationFoundInterface);
+}
