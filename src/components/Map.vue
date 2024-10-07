@@ -15,12 +15,12 @@
             </v-row>
 
             <!-- FILTRES -->
-            <VskSwitchGroup class="v-row v-row--no-gutters mt-3 mb-3 px-8" :fields="filters"
+            <VskSwitchGroup class="v-row v-row--no-gutters mt-3 mb-3 px-8" :fields="sortTypes"
               @select="changeSwitchValue" />
 
             <!-- CONTENT -->
             <v-row no-gutters class="vsk-map-locations pb-2 px-2">
-              <v-col cols="12" class="mt-2" v-for="locationFound in locations_found">
+              <v-col cols="12" class="mt-2" v-for="locationFound in locations_foundSorted">
                 <VskThumbnail :title="locationFound.name" :location="locationFound.name"
                   :imageUrl="`src/assets/images/${locationFound.image_url}.png`" @router-push="isActive = false" />
               </v-col>
@@ -43,44 +43,60 @@ import VskBtn from '@/layouts/VskBtn.vue'
 import VskSwitchGroup from '@/layouts/VskSwitchGroup.vue'
 
 import { useLocationStore } from "@/stores/location"
+import type { locationFoundInterface } from '@/stores/location/interface';
 
 const locationStore = useLocationStore()
 const { locations_found, locations } = storeToRefs(locationStore)
 
 const isActive = ref(false);
 
-const filters = ref([
+const sortTypes = ref([
   {
-    label: 'default',
+    label: 'défaut',
     selected: true,
-  },
-  {
-    label: 'date',
-    selected: false,
   },
   {
     label: 'alpha',
     selected: false,
   },
+  {
+    label: 'date',
+    selected: false,
+  },
 ]);
 
-const filter = computed(() => {
-  for (const filter of filters.value) {
-    if (filter.selected) {
-      return filter.label
+
+function changeSwitchValue(value: string) {
+  for (const sortType of sortTypes.value) {
+    if (sortType.label === value) {
+      sortType.selected = true
+    } else {
+      sortType.selected = false
+    }
+  }
+}
+
+const sortType = computed(() => {
+  for (const sortType of sortTypes.value) {
+    if (sortType.selected) {
+      return sortType.label
     }
   }
 })
 
-function changeSwitchValue(value: string) {
-  for (const filter of filters.value) {
-    if (filter.label === value) {
-      filter.selected = true
-    } else {
-      filter.selected = false
-    }
+const locations_foundSorted = computed(() => {
+  const result = [...locations_found.value] as locationFoundInterface[];
+  if (sortType.value === 'défaut') {
+    return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)));
   }
-}
+  else if (sortType.value === 'alpha') {
+    return result.sort((a, b) => (a.name < b.name ? -1 : 1));
+  }
+  else if (sortType.value === 'date') {
+    return result.sort((a, b) => (a.found_date < b.found_date ? -1 : 1));
+  }
+})
+
 
 </script>
 
