@@ -2,7 +2,7 @@
   <div>
     <v-dialog class="vsk-gift-v-dialog" v-model="isActive">
       <template v-slot:default="{ isActive }">
-        <v-card class="vsk-gift-container" style="overflow: visible;">
+        <v-card class="vsk-gift-v-card" style="overflow: visible;">
           <div class="vsk-gift-content">
             <v-row no-gutters class="mt-1">
               <v-col cols="12">
@@ -67,7 +67,7 @@ const isActive = ref(true);
   width: 100%;
   max-width: 780px;
 
-  .vsk-gift-container {
+  .vsk-gift-v-card {
     border-radius: 8px;
     background-color: rgba(29, 27, 25, 0.8);
 
