@@ -13,16 +13,17 @@ function addLocationFound(input: locationFoundInterface) {
 
 // EXPORT
 export function setCurrentLocation(input: locationFoundInterface) {
+  console.log('TEST - TRY setCurrentLocation', input.name, isLocationIsChanging.value); // TEST
   if (!isLocationIsChanging.value && input.name !== currentLocation.value.name) {
+    console.log('TEST - setCurrentLocation', input.name, isLocationIsChanging.value); // TEST
     isLocationIsChanging.value = true;
-    setTimeout(() => {
-      console.log('TEST - setCurrentLocation', input.name); // TEST
-      currentLocation.value = input as locationFoundInterface;
+    currentLocation.value = input as locationFoundInterface;
 
-      addToast(input.message as string, 'info');
+    setTimeout(() => {
+      addToast(currentLocation.value.message as string);
       changeMusicByLocation();
       isLocationIsChanging.value = false;
-    }, 500);
+    }, 1500);
   }
 };
 

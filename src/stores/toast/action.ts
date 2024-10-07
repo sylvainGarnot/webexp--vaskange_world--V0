@@ -24,24 +24,12 @@ function removeToast(value: ToastInterface) {
 
 
 // EXPORT
-export function addToast(message: string, type: string = 'info') {
-  let duration;
-  if (type === "success") {
-    duration = 2400;
-  } else if (type === "info") {
-    duration = 2400;
-  } else if (type === 'warning') {
-    duration = 2400;
-  } else if (type === 'error') {
-    duration = 2400;
-  }
-
+export function addToast(message: string) {
   const newToast = {
     id: toasts.value.length,
     timestamp: Date.now(),
     message: message,
-    type: type,
-    duration,
+    duration: 2400,
   } as ToastInterface;
   
   unshiftToast(newToast as ToastInterface);

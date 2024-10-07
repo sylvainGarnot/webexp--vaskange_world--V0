@@ -30,7 +30,7 @@ export const locations = ref([
   {
     id: "3",
     name: "boite de nuit insectes 🪲🪩",
-    message: 'boite de nuit insectes 🪲🪩',
+    message: 'Boite de nuit insectes 🪲🪩',
     image_url: 'big bang 🪐',
     upper_location: '1',
     is_hidden_place: false,
@@ -41,7 +41,7 @@ export const locations = ref([
   {
     id: "4",
     name: "prairie 🌳",
-    message: 'prairie 🌳',
+    message: 'Prairie 🌳',
     image_url: 'rock-world2',
     upper_location: '1',
     is_hidden_place: false,
@@ -59,7 +59,7 @@ export const locations = ref([
   {
     id: "6",
     name: "snorkeling 🐠",
-    message: 'snorkeling 🐠',
+    message: 'Snorkeling 🐠',
     image_url: 'Eson Island 🗿',
     upper_location: '5',
     is_hidden_place: false,
@@ -68,7 +68,7 @@ export const locations = ref([
   {
     id: "7",
     name: "meduses 🪼",
-    message: 'meduses 🪼',
+    message: 'Meduses 🪼',
     image_url: 'Eson Island 🗿',
     upper_location: '6',
     is_hidden_place: false,
@@ -77,7 +77,7 @@ export const locations = ref([
   {
     id: "8",
     name: "monstre marin 🦕",
-    message: 'monstre marin 🦕',
+    message: 'Monstre marin 🦕',
     image_url: 'Eson Island 🗿',
     upper_location: '7',
     is_hidden_place: false,
@@ -162,7 +162,7 @@ export const locations = ref([
   {
     id: "17",
     name: "galaxie ✨",
-    message: 'galaxie ✨ - Space World 💫',
+    message: 'Galaxie ✨ - Space World 💫',
     image_url: 'oatly end',
     upper_location: '16',
     is_hidden_place: false,
@@ -171,7 +171,7 @@ export const locations = ref([
   {
     id: "17b",
     name: "univers 🌀",
-    message: 'univers 🌀',
+    message: 'Univers 🌀',
     image_url: 'oatly end',
     upper_location: '17',
     is_hidden_place: false,
@@ -189,7 +189,7 @@ export const locations = ref([
   {
     id: "19",
     name: "coccibar 🐞",
-    message: 'coccibar 🐞',
+    message: 'Coccibar 🐞',
     image_url: 'partager 💌',
     upper_location: '17b',
     is_hidden_place: false,
@@ -209,7 +209,7 @@ export const locations = ref([
   {
     id: "21",
     name: "matrix 📺",
-    message: 'matrix 📺',
+    message: 'Matrix 📺',
     image_url: 'rock-world2',
     upper_location: '20',
     is_hidden_place: false,

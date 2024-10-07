@@ -1,10 +1,11 @@
 <template>
   <div>
-    <TransitionGroup name="list" tag="ul" class="vsk-toast-container">
+    <TransitionGroup name="list" tag="ul" class="vsk-toast-list-container">
       <li v-for="toast in toasts" :key="toast.timestamp">
-        <div class="vsk-toast" :class="`vsk-toast-${toast.type}`"
-          :style="`background-color: ${getBackgroundColor(toast.type)}`">
-          {{ toast.message }}
+        <div class="vsk-toast-container">
+          <div class="vsk-toast">
+            {{ toast.message }}
+          </div>
         </div>
       </li>
     </TransitionGroup>
@@ -19,40 +20,41 @@ const toastStore = useToastStore();
 
 const { toasts } = storeToRefs(toastStore);
 
-function getBackgroundColor(type: string) {
-  if (type === 'success') { return 'green' }
-  else if (type === 'info') { return 'blue' }
-  else if (type === 'warning') { return 'orange' }
-  else if (type === 'error') { return 'red' }
-};
 </script>
 
 <style lang="scss" scoped>
-.vsk-toast-container {
-  z-index: 2000;
+.vsk-toast-list-container {
   position: fixed;
-  top: 100px;
-  left: 0;
+  top: 9.2vh;
   width: 100%;
 
   li {
-    margin-bottom: 55px;
-    align-content: center;
+    margin-bottom: 5.6vh;
 
-    .vsk-toast {
-      z-index: 2000;
+    .vsk-toast-container {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
 
-      min-width: 320px;
-      border-radius: 5px;
-      padding: 8px 40px;
-      border: solid 1px white;
-      text-align: center;
-      font-family: 'Gill Sans';
-      color: white;
-      font-size: 32px;
+      border-radius: 0.8vh;
+      background-color: rgba(29, 27, 25, 0.4);
+
+      .vsk-toast {
+        margin: 0.6vh;
+        padding: 1.4vh 2.8vh;
+        white-space: nowrap;
+
+        border-radius: 0.8vh;
+        border: solid 1px grey;
+        background-color: rgba(29, 27, 25, 0.4);
+
+        text-align: center;
+        font-family: 'Gill Sans';
+        color: white;
+        font-size: 3.2vh;
+        font-weight: 500;
+        line-height: 1;
+      }
     }
   }
 }
