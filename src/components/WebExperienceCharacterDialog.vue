@@ -7,12 +7,13 @@
       </p>
       <v-icon v-if="!isAnswersActive" class="vsk-dialog-npc-next-icon" icon="$vuetify"
         @click="handleNextDialog()"></v-icon>
+
+      <TransitionGroup name="fade-top" tag="div">
+        <WebExperienceCharacterDialogAnswer v-if="isAnswersActive" @repeat="dialogStepNumber = 0" @leave="handleLeave()"
+          @accepted="handleAccepted()" />
+      </TransitionGroup>
     </div>
 
-    <TransitionGroup name="fade-top" tag="div">
-      <WebExperienceCharacterDialogAnswer v-if="isAnswersActive" @repeat="dialogStepNumber = 0" @leave="handleLeave()"
-        @accepted="handleAccepted()" />
-    </TransitionGroup>
   </div>
 </template>
 

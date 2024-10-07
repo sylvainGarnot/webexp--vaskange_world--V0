@@ -16,17 +16,20 @@ const { currentDialog_answers } = storeToRefs(answerStore);
 </script>
 
 <style lang="scss" scoped>
+$height: 5.2vh;
+$marge: 0.8vh;
+
 .vsk-dialog-response-container {
   position: absolute;
-  bottom: 100%;
-  right: 5%;
+  bottom: calc(100% + $marge);
+  right: 0;
 
   .vsk-dialog-response {
-    margin-top: 12px;
+    margin-top: $marge;
+    width: 27vh;
+    height: $height;
     background-color: rgba(29, 27, 25, 0.9);
-    border-radius: 65px;
-    width: 520px;
-    height: 65px;
+    border-radius: $height;
     cursor: pointer;
 
     &:hover {
@@ -36,9 +39,10 @@ const { currentDialog_answers } = storeToRefs(answerStore);
 
     p {
       text-align: center;
-      line-height: 65px;
-      font-size: 34px;
       color: white;
+      font-family: 'Gill Sans';
+      font-size: 3.2vh;
+      line-height: $height;
     }
 
   }
