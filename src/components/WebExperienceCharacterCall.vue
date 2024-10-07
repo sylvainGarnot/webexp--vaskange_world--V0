@@ -13,9 +13,9 @@
       </div>
       <div class="vsk-bookmark-toast-content">
         <p
-          :style="`line-height: ${currentCharacter.callBubble?.height}px; font-size: ${currentCharacter.callBubble?.height * 0.3}px; padding-right: ${currentCharacter.callBubble?.height * 0.1}px;`">
+          :style="`line-height: ${currentCharacter.callBubble?.height}px; font-size: ${currentCharacter.callBubble?.height * 0.45}px; padding-right: ${currentCharacter.callBubble?.height * 0.2}px;`">
           Hey
-          <span :style="`margin-left: ${currentCharacter.callBubble?.height * 0.1}px;`">
+          <span :style="`margin-left: ${currentCharacter.callBubble?.height * 0.15}px;`">
             !!</span>
         </p>
       </div>
@@ -67,6 +67,8 @@ const { setIsDialogActive } = dialogStore;
     border-radius: 100%;
     width: 100%;
     height: 100%;
+
+    font-family: 'Gill Sans';
     text-align: center;
 
     .v-btn {
@@ -78,6 +80,8 @@ const { setIsDialogActive } = dialogStore;
     span {
       position: absolute;
       animation: bounce 2s ease infinite;
+
+      font-family: 'Gill Sans';
     }
   }
 }
