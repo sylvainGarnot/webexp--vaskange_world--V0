@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskBtn :width=46 :image="isMusicPlaying ? 'musical-note' : 'mute'" @click="toggleMusic()" />
+    <VskBtn :image="isMusicPlaying ? 'musical-note' : 'mute'" @click="toggleMusic()" />
   </div>
 </template>
 

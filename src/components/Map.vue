@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskBtn :width=46 image="map" @click="menu = !menu" />
+    <VskBtn image="map" @click="menu = !menu" />
 
     <v-dialog v-model="menu" max-width="500">
       <v-card min-width="300">
