@@ -2,7 +2,7 @@
   <div>
     <v-dialog class="vsk-gift-v-dialog" v-model="isActive">
       <template v-slot:default="{ isActive }">
-        <v-card class="vsk-gift-container">
+        <v-card class="vsk-gift-container" style="overflow: visible;">
           <div class="vsk-gift-content">
             <v-row no-gutters class="mt-1">
               <v-col cols="12">
@@ -16,7 +16,10 @@
 
             <v-row no-gutters class="mt-5 mb-2">
               <v-col cols="4">
-                <v-img class="vsk-gift-item-image" :src="itemProvidedByCurrentDialog?.image_url"></v-img>
+                <v-img class="vsk-gift-item-image" :src="itemProvidedByCurrentDialog?.image_url"
+                  style="overflow: visible;">
+                  <WebExperienceCharacterDialogGiftFirework />
+                </v-img>
               </v-col>
               <v-col cols="8">
                 <v-card-title class="vsk-gift-item-name">
@@ -47,6 +50,7 @@ import { storeToRefs } from 'pinia';
 import { useDialogStore } from "@/stores/dialog";
 import { useItemStore } from "@/stores/item";
 
+import WebExperienceCharacterDialogGiftFirework from "@/components/WebExperienceCharacterDialogGiftFirework.vue";
 
 const itemStore = useItemStore();
 const { itemProvidedByCurrentDialog } = storeToRefs(itemStore);
@@ -64,13 +68,13 @@ const isActive = ref(true);
   font-size: 22px;
 
   .vsk-gift-container {
-    border-radius: 12px;
+    border-radius: 8px;
     background-color: rgba(29, 27, 25, 0.8);
 
     .vsk-gift-content {
       margin: 10px;
       padding: 20px;
-      border-radius: 12px;
+      border-radius: 8px;
       border: solid 1px grey;
       background-color: rgba(29, 27, 25, 0.8);
 
