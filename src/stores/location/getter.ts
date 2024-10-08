@@ -16,8 +16,8 @@ export const locationsFoundProgression = computed(() => {
 
   for (let i = 0; i < locations_found.value.length; i++) {
     const location = {
-      ...locations.value[i],
-      nrbItemsToAcquired: 0,
+      ...locations_found.value[i],
+      nbrItemsToAcquired: 0,
       nbrItemsAcquired: 0,
     } as locationFoundProgressionInterface
    
@@ -30,7 +30,7 @@ export const locationsFoundProgression = computed(() => {
 
           const item = items.value.find(it => it.id === dialog?.item_provided)
           if (item) {
-            location.nrbItemsToAcquired++
+            location.nbrItemsToAcquired++
 
             const itemAcquired = items_acquired.value.find(it => it.id === item?.id)
             if (itemAcquired) {

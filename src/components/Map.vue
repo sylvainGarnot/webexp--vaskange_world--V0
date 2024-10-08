@@ -22,9 +22,10 @@
             <v-row no-gutters class="vsk-map-locations px-3 pb-3">
               <TransitionGroup name="list-animation" tag="div">
                 <VskThumbnail v-for="locationFound in locations_foundSorted" :key="locationFound.id"
-                  :title="locationFound.name" :location="locationFound.name"
+                  :title="locationFound.name" :link="locationFound.name"
+                  :subtitle="locationFound?.nbrItemsToAcquired > 0 ? `secrets trouvé ${locationFound?.nbrItemsAcquired} / ${locationFound?.nbrItemsToAcquired}` : ''"
                   :imageUrl="`src/assets/images/${locationFound.image_url}.png`" @router-push="isActive = false" />
-                <VskThumbnail v-if="locations_found.length < locations.length" title="À découvrir..."
+                <VskThumbnail v-if="locationsFoundProgression.length < locations.length" title="À découvrir..."
                   :imageUrl="`src/assets/images/secret_place.png`" />
               </TransitionGroup>
             </v-row>
@@ -43,10 +44,10 @@ import VskBtn from '@/layouts/VskBtn.vue'
 import VskSwitchGroup from '@/layouts/VskSwitchGroup.vue'
 
 import { useLocationStore } from "@/stores/location"
-import type { locationFoundInterface } from '@/stores/location/interface';
+import type { locationFoundProgressionInterface } from '@/stores/location/interface';
 
 const locationStore = useLocationStore()
-const { locations_found, locations } = storeToRefs(locationStore)
+const { locationsFoundProgression, locations } = storeToRefs(locationStore)
 
 const isActive = ref(false);
 
@@ -85,7 +86,7 @@ const sortType = computed(() => {
 })
 
 const locations_foundSorted = computed(() => {
-  const result = [...locations_found.value] as locationFoundInterface[];
+  const result = [...locationsFoundProgression.value] as locationFoundProgressionInterface[];
   if (sortType.value === 'défaut') {
     return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)));
   }

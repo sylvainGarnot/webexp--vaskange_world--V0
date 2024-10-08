@@ -13,6 +13,6 @@ export interface locationFoundInterface extends locationInterface {
 }
 
 export interface locationFoundProgressionInterface extends locationFoundInterface {
-  nrbItemsToAcquired: number,
+  nbrItemsToAcquired: number,
   nbrItemsAcquired: number,
 }

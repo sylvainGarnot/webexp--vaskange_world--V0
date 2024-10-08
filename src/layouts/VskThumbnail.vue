@@ -1,8 +1,9 @@
 <template>
   <div class="vsk-thumbnail mt-3" @click="onClick()">
-    <div v-if="location" class="vsk-thumbnail-background"></div>
+    <div v-if="link" class="vsk-thumbnail-background"></div>
     <img :src="imageUrl" />
-    <span>{{ title }}</span>
+    <span class="title">{{ title }}</span>
+    <span v-if="subtitle" class="subtitle">{{ subtitle }}</span>
   </div>
 </template>
 
@@ -14,20 +15,20 @@ const emit = defineEmits(['router-push'])
 
 const props = defineProps({
   title: String,
+  subtitle: String,
   imageUrl: String,
-  location: String,
   link: String,
 })
 
 function onClick() {
-  if (props.location) {
-    if (route.query.location === props.location) {
+  if (props.link) {
+    if (route.query.location === props.link) {
       router.push({ name: 'home' });
       setTimeout(() => {
-        router.push({ name: 'home', query: { location: props.location } });
+        router.push({ name: 'home', query: { location: props.link } });
       }, 100);
     } else {
-      router.push({ name: 'home', query: { location: props.location } });
+      router.push({ name: 'home', query: { location: props.link } });
     }
     emit('router-push')
   }
@@ -46,7 +47,7 @@ function onClick() {
   height: 12vh;
   position: relative;
 
-  span {
+  span.title {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -58,6 +59,21 @@ function onClick() {
     font-weight: 700;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     white-space: nowrap;
+  }
+
+  span.subtitle {
+    position: absolute;
+    bottom: 0.4vh;
+    right: 0.4vh;
+
+    background-color: rgba(29, 27, 25, 0.8);
+    border-radius: 0.8vh;
+    padding: 0 1vh;
+
+    color: white;
+    font-family: 'Gill Sans';
+    font-size: 1.5vh;
+    font-weight: 500;
   }
 
   img {
