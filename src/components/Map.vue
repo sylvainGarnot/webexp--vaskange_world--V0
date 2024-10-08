@@ -43,30 +43,26 @@
 
             <v-tabs-window-item value="tabs-option-2">
               <div class="vsk-map-content">
-                <!-- TITRE -->
+                <!-- CHARACTER - TITRE -->
                 <v-row no-gutters class="vsk-map-title mt-12">
                   <v-col cols="12">
                     <h3>Rencontres</h3>
                   </v-col>
                 </v-row>
 
-                <!-- FILTRES -->
+                <!-- CHARACTER - FILTRES -->
                 <VskSwitchGroup class="v-row v-row--no-gutters mt-6 mb-3 px-8" :fields="sortTypes"
                   @select="changeSwitchValue" />
 
-                <!-- CONTENT -->
-                <v-row no-gutters class="vsk-map-locations pb-3">
+                <!-- CHARACTER - CONTENT -->
+                <v-row no-gutters class="vsk-map-locations px-3 pb-3">
                   <TransitionGroup name="list-animation" class="transition-group-element" tag="div">
-                    <v-col cols="6" v-for="characterFound in characters_foundSorted" :key="characterFound.id"
-                      class="transition-group-element px-2">
-                      <VskThumbnail :title="characterFound.name" :link="characterFound.name"
-                        :imageUrl="`${characterFound.image_url}`" @router-push="isActive = false" />
-                    </v-col>
-                    <v-col :cols="characters_found.length % 2 === 0 ? '12' : '6'" class="px-2 transition-group-element"
-                      :key="characters_found.length">
-                      <VskThumbnail v-if="characters_found.length < characters.length" title="..."
-                        :imageUrl="`/images/location/secret_place.PNG`" />
-                    </v-col>
+                    <VskThumbnail v-for="characterFound in characters_foundSorted" :key="characterFound.id"
+                      class="transition-group-element" :title="characterFound.name" :link="characterFound.name"
+                      :imageUrl="`${characterFound.image_url}`" @router-push="isActive = false" />
+                    <VskThumbnail v-if="characters_found.length < characters.length" title="..."
+                      class="transition-group-element" :key="characters_found.length"
+                      :imageUrl="`/images/location/secret_place.PNG`" />
                   </TransitionGroup>
                 </v-row>
               </div>
