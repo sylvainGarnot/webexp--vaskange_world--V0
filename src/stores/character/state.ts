@@ -28,7 +28,7 @@ export const characters = ref([
   {
     id: '4',
     name: 'shop 🖼️',
-    dialog: '2',
+    // dialog: '2',
     location: '1',
   },
 ] as characterInterface[]);
