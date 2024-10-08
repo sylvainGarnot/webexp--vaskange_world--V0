@@ -24,9 +24,9 @@
                 <VskThumbnail v-for="locationFound in locations_foundSorted" :key="locationFound.id"
                   :title="locationFound.name" :link="locationFound.name"
                   :subtitle="locationFound?.nbrItemsToAcquired > 0 ? `secrets trouvé ${locationFound?.nbrItemsAcquired} / ${locationFound?.nbrItemsToAcquired}` : ''"
-                  :imageUrl="`src/assets/images/${locationFound.image_url}.png`" @router-push="isActive = false" />
+                  :imageUrl="`${locationFound.image_url}`" @router-push="isActive = false" />
                 <VskThumbnail v-if="locationsFoundProgression.length < locations.length" title="À découvrir..."
-                  :imageUrl="`src/assets/images/secret_place.png`" />
+                  :imageUrl="`/images/location/secret_place.PNG`" />
               </TransitionGroup>
             </v-row>
           </div>

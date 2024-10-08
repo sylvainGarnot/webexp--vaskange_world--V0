@@ -1,7 +1,7 @@
 <template>
   <div>
     <button class="btn-menu">
-      <img class="icon" :src="`src/assets/icones/${image}.png`" />
+      <img class="icon" :src="`/icones/${image}.png`" />
     </button>
   </div>
 </template>
