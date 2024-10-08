@@ -180,8 +180,8 @@ const characters_foundSorted = computed(() => {
 
 .vsk-map-close {
   position: absolute;
-  right: 0.4vh;
-  top: -50vh + 15vh;
+  right: 0.6vh;
+  top: -50vh + 15vh + 0.25vh;
   cursor: pointer;
 
   color: white;

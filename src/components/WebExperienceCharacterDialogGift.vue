@@ -119,8 +119,8 @@ onMounted(() => {
 
   .vsk-gift-close-header {
     position: absolute;
-    right: 1.25vh;
-    top: 1.25vh;
+    right: 1.3vh;
+    top: 1.3vh;
     cursor: pointer;
 
     color: white;

@@ -8,7 +8,7 @@
         <SettingsFullScreen />
       </v-col>
       <v-col cols="3" class="pr-4">
-        <Characters />
+        <Inventory />
       </v-col>
       <v-col cols="3" class="pr-4">
         <Map />
@@ -21,7 +21,7 @@
 import SettingsSoundGlobal from "@/components/SettingsSoundGlobal.vue";
 import SettingsFullScreen from "@/components/SettingsFullScreen.vue";
 import Map from "@/components/Map.vue";
-import Characters from "@/components/Characters.vue";
+import Inventory from "@/components/Inventory.vue";
 </script>
 
 <style lang="scss" scoped>
