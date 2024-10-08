@@ -1,5 +1,5 @@
 <template>
-  <div class="vsk-thumbnail" @click="onClick()">
+  <div class="vsk-thumbnail mt-3" @click="onClick()">
     <div v-if="location" class="vsk-thumbnail-background"></div>
     <img :src="imageUrl" />
     <span>{{ title }}</span>
@@ -45,8 +45,6 @@ function onClick() {
   width: 100%;
   height: 12vh;
   position: relative;
-
-  padding: 0.8vh 0.8vh 0 0.8vh;
 
   span {
     position: absolute;

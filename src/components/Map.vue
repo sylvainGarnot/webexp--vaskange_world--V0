@@ -15,11 +15,11 @@
             </v-row>
 
             <!-- FILTRES -->
-            <VskSwitchGroup class="v-row v-row--no-gutters mt-5 mb-2 px-8" :fields="sortTypes"
+            <VskSwitchGroup class="v-row v-row--no-gutters mt-5 mb-3 px-8" :fields="sortTypes"
               @select="changeSwitchValue" />
 
             <!-- CONTENT -->
-            <v-row no-gutters class="vsk-map-locations">
+            <v-row no-gutters class="vsk-map-locations px-3 pb-3">
               <TransitionGroup name="list-animation" tag="div">
                 <VskThumbnail v-for="locationFound in locations_foundSorted" :key="locationFound.id"
                   :title="locationFound.name" :location="locationFound.name"
