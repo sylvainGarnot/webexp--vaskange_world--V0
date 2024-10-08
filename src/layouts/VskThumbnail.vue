@@ -89,11 +89,11 @@ function onClick() {
     width: 100%;
     height: 100%;
     cursor: pointer;
-  }
-}
+    transition: background-color 250ms ease-in;
 
-.vsk-thumbnail-background:hover {
-  background-color: rgba(255, 255, 255, 0.454);
-  transition: background-color 250ms ease-in;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.454);
+    }
+  }
 }
 </style>

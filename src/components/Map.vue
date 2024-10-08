@@ -4,18 +4,19 @@
 
     <v-dialog class="vsk-map-v-dialog" v-model="isActive">
       <template v-slot:default>
+
         <v-card class="vsk-map-v-card">
           <div class="vsk-map-content">
 
             <!-- TITRE -->
-            <v-row no-gutters class="vsk-map-title mt-8">
+            <v-row no-gutters class="vsk-map-title mt-12">
               <v-col cols="12">
                 <h3>Lieux découverts</h3>
               </v-col>
             </v-row>
 
             <!-- FILTRES -->
-            <VskSwitchGroup class="v-row v-row--no-gutters mt-5 mb-3 px-8" :fields="sortTypes"
+            <VskSwitchGroup class="v-row v-row--no-gutters mt-6 mb-3 px-8" :fields="sortTypes"
               @select="changeSwitchValue" />
 
             <!-- CONTENT -->
@@ -31,6 +32,9 @@
             </v-row>
           </div>
         </v-card>
+
+        <v-icon class="vsk-map-close" icon="$close" @click="isActive = false"></v-icon>
+
       </template>
     </v-dialog>
   </div>
@@ -132,6 +136,22 @@ const locations_foundSorted = computed(() => {
         }
       }
     }
+  }
+}
+
+.vsk-map-close {
+  position: absolute;
+  right: 1.25vh;
+  top: 1.25vh;
+  cursor: pointer;
+
+  color: white;
+  font-size: 4.2vh;
+  border-radius: 0.8vh;
+  transition: background-color 250ms ease-in;
+
+  &:hover {
+    background-color: grey;
   }
 }
 

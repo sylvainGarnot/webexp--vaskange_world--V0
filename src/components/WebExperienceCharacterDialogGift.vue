@@ -2,6 +2,7 @@
   <div>
     <v-dialog class="vsk-gift-v-dialog" v-model="isActive">
       <template v-slot:default="{ isActive }">
+
         <v-card class="vsk-gift-v-card" style="overflow: visible;">
           <div class="vsk-gift-content">
             <v-row no-gutters class="mt-1">
@@ -35,7 +36,9 @@
           </div>
         </v-card>
 
-        <v-icon class="vsk-gift-close" icon="$vuetify" @click="isActive.value = false"></v-icon>
+        <v-icon class="vsk-gift-close-header" icon="$close" @click="isActive.value = false"></v-icon>
+
+        <v-icon class="vsk-gift-close-footer" icon="$vuetify" @click="isActive.value = false"></v-icon>
       </template>
     </v-dialog>
   </div>
@@ -114,16 +117,38 @@ onMounted(() => {
     }
   }
 
-  .vsk-gift-close {
+  .vsk-gift-close-header {
+    position: absolute;
+    right: 1.25vh;
+    top: 1.25vh;
+    cursor: pointer;
+
+    color: white;
+    font-size: 4.2vh;
+    border-radius: 0.8vh;
+    transition: background-color 250ms ease-in;
+
+    &:hover {
+      background-color: grey;
+    }
+  }
+
+  .vsk-gift-close-footer {
     position: absolute;
     left: 50%;
-    bottom: -3.4vh;
+    bottom: -2.8vh;
     cursor: pointer;
     animation: bounce 2s ease infinite;
 
     color: white;
     font-size: 5.8vh;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    border-radius: 0.8vh;
+    transition: background-color 250ms ease-in;
+
+    &:hover {
+      background-color: grey;
+    }
   }
 }
 </style>
