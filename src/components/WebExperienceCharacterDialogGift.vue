@@ -44,22 +44,27 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { onMounted, ref } from "vue";
 import { storeToRefs } from 'pinia';
 
 import { useDialogStore } from "@/stores/dialog";
 import { useItemStore } from "@/stores/item";
 
 import WebExperienceCharacterDialogGiftFirework from "@/components/WebExperienceCharacterDialogGiftFirework.vue";
+import type { itemInterface } from "@/stores/item/interface";
 
 const itemStore = useItemStore();
 const { itemProvidedByCurrentDialog } = storeToRefs(itemStore);
+const { onItemProvided } = itemStore;
 
 const dialogStore = useDialogStore();
 const { currentDialog } = storeToRefs(dialogStore);
 
 const isActive = ref(true);
 
+onMounted(() => {
+  onItemProvided(itemProvidedByCurrentDialog.value as itemInterface);
+})
 </script>
 
 <style lang="scss" scoped>
