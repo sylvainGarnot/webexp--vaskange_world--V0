@@ -187,7 +187,7 @@ const characters_foundSorted = computed(() => {
 
     position: absolute;
     top: -50vh+15vh;
-    left: 12px;
+    left: 18px;
 
     .vsk-map-close {
       position: absolute;
