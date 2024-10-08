@@ -10,37 +10,37 @@ export const isMusicPlaying = ref(false as boolean);
 export const musics = ref([
   {
     id: '0',
-    file: 'coccibar 🐞',
+    file: '/music/free/coccibar 🐞.aac',
     audio: new Audio,
   },
   {
     id: '1',
-    file: 'fin quest 1 🔥',
+    file: '/music/free/fin quest 1 🔥.aac',
     audio: new Audio,
   },
   {
     id: '2',
-    file: 'matrix 📺',
+    file: '/music/free/matrix 📺.aac',
     audio: new Audio,
   },
   {
     id: '3',
-    file: 'star night club ⭐️',
+    file: '/music/free/star night club ⭐️.aac',
     audio: new Audio,
   },
   {
     id: '4',
-    file: 'support city 🛖',
+    file: '/music/free/support city 🛖.aac',
     audio: new Audio,
   },
   {
     id: '5',
-    file: 'temple 🏯',
+    file: '/music/free/temple 🏯.aac',
     audio: new Audio,
   },
   {
     id: '6',
-    file: 'trésor 💰',
+    file: '/music/free/trésor 💰.aac',
     audio: new Audio,
   },
 ] as musicInterface[]);

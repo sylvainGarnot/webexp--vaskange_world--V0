@@ -16,7 +16,7 @@ function setMusic(input: musicInterface) {
     audio.currentTime = 0;
     audio.preload = "auto";
     audio.loop = true;
-    audio.src = `/src/assets/music/free/${input.file}.aac`;
+    audio.src = input.file;
     audio.volume = 1 as number;
 
     music.value = {
