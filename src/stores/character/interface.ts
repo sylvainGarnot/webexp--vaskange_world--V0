@@ -3,6 +3,7 @@ export interface characterInterface {
   name: string,
   dialog: string,
   location: string,
+  image_url: string,
 }
 
 export interface characterFoundInterface extends characterInterface {

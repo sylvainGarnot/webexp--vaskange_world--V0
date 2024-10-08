@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskBtn image="map" @click="isActive = !isActive" />
+    <VskBtn image="joystick" @click="isActive = !isActive" />
 
     <v-dialog class="vsk-map-v-dialog" v-model="isActive">
       <template v-slot:default>
@@ -10,7 +10,7 @@
             <!-- TITRE -->
             <v-row no-gutters class="vsk-map-title mt-8">
               <v-col cols="12">
-                <h3>Lieux découverts</h3>
+                <h3>Rencontres</h3>
               </v-col>
             </v-row>
 
@@ -19,14 +19,17 @@
               @select="changeSwitchValue" />
 
             <!-- CONTENT -->
-            <v-row no-gutters class="vsk-map-locations px-3 pb-3">
+            <v-row no-gutters class="vsk-map-locations pb-3">
               <TransitionGroup name="list-animation">
-                <VskThumbnail v-for="locationFound in locations_foundSorted" :key="locationFound.id"
-                  :title="locationFound.name" :link="locationFound.name"
-                  :subtitle="locationFound?.nbrItemsToAcquired > 0 ? `secrets trouvé ${locationFound?.nbrItemsAcquired} / ${locationFound?.nbrItemsToAcquired}` : ''"
-                  :imageUrl="`${locationFound.image_url}`" @router-push="isActive = false" />
-                <VskThumbnail v-if="locationsFoundProgression.length < locations.length" title="À découvrir..."
-                  :imageUrl="`/images/location/secret_place.PNG`" />
+                <v-col cols="6" v-for="characterFound in characters_foundSorted" :key="characterFound.id"
+                  class="test-container px-2">
+                  <VskThumbnail :title="characterFound.name" :link="characterFound.name"
+                    :imageUrl="`${characterFound.image_url}`" @router-push="isActive = false" />
+                </v-col>
+                <v-col :cols="characters_found.length % 2 === 0 ? '12' : '6'" class=" px-2">
+                  <VskThumbnail v-if="characters_found.length < characters.length" title="..."
+                    :imageUrl="`/images/location/secret_place.PNG`" />
+                </v-col>
               </TransitionGroup>
             </v-row>
           </div>
@@ -43,11 +46,11 @@ import VskThumbnail from '@/layouts/VskThumbnail.vue'
 import VskBtn from '@/layouts/VskBtn.vue'
 import VskSwitchGroup from '@/layouts/VskSwitchGroup.vue'
 
-import { useLocationStore } from "@/stores/location"
-import type { locationFoundProgressionInterface } from '@/stores/location/interface';
+import { useCharacterStore } from "@/stores/character"
+import type { characterFoundInterface } from '@/stores/character/interface';
 
-const locationStore = useLocationStore()
-const { locationsFoundProgression, locations } = storeToRefs(locationStore)
+const characterStore = useCharacterStore()
+const { characters_found, characters } = storeToRefs(characterStore)
 
 const isActive = ref(false);
 
@@ -85,8 +88,8 @@ const sortType = computed(() => {
   }
 })
 
-const locations_foundSorted = computed(() => {
-  const result = [...locationsFoundProgression.value] as locationFoundProgressionInterface[];
+const characters_foundSorted = computed(() => {
+  const result = [...characters_found.value] as characterFoundInterface[];
   if (sortType.value === 'défaut') {
     return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)));
   }
