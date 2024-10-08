@@ -68,9 +68,8 @@
               </div>
             </v-tabs-window-item>
           </v-tabs-window>
+          <v-icon class="vsk-map-close" icon="$close" @click="isActive = false"></v-icon>
         </v-card>
-
-        <!-- <v-icon class="vsk-map-close" icon="$close" @click="isActive = false"></v-icon> -->
 
       </template>
     </v-dialog>
@@ -178,34 +177,33 @@ const characters_foundSorted = computed(() => {
   }
 }
 
-.vsk-map-close {
-  position: absolute;
-  right: 0.6vh;
-  top: -50vh + 15vh + 0.25vh;
-  cursor: pointer;
-
-  color: white;
-  font-size: 4.2vh;
-  border-radius: 0.8vh;
-  transition: background-color 250ms ease-in;
-
-  &:hover {
-    background-color: grey;
-  }
-}
-
 .vsk-map-v-dialog {
   width: 100%;
   max-width: 540px;
-
 
   .vsk-map-v-card {
     border-radius: 0.8vh;
     background-color: rgba(29, 27, 25, 0.8);
 
     position: absolute;
-    top: -50vh + 15vh;
+    top: -50vh+15vh;
     left: 12px;
+
+    .vsk-map-close {
+      position: absolute;
+      right: 0.2vh;
+      top: 0.2vh;
+      cursor: pointer;
+
+      color: white;
+      font-size: 4.2vh;
+      border-radius: 0.8vh;
+      transition: background-color 250ms ease-in;
+
+      &:hover {
+        background-color: grey;
+      }
+    }
 
     .vsk-map-content {
       margin: 1vh;

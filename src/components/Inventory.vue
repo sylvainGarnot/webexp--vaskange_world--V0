@@ -31,9 +31,8 @@
               </TransitionGroup>
             </v-row>
           </div>
+          <v-icon class="vsk-map-close" icon="$close" @click="isActive = false"></v-icon>
         </v-card>
-
-        <v-icon class="vsk-map-close" icon="$close" @click="isActive = false"></v-icon>
 
       </template>
     </v-dialog>
@@ -106,22 +105,6 @@ const items_acquiredSorted = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.vsk-map-close {
-  position: absolute;
-  right: 1.4vh;
-  top: -50vh + 15vh + 1.3vh;
-  cursor: pointer;
-
-  color: white;
-  font-size: 4.2vh;
-  border-radius: 0.8vh;
-  transition: background-color 250ms ease-in;
-
-  &:hover {
-    background-color: grey;
-  }
-}
-
 .vsk-map-v-dialog {
   width: 100%;
   max-width: 540px;
@@ -132,6 +115,22 @@ const items_acquiredSorted = computed(() => {
 
     position: absolute;
     top: -50vh + 15vh;
+
+    .vsk-map-close {
+      position: absolute;
+      right: 1.35vh;
+      top: 1.35vh;
+      cursor: pointer;
+
+      color: white;
+      font-size: 4.2vh;
+      border-radius: 0.8vh;
+      transition: background-color 250ms ease-in;
+
+      &:hover {
+        background-color: grey;
+      }
+    }
 
     .vsk-map-content {
       margin: 1vh;
