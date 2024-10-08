@@ -35,9 +35,7 @@
           </div>
         </v-card>
 
-        <v-card-actions class="vsk-gift-close">
-          <v-icon icon="$vuetify" @click="isActive.value = false"></v-icon>
-        </v-card-actions>
+        <v-icon class="vsk-gift-close" icon="$vuetify" @click="isActive.value = false"></v-icon>
       </template>
     </v-dialog>
   </div>
@@ -117,14 +115,15 @@ onMounted(() => {
   }
 
   .vsk-gift-close {
-    color: white;
     position: absolute;
     left: 50%;
-    bottom: -2.5vh;
-    font-size: 2.5vh;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-    animation: bounce 2s ease infinite;
+    bottom: -3.4vh;
     cursor: pointer;
+    animation: bounce 2s ease infinite;
+
+    color: white;
+    font-size: 5.8vh;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
   }
 }
 </style>

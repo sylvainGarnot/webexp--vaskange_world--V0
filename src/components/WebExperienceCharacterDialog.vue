@@ -120,12 +120,12 @@ function handleNextDialog() {
     .vsk-dialog-npc-next-icon {
       position: absolute;
       left: 50%;
-      bottom: -2.2vh;
+      bottom: -3.4vh;
       cursor: pointer;
       animation: bounce 2s ease infinite;
 
       color: white;
-      font-size: 4.2vh;
+      font-size: 5.8vh;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     }
   }
