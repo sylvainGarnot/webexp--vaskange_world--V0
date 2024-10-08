@@ -14,9 +14,12 @@ defineProps({
 
 <style lang="scss" scoped>
 .btn-menu {
-  background-color: #00000075;
   width: 5.8vh;
   height: 5.8vh;
+  max-width: 65px;
+  max-height: 65px;
+
+  background-color: rgba(29, 27, 25, 0.8);
   border-radius: 0.8vh;
   padding: 0.4vh;
   cursor: pointer;
