@@ -70,7 +70,7 @@
           </v-tabs-window>
         </v-card>
 
-        <v-icon class="vsk-map-close" icon="$close" @click="isActive = false"></v-icon>
+        <!-- <v-icon class="vsk-map-close" icon="$close" @click="isActive = false"></v-icon> -->
 
       </template>
     </v-dialog>
@@ -198,12 +198,14 @@ const characters_foundSorted = computed(() => {
   width: 100%;
   max-width: 540px;
 
+
   .vsk-map-v-card {
     border-radius: 0.8vh;
     background-color: rgba(29, 27, 25, 0.8);
 
     position: absolute;
     top: -50vh + 15vh;
+    left: 12px;
 
     .vsk-map-content {
       margin: 1vh;
