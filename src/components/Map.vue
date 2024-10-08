@@ -6,31 +6,67 @@
       <template v-slot:default>
 
         <v-card class="vsk-map-v-card">
-          <div class="vsk-map-content">
 
-            <!-- TITRE -->
-            <v-row no-gutters class="vsk-map-title mt-12">
-              <v-col cols="12">
-                <h3>Lieux découverts</h3>
-              </v-col>
-            </v-row>
+          <v-tabs v-model="tab" align-tabs="center" class="vsk-map-v-tabs-menu">
+            <v-tab value="tabs-option-1">Lieux</v-tab>
+            <v-tab value="tabs-option-2">Personnages</v-tab>
+          </v-tabs>
 
-            <!-- FILTRES -->
-            <VskSwitchGroup class="v-row v-row--no-gutters mt-6 mb-3 px-8" :fields="sortTypes"
-              @select="changeSwitchValue" />
+          <v-tabs-window v-model="tab">
+            <v-tabs-window-item value="tabs-option-1">
+              <div class="vsk-map-content">
+                <!-- LIEUX - TITRE -->
+                <v-row no-gutters class="vsk-map-title mt-12">
+                  <v-col cols="12">
+                    <h3>Lieux découverts</h3>
+                  </v-col>
+                </v-row>
 
-            <!-- CONTENT -->
-            <v-row no-gutters class="vsk-map-locations px-3 pb-3">
-              <TransitionGroup name="list-animation">
-                <VskThumbnail v-for="locationFound in locations_foundSorted" :key="locationFound.id"
-                  :title="locationFound.name" :link="locationFound.name"
-                  :subtitle="locationFound?.nbrItemsToAcquired > 0 ? `secrets trouvé ${locationFound?.nbrItemsAcquired} / ${locationFound?.nbrItemsToAcquired}` : ''"
-                  :imageUrl="`${locationFound.image_url}`" @router-push="isActive = false" />
-                <VskThumbnail v-if="locationsFoundProgression.length < locations.length" title="À découvrir..."
-                  :imageUrl="`/images/location/secret_place.PNG`" />
-              </TransitionGroup>
-            </v-row>
-          </div>
+                <!-- LIEUX - FILTRES -->
+                <VskSwitchGroup class="v-row v-row--no-gutters mt-6 mb-3 px-8" :fields="sortTypes"
+                  @select="changeSwitchValue" />
+
+                <!-- LIEUX - CONTENT -->
+                <v-row no-gutters class="vsk-map-locations px-3 pb-3">
+                  <TransitionGroup name="list-animation">
+                    <VskThumbnail v-for="locationFound in locations_foundSorted" :key="locationFound.id"
+                      :title="locationFound.name" :link="locationFound.name"
+                      :subtitle="locationFound?.nbrItemsToAcquired > 0 ? `secrets trouvé ${locationFound?.nbrItemsAcquired} / ${locationFound?.nbrItemsToAcquired}` : ''"
+                      :imageUrl="`${locationFound.image_url}`" @router-push="isActive = false" />
+                    <VskThumbnail v-if="locationsFoundProgression.length < locations.length" title="À découvrir..."
+                      :imageUrl="`/images/location/secret_place.PNG`" />
+                  </TransitionGroup>
+                </v-row>
+              </div>
+            </v-tabs-window-item>
+
+            <v-tabs-window-item value="tabs-option-2">
+              <div class="vsk-map-content">
+                <!-- LIEUX - TITRE -->
+                <v-row no-gutters class="vsk-map-title mt-12">
+                  <v-col cols="12">
+                    <h3>Lieux découverts 2222</h3>
+                  </v-col>
+                </v-row>
+
+                <!-- LIEUX - FILTRES -->
+                <VskSwitchGroup class="v-row v-row--no-gutters mt-6 mb-3 px-8" :fields="sortTypes"
+                  @select="changeSwitchValue" />
+
+                <!-- LIEUX - CONTENT -->
+                <v-row no-gutters class="vsk-map-locations px-3 pb-3">
+                  <TransitionGroup name="list-animation">
+                    <VskThumbnail v-for="locationFound in locations_foundSorted" :key="locationFound.id"
+                      :title="locationFound.name" :link="locationFound.name"
+                      :subtitle="locationFound?.nbrItemsToAcquired > 0 ? `secrets trouvé ${locationFound?.nbrItemsAcquired} / ${locationFound?.nbrItemsToAcquired}` : ''"
+                      :imageUrl="`${locationFound.image_url}`" @router-push="isActive = false" />
+                    <VskThumbnail v-if="locationsFoundProgression.length < locations.length" title="À découvrir..."
+                      :imageUrl="`/images/location/secret_place.PNG`" />
+                  </TransitionGroup>
+                </v-row>
+              </div>
+            </v-tabs-window-item>
+          </v-tabs-window>
         </v-card>
 
         <v-icon class="vsk-map-close" icon="$close" @click="isActive = false"></v-icon>
@@ -54,6 +90,7 @@ const locationStore = useLocationStore()
 const { locationsFoundProgression, locations } = storeToRefs(locationStore)
 
 const isActive = ref(false);
+const tab = ref('tabs-option-1');
 
 const sortTypes = ref([
   {
@@ -106,6 +143,21 @@ const locations_foundSorted = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+.vsk-map-v-tabs-menu {
+
+  button,
+  span {
+    color: grey;
+    font-family: 'Gill Sans';
+    font-size: 1.5vh;
+    font-weight: 500;
+
+    &.v-tab--selected {
+      color: white;
+    }
+  }
+}
+
 .vsk-map-v-dialog {
   width: 100%;
   max-width: 540px;
@@ -141,8 +193,8 @@ const locations_foundSorted = computed(() => {
 
 .vsk-map-close {
   position: absolute;
-  right: 1.25vh;
-  top: 1.25vh;
+  right: 0.4vh;
+  top: 0;
   cursor: pointer;
 
   color: white;
