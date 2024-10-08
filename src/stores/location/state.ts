@@ -160,7 +160,7 @@ export const locations = ref([
     musics: ['1','2'],
   },
   {
-    id: "17",
+    id: "0",
     name: "galaxie ✨",
     message: 'Galaxie ✨ - Space World 💫',
     image_url: 'oatly end',
@@ -169,7 +169,7 @@ export const locations = ref([
     musics: ['1','2'],
   },
   {
-    id: "17b",
+    id: "17",
     name: "univers 🌀",
     message: 'Univers 🌀',
     image_url: 'oatly end',

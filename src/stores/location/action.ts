@@ -45,12 +45,12 @@ export function onLocationFound(input: locationInterface) {
 
 export function setDefaultLocationFound() {
   addLocationFound({
-    ...locations.value[0], found_date: new Date()
+    ...locations.value[19], found_date: new Date()
   } as locationFoundInterface);
   addLocationFound({
     ...locations.value[16], found_date: new Date()
   } as locationFoundInterface);
   addLocationFound({
-    ...locations.value[19], found_date: new Date()
+    ...locations.value[0], found_date: new Date()
   } as locationFoundInterface);
 }

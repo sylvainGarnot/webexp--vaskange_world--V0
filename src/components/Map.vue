@@ -19,14 +19,14 @@
               @select="changeSwitchValue" />
 
             <!-- CONTENT -->
-            <v-row no-gutters class="vsk-map-locations pb-2 px-2">
-              <v-col cols="12" class="mt-2" v-for="locationFound in locations_foundSorted">
-                <VskThumbnail :title="locationFound.name" :location="locationFound.name"
+            <v-row no-gutters class="vsk-map-locations">
+              <TransitionGroup name="list-animation" tag="div">
+                <VskThumbnail v-for="locationFound in locations_foundSorted" :key="locationFound.id"
+                  :title="locationFound.name" :location="locationFound.name"
                   :imageUrl="`src/assets/images/${locationFound.image_url}.png`" @router-push="isActive = false" />
-              </v-col>
-              <v-col cols="12" class="mt-2" v-if="locations_found.length < locations.length">
-                <VskThumbnail title="À découvrir..." :imageUrl="`src/assets/images/secret_place.png`" />
-              </v-col>
+                <VskThumbnail v-if="locations_found.length < locations.length" title="À découvrir..."
+                  :imageUrl="`src/assets/images/secret_place.png`" />
+              </TransitionGroup>
             </v-row>
           </div>
         </v-card>
@@ -125,8 +125,18 @@ const locations_foundSorted = computed(() => {
         overflow-y: scroll;
         max-height: 45vh;
         border-top: solid 1px grey;
+
+        div {
+          width: 100%;
+        }
       }
     }
   }
+}
+
+.list-animation-move,
+.list-animation-enter-active,
+.list-animation-leave-active {
+  transition: all 0.5s ease;
 }
 </style>
