@@ -79,7 +79,7 @@ function handleNextDialog() {
 .vsk-dialog-container {
   position: absolute;
   left: 0;
-  bottom: 4vh;
+  bottom: 6.5vh;
   width: 100%;
 
   .vsk-dialog-npc {
