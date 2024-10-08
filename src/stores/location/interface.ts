@@ -11,3 +11,8 @@ export interface locationInterface {
 export interface locationFoundInterface extends locationInterface {
   found_date: Date,
 }
+
+export interface locationFoundProgressionInterface extends locationFoundInterface {
+  nrbItemsToAcquired: number,
+  nbrItemsAcquired: number,
+}
