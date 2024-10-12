@@ -59,6 +59,7 @@
                   <TransitionGroup name="list-animation" class="transition-group-element" tag="div">
                     <VskThumbnail v-for="characterFound in characters_foundSorted" :key="characterFound.id"
                       class="transition-group-element" :title="characterFound.name" :link="characterFound.name"
+                      :subtitle="characterFound?.itemToAcquired ? `objet donné ${characterFound?.itemAcquired ? '1' : '0'} / 1` : ''"
                       :imageUrl="`${characterFound.image_url}`" @router-push="isActive = false" />
                     <VskThumbnail v-if="characters_found.length < characters.length" title="..."
                       class="transition-group-element" :key="characters_found.length"

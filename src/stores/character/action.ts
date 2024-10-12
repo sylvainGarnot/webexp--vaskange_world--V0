@@ -3,6 +3,8 @@ import type { currentCharacterInterface, characterFoundInterface, characterInter
 import type { bookmarkInterface } from '../bookmark/interface';
 
 import { setIsDialogActive } from '../dialog/action';
+import { dialogs } from '../dialog/state';
+import { items_acquired } from '../item/state';
 
 
 // PRIVATE
@@ -48,9 +50,22 @@ export function onCharacterFound(inputCharacter: characterInterface, inputBookma
   const characterFound = {
     ...inputCharacter,
     found_date: new Date(),
+    itemToAcquired: false,
+    itemAcquired: false,
   } as characterFoundInterface;
 
   if (!characters_found.value.find(c => c.id === characterFound.id)) {
+
+    const characterFoundDialog = dialogs.value.find(d => d.id === characterFound.dialog)
+    if (characterFoundDialog && characterFoundDialog.item_provided) {
+      characterFound.itemToAcquired = true
+
+      const itemAcquired = items_acquired.value.find(i => i.id === characterFoundDialog.item_provided)
+      if (itemAcquired) {
+        characterFound.itemAcquired = true
+      }
+    }
+
     addCharacterFound(characterFound as characterFoundInterface);
   }
 

@@ -8,6 +8,8 @@ export interface characterInterface {
 
 export interface characterFoundInterface extends characterInterface {
   found_date: Date,
+  itemToAcquired: boolean,
+  itemAcquired: boolean,
 }
 
 export interface currentCharacterInterface extends characterFoundInterface {
