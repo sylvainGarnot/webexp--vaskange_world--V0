@@ -33,7 +33,7 @@ export function updateBookmarkHasLocation(inputBookmarks: bookmarkInterface[]) {
   // STEP-A) SET INNER BOOKMARKS LOCATION
   let innerBookmarksLocation = [] as bookmarkInterface[];
   for (let index = 0; index < inputBookmarks.length; index++) {
-    if (inputBookmarks[index]?.zoomFactor > 0.8) {
+    if (inputBookmarks[index]?.zoomFactor > 0.1) {
       innerBookmarksLocation.push(inputBookmarks[index] as bookmarkInterface);
     }
   }
@@ -51,10 +51,12 @@ export function updateBookmarkHasLocation(inputBookmarks: bookmarkInterface[]) {
     }
     setCurrentBookmark(closestInnerBookmarkLocation as bookmarkInterface);
   }
+  console.log('TEST closestInnerBookmarkLocation v/s/z/Zi', closestInnerBookmarkLocation?.name, closestInnerBookmarkLocation?.intersectionInfo?.visibleBookmarkRatio, closestInnerBookmarkLocation?.intersectionInfo?.screenAreaToBookmarkRatio, closestInnerBookmarkLocation?.zoomFactor, zoomIn?.value);
+
   
   // STEP-A.2) Zoom in/out Location
-  if (closestInnerBookmarkLocation?.intersectionInfo?.visibleBookmarkRatio > 0.02) {
-    if (zoomIn?.value && isZoomStarted.value) {
+  if (closestInnerBookmarkLocation?.intersectionInfo?.visibleBookmarkRatio > 0.009) {
+    if (zoomIn?.value && isZoomStarted.value && closestInnerBookmarkLocation?.zoomFactor < 1) {
       if (closestInnerBookmarkLocation?.name !== currentLocation?.value?.name) {
 
         const locationFound = locations_found.value.find(l => l.name === closestInnerBookmarkLocation.name) as locationFoundInterface
@@ -68,7 +70,7 @@ export function updateBookmarkHasLocation(inputBookmarks: bookmarkInterface[]) {
         }
       }
     }
-    else if (!zoomIn?.value && isZoomStarted.value) {
+    else if (!zoomIn?.value && isZoomStarted.value && closestInnerBookmarkLocation?.zoomFactor > 3) {
       const closestInnerLocation = locations.value.find(l => l.name === closestInnerBookmarkLocation?.name) as locationInterface
       if (closestInnerLocation?.upper_location !== currentLocation?.value?.id) {
         const locationFound = locations_found.value.find(l => l.id === closestInnerLocation?.upper_location) as locationFoundInterface;

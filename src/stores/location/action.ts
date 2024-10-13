@@ -23,7 +23,7 @@ export function setCurrentLocation(input: locationFoundInterface) {
       addToast(currentLocation.value.message as string);
       changeMusicByLocation();
       isLocationIsChanging.value = false;
-    }, 1500);
+    }, 800);
   }
 };
 

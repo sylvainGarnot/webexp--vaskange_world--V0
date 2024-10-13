@@ -75,7 +75,7 @@ onMounted(() => {
     EndlessPaper.onBookmarkNearby(
       {
         name: locationsName.value,
-        visibleBookmarkRatio: '> 0.01',
+        visibleBookmarkRatio: '> 0.005',
         zoomFactor: '< 3.5',
       },
       updateBookmarkHasLocation
