@@ -51,7 +51,8 @@ export function updateBookmarkHasLocation(inputBookmarks: bookmarkInterface[]) {
     }
     setCurrentBookmark(closestInnerBookmarkLocation as bookmarkInterface);
   }
-  console.log('TEST closestInnerBookmarkLocation v/s/z/Zi', closestInnerBookmarkLocation?.name, closestInnerBookmarkLocation?.intersectionInfo?.visibleBookmarkRatio, closestInnerBookmarkLocation?.intersectionInfo?.screenAreaToBookmarkRatio, closestInnerBookmarkLocation?.zoomFactor, zoomIn?.value);
+  // TEST
+  // console.log('TEST closestInnerBookmarkLocation v/s/z/Zi', closestInnerBookmarkLocation?.name, closestInnerBookmarkLocation?.intersectionInfo?.visibleBookmarkRatio, closestInnerBookmarkLocation?.intersectionInfo?.screenAreaToBookmarkRatio, closestInnerBookmarkLocation?.zoomFactor, zoomIn?.value);
 
   
   // STEP-A.2) Zoom in/out Location
@@ -113,6 +114,8 @@ export function updateBookmarkHasCharacter(inputBookmarks: bookmarkInterface[]) 
     const characterFound = characters_found.value.find(c => c.name === closestNearByBookmarkCharacter.name) as characterFoundInterface;
     if (characterFound) {
       setCurrentCharacter(characterFound as characterFoundInterface, closestNearByBookmarkCharacter as bookmarkInterface);
+      // TEST
+      console.log('TEST closestNearByBookmarkCharacter v/s/z/Zi', closestNearByBookmarkCharacter?.name, closestNearByBookmarkCharacter?.intersectionInfo?.visibleBookmarkRatio, closestNearByBookmarkCharacter?.intersectionInfo?.screenAreaToBookmarkRatio, closestNearByBookmarkCharacter?.zoomFactor)
     }
   } else {
     emptyCurrentCharacter();

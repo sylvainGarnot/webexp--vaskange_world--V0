@@ -38,7 +38,7 @@ export function setCurrentCharacter(inputCharacterFound: characterFoundInterface
 };
 
 export function emptyCurrentCharacter() {
-  // console.log('TEST - emptyCurrentCharacter'); // TEST
+  console.log('TEST - emptyCurrentCharacter'); // TEST
   currentCharacter.value = {} as currentCharacterInterface;
   setIsDialogActive(false);
 }
