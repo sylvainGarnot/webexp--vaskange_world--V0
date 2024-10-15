@@ -3,10 +3,11 @@
     <VskBtn image="joystick" :disable="items_acquired!.length === 0"
       @click="items_acquired!.length > 0 ? isActive = !isActive : ''" />
 
-    <VskCard title="Objets Trouvés" isFiltering v-model:isActive="isActive"
+    <VskCard title="Objets Trouvés" v-model:isActive="isActive" hasSwitch hasList
       @change-switch-value="(value) => sortType = value">
-      <template v-slot:content>
-        <TransitionGroup name="list-animation" class="transition-group-element" tag="div">
+
+      <template v-slot:list>
+        <TransitionGroup name="vsk-inventory-list-animation" class="transition-group-element" tag="div">
           <VskThumbnailCard v-for="itemAcquired in items_acquiredSorted" :key="itemAcquired.id"
             class="transition-group-element" :title="itemAcquired.name" :description="itemAcquired.description"
             :imageUrl="`${itemAcquired.image_url}`" @router-push="isActive = false" />
@@ -55,4 +56,10 @@ const items_acquiredSorted = computed(() => {
 
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.vsk-inventory-list-animation-move,
+.vsk-inventory-list-animation-enter-active,
+.vsk-inventory-list-animation-leave-active {
+  transition: all 0.5s ease;
+}
+</style>

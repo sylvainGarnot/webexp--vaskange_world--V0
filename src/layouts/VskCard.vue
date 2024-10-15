@@ -1,34 +1,39 @@
 <template>
   <div>
     <v-dialog class="vsk-card-v-dialog" :modelValue="isActive"
-      @update:modelValue="$event => $emit('update:isActive', $event)">
+      @update:modelValue="$event => $emit('update:isActive', $event)" :class="hasList ? 'mode-list' : ''">
       <template v-slot:default>
 
-        <v-card class="vsk-card-v-card">
-          <div class="vsk-card-content">
+        <v-card class="vsk-card-v-card" :class="hasList ? 'mode-list' : ''">
+          <div class="vsk-card-content" :class="hasList ? 'mode-list' : ''">
 
+            <!-- CONTENT-MODE -->
+            <v-row v-if="!title" no-gutters class="my-12">
+              <slot name="content"></slot>
+            </v-row>
 
-            <!-- TITRE -->
-            <v-row no-gutters class="vsk-card-title mt-12">
+            <!-- LIST-MODE : TITRE -->
+            <v-row v-else no-gutters class="vsk-card-title mt-12">
               <v-col cols="12">
                 <h3>{{ title }}</h3>
               </v-col>
             </v-row>
 
-
-            <!-- FILTRES -->
-            <VskSwitchGroup v-if="isFiltering" class="v-row v-row--no-gutters mt-6 mb-3 px-8" :fields="sortTypes"
+            <!-- LIST-MODE : FILTRES -->
+            <VskSwitchGroup v-if="hasSwitch" class="v-row v-row--no-gutters mt-6 mb-3 px-8" :fields="switchValues"
               @select="changeSwitchValue" />
 
-
-            <!-- CONTENT -->
-            <v-row no-gutters class="vsk-card-locations px-3 pb-3">
-              <slot name="content"></slot>
+            <!-- LIST-MODE : LIST -->
+            <v-row v-if="hasList" no-gutters class="vsk-card-list px-3 pb-3">
+              <slot name="list"></slot>
             </v-row>
           </div>
+
           <v-icon class="vsk-card-close" icon="$close" @click="$emit('update:isActive', false)"></v-icon>
         </v-card>
 
+        <v-icon v-if="hasCloseFooter" class="vsk-card-close-footer" icon="$vuetify"
+          @click="$emit('update:isActive', false)"></v-icon>
       </template>
     </v-dialog>
   </div>
@@ -42,10 +47,12 @@ const emit = defineEmits(['change-switch-value', 'update:isActive'])
 const props = defineProps({
   isActive: Boolean,
   title: String,
-  isFiltering: Boolean,
+  hasSwitch: Boolean,
+  hasList: Boolean,
+  hasCloseFooter: Boolean,
 })
 
-const sortTypes = ref([
+const switchValues = ref([
   {
     label: 'défaut',
     selected: true,
@@ -61,12 +68,12 @@ const sortTypes = ref([
 ]);
 
 function changeSwitchValue(value: string) {
-  for (let index = 0; index < sortTypes.value.length; index++) {
-    if (sortTypes.value[index].label === value) {
-      sortTypes.value[index].selected = true
-      emit('change-switch-value', sortTypes.value[index].label)
+  for (let index = 0; index < switchValues.value.length; index++) {
+    if (switchValues.value[index].label === value) {
+      switchValues.value[index].selected = true
+      emit('change-switch-value', switchValues.value[index].label)
     } else {
-      sortTypes.value[index].selected = false
+      switchValues.value[index].selected = false
     }
   }
 }
@@ -75,14 +82,52 @@ function changeSwitchValue(value: string) {
 <style lang="scss" scoped>
 .vsk-card-v-dialog {
   width: 100%;
-  max-width: 540px;
+  max-width: 780px;
+
+  &.mode-list {
+    max-width: 540px;
+  }
 
   .vsk-card-v-card {
     border-radius: 0.8vh;
     background-color: rgba(29, 27, 25, 0.8);
 
-    position: absolute;
-    top: -50vh + 15vh;
+    overflow: visible;
+
+    &.mode-list {
+      overflow: hidden;
+      position: absolute;
+      top: -50vh + 15vh;
+    }
+
+    .vsk-card-content {
+      padding: 0 1vh;
+
+      &.mode-list {
+        padding: 0;
+      }
+
+      margin: 1vh;
+      border-radius: 0.8vh;
+      border: solid 1px grey;
+      background-color: rgba(29, 27, 25, 0.8);
+
+      .vsk-card-title {
+        text-align: center;
+        color: white;
+        font-size: 3.2vh;
+      }
+
+      .vsk-card-list {
+        overflow-y: scroll;
+        max-height: 45vh;
+        border-top: solid 1px grey;
+
+        div {
+          width: 100%;
+        }
+      }
+    }
 
     .vsk-card-close {
       position: absolute;
@@ -99,35 +144,24 @@ function changeSwitchValue(value: string) {
         background-color: grey;
       }
     }
+  }
 
-    .vsk-card-content {
-      margin: 1vh;
-      border-radius: 0.8vh;
-      border: solid 1px grey;
-      background-color: rgba(29, 27, 25, 0.8);
+  .vsk-card-close-footer {
+    position: absolute;
+    left: 50%;
+    bottom: -1.8vh;
+    cursor: pointer;
+    animation: bounce 2s ease infinite;
 
-      .vsk-card-title {
-        text-align: center;
-        color: white;
-        font-size: 3.2vh;
-      }
+    color: white;
+    font-size: 5.8vh;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    border-radius: 0.8vh;
+    transition: background-color 250ms ease-in;
 
-      .vsk-card-locations {
-        overflow-y: scroll;
-        max-height: 45vh;
-        border-top: solid 1px grey;
-
-        div {
-          width: 100%;
-        }
-      }
+    &:hover {
+      background-color: grey;
     }
   }
-}
-
-.list-animation-move,
-.list-animation-enter-active,
-.list-animation-leave-active {
-  transition: all 0.5s ease;
 }
 </style>

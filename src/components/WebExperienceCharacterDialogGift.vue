@@ -1,46 +1,36 @@
 <template>
   <div>
-    <v-dialog class="vsk-gift-v-dialog" v-model="isActive">
-      <template v-slot:default="{ isActive }">
+    <VskCard v-model:isActive="isActive" has-close-footer>
+      <template v-slot:content>
+        <v-row no-gutters>
+          <v-col cols="12">
+            <div class="web-experience-character-dialog-gift-title">
+              <p v-for="line in currentDialog?.speech_written">
+                {{ line }}
+              </p>
+            </div>
+          </v-col>
+        </v-row>
+        <v-row no-gutters class="mt-5 mb-2">
+          <v-col cols="4">
+            <v-img class="web-experience-character-dialog-gift-item-image" :src="itemProvidedByCurrentDialog?.image_url"
+              style="overflow: visible;">
+              <WebExperienceCharacterDialogGiftFirework />
+            </v-img>
+          </v-col>
+          <v-col cols="8">
+            <v-card-title class="web-experience-character-dialog-gift-item-name">
+              {{ itemProvidedByCurrentDialog?.name }}
+              <v-divider :thickness="1" class="border-opacity-50 mt-3" color="grey"></v-divider>
+            </v-card-title>
 
-        <v-card class="vsk-gift-v-card" style="overflow: visible;">
-          <div class="vsk-gift-content">
-            <v-row no-gutters class="mt-1">
-              <v-col cols="12">
-                <div class="vsk-gift-current-dialog-speech">
-                  <p v-for="line in currentDialog?.speech_written">
-                    {{ line }}
-                  </p>
-                </div>
-              </v-col>
-            </v-row>
-
-            <v-row no-gutters class="mt-5 mb-2">
-              <v-col cols="4">
-                <v-img class="vsk-gift-item-image" :src="itemProvidedByCurrentDialog?.image_url"
-                  style="overflow: visible;">
-                  <WebExperienceCharacterDialogGiftFirework />
-                </v-img>
-              </v-col>
-              <v-col cols="8">
-                <v-card-title class="vsk-gift-item-name">
-                  {{ itemProvidedByCurrentDialog?.name }}
-                  <v-divider :thickness="1" class="border-opacity-50 mt-3" color="grey"></v-divider>
-                </v-card-title>
-
-                <v-card-text class="vsk-gift-item-description mt-1">
-                  {{ itemProvidedByCurrentDialog?.description }}
-                </v-card-text>
-              </v-col>
-            </v-row>
-          </div>
-        </v-card>
-
-        <v-icon class="vsk-gift-close-header" icon="$close" @click="isActive.value = false"></v-icon>
-
-        <v-icon class="vsk-gift-close-footer" icon="$vuetify" @click="isActive.value = false"></v-icon>
+            <v-card-text class="web-experience-character-dialog-gift-item-description mt-1">
+              {{ itemProvidedByCurrentDialog?.description }}
+            </v-card-text>
+          </v-col>
+        </v-row>
       </template>
-    </v-dialog>
+    </VskCard>
   </div>
 </template>
 
@@ -51,6 +41,7 @@ import { storeToRefs } from 'pinia';
 import { useDialogStore } from "@/stores/dialog";
 import { useItemStore } from "@/stores/item";
 
+import VskCard from '@/layouts/VskCard.vue'
 import WebExperienceCharacterDialogGiftFirework from "@/components/WebExperienceCharacterDialogGiftFirework.vue";
 import type { itemInterface } from "@/stores/item/interface";
 
@@ -69,86 +60,32 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.vsk-gift-v-dialog {
-  width: 100%;
-  max-width: 780px;
+.web-experience-character-dialog-gift-title {
+  text-align: center;
+  color: white;
+  font-size: 2.6vh;
+  font-weight: 500;
+  line-height: 1.5;
+}
 
-  .vsk-gift-v-card {
-    border-radius: 8px;
-    background-color: rgba(29, 27, 25, 0.8);
+.web-experience-character-dialog-gift-item-image {
+  width: 90%;
+  max-width: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
+.web-experience-character-dialog-gift-item-name {
+  color: white;
+  font-size: 2.6vh;
+  font-weight: 700;
+  line-height: 1;
+}
 
-    .vsk-gift-content {
-      margin: 1vh;
-      padding: 2vh 1vh;
-      border-radius: 0.8vh;
-
-      border: solid 1px grey;
-      background-color: rgba(29, 27, 25, 0.8);
-
-      .vsk-gift-current-dialog-speech {
-        text-align: center;
-        color: white;
-        font-size: 2.6vh;
-        font-weight: 500;
-        line-height: 1.5;
-      }
-
-      .vsk-gift-item-image {
-        width: 90%;
-        max-width: 160px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-
-      .vsk-gift-item-name {
-        color: white;
-        font-size: 2.6vh;
-        font-weight: 700;
-        line-height: 1;
-      }
-
-      .vsk-gift-item-description {
-        color: white;
-        font-size: 1.6vh;
-        font-weight: 300;
-        line-height: 1;
-      }
-    }
-  }
-
-  .vsk-gift-close-header {
-    position: absolute;
-    right: 1.3vh;
-    top: 1.3vh;
-    cursor: pointer;
-
-    color: white;
-    font-size: 4.2vh;
-    border-radius: 0.8vh;
-    transition: background-color 250ms ease-in;
-
-    &:hover {
-      background-color: grey;
-    }
-  }
-
-  .vsk-gift-close-footer {
-    position: absolute;
-    left: 50%;
-    bottom: -2.8vh;
-    cursor: pointer;
-    animation: bounce 2s ease infinite;
-
-    color: white;
-    font-size: 5.8vh;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-    border-radius: 0.8vh;
-    transition: background-color 250ms ease-in;
-
-    &:hover {
-      background-color: grey;
-    }
-  }
+.web-experience-character-dialog-gift-item-description {
+  color: white;
+  font-size: 1.6vh;
+  font-weight: 300;
+  line-height: 1;
 }
 </style>
