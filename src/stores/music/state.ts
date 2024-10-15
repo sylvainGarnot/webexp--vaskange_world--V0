@@ -10,37 +10,44 @@ export const isMusicPlaying = ref(false as boolean);
 export const musics = ref([
   {
     id: '0',
-    file: 'https://prismatic-concha-27bd5b.netlify.app/music/free/coccibar 🐞.aac',
+    file: '/music/free/coccibar 🐞.aac',
+    // file: 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA',
     audio: new Audio,
   },
   {
     id: '1',
-    file: 'https://prismatic-concha-27bd5b.netlify.app/music/free/fin quest 1 🔥.aac',
+    file: '/music/free/fin quest 1 🔥.aac',
+    // file: 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA',
     audio: new Audio,
   },
   {
     id: '2',
-    file: 'https://prismatic-concha-27bd5b.netlify.app/music/free/matrix 📺.aac',
+    file: '/music/free/matrix 📺.aac',
+    // file: 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA',
     audio: new Audio,
   },
   {
     id: '3',
-    file: 'https://prismatic-concha-27bd5b.netlify.app/music/free/star night club ⭐️.aac',
+    file: '/music/free/star night club ⭐️.aac',
+    // file: 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA',
     audio: new Audio,
   },
   {
     id: '4',
-    file: 'https://prismatic-concha-27bd5b.netlify.app/music/free/support city 🛖.aac',
+    file: '/music/free/support city 🛖.aac',
+    // file: 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA',
     audio: new Audio,
   },
   {
     id: '5',
-    file: 'https://prismatic-concha-27bd5b.netlify.app/music/free/temple 🏯.aac',
+    file: '/music/free/temple 🏯.aac',
+    // file: 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA',
     audio: new Audio,
   },
   {
     id: '6',
-    file: 'https://prismatic-concha-27bd5b.netlify.app/music/free/trésor 💰.aac',
+    file: '/music/free/trésor 💰.aac',
+    // file: 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA',
     audio: new Audio,
   },
 ] as musicInterface[]);

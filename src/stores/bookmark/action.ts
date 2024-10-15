@@ -115,7 +115,7 @@ export function updateBookmarkHasCharacter(inputBookmarks: bookmarkInterface[]) 
     if (characterFound) {
       setCurrentCharacter(characterFound as characterFoundInterface, closestNearByBookmarkCharacter as bookmarkInterface);
       // TEST
-      console.log('TEST closestNearByBookmarkCharacter v/s/z/Zi', closestNearByBookmarkCharacter?.name, closestNearByBookmarkCharacter?.intersectionInfo?.visibleBookmarkRatio, closestNearByBookmarkCharacter?.intersectionInfo?.screenAreaToBookmarkRatio, closestNearByBookmarkCharacter?.zoomFactor)
+      // console.log('TEST closestNearByBookmarkCharacter v/s/z/Zi', closestNearByBookmarkCharacter?.name, closestNearByBookmarkCharacter?.intersectionInfo?.visibleBookmarkRatio, closestNearByBookmarkCharacter?.intersectionInfo?.screenAreaToBookmarkRatio, closestNearByBookmarkCharacter?.zoomFactor)
     }
   } else {
     emptyCurrentCharacter();
