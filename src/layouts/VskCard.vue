@@ -7,25 +7,16 @@
         <v-card class="vsk-card-v-card" :class="hasList ? 'mode-list' : ''">
           <div class="vsk-card-content" :class="hasList ? 'mode-list' : ''">
 
-            <!-- CONTENT-MODE -->
-            <v-row v-if="!title" no-gutters class="my-12">
-              <slot name="content"></slot>
-            </v-row>
-
-            <!-- LIST-MODE : TITRE -->
-            <v-row v-else no-gutters class="vsk-card-title mt-12">
+            <!-- TITRE-->
+            <v-row v-if="title" no-gutters class="vsk-card-title mt-12">
               <v-col cols="12">
                 <h3>{{ title }}</h3>
               </v-col>
             </v-row>
 
-            <!-- LIST-MODE : FILTRES -->
-            <VskSwitchGroup v-if="hasSwitch" class="v-row v-row--no-gutters mt-6 mb-3 px-8" :fields="switchValues"
-              @select="changeSwitchValue" />
-
-            <!-- LIST-MODE : LIST -->
-            <v-row v-if="hasList" no-gutters class="vsk-card-list px-3 pb-3">
-              <slot name="list"></slot>
+            <!-- CONTENT -->
+            <v-row no-gutters :class="!title ? 'my-12' : ''">
+              <slot name="content"></slot>
             </v-row>
           </div>
 
@@ -40,43 +31,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import VskSwitchGroup from '@/layouts/VskSwitchGroup.vue'
-const emit = defineEmits(['change-switch-value', 'update:isActive'])
+const emit = defineEmits(['update:isActive'])
 
 const props = defineProps({
   isActive: Boolean,
   title: String,
-  hasSwitch: Boolean,
   hasList: Boolean,
   hasCloseFooter: Boolean,
 })
-
-const switchValues = ref([
-  {
-    label: 'défaut',
-    selected: true,
-  },
-  {
-    label: 'alpha',
-    selected: false,
-  },
-  {
-    label: 'date',
-    selected: false,
-  },
-]);
-
-function changeSwitchValue(value: string) {
-  for (let index = 0; index < switchValues.value.length; index++) {
-    if (switchValues.value[index].label === value) {
-      switchValues.value[index].selected = true
-      emit('change-switch-value', switchValues.value[index].label)
-    } else {
-      switchValues.value[index].selected = false
-    }
-  }
-}
 </script>
 
 <style lang="scss" scoped>
@@ -116,16 +78,6 @@ function changeSwitchValue(value: string) {
         text-align: center;
         color: white;
         font-size: 3.2vh;
-      }
-
-      .vsk-card-list {
-        overflow-y: scroll;
-        max-height: 45vh;
-        border-top: solid 1px grey;
-
-        div {
-          width: 100%;
-        }
       }
     }
 

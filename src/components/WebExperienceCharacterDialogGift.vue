@@ -11,7 +11,7 @@
             </div>
           </v-col>
         </v-row>
-        <v-row no-gutters class="mt-5 mb-2">
+        <v-row no-gutters class="mt-9 mb-2">
           <v-col cols="4">
             <v-img class="web-experience-character-dialog-gift-item-image" :src="itemProvidedByCurrentDialog?.image_url"
               style="overflow: visible;">
