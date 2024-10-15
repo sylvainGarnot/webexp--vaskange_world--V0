@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskBtn image="joystick" :disable="items_acquired!.length === 0"
+    <VskMenuBtn image="joystick" :disable="items_acquired!.length === 0"
       @click="items_acquired!.length > 0 ? isActive = !isActive : ''" />
 
     <VskCard title="Objets Trouvés" v-model:isActive="isActive" hasSwitch hasList
@@ -26,7 +26,7 @@ import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia'
 import VskThumbnail from '@/layouts/VskThumbnail.vue'
 import VskThumbnailCard from '@/layouts/VskThumbnailCard.vue'
-import VskBtn from '@/layouts/VskBtn.vue'
+import VskMenuBtn from '@/layouts/VskMenuBtn.vue'
 
 import VskCard from '@/layouts/VskCard.vue'
 

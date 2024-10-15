@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskBtn image="map" @click="isActive = !isActive" />
+    <VskMenuBtn image="map" @click="isActive = !isActive" />
 
     <v-dialog class="vsk-map-v-dialog" v-model="isActive">
       <template v-slot:default>
@@ -81,7 +81,7 @@
 import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia'
 import VskThumbnail from '@/layouts/VskThumbnail.vue'
-import VskBtn from '@/layouts/VskBtn.vue'
+import VskMenuBtn from '@/layouts/VskMenuBtn.vue'
 import VskSwitchGroup from '@/layouts/VskSwitchGroup.vue'
 
 import { useLocationStore } from "@/stores/location"
