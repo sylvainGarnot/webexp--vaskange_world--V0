@@ -30,13 +30,13 @@ import VskCardTabs from '@/layouts/VskCardTabs.vue'
 import VskThumbnailGroup from '@/layouts/VskThumbnailGroup.vue'
 
 import { useLocationStore } from "@/stores/location"
-import type { locationFoundProgressionInterface } from '@/stores/location/interface';
+import type { locationFoundInterface } from '@/stores/location/interface';
 
 import { useCharacterStore } from "@/stores/character"
 import type { characterFoundInterface } from '@/stores/character/interface';
 
 const locationStore = useLocationStore()
-const { locationsFoundProgression, locations } = storeToRefs(locationStore)
+const { locations_found, locations } = storeToRefs(locationStore)
 
 const characterStore = useCharacterStore()
 const { characters_found, characters } = storeToRefs(characterStore)
@@ -58,7 +58,7 @@ const tabs = [
 
 const locations_foundSorted = computed(() => {
   const result = []
-  for (const element of locationsFoundProgression.value as locationFoundProgressionInterface[]) {
+  for (const element of locations_found.value as locationFoundInterface[]) {
     result.push({
       ...element,
       title: element.name,

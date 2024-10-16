@@ -4,6 +4,10 @@ import type { locationInterface, locationFoundInterface } from './interface';
 import { addToast } from '../toast/action';
 import { changeMusicByLocation } from '../music/action';
 
+import { characters } from '../character/state';
+import { dialogs } from '../dialog/state';
+import { items, items_acquired } from '../item/state';
+
 
 // PRIVATE
 function addLocationFound(input: locationFoundInterface) {
@@ -33,10 +37,33 @@ export function onLocationFound(input: locationInterface) {
   
   const locationFound = {
     ...input,
-    found_date: new Date()
+    found_date: new Date(),
+    nbrItemsToAcquired: 0,
+    nbrItemsAcquired: 0,
   } as locationFoundInterface;
 
   if (!locations_found.value.find(l => l.id === locationFound.id)) {
+
+    for (let j = 0; j < characters.value.length; j++) {
+      const character = characters.value[j];
+      if (character?.location === locationFound?.id) {
+
+        const dialog = dialogs.value.find(d => d.id === character?.dialog)
+        if (dialog && dialog.item_provided) {
+
+          const item = items.value.find(it => it.id === dialog.item_provided)
+          if (item) {
+            locationFound.nbrItemsToAcquired++
+
+            const itemAcquired = items_acquired.value.find(it => it.id === item?.id)
+            if (itemAcquired) {
+              locationFound.nbrItemsAcquired++
+            }
+          }
+        }
+      }
+    }
+
     addLocationFound(locationFound as locationFoundInterface);
   }
 
@@ -44,13 +71,7 @@ export function onLocationFound(input: locationInterface) {
 };
 
 export function setDefaultLocationFound() {
-  addLocationFound({
-    ...locations.value[19], found_date: new Date()
-  } as locationFoundInterface);
-  addLocationFound({
-    ...locations.value[16], found_date: new Date()
-  } as locationFoundInterface);
-  addLocationFound({
-    ...locations.value[0], found_date: new Date()
-  } as locationFoundInterface);
+  onLocationFound(locations.value[19] as locationFoundInterface);
+  onLocationFound(locations.value[16] as locationFoundInterface);
+  onLocationFound(locations.value[0] as locationFoundInterface);
 }

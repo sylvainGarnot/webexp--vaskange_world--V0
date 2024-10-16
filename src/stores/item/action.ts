@@ -2,6 +2,7 @@ import { items_acquired } from './state';
 import type { itemAcquiredInterface, itemInterface } from './interface';
 import { dialogs } from '../dialog/state';
 import { characters_found } from '../character/state';
+import { locations_found } from '../location/state';
 
 
 // PRIVATE
@@ -14,9 +15,17 @@ export function onItemProvided(input: itemInterface) {
 
     const dialog = dialogs.value.find(d => d.item_provided === newItemAcquired.id)
     if (dialog) {
+
       for (let index = 0; index < characters_found.value.length; index++) {
-        if (characters_found.value[index].dialog === dialog.id) {
-          characters_found.value[index].itemAcquired = true
+        const characterFound = characters_found.value[index]
+
+        if (characterFound.dialog === dialog.id) {
+          characterFound.itemAcquired = true
+
+          const characterFoundLocation = locations_found.value.find(l => l.id === characterFound.location)
+          if (characterFoundLocation) {
+            characterFoundLocation.nbrItemsAcquired++
+          }
         }
       }
     }
