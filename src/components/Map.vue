@@ -2,87 +2,32 @@
   <div>
     <VskMenuBtn image="map" @click="isActive = !isActive" />
 
-    <v-dialog class="vsk-map-v-dialog" v-model="isActive">
-      <template v-slot:default>
-
-        <v-card class="vsk-map-v-card">
-
-          <v-tabs v-model="tab" align-tabs="center" class="vsk-map-v-tabs-menu">
-            <v-tab value="tabs-option-1">Lieux</v-tab>
-            <v-tab value="tabs-option-2">Personnages</v-tab>
-          </v-tabs>
-
-          <v-tabs-window v-model="tab">
-            <v-tabs-window-item value="tabs-option-1">
-              <div class="vsk-map-content">
-                <!-- LIEUX - TITRE -->
-                <v-row no-gutters class="vsk-map-title mt-12">
-                  <v-col cols="12">
-                    <h3>Lieux découverts</h3>
-                  </v-col>
-                </v-row>
-
-                <!-- LIEUX - FILTRES -->
-                <VskSwitchGroup class="v-row v-row--no-gutters mt-6 mb-3 px-8" :fields="sortTypes"
-                  @select="changeSwitchValue" />
-
-                <!-- LIEUX - CONTENT -->
-                <v-row no-gutters class="vsk-map-locations px-3 pb-3">
-                  <TransitionGroup name="list-animation" class="transition-group-element" tag="div">
-                    <VskThumbnail v-for="locationFound in locations_foundSorted" :key="locationFound.id"
-                      class="transition-group-element" :title="locationFound.name" :link="locationFound.name"
-                      :subtitle="locationFound?.nbrItemsToAcquired > 0 ? `secrets trouvé ${locationFound?.nbrItemsAcquired} / ${locationFound?.nbrItemsToAcquired}` : ''"
-                      :imageUrl="`${locationFound.image_url}`" @router-push="isActive = false" />
-                    <VskThumbnail v-if="locationsFoundProgression.length < locations.length" title="À découvrir..."
-                      class="transition-group-element" :imageUrl="`/images/location/secret_place.PNG`"
-                      :key="locationsFoundProgression.length" />
-                  </TransitionGroup>
-                </v-row>
-              </div>
-            </v-tabs-window-item>
-
-            <v-tabs-window-item value="tabs-option-2">
-              <div class="vsk-map-content">
-                <!-- CHARACTER - TITRE -->
-                <v-row no-gutters class="vsk-map-title mt-12">
-                  <v-col cols="12">
-                    <h3>Rencontres</h3>
-                  </v-col>
-                </v-row>
-
-                <!-- CHARACTER - FILTRES -->
-                <VskSwitchGroup class="v-row v-row--no-gutters mt-6 mb-3 px-8" :fields="sortTypes"
-                  @select="changeSwitchValue" />
-
-                <!-- CHARACTER - CONTENT -->
-                <v-row no-gutters class="vsk-map-locations px-3 pb-3">
-                  <TransitionGroup name="list-animation" class="transition-group-element" tag="div">
-                    <VskThumbnail v-for="characterFound in characters_foundSorted" :key="characterFound.id"
-                      class="transition-group-element" :title="characterFound.name" :link="characterFound.name"
-                      :subtitle="characterFound?.itemToAcquired ? `objet donné ${characterFound?.itemAcquired ? '1' : '0'} / 1` : ''"
-                      :imageUrl="`${characterFound.image_url}`" @router-push="isActive = false" />
-                    <VskThumbnail v-if="characters_found.length < characters.length" title="..."
-                      class="transition-group-element" :key="characters_found.length"
-                      :imageUrl="`/images/location/secret_place.PNG`" />
-                  </TransitionGroup>
-                </v-row>
-              </div>
-            </v-tabs-window-item>
-          </v-tabs-window>
-          <v-icon class="vsk-map-close" icon="$close" @click="isActive = false"></v-icon>
-        </v-card>
-
+    <VskCardTabs v-model:isActive="isActive" hasList :tabs="tabs">
+      <template v-slot:lieux>
+        <VskThumbnailGroup title="Lieux découverts" :elements="locations_foundSorted"
+          :elements-max-length="locations.length"
+          @change-switch-value="(value: string) => { sortTypeLocation = value as string }"
+          @router-push="isActive = false">
+        </VskThumbnailGroup>
       </template>
-    </v-dialog>
+      <template v-slot:personnage>
+        <VskThumbnailGroup title="Rencontres" :elements="characters_foundSorted"
+          :elements-max-length="characters.length"
+          @change-switch-value="(value: string) => { sortTypeCharacter = value as string }"
+          @router-push="isActive = false">
+        </VskThumbnailGroup>
+      </template>
+    </VskCardTabs>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia'
-import VskThumbnail from '@/layouts/VskThumbnail.vue'
+
 import VskMenuBtn from '@/layouts/VskMenuBtn.vue'
-import VskSwitchGroup from '@/layouts/VskSwitchGroup.vue'
+import VskCardTabs from '@/layouts/VskCardTabs.vue'
+import VskThumbnailGroup from '@/layouts/VskThumbnailGroup.vue'
 
 import { useLocationStore } from "@/stores/location"
 import type { locationFoundProgressionInterface } from '@/stores/location/interface';
@@ -97,69 +42,59 @@ const characterStore = useCharacterStore()
 const { characters_found, characters } = storeToRefs(characterStore)
 
 const isActive = ref(false);
-const tab = ref('tabs-option-1');
+const sortTypeLocation = ref('défaut');
+const sortTypeCharacter = ref('défaut');
 
-const sortTypes = ref([
+const tabs = [
   {
-    label: 'défaut',
-    selected: true,
+    label: 'lieux',
+    value: 'lieux',
   },
   {
-    label: 'alpha',
-    selected: false,
-  },
-  {
-    label: 'date',
-    selected: false,
-  },
-]);
-
-
-function changeSwitchValue(value: string) {
-  for (const sortType of sortTypes.value) {
-    if (sortType.label === value) {
-      sortType.selected = true
-    } else {
-      sortType.selected = false
-    }
+    label: 'personnage',
+    value: 'personnage',
   }
-}
-
-const sortType = computed(() => {
-  for (const sortType of sortTypes.value) {
-    if (sortType.selected) {
-      return sortType.label
-    }
-  }
-})
+]
 
 const locations_foundSorted = computed(() => {
-  const result = [...locationsFoundProgression.value] as locationFoundProgressionInterface[];
-  if (sortType.value === 'défaut') {
+  const result = []
+  for (const element of locationsFoundProgression.value as locationFoundProgressionInterface[]) {
+    result.push({
+      ...element,
+      title: element.name,
+      description: element?.nbrItemsToAcquired > 0 ? `secrets trouvé ${element?.nbrItemsAcquired} / ${element?.nbrItemsToAcquired}` : '',
+    })
+  }
+  if (sortTypeLocation.value === 'défaut') {
     return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)));
   }
-  else if (sortType.value === 'alpha') {
+  else if (sortTypeLocation.value === 'alpha') {
     return result.sort((a, b) => (a.name < b.name ? -1 : 1));
   }
-  else if (sortType.value === 'date') {
+  else if (sortTypeLocation.value === 'date') {
     return result.sort((a, b) => (a.found_date < b.found_date ? -1 : 1));
   }
 })
 
 const characters_foundSorted = computed(() => {
-  const result = [...characters_found.value] as characterFoundInterface[];
-  if (sortType.value === 'défaut') {
+  const result = []
+  for (const element of characters_found.value as characterFoundInterface[]) {
+    result.push({
+      ...element,
+      title: element.name,
+      description: element?.itemToAcquired ? `objet donné ${element?.itemAcquired ? '1' : '0'} / 1` : '',
+    })
+  }
+  if (sortTypeCharacter.value === 'défaut') {
     return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)));
   }
-  else if (sortType.value === 'alpha') {
+  else if (sortTypeCharacter.value === 'alpha') {
     return result.sort((a, b) => (a.name < b.name ? -1 : 1));
   }
-  else if (sortType.value === 'date') {
+  else if (sortTypeCharacter.value === 'date') {
     return result.sort((a, b) => (a.found_date < b.found_date ? -1 : 1));
   }
 })
-
-
 </script>
 
 <style lang="scss" scoped>

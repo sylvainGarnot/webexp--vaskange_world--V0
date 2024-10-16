@@ -1,6 +1,7 @@
 <template>
   <div>
-    <span :class="selected ? 'selected' : 'unselected'" @click="!selected ? $emit('select', label) : ''">{{ label
+    <span :class="selected ? 'selected' : 'unselected'" @click="!selected ? $emit('select', label as string) : ''">{{
+      label
       }}</span>
   </div>
 </template>

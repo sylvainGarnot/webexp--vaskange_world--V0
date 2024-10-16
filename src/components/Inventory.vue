@@ -3,13 +3,15 @@
     <VskMenuBtn image="joystick" :disable="items_acquired!.length === 0"
       @click="items_acquired!.length > 0 ? isActive = !isActive : ''" />
 
+
     <VskCard v-model:isActive="isActive" hasList>
       <template v-slot:content>
-        <VskThumbnailGroup title="Objets Trouvés" card :elements="items_acquiredSorted"
-          :elements-max-length="items.length" @change-switch-value="(value) => sortType = value">
-        </VskThumbnailGroup>
+        <VskThumbnailCardGroup title="Objets Trouvés" :elements="items_acquiredSorted"
+          :elements-max-length="items.length" @change-switch-value="(value: string) => { sortType = value as string }">
+        </VskThumbnailCardGroup>
       </template>
     </VskCard>
+
 
   </div>
 </template>
@@ -20,7 +22,7 @@ import { storeToRefs } from 'pinia'
 import VskMenuBtn from '@/layouts/VskMenuBtn.vue'
 
 import VskCard from '@/layouts/VskCard.vue'
-import VskThumbnailGroup from '@/layouts/VskThumbnailGroup.vue'
+import VskThumbnailCardGroup from '@/layouts/VskThumbnailCardGroup.vue'
 
 
 import { useItemStore } from "@/stores/item"
@@ -32,9 +34,26 @@ const { items_acquired, items } = storeToRefs(itemStore)
 const isActive = ref(false);
 const sortType = ref('défaut');
 
+const tabs = [
+  {
+    label: 'label 1',
+    value: 'value-1',
+  },
+  {
+    label: 'label 2',
+    value: 'value-2',
+  }
+]
+
 
 const items_acquiredSorted = computed(() => {
-  const result = [...items_acquired.value] as itemAcquiredInterface[];
+  const result = []
+  for (const element of items_acquired.value as itemAcquiredInterface[]) {
+    result.push({
+      ...element,
+      title: element.name,
+    })
+  }
   if (sortType.value === 'défaut') {
     return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)))
   }

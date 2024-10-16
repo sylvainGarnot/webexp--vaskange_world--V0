@@ -1,7 +1,8 @@
 <template>
   <div>
     <v-col v-for="field in fields" :key="field.label" :cols="12 / fields!.length">
-      <VskSwitch :label="field.label" :selected="field.selected" @select="(value) => $emit('select', value)" />
+      <VskSwitch :label="field.label" :selected="field.selected"
+        @select="(value: string) => $emit('select', value as string)" />
     </v-col>
   </div>
 </template>

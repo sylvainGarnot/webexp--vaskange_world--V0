@@ -3,7 +3,7 @@
     <div v-if="link" class="vsk-thumbnail-background"></div>
     <img :src="imageUrl" />
     <span class="title">{{ title }}</span>
-    <span v-if="subtitle" class="subtitle">{{ subtitle }}</span>
+    <span v-if="description" class="description">{{ description }}</span>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ const emit = defineEmits(['router-push'])
 
 const props = defineProps({
   title: String,
-  subtitle: String,
+  description: String,
   imageUrl: String,
   link: String,
 })
@@ -61,7 +61,7 @@ function onClick() {
     white-space: nowrap;
   }
 
-  span.subtitle {
+  span.description {
     position: absolute;
     bottom: 0.4vh;
     right: 0.4vh;

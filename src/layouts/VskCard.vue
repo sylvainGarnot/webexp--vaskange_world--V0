@@ -33,7 +33,7 @@ const props = defineProps({
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .vsk-card-v-dialog {
   width: 100%;
   max-width: 780px;
@@ -70,8 +70,6 @@ const props = defineProps({
 
     .vsk-card-close {
       position: absolute;
-      right: 1.35vh;
-      top: 1.35vh;
       cursor: pointer;
 
       color: white;
@@ -82,6 +80,11 @@ const props = defineProps({
       &:hover {
         background-color: grey;
       }
+    }
+
+    .vsk-card-close {
+      right: 1.35vh;
+      top: 1.35vh;
     }
   }
 
