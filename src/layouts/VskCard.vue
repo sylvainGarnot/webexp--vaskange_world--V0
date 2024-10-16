@@ -46,10 +46,9 @@ const props = defineProps({
     border-radius: 0.8vh;
     background-color: rgba(29, 27, 25, 0.8);
 
-    overflow: visible;
+    overflow-y: hidden !important;
 
     &.mode-list {
-      overflow: hidden;
       position: absolute;
       top: -50vh + 15vh;
     }
