@@ -7,15 +7,8 @@
         <v-card class="vsk-card-v-card" :class="hasList ? 'mode-list' : ''">
           <div class="vsk-card-content" :class="hasList ? 'mode-list' : ''">
 
-            <!-- TITRE-->
-            <v-row v-if="title" no-gutters class="vsk-card-title mt-12">
-              <v-col cols="12">
-                <h3>{{ title }}</h3>
-              </v-col>
-            </v-row>
-
             <!-- CONTENT -->
-            <v-row no-gutters :class="!title ? 'my-12' : ''">
+            <v-row no-gutters :class="hasList ? '' : 'my-12'">
               <slot name="content"></slot>
             </v-row>
           </div>
@@ -35,7 +28,6 @@ const emit = defineEmits(['update:isActive'])
 
 const props = defineProps({
   isActive: Boolean,
-  title: String,
   hasList: Boolean,
   hasCloseFooter: Boolean,
 })
@@ -74,11 +66,6 @@ const props = defineProps({
       border: solid 1px grey;
       background-color: rgba(29, 27, 25, 0.8);
 
-      .vsk-card-title {
-        text-align: center;
-        color: white;
-        font-size: 3.2vh;
-      }
     }
 
     .vsk-card-close {

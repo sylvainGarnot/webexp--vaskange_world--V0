@@ -3,10 +3,10 @@
     <VskMenuBtn image="joystick" :disable="items_acquired!.length === 0"
       @click="items_acquired!.length > 0 ? isActive = !isActive : ''" />
 
-    <VskCard title="Objets Trouvés" v-model:isActive="isActive" hasList>
+    <VskCard v-model:isActive="isActive" hasList>
       <template v-slot:content>
-        <VskThumbnailGroup card :elements="items_acquiredSorted" :elements-max-length="items.length"
-          @change-switch-value="(value) => sortType = value">
+        <VskThumbnailGroup title="Objets Trouvés" card :elements="items_acquiredSorted"
+          :elements-max-length="items.length" @change-switch-value="(value) => sortType = value">
         </VskThumbnailGroup>
       </template>
     </VskCard>

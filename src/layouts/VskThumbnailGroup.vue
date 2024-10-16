@@ -1,5 +1,13 @@
 <template>
   <div>
+
+    <!-- TITRE-->
+    <v-row v-if="title" no-gutters class="vsk-card-title mt-12">
+      <v-col cols="12">
+        <h3>{{ title }}</h3>
+      </v-col>
+    </v-row>
+
     <!-- FILTRES -->
     <VskSwitchGroup class="v-row v-row--no-gutters mt-6 mb-3 px-8" :fields="switchValues" @select="changeSwitchValue" />
 
@@ -33,6 +41,7 @@ export interface elementInterface {
 }
 
 const props = defineProps({
+  title: String,
   elements: Array as PropType<elementInterface[]>,
   elementsMaxLength: { type: Number, default: 0 },
   card: Boolean,
@@ -66,6 +75,12 @@ function changeSwitchValue(value: string) {
 </script>
 
 <style lang="scss" scoped>
+.vsk-card-title {
+  text-align: center;
+  color: white;
+  font-size: 3.2vh;
+}
+
 .vsk-card-list {
   overflow-y: scroll;
   max-height: 45vh;
