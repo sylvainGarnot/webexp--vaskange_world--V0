@@ -134,3 +134,9 @@ export function updateBookmarkHasCharacter(inputBookmarks: bookmarkInterface[]) 
     }
   }
 }
+
+
+
+export function onLocationEndReach(inputBookmarks: bookmarkInterface[]) {
+  console.log('TEST onLocationEndReach', inputBookmarks);
+}
