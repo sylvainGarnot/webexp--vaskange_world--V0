@@ -11,18 +11,21 @@ import type { characterInterface, characterFoundInterface } from '../character/i
 
 
 // PRIVATE
-function setCurrentBookmark(input: bookmarkInterface) {
+
+
+
+// EXPORT
+export function setCurrentBookmark(input: bookmarkInterface) {
   console.log('TEST setCurrentBookmark', input.name); // TEST
   currentBookmark.value = input as bookmarkInterface;
 };
 
-function setZoomIn(input: boolean) {
+export function setZoomIn(input: boolean) {
   zoomIn.value = input as boolean;
   isZoomStarted.value = true;
 };
 
 
-// EXPORT
 export function updateBookmarkHasLocation(inputBookmarks: bookmarkInterface[]) {
   // TEST
   // const test = inputBookmarks.find(b => b.name === "prairie 🌳") as bookmarkInterface; // TEST

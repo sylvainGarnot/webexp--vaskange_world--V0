@@ -3,9 +3,9 @@ import { readonly } from 'vue';
 
 
 // import { currentLocation, isLocationIsChanging, locations_found, locations } from './state';
-import { currentLocation, locations_found, locations } from './state';
+import { currentLocation, locations_found, locations, isLocationEndReach } from './state';
 import { locationsName } from './getter';
-import { setCurrentLocation, onLocationFound, setDefaultLocationFound, onLocationEndReach } from './action';
+import { setCurrentLocation, onLocationFound, setDefaultLocationFound, onLocationEndReach, setIsLocationEndReach } from './action';
 
 
 export const useLocationStore = defineStore("Location", () => {
@@ -13,6 +13,7 @@ export const useLocationStore = defineStore("Location", () => {
   return {
     currentLocation: readonly(currentLocation),
     // isLocationIsChanging: readonly(isLocationIsChanging),
+    isLocationEndReach: readonly(isLocationEndReach),
     locations: readonly(locations),
     locations_found: readonly(locations_found),
 
@@ -22,5 +23,6 @@ export const useLocationStore = defineStore("Location", () => {
     onLocationFound,
     setDefaultLocationFound,
     onLocationEndReach,
+    setIsLocationEndReach,
   }
 })

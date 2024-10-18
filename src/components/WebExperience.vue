@@ -3,6 +3,7 @@
     <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="j8vvd53"></div>
 
     <WebExperienceCharacterCall v-if="currentDialog && isCallDialogActive && !isDialogActive" />
+    <WebExperienceAlertLocationEndReach />
 
     <TransitionGroup name="fade-top" tag="div">
       <WebExperienceCharacterDialog v-if="isDialogActive && currentDialog?.type === 'default'" />
@@ -21,6 +22,7 @@ import { useRoute } from 'vue-router';
 import WebExperienceCharacterCall from "@/components/WebExperienceCharacterCall.vue";
 import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
 import WebExperienceCharacterDialogGift from "@/components/WebExperienceCharacterDialogGift.vue";
+import WebExperienceAlertLocationEndReach from "@/components/WebExperienceAlertLocationEndReach.vue";
 
 import { useApi } from "./WebExperienceApi.js";
 import { shapes } from "../assets/constants/shapes";
@@ -39,11 +41,11 @@ const route = useRoute();
 const { EndlessPaper } = useApi();
 
 const bookmarkStore = useBookmarkStore();
-const { updateBookmarkHasLocation, updateBookmarkHasCharacter, onLocationEndReach } = bookmarkStore;
+const { updateBookmarkHasLocation, updateBookmarkHasCharacter } = bookmarkStore;
 
 const locationStore = useLocationStore();
 const { locations_found, locationsName } = storeToRefs(locationStore);
-const { setCurrentLocation, setDefaultLocationFound } = locationStore;
+const { setCurrentLocation, setDefaultLocationFound, onLocationEndReach } = locationStore;
 
 const characterStore = useCharacterStore();
 const { characters_found, charactersName } = storeToRefs(characterStore);
@@ -93,7 +95,7 @@ onMounted(() => {
     EndlessPaper.onBookmarkNearby(
       {
         name: ['big bang 🪐'],
-        zoomFactor: '>= 100',
+        zoomFactor: '>= 25',
       },
       onLocationEndReach
     );

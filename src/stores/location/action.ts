@@ -1,4 +1,4 @@
-import { currentLocation, isLocationIsChanging, locations_found, locations, locationEndReach } from './state';
+import { currentLocation, isLocationIsChanging, isLocationEndReach, locations_found, locations } from './state';
 import type { locationInterface, locationFoundInterface } from './interface';
 
 import { addToast } from '../toast/action';
@@ -8,15 +8,15 @@ import { characters } from '../character/state';
 import { dialogs } from '../dialog/state';
 import { items, items_acquired } from '../item/state';
 
+import { currentBookmark, zoomIn } from '../bookmark/state';
+import { setCurrentBookmark, setZoomIn } from '../bookmark/action';
+import type { bookmarkInterface } from '../bookmark/interface';
+
 
 // PRIVATE
 function addLocationFound(input: locationFoundInterface) {
   console.log('TEST - addLocationFound', input.name); // TEST
   locations_found.value.push(input as locationFoundInterface);
-}
-
-function setLocationEndReach(input: boolean) {
-  locationEndReach.value = input;
 }
 
 // EXPORT
@@ -75,12 +75,35 @@ export function onLocationFound(input: locationInterface) {
 };
 
 export function setDefaultLocationFound() {
+  onLocationFound(locations.value[0] as locationFoundInterface);
   onLocationFound(locations.value[19] as locationFoundInterface);
   onLocationFound(locations.value[16] as locationFoundInterface);
-  onLocationFound(locations.value[0] as locationFoundInterface);
 }
 
-export function onLocationEndReach() {
-  // console.log('TEST onLocationEndReach'); // TEST
-  setLocationEndReach(true);
+export function setIsLocationEndReach(input: boolean) {
+  console.log('TEST setIsLocationEndReach', input) // TEST
+  isLocationEndReach.value = input;
+}
+
+export function onLocationEndReach(inputBookmarks: bookmarkInterface[]) {
+  console.log('TEST onLocationEndReach'); // TEST
+
+  
+  // SET ZOOMIN
+  inputBookmarks = inputBookmarks.sort((a, b) => b.zoomFactor - a.zoomFactor);
+  const closestInputBookmark = inputBookmarks[0] as bookmarkInterface;
+  if (closestInputBookmark?.zoomFactor) {
+    if (currentBookmark?.value?.zoomFactor) {
+      if (closestInputBookmark.zoomFactor < currentBookmark.value.zoomFactor) {
+        setZoomIn(true);
+      } else {
+        setZoomIn(false);
+      }
+    }
+    setCurrentBookmark(closestInputBookmark as bookmarkInterface);
+  }
+
+  if (!isLocationEndReach.value && !zoomIn.value) {
+    setIsLocationEndReach(true);
+  }
 }
