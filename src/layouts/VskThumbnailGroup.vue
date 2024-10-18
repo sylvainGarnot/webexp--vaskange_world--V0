@@ -12,9 +12,13 @@
     <VskSwitchGroup class="v-row v-row--no-gutters mt-6 mb-3 px-8" :fields="switchValues"
       @select="(value: string) => changeSwitchValue(value as string)" />
 
+    <!-- LIST -->
     <v-row no-gutters class="vsk-thumbnail-group-content px-3 pb-3">
       <TransitionGroup name="vsk-thumbnail-group-content--animation" class="transition-group-element" tag="div">
-        <VskThumbnail v-for="element in elements" :key="element.id" class="transition-group-element"
+        <VskThumbnailCard v-if="thumbnailCard" v-for="element in elements" :key="element.id"
+          class="transition-group-element" :title="element.title" :description="element.description"
+          :imageUrl="`${element.image_url}`" />
+        <VskThumbnail v-else v-for="element in elements" :key="`card-${element.id}`" class="transition-group-element"
           :title="element.title" :imageUrl="`${element.image_url}`" :link="element.title"
           :description="element.description" @router-push="$emit('router-push')" />
         <VskThumbnail v-if="elements!.length < elementsMaxLength" title="À découvrir..."
@@ -30,6 +34,7 @@ import type { PropType } from 'vue'
 
 import VskSwitchGroup from '@/layouts/VskSwitchGroup.vue'
 import VskThumbnail from '@/layouts/VskThumbnail.vue'
+import VskThumbnailCard from '@/layouts/VskThumbnailCard.vue'
 
 const emit = defineEmits(['change-switch-value', 'router-push'])
 
@@ -44,6 +49,7 @@ const props = defineProps({
   title: String,
   elements: Array as PropType<elementInterface[]>,
   elementsMaxLength: { type: Number, default: 0 },
+  thumbnailCard: Boolean,
 })
 
 const switchValues = ref([

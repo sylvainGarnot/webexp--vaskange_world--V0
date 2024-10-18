@@ -6,9 +6,9 @@
 
     <VskCard v-model:isActive="isActive" hasList>
       <template v-slot:content>
-        <VskThumbnailCardGroup title="Objets Trouvés" :elements="items_acquiredSorted"
+        <VskThumbnailGroup thumbnail-card title="Objets Trouvés" :elements="items_acquiredSorted"
           :elements-max-length="items.length" @change-switch-value="(value: string) => { sortType = value as string }">
-        </VskThumbnailCardGroup>
+        </VskThumbnailGroup>
       </template>
     </VskCard>
 
@@ -22,7 +22,7 @@ import { storeToRefs } from 'pinia'
 import VskMenuBtn from '@/layouts/VskMenuBtn.vue'
 
 import VskCard from '@/layouts/VskCard.vue'
-import VskThumbnailCardGroup from '@/layouts/VskThumbnailCardGroup.vue'
+import VskThumbnailGroup from '@/layouts/VskThumbnailGroup.vue'
 
 
 import { useItemStore } from "@/stores/item"
