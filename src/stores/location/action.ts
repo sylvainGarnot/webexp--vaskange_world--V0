@@ -1,4 +1,4 @@
-import { currentLocation, isLocationIsChanging, locations_found, locations } from './state';
+import { currentLocation, isLocationIsChanging, locations_found, locations, locationEndReach } from './state';
 import type { locationInterface, locationFoundInterface } from './interface';
 
 import { addToast } from '../toast/action';
@@ -13,6 +13,10 @@ import { items, items_acquired } from '../item/state';
 function addLocationFound(input: locationFoundInterface) {
   console.log('TEST - addLocationFound', input.name); // TEST
   locations_found.value.push(input as locationFoundInterface);
+}
+
+function setLocationEndReach(input: boolean) {
+  locationEndReach.value = input;
 }
 
 // EXPORT
@@ -74,4 +78,9 @@ export function setDefaultLocationFound() {
   onLocationFound(locations.value[19] as locationFoundInterface);
   onLocationFound(locations.value[16] as locationFoundInterface);
   onLocationFound(locations.value[0] as locationFoundInterface);
+}
+
+export function onLocationEndReach() {
+  // console.log('TEST onLocationEndReach'); // TEST
+  setLocationEndReach(true);
 }

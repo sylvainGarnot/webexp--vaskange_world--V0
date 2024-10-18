@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 
 // import { currentBookmark, zoomIn } from './state';
-import { updateBookmarkHasLocation , updateBookmarkHasCharacter, onLocationEndReach} from './action';
+import { updateBookmarkHasLocation , updateBookmarkHasCharacter } from './action';
 
 
 export const useBookmarkStore = defineStore("Bookmark", () => {
@@ -13,6 +13,5 @@ export const useBookmarkStore = defineStore("Bookmark", () => {
 
     updateBookmarkHasLocation,
     updateBookmarkHasCharacter,
-    onLocationEndReach,
   }
 })

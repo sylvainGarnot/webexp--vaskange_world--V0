@@ -5,7 +5,7 @@ import { readonly } from 'vue';
 // import { currentLocation, isLocationIsChanging, locations_found, locations } from './state';
 import { currentLocation, locations_found, locations } from './state';
 import { locationsName } from './getter';
-import { setCurrentLocation, onLocationFound, setDefaultLocationFound } from './action';
+import { setCurrentLocation, onLocationFound, setDefaultLocationFound, onLocationEndReach } from './action';
 
 
 export const useLocationStore = defineStore("Location", () => {
@@ -21,5 +21,6 @@ export const useLocationStore = defineStore("Location", () => {
     setCurrentLocation,
     onLocationFound,
     setDefaultLocationFound,
+    onLocationEndReach,
   }
 })
