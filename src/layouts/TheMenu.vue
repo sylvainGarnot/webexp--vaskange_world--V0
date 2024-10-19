@@ -1,16 +1,22 @@
 <template>
   <div id="TheSettings">
     <v-row no-gutters class="pt-4">
-      <v-col cols="3" class="pr-4">
+      <v-col cols="2" class="pr-4">
+        vide
+      </v-col>
+      <v-col cols="2" class="pr-4">
+        <Guide />
+      </v-col>
+      <v-col cols="2" class="pr-4">
         <SettingsSoundGlobal />
       </v-col>
-      <v-col cols="3" class="pr-4">
+      <v-col cols="2" class="pr-4">
         <SettingsFullScreen />
       </v-col>
-      <v-col cols="3" class="pr-4">
+      <v-col cols="2" class="pr-4">
         <Inventory />
       </v-col>
-      <v-col cols="3" class="pr-4">
+      <v-col cols="2" class="pr-4">
         <Map />
       </v-col>
     </v-row>
@@ -21,6 +27,7 @@
 import SettingsSoundGlobal from "@/components/SettingsSoundGlobal.vue";
 import SettingsFullScreen from "@/components/SettingsFullScreen.vue";
 import Map from "@/components/Map.vue";
+import Guide from "@/components/Guide.vue";
 import Inventory from "@/components/Inventory.vue";
 </script>
 
