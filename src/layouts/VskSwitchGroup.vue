@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-col v-for="field in fields" :key="field.label" :cols="12 / fields!.length">
+    <v-col v-for="field in fields" :key="field.label" :cols="12 / fields!.length" align="center">
       <VskSwitch :label="field.label" :selected="field.selected"
         @select="(value: string) => $emit('select', value as string)" />
     </v-col>
@@ -21,8 +21,4 @@ interface fieldInterface {
 }
 </script>
 
-<style lang="scss" scoped>
-.v-col {
-  text-align: center;
-}
-</style>
+<style lang="scss" scoped></style>

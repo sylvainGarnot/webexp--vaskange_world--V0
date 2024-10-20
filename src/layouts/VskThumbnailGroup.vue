@@ -3,7 +3,7 @@
 
     <!-- TITRE-->
     <v-row v-if="title" no-gutters class="vsk-thumbnail-group-title mt-12">
-      <v-col cols="12">
+      <v-col cols="12" align="center">
         <h3>{{ title }}</h3>
       </v-col>
     </v-row>
@@ -81,7 +81,6 @@ function changeSwitchValue(value: string) {
 
 <style lang="scss" scoped>
 .vsk-thumbnail-group-title {
-  text-align: center;
   color: white;
   font-size: 3.2vh;
 }

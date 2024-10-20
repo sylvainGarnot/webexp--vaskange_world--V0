@@ -3,7 +3,7 @@
     <VskCard v-model:isActive="isActive" has-close-footer>
       <template v-slot:content>
         <v-row no-gutters>
-          <v-col cols="12">
+          <v-col cols="12" align="center">
             <div class="web-experience-character-dialog-gift-title">
               <p v-for="line in currentDialog?.speech_written">
                 {{ line }}
@@ -61,7 +61,6 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .web-experience-character-dialog-gift-title {
-  text-align: center;
   color: white;
   font-size: 2.6vh;
   font-weight: 500;

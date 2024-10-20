@@ -5,10 +5,10 @@
       <template v-slot:content>
 
         <v-row no-gutters class="message mt-4">
-          <v-col cols="12">
+          <v-col cols="12" align="center">
             <h3>Attention !</h3>
           </v-col>
-          <v-col cols="12">
+          <v-col cols="12" align="center">
             <p>Vous êtes arrivé à la fin de la gallerie</p>
             <p>Il n'y a rien plus loin...</p>
             <p>Ne vous perdez pas</p>
@@ -64,7 +64,6 @@ const locationHome = computed(() => {
 
 <style lang="scss" scoped>
 .message {
-  text-align: center;
   color: white;
 
   h3 {
