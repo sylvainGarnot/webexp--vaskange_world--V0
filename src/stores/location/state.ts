@@ -64,7 +64,7 @@ export const locations = ref([
     image_url: '/images/location/Eson Island 🗿.PNG',
     upper_location: '5',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['3','4'],
   },
   {
     id: "7",

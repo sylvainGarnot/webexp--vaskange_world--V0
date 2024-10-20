@@ -35,7 +35,7 @@
 import type { PropType } from 'vue';
 import { ref } from 'vue';
 
-const emit = defineEmits(['update:isActive', 'close'])
+const emit = defineEmits(['update:isActive', 'close', 'close-first-time'])
 
 const props = defineProps({
   isActive: Boolean,
@@ -44,6 +44,7 @@ const props = defineProps({
 })
 
 const carouselStep = ref(0);
+let closeOccuration = 0
 
 interface carouselItemInterface {
   name: string,
@@ -59,7 +60,12 @@ function onIsActiveUpdate(event: boolean) {
 
 function close() {
   emit('update:isActive', false)
-  emit('close')
+  if (closeOccuration > 0) {
+    emit('close')
+  } else {
+    emit('close-first-time')
+  }
+  closeOccuration++
   setTimeout(() => {
     carouselStep.value = 0
   }, 250);

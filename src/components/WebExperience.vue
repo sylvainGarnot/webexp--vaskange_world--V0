@@ -73,6 +73,7 @@ onMounted(() => {
     EndlessPaper.showNavBar(false);
     EndlessPaper.showTravelButtons(false);
     EndlessPaper.setLogoPosition("topleft")
+    EndlessPaper.showNavInstructions(false)
 
     EndlessPaper.onBookmarkNearby(
       {

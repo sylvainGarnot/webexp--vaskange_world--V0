@@ -3,7 +3,7 @@
     <VskMenuBtn image="home-kawai" @click="isActive = !isActive" />
 
     <VskCardCarousel v-model:isActive="isActive" :carousel-items="carouselItems" nextItemBtnLabel="conseil suivant"
-      @close="playMusic">
+      @close-first-time="playMusic">
       <template v-for="carouselItem in carouselItems" :key="carouselItem.name" v-slot:[carouselItem.name]>
         <v-row no-gutters class="guide-title mt-15">
           <v-col cols="12" align="center">
