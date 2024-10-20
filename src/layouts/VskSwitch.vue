@@ -2,7 +2,7 @@
   <div>
     <span :class="selected ? 'selected' : 'unselected'" @click="!selected ? $emit('select', label as string) : ''">{{
       label
-      }}</span>
+    }}</span>
   </div>
 </template>
 
@@ -20,7 +20,6 @@ span {
   border-radius: 0.6vh;
   padding: 0.4vh 1.8vh;
 
-  font-family: 'Gill Sans';
   font-size: 1.8vh;
   cursor: pointer;
 

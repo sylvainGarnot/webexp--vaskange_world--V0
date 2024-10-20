@@ -68,7 +68,6 @@ const { setIsDialogActive } = dialogStore;
     width: 100%;
     height: 100%;
 
-    font-family: 'Gill Sans';
     text-align: center;
 
     .v-btn {
@@ -80,8 +79,6 @@ const { setIsDialogActive } = dialogStore;
     span {
       position: absolute;
       animation: bounce 2s ease infinite;
-
-      font-family: 'Gill Sans';
     }
   }
 }

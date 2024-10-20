@@ -55,7 +55,6 @@ interface tabInterface {
   button,
   span {
     color: grey;
-    font-family: 'Gill Sans';
     font-size: 1.5vh;
     font-weight: 500;
 

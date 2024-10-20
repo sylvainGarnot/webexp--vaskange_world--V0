@@ -40,7 +40,6 @@ $marge: 0.8vh;
     p {
       text-align: center;
       color: white;
-      font-family: 'Gill Sans';
       font-size: 3.2vh;
       line-height: $height;
     }

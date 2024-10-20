@@ -54,7 +54,6 @@ function onClick() {
     transform: translate(-50%, -50%);
 
     color: white;
-    font-family: 'Gill Sans';
     font-size: 2.8vh;
     font-weight: 700;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
@@ -71,7 +70,6 @@ function onClick() {
     padding: 0 1vh;
 
     color: white;
-    font-family: 'Gill Sans';
     font-size: 1.5vh;
     font-weight: 500;
   }

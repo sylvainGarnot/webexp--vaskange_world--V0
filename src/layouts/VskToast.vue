@@ -49,7 +49,6 @@ const { toasts } = storeToRefs(toastStore);
         background-color: rgba(29, 27, 25, 0.4);
 
         text-align: center;
-        font-family: 'Gill Sans';
         color: white;
         font-size: 3.2vh;
         font-weight: 500;
