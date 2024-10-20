@@ -12,8 +12,7 @@
                 </template>
                 <template v-slot:next="{ props }">
                   <v-btn v-if="carouselStep < carouselItems!.length - 1" class="v-carousel-next-item" variant="elevated"
-                    @click="props.onClick">Next slide {{
-                      carouselStep }}</v-btn>
+                    @click="props.onClick">{{ nextItemBtnLabel }}</v-btn>
                 </template>
                 <v-carousel-item v-for="carouselItem in carouselItems" :key="carouselItem.name">
                   <slot :name="carouselItem.name"></slot>
@@ -34,13 +33,14 @@
 
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { ref, watch } from 'vue';
+import { ref } from 'vue';
 
 const emit = defineEmits(['update:isActive'])
 
 const props = defineProps({
   isActive: Boolean,
   carouselItems: Array as PropType<carouselItemInterface[]>,
+  nextItemBtnLabel: String,
 })
 
 const carouselStep = ref(0);
@@ -67,6 +67,14 @@ function close() {
 </script>
 
 <style lang="scss">
+.v-carousel {
+  height: 600px !important;
+
+  @media (max-width: 599px) {
+    height: 680px !important;
+  }
+}
+
 .v-carousel-next-item {
   position: absolute;
   bottom: 1.6vh;
