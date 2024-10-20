@@ -113,12 +113,24 @@ function fadeInMusic(input: musicInterface, duration: number) {
 // EXPORT
 export function toggleMusic() {
   if (!isMusicPlaying.value) {
+    playMusic()
+  } else {
+    pauseMusic()
+  }
+}
+
+export function playMusic() {
+  if (!isMusicPlaying.value) {
     if (!music?.value?.audio?.src) {
       setRandomMusic();
     }
     music.value.audio.play();
     isMusicPlaying.value = true;
-  } else {
+  }
+}
+
+export function pauseMusic() {
+  if (isMusicPlaying.value) {
     music.value.audio.pause();
     isMusicPlaying.value = false;
   }

@@ -4,7 +4,7 @@ import { readonly } from 'vue';
 
 // import { music, lastMusic, isMusicPlaying, musics } from './state';
 import { isMusicPlaying } from './state';
-import { toggleMusic, changeMusicByLocation } from './action';
+import { toggleMusic, playMusic, pauseMusic, changeMusicByLocation } from './action';
 
 
 export const useMusicStore = defineStore("Music", () => {
@@ -16,5 +16,7 @@ export const useMusicStore = defineStore("Music", () => {
     
     toggleMusic,
     changeMusicByLocation,
+    playMusic,
+    pauseMusic,
   }
 })

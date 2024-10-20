@@ -2,7 +2,8 @@
   <div>
     <VskMenuBtn image="home-kawai" @click="isActive = !isActive" />
 
-    <VskCardCarousel v-model:isActive="isActive" :carousel-items="carouselItems" nextItemBtnLabel="conseil suivant">
+    <VskCardCarousel v-model:isActive="isActive" :carousel-items="carouselItems" nextItemBtnLabel="conseil suivant"
+      @close="playMusic">
       <template v-for="carouselItem in carouselItems" :key="carouselItem.name" v-slot:[carouselItem.name]>
         <v-row no-gutters class="guide-title mt-15">
           <v-col cols="12" align="center">
@@ -25,11 +26,15 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+import { useMusicStore } from "@/stores/music";
 
 import VskMenuBtn from '@/layouts/VskMenuBtn.vue'
 import VskCardCarousel from '@/layouts/VskCardCarousel.vue'
 
-const isActive = ref(false);
+const isActive = ref(true);
+
+const musicStore = useMusicStore();
+const { playMusic } = musicStore;
 
 const carouselItems = [
   {

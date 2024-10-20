@@ -35,7 +35,7 @@
 import type { PropType } from 'vue';
 import { ref } from 'vue';
 
-const emit = defineEmits(['update:isActive'])
+const emit = defineEmits(['update:isActive', 'close'])
 
 const props = defineProps({
   isActive: Boolean,
@@ -59,6 +59,7 @@ function onIsActiveUpdate(event: boolean) {
 
 function close() {
   emit('update:isActive', false)
+  emit('close')
   setTimeout(() => {
     carouselStep.value = 0
   }, 250);
