@@ -1,19 +1,19 @@
 <template>
   <div>
-    <v-dialog class="vsk-card-v-dialog" :modelValue="isActive"
-      @update:modelValue="$event => $emit('update:isActive', $event)">
+    <v-dialog class="vsk-card-v-dialog" :modelValue="isActive" @update:modelValue="$event => onIsActiveUpdate($event)">
       <template v-slot:default>
 
         <v-card class="vsk-card-v-card">
           <div class="vsk-card-content">
 
-            <!-- CONTENT -->
             <v-row no-gutters>
-              <v-carousel :continuous="false" hide-delimiter-background>
+              <v-carousel v-model="carouselStep" hide-delimiter-background>
                 <template v-slot:prev="{ props }">
                 </template>
                 <template v-slot:next="{ props }">
-                  <v-btn class="v-carousel-next-item" variant="elevated" @click="props.onClick">Next slide</v-btn>
+                  <v-btn v-if="carouselStep < carouselItems!.length - 1" class="v-carousel-next-item" variant="elevated"
+                    @click="props.onClick">Next slide {{
+                      carouselStep }}</v-btn>
                 </template>
                 <v-carousel-item v-for="carouselItem in carouselItems" :key="carouselItem.name">
                   <slot :name="carouselItem.name"></slot>
@@ -22,11 +22,11 @@
             </v-row>
           </div>
 
-          <v-icon class="vsk-card-close" icon="$close" @click="$emit('update:isActive', false)"></v-icon>
+          <v-icon class="vsk-card-close" icon="$close" @click="close()"></v-icon>
         </v-card>
 
-        <v-icon v-if="hasCloseFooter" class="vsk-card-close-footer" icon="$vuetify"
-          @click="$emit('update:isActive', false)"></v-icon>
+        <v-icon v-if="carouselStep === carouselItems!.length - 1" class="vsk-card-close-footer" icon="$vuetify"
+          @click="close()"></v-icon>
       </template>
     </v-dialog>
   </div>
@@ -34,31 +34,50 @@
 
 <script lang="ts" setup>
 import type { PropType } from 'vue';
+import { ref, watch } from 'vue';
 
 const emit = defineEmits(['update:isActive'])
 
 const props = defineProps({
   isActive: Boolean,
-  hasCloseFooter: Boolean,
   carouselItems: Array as PropType<carouselItemInterface[]>,
 })
 
+const carouselStep = ref(0);
 
 interface carouselItemInterface {
   name: string,
 }
 
+function onIsActiveUpdate(event: boolean) {
+  if (event) {
+    emit('update:isActive', true)
+  } else {
+    close()
+  }
+}
+
+function close() {
+  emit('update:isActive', false)
+  setTimeout(() => {
+    carouselStep.value = 0
+  }, 250);
+}
+
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .v-carousel-next-item {
   position: absolute;
-  bottom: 5vh;
+  bottom: 1.6vh;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.v-carousel__controls {
-  //   bottom: 0;
+.v-carousel .v-carousel__controls {
+  top: 0.8vh !important;
+  left: 50% !important;
+  transform: translateX(-50%);
+  width: 50%;
 }
 </style>

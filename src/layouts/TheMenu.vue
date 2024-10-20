@@ -1,22 +1,19 @@
 <template>
   <div id="TheSettings">
     <v-row no-gutters class="pt-4">
-      <v-col cols="2" class="pr-4">
-        vide
-      </v-col>
-      <v-col cols="2" class="pr-4">
+      <v-col cols="auto" class="pr-4">
         <Guide />
       </v-col>
-      <v-col cols="2" class="pr-4">
+      <v-col cols="auto" class="pr-4">
         <SettingsSoundGlobal />
       </v-col>
-      <v-col cols="2" class="pr-4">
+      <v-col cols="auto" class="pr-4">
         <SettingsFullScreen />
       </v-col>
-      <v-col cols="2" class="pr-4">
+      <v-col cols="auto" class="pr-4">
         <Inventory />
       </v-col>
-      <v-col cols="2" class="pr-4">
+      <v-col cols="auto" class="pr-4">
         <Map />
       </v-col>
     </v-row>

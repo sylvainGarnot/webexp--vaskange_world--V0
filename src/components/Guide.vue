@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskMenuBtn image="map" @click="isActive = !isActive" />
+    <VskMenuBtn image="home-kawai" @click="isActive = !isActive" />
 
     <VskCardCarousel v-model:isActive="isActive" :carousel-items="carouselItems">
       <template v-slot:intro>
