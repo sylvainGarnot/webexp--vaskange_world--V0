@@ -43,7 +43,7 @@ const props = defineProps({
   }
 
   .vsk-card-v-card {
-    border-radius: 0.8vh;
+    border-radius: 0.8vh !important;
     background-color: rgba(29, 27, 25, 0.8);
 
     overflow-y: hidden !important;
