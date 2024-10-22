@@ -19,6 +19,9 @@
           <VskThumbnail :title="theHiddenPlace?.name" :imageUrl="`${theHiddenPlace?.image_url}`"
             :link="theHiddenPlace?.name" @router-push="$emit('update:isActive', false)" />
         </v-row>
+
+        <VskFirework />
+
       </template>
     </VskCard>
   </div>
@@ -30,6 +33,7 @@ import { useLocationStore } from "@/stores/location";
 
 import VskCard from '@/layouts/VskCard.vue'
 import VskThumbnail from '@/layouts/VskThumbnail.vue'
+import VskFirework from "@/layouts/VskFirework.vue"
 
 const emit = defineEmits(['update:isActive'])
 
