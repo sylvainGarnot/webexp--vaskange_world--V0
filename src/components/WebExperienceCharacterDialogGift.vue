@@ -15,7 +15,7 @@
           <v-col cols="4">
             <v-img class="web-experience-character-dialog-gift-item-image" :src="itemProvidedByCurrentDialog?.image_url"
               style="overflow: visible;">
-              <WebExperienceCharacterDialogGiftFirework />
+              <VskFirework />
             </v-img>
           </v-col>
           <v-col cols="8">
@@ -44,7 +44,7 @@ import { useItemStore } from "@/stores/item";
 import { useLocationStore } from "@/stores/location";
 
 import VskCard from '@/layouts/VskCard.vue'
-import WebExperienceCharacterDialogGiftFirework from "@/components/WebExperienceCharacterDialogGiftFirework.vue";
+import VskFirework from "@/layouts/VskFirework.vue";
 import WebExperienceAlertAllItemAcquired from "@/components/WebExperienceAlertAllItemAcquired.vue";
 import type { itemInterface } from "@/stores/item/interface";
 
