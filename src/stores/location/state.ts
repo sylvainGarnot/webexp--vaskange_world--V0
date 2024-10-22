@@ -90,7 +90,7 @@ export const locations = ref([
     message: 'Cocciland 🐞',
     image_url: '/images/location/rock-world2.PNG',
     upper_location: '5',
-    is_hidden_place: true,
+    is_hidden_place: false,
     musics: ['1','2'],
   },
   {
@@ -99,7 +99,7 @@ export const locations = ref([
     message: 'Treasure map 📜',
     image_url: '/images/location/grotte 🐳.PNG',
     upper_location: '9',
-    is_hidden_place: true,
+    is_hidden_place: false,
     musics: ['1','2'],
   },
   {
@@ -137,7 +137,7 @@ export const locations = ref([
     message: 'The Infinite Temple 🛕',
     image_url: '/images/location/rock-world2.PNG',
     upper_location: '13',
-    is_hidden_place: true,
+    is_hidden_place: false,
     musics: ['1','2'],
   },
 
@@ -184,7 +184,7 @@ export const locations = ref([
     message: 'Star night club ⭐️',
     image_url: '/images/location/partager 💌.PNG',
     upper_location: '17b',
-    is_hidden_place: false,
+    is_hidden_place: true,
     musics: ['1','2'],
   },
   {

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-dialog class="vsk-card-v-dialog" :modelValue="isActive"
-      @update:modelValue="$event => $emit('update:isActive', $event)" :class="hasList ? 'mode-list' : ''">
+    <v-dialog class="vsk-card-v-dialog" :modelValue="isActive" @update:modelValue="$event => onIsActiveUpdate($event)"
+      :class="hasList ? 'mode-list' : ''">
       <template v-slot:default>
 
         <v-card class="vsk-card-v-card" :class="hasList ? 'mode-list' : ''">
@@ -13,24 +13,36 @@
             </v-row>
           </div>
 
-          <v-icon class="vsk-card-close" icon="$close" @click="$emit('update:isActive', false)"></v-icon>
+          <v-icon class="vsk-card-close" icon="$close" @click="close()"></v-icon>
         </v-card>
 
-        <v-icon v-if="hasCloseFooter" class="vsk-card-close-footer" icon="$vuetify"
-          @click="$emit('update:isActive', false)"></v-icon>
+        <v-icon v-if="hasCloseFooter" class="vsk-card-close-footer" icon="$vuetify" @click="close()"></v-icon>
       </template>
     </v-dialog>
   </div>
 </template>
 
 <script lang="ts" setup>
-const emit = defineEmits(['update:isActive'])
+const emit = defineEmits(['update:isActive', 'close'])
 
 const props = defineProps({
   isActive: Boolean,
   hasList: Boolean,
   hasCloseFooter: Boolean,
 })
+
+function onIsActiveUpdate(event: boolean) {
+  if (event) {
+    emit('update:isActive', true)
+  } else {
+    close()
+  }
+}
+
+function close() {
+  emit('update:isActive', false)
+  emit('close')
+}
 </script>
 
 <style lang="scss">

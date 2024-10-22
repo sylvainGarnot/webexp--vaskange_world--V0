@@ -17,10 +17,10 @@ export const items = ref([
     description: 'cet objet est très spécial et il va te permettre de réaliser ta quête.',
     image_url: '/images/item/boomerang.webp',
   },
-  {
-    id: '2',
-    name: 'Ballon de Rugby',
-    description: 'cet objet est très spécial et il va te permettre de réaliser ta quête.',
-    image_url: '/images/item/boomerang.webp',
-  },
+  // {
+  //   id: '2',
+  //   name: 'Ballon de Rugby',
+  //   description: 'cet objet est très spécial et il va te permettre de réaliser ta quête.',
+  //   image_url: '/images/item/boomerang.webp',
+  // },
 ] as itemInterface[]);

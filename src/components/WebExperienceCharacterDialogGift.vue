@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskCard v-model:isActive="isActive" has-close-footer>
+    <VskCard v-model:isActive="isActive" @close="onClose()" has-close-footer>
       <template v-slot:content>
         <v-row no-gutters>
           <v-col cols="12" align="center">
@@ -40,23 +40,35 @@ import { storeToRefs } from 'pinia';
 
 import { useDialogStore } from "@/stores/dialog";
 import { useItemStore } from "@/stores/item";
+import { useLocationStore } from "@/stores/location";
 
 import VskCard from '@/layouts/VskCard.vue'
 import WebExperienceCharacterDialogGiftFirework from "@/components/WebExperienceCharacterDialogGiftFirework.vue";
 import type { itemInterface } from "@/stores/item/interface";
 
 const itemStore = useItemStore();
-const { itemProvidedByCurrentDialog } = storeToRefs(itemStore);
+const { itemProvidedByCurrentDialog, isAllItemsAcquired } = storeToRefs(itemStore);
 const { onItemProvided } = itemStore;
 
 const dialogStore = useDialogStore();
 const { currentDialog } = storeToRefs(dialogStore);
+
+const locationStore = useLocationStore();
+const { isTheHiddenPlaceFound } = storeToRefs(locationStore);
 
 const isActive = ref(true);
 
 onMounted(() => {
   onItemProvided(itemProvidedByCurrentDialog.value as itemInterface);
 })
+
+function onClose() {
+  if (isAllItemsAcquired.value && !isTheHiddenPlaceFound.value) {
+    console.log('YES', isAllItemsAcquired.value, !isTheHiddenPlaceFound.value, isAllItemsAcquired.value && !isTheHiddenPlaceFound.value);
+  } else {
+    console.log('NONONON', isAllItemsAcquired.value, !isTheHiddenPlaceFound.value, isAllItemsAcquired.value && !isTheHiddenPlaceFound.value);
+  }
+}
 </script>
 
 <style lang="scss" scoped>

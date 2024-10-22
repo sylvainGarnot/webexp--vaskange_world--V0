@@ -4,7 +4,7 @@
       @click="items_acquired!.length > 0 ? isActive = !isActive : ''" />
 
 
-    <VskCard v-model:isActive="isActive" hasList>
+    <VskCard v-model:isActive="isActive" @close="onClose()" hasList>
       <template v-slot:content>
         <VskThumbnailGroup thumbnail-card title="Objets Trouvés" :elements="items_acquiredSorted"
           :elements-max-length="items.length" @change-switch-value="(value: string) => { sortType = value as string }">
@@ -26,10 +26,14 @@ import VskThumbnailGroup from '@/layouts/VskThumbnailGroup.vue'
 
 
 import { useItemStore } from "@/stores/item"
+import { useLocationStore } from "@/stores/location";
 import type { itemAcquiredInterface } from '@/stores/item/interface';
 
 const itemStore = useItemStore()
-const { items_acquired, items } = storeToRefs(itemStore)
+const { items_acquired, items, isAllItemsAcquired } = storeToRefs(itemStore)
+
+const locationStore = useLocationStore();
+const { isTheHiddenPlaceFound } = storeToRefs(locationStore);
 
 const isActive = ref(false);
 const sortType = ref('défaut');
@@ -64,6 +68,15 @@ const items_acquiredSorted = computed(() => {
     return result.sort((a, b) => (a.acquired_date < b.acquired_date ? -1 : 1))
   }
 })
+
+
+function onClose() {
+  if (isAllItemsAcquired.value && !isTheHiddenPlaceFound.value) {
+    console.log('YES', isAllItemsAcquired.value, !isTheHiddenPlaceFound.value, isAllItemsAcquired.value && !isTheHiddenPlaceFound.value);
+  } else {
+    console.log('NONONON', isAllItemsAcquired.value, !isTheHiddenPlaceFound.value, isAllItemsAcquired.value && !isTheHiddenPlaceFound.value);
+  }
+}
 
 </script>
 

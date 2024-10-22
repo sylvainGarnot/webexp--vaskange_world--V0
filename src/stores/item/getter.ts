@@ -1,5 +1,5 @@
 import { computed } from 'vue';
-import { items } from './state';
+import { items, items_acquired } from './state';
 import { currentDialog } from '../dialog/getter';
 import type { itemInterface } from './interface';
 
@@ -9,4 +9,8 @@ export const itemProvidedByCurrentDialog = computed(() => {
     return items.value.find(i => i.id === currentDialog.value?.item_provided) as itemInterface;
   }
   return null;
+})
+
+export const isAllItemsAcquired = computed(() => {
+  return items_acquired.value.length >= items.value.length
 })
