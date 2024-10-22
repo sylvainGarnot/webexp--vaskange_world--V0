@@ -44,7 +44,7 @@ const bookmarkStore = useBookmarkStore();
 const { updateBookmarkHasLocation, updateBookmarkHasCharacter } = bookmarkStore;
 
 const locationStore = useLocationStore();
-const { locations_found, locationsName } = storeToRefs(locationStore);
+const { locations_found, locationsName, theHiddenPlace } = storeToRefs(locationStore);
 const { setCurrentLocation, setDefaultLocationFound, onLocationEndReach } = locationStore;
 
 const characterStore = useCharacterStore();
@@ -120,7 +120,7 @@ onMounted(() => {
 function teleportTo(input: string) {
   if (locationsName.value.includes(input)) {
     const locationFound = locations_found.value.find(l => l.name === input)
-    if (locationFound) {
+    if (locationFound || input === theHiddenPlace.value.name) {
       EndlessPaper.visitBookmark(input as string);
       setCurrentLocation(locationFound as locationFoundInterface);
       emptyCurrentCharacter();

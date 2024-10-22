@@ -5,7 +5,6 @@ import { readonly } from 'vue';
 // import { currentLocation, isLocationIsChanging, locations_found, locations } from './state';
 import { currentLocation, locations_found, locations, isLocationEndReach } from './state';
 import { locationsName, theHiddenPlace, isTheHiddenPlaceFound } from './getter';
-// import { locationsName } from './getter';
 import { setCurrentLocation, onLocationFound, setDefaultLocationFound, onLocationEndReach, setIsLocationEndReach } from './action';
 
 

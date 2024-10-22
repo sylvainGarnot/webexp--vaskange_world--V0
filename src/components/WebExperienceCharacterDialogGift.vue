@@ -31,6 +31,7 @@
         </v-row>
       </template>
     </VskCard>
+    <WebExperienceAlertAllItemAcquired v-model:isActive="webExperienceAlertAllItemAcquiredIsActive" />
   </div>
 </template>
 
@@ -44,6 +45,7 @@ import { useLocationStore } from "@/stores/location";
 
 import VskCard from '@/layouts/VskCard.vue'
 import WebExperienceCharacterDialogGiftFirework from "@/components/WebExperienceCharacterDialogGiftFirework.vue";
+import WebExperienceAlertAllItemAcquired from "@/components/WebExperienceAlertAllItemAcquired.vue";
 import type { itemInterface } from "@/stores/item/interface";
 
 const itemStore = useItemStore();
@@ -57,6 +59,7 @@ const locationStore = useLocationStore();
 const { isTheHiddenPlaceFound } = storeToRefs(locationStore);
 
 const isActive = ref(true);
+const webExperienceAlertAllItemAcquiredIsActive = ref(false)
 
 onMounted(() => {
   onItemProvided(itemProvidedByCurrentDialog.value as itemInterface);
@@ -64,9 +67,7 @@ onMounted(() => {
 
 function onClose() {
   if (isAllItemsAcquired.value && !isTheHiddenPlaceFound.value) {
-    console.log('YES', isAllItemsAcquired.value, !isTheHiddenPlaceFound.value, isAllItemsAcquired.value && !isTheHiddenPlaceFound.value);
-  } else {
-    console.log('NONONON', isAllItemsAcquired.value, !isTheHiddenPlaceFound.value, isAllItemsAcquired.value && !isTheHiddenPlaceFound.value);
+    webExperienceAlertAllItemAcquiredIsActive.value = true;
   }
 }
 </script>

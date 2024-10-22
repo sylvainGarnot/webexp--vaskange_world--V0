@@ -52,14 +52,6 @@ const locationEnd = computed(() => {
 const locationHome = computed(() => {
   return locations_found.value.find(l => l.name === 'big bang 🪐') as locationFoundInterface
 })
-
-// function updateIsActiveCard(event: boolean) {
-//   if (!event) {
-//     console.log('TETETETE')
-//     router.push({ name: 'home' })
-//     setIsLocationEndReach(false)
-//   }
-// }
 </script>
 
 <style lang="scss" scoped>

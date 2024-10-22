@@ -12,6 +12,7 @@
       </template>
     </VskCard>
 
+    <WebExperienceAlertAllItemAcquired v-model:isActive="webExperienceAlertAllItemAcquiredIsActive" />
 
   </div>
 </template>
@@ -19,7 +20,9 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia'
+
 import VskMenuBtn from '@/layouts/VskMenuBtn.vue'
+import WebExperienceAlertAllItemAcquired from "@/components/WebExperienceAlertAllItemAcquired.vue"
 
 import VskCard from '@/layouts/VskCard.vue'
 import VskThumbnailGroup from '@/layouts/VskThumbnailGroup.vue'
@@ -37,6 +40,7 @@ const { isTheHiddenPlaceFound } = storeToRefs(locationStore);
 
 const isActive = ref(false);
 const sortType = ref('défaut');
+const webExperienceAlertAllItemAcquiredIsActive = ref(false)
 
 const tabs = [
   {
@@ -72,9 +76,7 @@ const items_acquiredSorted = computed(() => {
 
 function onClose() {
   if (isAllItemsAcquired.value && !isTheHiddenPlaceFound.value) {
-    console.log('YES', isAllItemsAcquired.value, !isTheHiddenPlaceFound.value, isAllItemsAcquired.value && !isTheHiddenPlaceFound.value);
-  } else {
-    console.log('NONONON', isAllItemsAcquired.value, !isTheHiddenPlaceFound.value, isAllItemsAcquired.value && !isTheHiddenPlaceFound.value);
+    webExperienceAlertAllItemAcquiredIsActive.value = true;
   }
 }
 
