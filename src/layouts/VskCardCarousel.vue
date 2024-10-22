@@ -8,12 +8,6 @@
 
             <v-row no-gutters>
               <v-carousel v-model="carouselStep" hide-delimiter-background>
-                <template v-slot:prev="{ props }">
-                </template>
-                <template v-slot:next="{ props }">
-                  <v-btn v-if="carouselStep < carouselItems!.length - 1" class="v-carousel-next-item" variant="elevated"
-                    @click="props.onClick">{{ nextItemBtnLabel }}</v-btn>
-                </template>
                 <v-carousel-item v-for="carouselItem in carouselItems" :key="carouselItem.name">
                   <slot :name="carouselItem.name"></slot>
                 </v-carousel-item>
@@ -40,7 +34,6 @@ const emit = defineEmits(['update:isActive', 'close', 'close-first-time'])
 const props = defineProps({
   isActive: Boolean,
   carouselItems: Array as PropType<carouselItemInterface[]>,
-  nextItemBtnLabel: String,
 })
 
 const carouselStep = ref(0);
@@ -75,18 +68,21 @@ function close() {
 
 <style lang="scss">
 .v-carousel {
-  height: 600px !important;
+  height: 55vh !important;
+  max-height: 780px !important;
 
   @media (max-width: 599px) {
-    height: 680px !important;
+    height: 72vh !important;
   }
-}
 
-.v-carousel-next-item {
-  position: absolute;
-  bottom: 1.6vh;
-  left: 50%;
-  transform: translateX(-50%);
+  .v-window__controls .v-btn {
+    opacity: 0.1;
+    transition: opacity 350ms ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 .v-carousel .v-carousel__controls {
