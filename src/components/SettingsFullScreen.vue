@@ -1,13 +1,13 @@
 <template>
   <div>
-    <VskMenuBtn :image="isFullscreen ? 'compress' : 'expand'" @click="toggleFullscreen()" />
+    <VskBtn :image="isFullscreen ? 'compress' : 'expand'" @click="toggleFullscreen()" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted } from "vue";
 
-import VskMenuBtn from "@/layouts/VskMenuBtn.vue";
+import VskBtn from "@/layouts/VskBtn.vue";
 import { useSettingStore } from "@/stores/setting";
 import { storeToRefs } from 'pinia'
 

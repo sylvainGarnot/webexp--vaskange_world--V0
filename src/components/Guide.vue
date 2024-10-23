@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskMenuBtn image="home-kawai" @click="isActive = !isActive" />
+    <VskBtn image="home-kawai" @click="isActive = !isActive" />
 
     <VskCardCarousel v-model:isActive="isActive" :carousel-items="carouselItems" nextItemBtnLabel="conseil suivant"
       @close-first-time="playMusic">
@@ -28,7 +28,7 @@
 import { ref } from 'vue';
 import { useMusicStore } from "@/stores/music";
 
-import VskMenuBtn from '@/layouts/VskMenuBtn.vue'
+import VskBtn from '@/layouts/VskBtn.vue'
 import VskCardCarousel from '@/layouts/VskCardCarousel.vue'
 
 const isActive = ref(true);

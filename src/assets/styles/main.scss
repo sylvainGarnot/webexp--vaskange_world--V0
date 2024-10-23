@@ -17,6 +17,32 @@ body {
     transform: translateY(-45px);
 }
 
+// .btn-click-animation {
+//     overflow: hidden;
+
+//     &:active {
+//         background-color: transparent !important;
+
+//         &::before {
+//             height: 130%;
+//             width: 130%;
+//         }
+//     }
+
+//     &::before {
+//         content: '';
+//         border-radius: 50%;
+//         background-color: rgba(255, 255, 255, 0.454);
+//         position: absolute;
+//         transform: translate(-50%, -50%);
+//         left: 50%;
+//         top: 50%;
+//         width: 0;
+//         height: 0;
+//         transition: all 150ms ease-in;
+//     }
+// }
+
 
 // ANIMATION
 @keyframes bounce {

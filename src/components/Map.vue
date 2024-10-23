@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskMenuBtn image="map" @click="isActive = !isActive" />
+    <VskBtn image="map" @click="isActive = !isActive" />
 
     <VskCardTabs v-model:isActive="isActive" hasList :tabs="tabs">
       <template v-slot:lieux>
@@ -25,7 +25,7 @@
 import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia'
 
-import VskMenuBtn from '@/layouts/VskMenuBtn.vue'
+import VskBtn from '@/layouts/VskBtn.vue'
 import VskCardTabs from '@/layouts/VskCardTabs.vue'
 import VskThumbnailGroup from '@/layouts/VskThumbnailGroup.vue'
 

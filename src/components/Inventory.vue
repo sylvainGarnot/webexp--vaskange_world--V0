@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskMenuBtn image="joystick" :disable="items_acquired!.length === 0"
+    <VskBtn image="joystick" :disable="items_acquired!.length === 0"
       @click="items_acquired!.length > 0 ? isActive = !isActive : ''" />
 
 
@@ -21,7 +21,7 @@
 import { ref, computed } from 'vue';
 import { storeToRefs } from 'pinia'
 
-import VskMenuBtn from '@/layouts/VskMenuBtn.vue'
+import VskBtn from '@/layouts/VskBtn.vue'
 import WebExperienceAlertAllItemAcquired from "@/components/WebExperienceAlertAllItemAcquired.vue"
 
 import VskCard from '@/layouts/VskCard.vue'

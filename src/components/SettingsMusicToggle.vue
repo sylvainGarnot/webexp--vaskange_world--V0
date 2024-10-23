@@ -1,13 +1,13 @@
 <template>
   <div>
-    <VskMenuBtn :image="isMusicPlaying ? 'musical-note' : 'mute'" @click="toggleMusic()" />
+    <VskBtn :image="isMusicPlaying ? 'musical-note' : 'mute'" @click="toggleMusic()" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useMusicStore } from "@/stores/music";
-import VskMenuBtn from "@/layouts/VskMenuBtn.vue";
+import VskBtn from "@/layouts/VskBtn.vue";
 
 const musicStore = useMusicStore();
 

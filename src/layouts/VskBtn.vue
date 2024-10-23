@@ -25,14 +25,26 @@ defineProps({
   padding: 0.4vh;
   background-color: rgba(29, 27, 25, 0.8);
 
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   &.active {
     cursor: pointer;
+    transition: background-color 250ms ease-in;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.72);
+    }
   }
 
   position: relative;
 
   &.disable {
     cursor: not-allowed;
+    background-color: transparent;
 
     .vsk-btn-disable-background {
       position: absolute;
@@ -43,12 +55,6 @@ defineProps({
       border-radius: 0.8vh;
       background-color: rgba(255, 255, 255, 0.454);
     }
-  }
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 }
 </style>
