@@ -13,9 +13,8 @@
         </v-row>
         <v-row no-gutters class="mt-9 mb-2">
           <v-col cols="4">
-            <v-img class="web-experience-character-dialog-gift-item-image" :src="itemProvidedByCurrentDialog?.image_url"
-              style="overflow: visible;">
-              <VskFirework />
+            <v-img class="web-experience-character-dialog-gift-item-image"
+              :src="itemProvidedByCurrentDialog?.image_url">
             </v-img>
           </v-col>
           <v-col cols="8">
@@ -29,6 +28,9 @@
             </v-card-text>
           </v-col>
         </v-row>
+
+        <VskFirework v-if="isActive" />
+
       </template>
     </VskCard>
     <WebExperienceAlertAllItemAcquired v-model:isActive="webExperienceAlertAllItemAcquiredIsActive" />

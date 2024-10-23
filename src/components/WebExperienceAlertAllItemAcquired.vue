@@ -20,7 +20,7 @@
             :link="theHiddenPlace?.name" @router-push="$emit('update:isActive', false)" />
         </v-row>
 
-        <VskFirework v-if="isActive" />
+        <VskFirework v-if="isActive" :color="'blue'" />
 
       </template>
     </VskCard>

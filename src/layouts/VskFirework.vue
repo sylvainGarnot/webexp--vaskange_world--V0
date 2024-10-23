@@ -1,20 +1,25 @@
 <template>
   <div>
     <div class="container">
-      <div class="line-container" v-for="i in 800">
-        <div class="line"></div>
-        <div class="dot"></div>
+      <div class="line-container" v-for="i in 300">
+        <div class="line" :class="color">
+        </div>
+        <div class="dot" :class="color">
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+const props = defineProps({
+  color: String,
+})
 </script>
 
 <style lang="scss" scoped>
-$width: 22vw;
-$animation-duration: 1.5s;
+$width: 25vh;
+$animation-duration: 2s;
 
 .line-container {
   position: absolute;
@@ -30,8 +35,12 @@ $animation-duration: 1.5s;
     animation-name: firework;
     animation-duration: $animation-duration;
     animation-timing-function: cubic-bezier(0.26, 0.83, 0.26, 0.83);
-    // animation-iteration-count: infinite; // TEST
-    animation-delay: 400ms;
+    animation-iteration-count: infinite; // TEST
+    animation-delay: 600ms;
+
+    &.blue {
+      animation-name: fireworkBlue;
+    }
   }
 
   .dot {
@@ -40,15 +49,19 @@ $animation-duration: 1.5s;
 
     animation-name: fireworkflame;
     animation-duration: $animation-duration;
-    // animation-iteration-count: infinite; // TEST
-    animation-delay: 400ms;
+    animation-iteration-count: infinite; // TEST
+    animation-delay: 600ms;
+
+    &.blue {
+      animation-name: fireworkflameBlue;
+    }
   }
 }
 
 .line-container {
   transform-origin: right;
 
-  @for $i from 1 through 800 {
+  @for $i from 1 through 300 {
     &:nth-child(#{$i}) {
       $r: random(360) * 1deg;
       transform: rotate($r);
@@ -118,6 +131,44 @@ $animation-duration: 1.5s;
 
   50% {
     background-color: salmon;
+  }
+}
+
+@keyframes fireworkBlue {
+
+  0%,
+  100% {
+    background-color: transparent;
+    box-shadow: 0;
+    left: 100%;
+    width: 0%;
+  }
+
+  5% {
+    background-color: cyan;
+    box-shadow: 0 0 1em cyan;
+    left: 40%;
+    width: 60%;
+  }
+
+  50% {
+    background-color: cyan;
+    box-shadow: 0 0 1em cyan;
+    left: 0;
+    width: 0%;
+  }
+}
+
+@keyframes fireworkflameBlue {
+
+  0%,
+  15%,
+  100% {
+    background-color: transparent;
+  }
+
+  50% {
+    background-color: cyan;
   }
 }
 </style>
