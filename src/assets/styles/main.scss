@@ -37,3 +37,22 @@ body {
         transform: translateX(-50%) translateY(-2vh);
     }
 }
+
+@keyframes bounceV {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-2vh);
+    }
+
+    60% {
+        transform: translateY(-2vh);
+    }
+}

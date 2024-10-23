@@ -15,7 +15,7 @@
         <p
           :style="`line-height: ${currentCharacter.callBubble?.height}px; font-size: ${currentCharacter.callBubble?.height * 0.45}px; padding-right: ${currentCharacter.callBubble?.height * 0.2}px;`">
           Hey
-          <span :style="`margin-left: ${currentCharacter.callBubble?.height * 0.15}px;`">
+          <span :style="`right: ${currentCharacter.callBubble?.height * 0.08}px;`">
             !!</span>
         </p>
       </div>
@@ -76,9 +76,13 @@ const { setIsDialogActive } = dialogStore;
       height: 20%;
     }
 
-    span {
-      position: absolute;
-      animation: bounce 2s ease infinite;
+    p {
+      position: relative;
+
+      span {
+        position: absolute;
+        animation: bounceV 2s ease infinite;
+      }
     }
   }
 }
