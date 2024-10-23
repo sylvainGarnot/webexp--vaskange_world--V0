@@ -68,15 +68,15 @@ function close() {
 
 <style lang="scss">
 .v-carousel {
-  height: 55vh !important;
+  height: 54vh !important;
   max-height: 780px !important;
 
   @media (max-width: 599px) {
-    height: 72vh !important;
+    height: 62vh !important;
   }
 
   .v-window__controls .v-btn {
-    opacity: 0.1;
+    opacity: 0.25;
     transition: opacity 350ms ease;
 
     &:hover {

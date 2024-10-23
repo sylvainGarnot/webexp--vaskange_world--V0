@@ -88,6 +88,7 @@ const carouselItems = [
   img {
     width: 100%;
     height: 100%;
+    max-height: 25vh;
     object-fit: cover;
     border: 2px solid #9A843A;
     border-radius: 0.8vh;
