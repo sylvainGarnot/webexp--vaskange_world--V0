@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskBtn image="map" @click="isActive = !isActive" />
+    <VskBtn image="map" @click="isActive = !isActive" :active="isActive" />
 
     <VskCardTabs v-model:isActive="isActive" hasList :tabs="tabs">
       <template v-slot:lieux>

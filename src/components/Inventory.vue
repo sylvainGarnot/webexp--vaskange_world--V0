@@ -1,7 +1,7 @@
 <template>
   <div>
     <VskBtn image="joystick" :disable="items_acquired!.length === 0"
-      @click="items_acquired!.length > 0 ? isActive = !isActive : ''" />
+      @click="items_acquired!.length > 0 ? isActive = !isActive : ''" :active="isActive" />
 
 
     <VskCard v-model:isActive="isActive" @close="onClose()" hasList>

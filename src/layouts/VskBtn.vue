@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="vsk-btn" :class="disable ? 'disable' : 'active'">
+    <button class="vsk-btn" :class="classes">
       <div v-if="disable" class="vsk-btn-disable-background"></div>
       <img class="icon" :src="`/icones/${image}.png`" />
     </button>
@@ -8,9 +8,16 @@
 </template>
 
 <script setup>
-defineProps({
+import { computed } from 'vue';
+
+const props = defineProps({
   image: String,
   disable: Boolean,
+  active: Boolean,
+})
+
+const classes = computed(() => {
+  return `${props.disable ? 'disable' : 'btn-click-animation'}` + `${props.active ? ' active' : ''}`
 })
 </script>
 
@@ -23,6 +30,9 @@ defineProps({
 
   border-radius: 0.8vh;
   padding: 0.4vh;
+
+  cursor: pointer;
+  transition: background-color 250ms ease-in;
   background-color: rgba(29, 27, 25, 0.8);
 
   img {
@@ -31,13 +41,12 @@ defineProps({
     object-fit: cover;
   }
 
-  &.active {
-    cursor: pointer;
-    transition: background-color 250ms ease-in;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.454);
+  }
 
-    &:hover {
-      background-color: rgba(255, 255, 255, 0.72);
-    }
+  &.active {
+    background-color: rgba(154, 132, 58, 0.78);
   }
 
   position: relative;
