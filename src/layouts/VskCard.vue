@@ -48,6 +48,8 @@ function close() {
 </script>
 
 <style lang="scss">
+@import '@/assets/styles/_global_variable.scss';
+
 .vsk-card-v-dialog {
   width: 100%;
   max-width: 780px;
@@ -75,7 +77,7 @@ function close() {
       }
 
       margin: 1vh;
-      border-radius: 0.8vh;
+      border-radius: $radiusValue;
       border: solid 1px grey;
       background-color: rgba(29, 27, 25, 0.8);
 
@@ -86,7 +88,7 @@ function close() {
 
       color: white;
       font-size: 4.2vh;
-      border-radius: 0.8vh;
+      border-radius: $radiusValue;
 
       cursor: pointer;
       transition: background-color 250ms ease-in;
@@ -114,7 +116,7 @@ function close() {
 
     cursor: pointer;
     transition: background-color 250ms ease-in;
-    border-radius: 0.8vh;
+    border-radius: $radiusValue;
 
     &:hover {
       background-color: rgba(255, 255, 255, 0.454);

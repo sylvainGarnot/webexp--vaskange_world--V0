@@ -27,10 +27,12 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_global_variable.scss';
+
 .vsk-thumbnail-card {
   width: 100%;
   height: 12vh;
-  border-radius: 0.8vh;
+  border-radius: $radiusValue;
   position: relative;
   border: solid 1px grey;
 

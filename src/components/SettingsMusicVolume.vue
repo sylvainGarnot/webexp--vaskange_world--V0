@@ -17,8 +17,10 @@ const { setMusicVolume } = musicStore;
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_global_variable.scss';
+
 .settings-music-volume {
-  border-radius: 0.8vh;
+  border-radius: $radiusValue;
   padding: 1.2vh 1.2vh;
   background-color: rgba(29, 27, 25, 0.8);
 

@@ -92,6 +92,8 @@ function handleKeydown(event: any) {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_global_variable.scss';
+
 .vsk-dialog-container {
   position: absolute;
   left: 0;
@@ -144,7 +146,7 @@ function handleKeydown(event: any) {
 
       cursor: pointer;
       transition: background-color 250ms ease-in;
-      border-radius: 0.8vh;
+      border-radius: $radiusValue;
 
       &:hover {
         background-color: rgba(255, 255, 255, 0.454);

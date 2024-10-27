@@ -23,6 +23,8 @@ const { toasts } = storeToRefs(toastStore);
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_global_variable.scss';
+
 .vsk-toast-list-container {
   position: fixed;
   top: 9.2vh;
@@ -36,7 +38,7 @@ const { toasts } = storeToRefs(toastStore);
       left: 50%;
       transform: translateX(-50%);
 
-      border-radius: 0.8vh;
+      border-radius: $radiusValue;
       background-color: rgba(29, 27, 25, 0.4);
 
       .vsk-toast {
@@ -44,7 +46,7 @@ const { toasts } = storeToRefs(toastStore);
         padding: 1.4vh 2.8vh;
         white-space: nowrap;
 
-        border-radius: 0.8vh;
+        border-radius: $radiusValue;
         border: solid 1px grey;
         background-color: rgba(29, 27, 25, 0.4);
 

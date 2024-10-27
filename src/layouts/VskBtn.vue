@@ -22,13 +22,15 @@ const classes = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_global_variable.scss';
+
 .vsk-btn {
   width: 5.8vh;
   height: 5.8vh;
   max-width: 65px;
   max-height: 65px;
 
-  border-radius: 0.8vh;
+  border-radius: $radiusValue;
   padding: 0.4vh;
 
   cursor: pointer;
@@ -61,7 +63,7 @@ const classes = computed(() => {
       height: 100%;
       top: 0;
       left: 0;
-      border-radius: 0.8vh;
+      border-radius: $radiusValue;
       background-color: rgba(255, 255, 255, 0.454);
     }
   }

@@ -36,10 +36,12 @@ function onClick() {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_global_variable.scss';
+
 .vsk-thumbnail,
 .vsk-thumbnail img,
 .vsk-thumbnail .vsk-thumbnail-background {
-  border-radius: 0.8vh;
+  border-radius: $radiusValue;
 }
 
 .vsk-thumbnail {
@@ -66,7 +68,7 @@ function onClick() {
     right: 0.4vh;
 
     background-color: rgba(29, 27, 25, 0.8);
-    border-radius: 0.8vh;
+    border-radius: $radiusValue;
     padding: 0 1vh;
 
     color: white;

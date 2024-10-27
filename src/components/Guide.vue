@@ -70,6 +70,8 @@ const carouselItems = [
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_global_variable.scss';
+
 .guide-title {
   color: white;
   font-size: 3.2vh;
@@ -91,7 +93,7 @@ const carouselItems = [
     max-height: 25vh;
     object-fit: cover;
     border: 2px solid #9A843A;
-    border-radius: 0.8vh;
+    border-radius: $radiusValue;
   }
 }
 </style>
