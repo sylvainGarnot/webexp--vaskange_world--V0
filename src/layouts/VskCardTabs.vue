@@ -18,10 +18,11 @@
             </v-tabs-window-item>
           </v-tabs-window>
 
-          <v-icon class="vsk-card-close" icon="$close" @click="$emit('update:isActive', false)"></v-icon>
+          <v-icon class="vsk-card-close btn-click-animation" icon="$close"
+            @click="$emit('update:isActive', false)"></v-icon>
         </v-card>
 
-        <v-icon v-if="hasCloseFooter" class="vsk-card-close-footer" icon="$vuetify"
+        <v-icon v-if="hasCloseFooter" class="vsk-card-close-footer btn-click-animation" icon="$vuetify"
           @click="$emit('update:isActive', false)"></v-icon>
       </template>
     </v-dialog>

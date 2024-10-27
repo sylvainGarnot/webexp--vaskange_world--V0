@@ -13,10 +13,12 @@
             </v-row>
           </div>
 
-          <v-icon class="vsk-card-close" icon="$close" @click="close()"></v-icon>
+          <v-icon class="vsk-card-close btn-click-animation" icon="$close" @click="
+            close()"></v-icon>
         </v-card>
 
-        <v-icon v-if="hasCloseFooter" class="vsk-card-close-footer" icon="$vuetify" @click="close()"></v-icon>
+        <v-icon v-if="hasCloseFooter" class="vsk-card-close-footer btn-click-animation" icon="$vuetify"
+          @click="close()"></v-icon>
       </template>
     </v-dialog>
   </div>
@@ -81,15 +83,16 @@ function close() {
 
     .vsk-card-close {
       position: absolute;
-      cursor: pointer;
 
       color: white;
       font-size: 4.2vh;
       border-radius: 0.8vh;
+
+      cursor: pointer;
       transition: background-color 250ms ease-in;
 
       &:hover {
-        background-color: grey;
+        background-color: rgba(255, 255, 255, 0.454);
       }
     }
 
@@ -103,17 +106,18 @@ function close() {
     position: absolute;
     left: 50%;
     bottom: -1.8vh;
-    cursor: pointer;
     animation: bounce 2s ease infinite;
 
     color: white;
     font-size: 5.8vh;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     border-radius: 0.8vh;
+
+    cursor: pointer;
     transition: background-color 250ms ease-in;
 
     &:hover {
-      background-color: grey;
+      background-color: rgba(255, 255, 255, 0.454);
     }
   }
 }

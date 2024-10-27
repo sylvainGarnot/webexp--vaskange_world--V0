@@ -15,11 +15,11 @@
             </v-row>
           </div>
 
-          <v-icon class="vsk-card-close" icon="$close" @click="close()"></v-icon>
+          <v-icon class="vsk-card-close btn-click-animation" icon="$close" @click="close()"></v-icon>
         </v-card>
 
-        <v-icon v-if="carouselStep === carouselItems!.length - 1" class="vsk-card-close-footer" icon="$vuetify"
-          @click="close()"></v-icon>
+        <v-icon v-if="carouselStep === carouselItems!.length - 1" class="vsk-card-close-footer btn-click-animation"
+          icon="$vuetify" @click="close()"></v-icon>
       </template>
     </v-dialog>
   </div>

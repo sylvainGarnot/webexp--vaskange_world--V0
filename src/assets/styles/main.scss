@@ -23,13 +23,13 @@ body {
     &:active {
         background-color: transparent !important;
 
-        &::before {
+        &::after {
             height: 130%;
             width: 130%;
         }
     }
 
-    &::before {
+    &::after {
         content: '';
         border-radius: 50%;
         background-color: rgba(255, 255, 255, 0.72);
