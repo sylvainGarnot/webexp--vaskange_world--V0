@@ -39,7 +39,7 @@ const { toasts } = storeToRefs(toastStore);
       transform: translateX(-50%);
 
       border-radius: $radiusValue;
-      background-color: rgba(29, 27, 25, 0.4);
+      background-color: $colorBlackLightUltra;
 
       .vsk-toast {
         margin: 0.6vh;
@@ -48,7 +48,7 @@ const { toasts } = storeToRefs(toastStore);
 
         border-radius: $radiusValue;
         border: solid 1px $colorGrey;
-        background-color: rgba(29, 27, 25, 0.4);
+        background-color: $colorBlackLightUltra;
 
         text-align: center;
         color: $colorWhite;

@@ -2,7 +2,7 @@
   <div>
     <span :class="selected ? 'selected' : 'unselected'" @click="!selected ? $emit('select', label as string) : ''">{{
       label
-      }}</span>
+    }}</span>
   </div>
 </template>
 
@@ -19,7 +19,7 @@ const props = defineProps({
 @import '@/assets/styles/_global_variable.scss';
 
 span {
-  border-radius: 0.6vh;
+  border-radius: $radiusValue;
   padding: 0.4vh 1.8vh;
 
   font-size: 1.8vh;
