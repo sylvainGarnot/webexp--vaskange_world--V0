@@ -5,7 +5,7 @@
       <p class="vsk-dialog-npc-dialog">
         {{ currentDialog?.speech_written[dialogStepNumber] }}
       </p>
-      <v-icon v-if="!isAnswersActive" class="vsk-dialog-npc-next-icon" icon="$vuetify"
+      <v-icon v-if="!isAnswersActive" class="vsk-dialog-npc-next-icon btn-click-animation" icon="$vuetify"
         @click="handleNextDialog()"></v-icon>
 
       <TransitionGroup name="fade-top" tag="div">
@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 import { storeToRefs } from 'pinia';
 import { useDialogStore } from "@/stores/dialog";
 import { useCharacterStore } from "@/stores/character";
@@ -51,6 +51,16 @@ const isAnswersActive = computed(() => {
 })
 
 
+// LIFE CYCLE
+onMounted(() => {
+  window.addEventListener("keydown", handleKeydown);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener("keydown", handleKeydown)
+})
+
+
 
 // FUNCTION
 function handleLeave() {
@@ -70,6 +80,12 @@ function handleAccepted() {
 function handleNextDialog() {
   if (currentDialog.value && dialogStepNumber.value + 1 < currentDialog.value.speech_written!.length) {
     dialogStepNumber.value++
+  }
+}
+
+function handleKeydown(event: any) {
+  if (event.key === "Escape") {
+    handleLeave()
   }
 }
 
@@ -125,6 +141,14 @@ function handleNextDialog() {
       color: white;
       font-size: 5.8vh;
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+
+      cursor: pointer;
+      transition: background-color 250ms ease-in;
+      border-radius: 0.8vh;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.454);
+      }
     }
   }
 }

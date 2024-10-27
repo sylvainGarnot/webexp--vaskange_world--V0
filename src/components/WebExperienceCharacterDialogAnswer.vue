@@ -1,7 +1,9 @@
 <template>
   <div class="vsk-dialog-response-container">
     <div class="vsk-dialog-response" v-for="answer in currentDialog_answers" @click="$emit(answer.type)">
-      <p>{{ answer.speech_writen }}</p>
+      <div class="btn-click-animation">
+        <p>{{ answer.speech_writen }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -31,6 +33,9 @@ $marge: 0.8vh;
     background-color: rgba(29, 27, 25, 0.9);
     border-radius: $height;
     cursor: pointer;
+
+    position: relative;
+    overflow: hidden;
 
     &:hover {
       background-color: rgba(70, 68, 66, 0.9);

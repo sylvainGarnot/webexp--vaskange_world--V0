@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { onMounted, onBeforeUnmount } from "vue";
 
 import VskBtn from "@/layouts/VskBtn.vue";
 import { useSettingStore } from "@/stores/setting";
@@ -17,14 +17,20 @@ const { isFullscreen } = storeToRefs(settingStore)
 const { setIsFullscreen, toggleFullscreen } = settingStore;
 
 onMounted(() => {
-  window.addEventListener("fullscreenchange", () => {
-    if (document.fullscreenElement) {
-      setIsFullscreen(true);
-    } else {
-      setIsFullscreen(false);
-    }
-  });
+  window.addEventListener("fullscreenchange", handleFullscreenChange);
 });
+
+onBeforeUnmount(() => {
+  window.removeEventListener("fullscreenchange", handleFullscreenChange)
+})
+
+function handleFullscreenChange() {
+  if (document.fullscreenElement) {
+    setIsFullscreen(true);
+  } else {
+    setIsFullscreen(false);
+  }
+}
 
 </script>
 

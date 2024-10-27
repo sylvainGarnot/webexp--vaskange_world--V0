@@ -111,10 +111,10 @@ function close() {
     color: white;
     font-size: 5.8vh;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-    border-radius: 0.8vh;
 
     cursor: pointer;
     transition: background-color 250ms ease-in;
+    border-radius: 0.8vh;
 
     &:hover {
       background-color: rgba(255, 255, 255, 0.454);
