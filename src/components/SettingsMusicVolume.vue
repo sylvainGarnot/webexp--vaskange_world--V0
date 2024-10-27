@@ -22,7 +22,7 @@ const { setMusicVolume } = musicStore;
 .settings-music-volume {
   border-radius: $radiusValue;
   padding: 1.2vh 1.2vh;
-  background-color: rgba(29, 27, 25, 0.8);
+  background-color: $colorBlackLightMax;
 
   width: 5.8vh*2.5;
   height: 5.8vh;

@@ -55,8 +55,10 @@ const locationHome = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_global_variable.scss';
+
 .message {
-  color: white;
+  color: $colorWhite;
 
   h3 {
     font-size: 4.6vh;
@@ -64,16 +66,6 @@ const locationHome = computed(() => {
 
   p {
     font-size: 2.1vh;
-  }
-}
-
-.content {
-  overflow-y: scroll;
-  max-height: 45vh;
-  border-top: solid 1px grey;
-
-  div {
-    width: 100%;
   }
 }
 </style>

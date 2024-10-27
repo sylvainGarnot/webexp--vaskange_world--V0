@@ -75,8 +75,10 @@ function onClose() {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_global_variable.scss';
+
 .web-experience-character-dialog-gift-title {
-  color: white;
+  color: $colorWhite;
   font-size: 2.6vh;
   font-weight: 500;
   line-height: 1.5;
@@ -90,14 +92,14 @@ function onClose() {
 }
 
 .web-experience-character-dialog-gift-item-name {
-  color: white;
+  color: $colorWhite;
   font-size: 2.6vh;
   font-weight: 700;
   line-height: 1;
 }
 
 .web-experience-character-dialog-gift-item-description {
-  color: white;
+  color: $colorWhite;
   font-size: 1.6vh;
   font-weight: 300;
   line-height: 1;

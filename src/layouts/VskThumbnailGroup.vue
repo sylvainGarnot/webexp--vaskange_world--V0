@@ -80,15 +80,17 @@ function changeSwitchValue(value: string) {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_global_variable.scss';
+
 .vsk-thumbnail-group-title {
-  color: white;
+  color: $colorWhite;
   font-size: 3.2vh;
 }
 
 .vsk-thumbnail-group-content {
   overflow-y: scroll;
   max-height: 45vh;
-  border-top: solid 1px grey;
+  border-top: solid 1px $colorGrey;
 
   div {
     width: 100%;

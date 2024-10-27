@@ -51,16 +51,18 @@ interface tabInterface {
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_global_variable.scss';
+
 .vsk-card-v-tabs-menu {
 
   button,
   span {
-    color: grey;
+    color: $colorGrey;
     font-size: 1.5vh;
     font-weight: 500;
 
     &.v-tab--selected {
-      color: white;
+      color: $colorWhite;
     }
   }
 }

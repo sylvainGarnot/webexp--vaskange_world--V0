@@ -73,12 +73,12 @@ const carouselItems = [
 @import '@/assets/styles/_global_variable.scss';
 
 .guide-title {
-  color: white;
+  color: $colorWhite;
   font-size: 3.2vh;
 }
 
 .guide-content {
-  color: white;
+  color: $colorWhite;
   font-size: 2.4vh;
 
   p {
@@ -92,7 +92,7 @@ const carouselItems = [
     height: 100%;
     max-height: 25vh;
     object-fit: cover;
-    border: 2px solid #9A843A;
+    border: 2px solid $colorGold;
     border-radius: $radiusValue;
   }
 }

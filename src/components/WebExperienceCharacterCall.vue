@@ -38,6 +38,8 @@ const { setIsDialogActive } = dialogStore;
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_global_variable.scss';
+
 .vsk-bookmark-toast-container,
 .vsk-bookmark-toast-arrow-container,
 .vsk-bookmark-toast-arrow-border,
@@ -48,7 +50,7 @@ const { setIsDialogActive } = dialogStore;
 }
 
 .vsk-bookmark-toast-container {
-  border: solid 3px black;
+  border: solid 3px $colorBlack;
   border-radius: 100%;
 
   .vsk-bookmark-toast-arrow-container {
@@ -63,7 +65,7 @@ const { setIsDialogActive } = dialogStore;
   }
 
   .vsk-bookmark-toast-content {
-    background-color: white;
+    background-color: $colorWhite;
     border-radius: 100%;
     width: 100%;
     height: 100%;

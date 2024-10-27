@@ -18,6 +18,8 @@ const { currentDialog_answers } = storeToRefs(answerStore);
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_global_variable.scss';
+
 $height: 5.2vh;
 $marge: 0.8vh;
 
@@ -30,7 +32,7 @@ $marge: 0.8vh;
     margin-top: $marge;
     width: 27vh;
     height: $height;
-    background-color: rgba(29, 27, 25, 0.9);
+    background-color: $colorBlackLight;
     border-radius: $height;
     cursor: pointer;
 
@@ -38,13 +40,13 @@ $marge: 0.8vh;
     overflow: hidden;
 
     &:hover {
-      background-color: rgba(70, 68, 66, 0.9);
-      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      background-color: $colorGreyLight;
+      box-shadow: $shadow;
     }
 
     p {
       text-align: center;
-      color: white;
+      color: $colorWhite;
       font-size: 3.2vh;
       line-height: $height;
     }

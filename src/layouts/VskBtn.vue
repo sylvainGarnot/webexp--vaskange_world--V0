@@ -35,7 +35,7 @@ const classes = computed(() => {
 
   cursor: pointer;
   transition: background-color 250ms ease-in;
-  background-color: rgba(29, 27, 25, 0.8);
+  background-color: $colorBlackLightMax;
 
   img {
     width: 100%;
@@ -44,11 +44,11 @@ const classes = computed(() => {
   }
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.454);
+    background-color: $colorWhiteLightMax;
   }
 
   &.active {
-    background-color: rgba(154, 132, 58, 0.78);
+    background-color: $colorGoldLight;
   }
 
   position: relative;
@@ -64,7 +64,7 @@ const classes = computed(() => {
       top: 0;
       left: 0;
       border-radius: $radiusValue;
-      background-color: rgba(255, 255, 255, 0.454);
+      background-color: $colorWhiteLightMax;
     }
   }
 }

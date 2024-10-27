@@ -47,11 +47,11 @@ const { toasts } = storeToRefs(toastStore);
         white-space: nowrap;
 
         border-radius: $radiusValue;
-        border: solid 1px grey;
+        border: solid 1px $colorGrey;
         background-color: rgba(29, 27, 25, 0.4);
 
         text-align: center;
-        color: white;
+        color: $colorWhite;
         font-size: 3.2vh;
         font-weight: 500;
         line-height: 1;

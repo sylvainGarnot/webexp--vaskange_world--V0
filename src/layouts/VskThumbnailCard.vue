@@ -34,7 +34,7 @@ const props = defineProps({
   height: 12vh;
   border-radius: $radiusValue;
   position: relative;
-  border: solid 1px grey;
+  border: solid 1px $colorGrey;
 
   .vsk-thumbnail-card-image {
     width: 75%;
@@ -44,14 +44,14 @@ const props = defineProps({
   }
 
   .vsk-thumbnail-card-title {
-    color: white;
+    color: $colorWhite;
     font-size: 2.3vh;
     font-weight: 700;
     line-height: 1;
   }
 
   .vsk-thumbnail-card-description {
-    color: white;
+    color: $colorWhite;
     font-size: 1.4vh;
     font-weight: 300;
     line-height: 1.2;

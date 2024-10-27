@@ -60,7 +60,7 @@ function close() {
 
   .vsk-card-v-card {
     border-radius: 0.8vh !important;
-    background-color: rgba(29, 27, 25, 0.8);
+    background-color: $colorBlackLightMax;
 
     overflow-y: hidden !important;
 
@@ -78,15 +78,15 @@ function close() {
 
       margin: 1vh;
       border-radius: $radiusValue;
-      border: solid 1px grey;
-      background-color: rgba(29, 27, 25, 0.8);
+      border: solid 1px $colorGrey;
+      background-color: $colorBlackLightMax;
 
     }
 
     .vsk-card-close {
       position: absolute;
 
-      color: white;
+      color: $colorWhite;
       font-size: 4.2vh;
       border-radius: $radiusValue;
 
@@ -94,7 +94,7 @@ function close() {
       transition: background-color 250ms ease-in;
 
       &:hover {
-        background-color: rgba(255, 255, 255, 0.454);
+        background-color: $colorWhiteLightMax;
       }
     }
 
@@ -110,16 +110,16 @@ function close() {
     bottom: -1.8vh;
     animation: bounce 2s ease infinite;
 
-    color: white;
+    color: $colorWhite;
     font-size: 5.8vh;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    text-shadow: $shadow;
 
     cursor: pointer;
     transition: background-color 250ms ease-in;
     border-radius: $radiusValue;
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.454);
+      background-color: $colorWhiteLightMax;
     }
   }
 }

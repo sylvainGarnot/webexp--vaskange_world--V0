@@ -109,16 +109,16 @@ function handleKeydown(event: any) {
     max-width: 780px;
     height: 18vh;
     border-radius: 18vh;
-    background-color: rgba(29, 27, 25, 0.9);
+    background-color: $colorBlackLight;
 
     .vsk-dialog-npc-author {
       position: absolute;
       left: 21%;
       transform: translate(-50%, -50%);
 
-      color: white;
+      color: $colorWhite;
       font-size: 3.2vh;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      text-shadow: $shadow;
     }
 
     .vsk-dialog-npc-dialog {
@@ -129,7 +129,7 @@ function handleKeydown(event: any) {
       width: 80%;
       text-align: center;
 
-      color: white;
+      color: $colorWhite;
       font-size: 3.2vh;
     }
 
@@ -140,16 +140,16 @@ function handleKeydown(event: any) {
       cursor: pointer;
       animation: bounce 2s ease infinite;
 
-      color: white;
+      color: $colorWhite;
       font-size: 5.8vh;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      text-shadow: $shadow;
 
       cursor: pointer;
       transition: background-color 250ms ease-in;
       border-radius: $radiusValue;
 
       &:hover {
-        background-color: rgba(255, 255, 255, 0.454);
+        background-color: $colorWhiteLightMax;
       }
     }
   }

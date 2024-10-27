@@ -2,7 +2,7 @@
   <div>
     <span :class="selected ? 'selected' : 'unselected'" @click="!selected ? $emit('select', label as string) : ''">{{
       label
-    }}</span>
+      }}</span>
   </div>
 </template>
 
@@ -16,6 +16,8 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/styles/_global_variable.scss';
+
 span {
   border-radius: 0.6vh;
   padding: 0.4vh 1.8vh;
@@ -26,17 +28,17 @@ span {
   transition: all 250ms ease-in;
 
   &.selected {
-    border: solid 1px white;
-    color: white;
+    border: solid 1px $colorWhite;
+    color: $colorWhite;
   }
 
   &.unselected {
-    border: solid 1px grey;
-    color: grey;
+    border: solid 1px $colorGrey;
+    color: $colorGrey;
 
     &:hover {
-      border: solid 1px white;
-      color: white;
+      border: solid 1px $colorWhite;
+      color: $colorWhite;
     }
   }
 }

@@ -55,10 +55,10 @@ function onClick() {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    color: white;
+    color: $colorWhite;
     font-size: 2.8vh;
     font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    text-shadow: $shadow;
     white-space: nowrap;
   }
 
@@ -67,11 +67,11 @@ function onClick() {
     bottom: 0.4vh;
     right: 0.4vh;
 
-    background-color: rgba(29, 27, 25, 0.8);
+    background-color: $colorBlackLightMax;
     border-radius: $radiusValue;
     padding: 0 1vh;
 
-    color: white;
+    color: $colorWhite;
     font-size: 1.5vh;
     font-weight: 500;
   }
@@ -80,7 +80,7 @@ function onClick() {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: 2px solid #9A843A;
+    border: 2px solid $colorGold;
   }
 
   .vsk-thumbnail-background {
@@ -92,7 +92,7 @@ function onClick() {
     transition: background-color 250ms ease-in;
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.454);
+      background-color: $colorWhiteLightMax;
     }
   }
 }
