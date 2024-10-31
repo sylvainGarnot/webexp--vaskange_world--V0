@@ -1,4 +1,4 @@
-import { music, volumeMusic, musicLast, musicsCache, isMusicPlaying, musics } from './state';
+import { music, volumeMusic, musicLast, musicsCache, isMusicPlaying, musics, musicTempo, modeTempo } from './state';
 import type { musicInterface } from './interface';
 import { currentLocation, locations } from '../location/state';
 
@@ -28,6 +28,21 @@ function setMusic(input: musicInterface) {
   }
 }
 
+function setMusicTempo(input: musicInterface) {
+  const audio = new Audio() as HTMLAudioElement;
+  audio.currentTime = 0;
+  audio.preload = "auto";
+  audio.loop = true;
+  audio.src = input.file;
+  audio.volume = volumeMusic.value as number;
+
+  musicTempo.value = {
+    id: input.id,
+    file: input.file,
+    audio,
+  } as musicInterface;
+}
+
 function addMusicsCache(input: musicInterface) {
   musicsCache.value.push(input as musicInterface);
 }
@@ -43,14 +58,16 @@ function stopAllMusicExcept(input: musicInterface) {
 
 function setRandomMusic() {
   let musicId;
-  if (musics?.value.length > 0 && currentLocation?.value?.musics?.length > 0) {
-    musicId = currentLocation.value.musics[
-      Math.floor(Math.random() * currentLocation.value.musics.length)
-    ];
-  } else if (musics?.value.length > 0 && locations?.value[0]?.musics?.length > 0) {
-    musicId = locations.value[0].musics[
-      Math.floor(Math.random() * locations.value[0].musics.length)
-    ];
+  if (musics?.value.length > 0) {
+    if (currentLocation?.value?.musics?.length > 0) {
+      musicId = currentLocation.value.musics[
+        Math.floor(Math.random() * currentLocation.value.musics.length)
+      ];
+    } else if (locations?.value[0]?.musics?.length > 0) {
+      musicId = locations.value[0].musics[
+        Math.floor(Math.random() * locations.value[0].musics.length)
+      ];
+    }
   }
   if (musicId) {
     const music = musics.value.find(m => m.id === musicId) as musicInterface;
@@ -124,7 +141,14 @@ export function playMusic() {
     if (!music?.value?.audio?.src) {
       setRandomMusic();
     }
+    if (modeTempo.value && !musicTempo?.value?.audio?.src) {
+      const newMusicTempo = musics.value.find(m => m.id === 'music_tempo') as musicInterface;
+      setMusicTempo(newMusicTempo as musicInterface);
+    }
     music.value.audio.play();
+    if (modeTempo.value) {
+      musicTempo.value.audio.play();
+    }
     isMusicPlaying.value = true;
   }
 }
@@ -132,12 +156,15 @@ export function playMusic() {
 export function pauseMusic() {
   if (isMusicPlaying.value) {
     music.value.audio.pause();
+    if (modeTempo.value) {
+      musicTempo.value.audio.pause();
+    }
     isMusicPlaying.value = false;
   }
 }
 
 
-export async function changeMusicByLocation(fadeDuration: number = 8000) {
+export async function changeMusicByLocation(fadeDuration: number = 5000) {
   if (isMusicPlaying.value) {
 
     musicLast.value = music.value as musicInterface;

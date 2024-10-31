@@ -17,7 +17,7 @@ export const locations = ref([
     image_url: '/images/location/big bang 🪐.PNG',
     upper_location: '17b',
     is_hidden_place: false,
-    musics: ['0','1','2','3'],
+    musics: ['0','1'],
   },
   {
     id: "2",
@@ -26,7 +26,7 @@ export const locations = ref([
     image_url: '/images/location/big bang 🪐.PNG',
     upper_location: '1',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   {
     id: "3",
@@ -35,7 +35,7 @@ export const locations = ref([
     image_url: '/images/location/big bang 🪐.PNG',
     upper_location: '1',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   
   // HOLIDAYS
@@ -46,7 +46,7 @@ export const locations = ref([
     image_url: '/images/location/rock-world2.PNG',
     upper_location: '1',
     is_hidden_place: false,
-    musics: ['4','5','6'],
+    musics: ['2','3'],
   },
   {
     id: "5",
@@ -55,7 +55,7 @@ export const locations = ref([
     image_url: '/images/location/big bang 🪐.PNG',
     upper_location: '4',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   {
     id: "6",
@@ -64,7 +64,7 @@ export const locations = ref([
     image_url: '/images/location/Eson Island 🗿.PNG',
     upper_location: '5',
     is_hidden_place: false,
-    musics: ['3','4'],
+    musics: ['4','5'],
   },
   {
     id: "7",
@@ -73,7 +73,7 @@ export const locations = ref([
     image_url: '/images/location/Eson Island 🗿.PNG',
     upper_location: '6',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   {
     id: "8",
@@ -82,7 +82,7 @@ export const locations = ref([
     image_url: '/images/location/Eson Island 🗿.PNG',
     upper_location: '7',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   {
     id: "9",
@@ -91,7 +91,7 @@ export const locations = ref([
     image_url: '/images/location/rock-world2.PNG',
     upper_location: '5',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   {
     id: "10",
@@ -100,7 +100,7 @@ export const locations = ref([
     image_url: '/images/location/grotte 🐳.PNG',
     upper_location: '9',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   {
     id: "11",
@@ -109,7 +109,7 @@ export const locations = ref([
     image_url: '/images/location/grotte 🐳.PNG',
     upper_location: '6',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   {
     id: "12",
@@ -118,7 +118,7 @@ export const locations = ref([
     image_url: '/images/location/grotte 🐳.PNG',
     upper_location: '5',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   
   // QUEST 3
@@ -129,7 +129,7 @@ export const locations = ref([
     image_url: '/images/location/grotte 🐳.PNG',
     upper_location: '12',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   {
     id: "14",
@@ -138,7 +138,7 @@ export const locations = ref([
     image_url: '/images/location/rock-world2.PNG',
     upper_location: '13',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
 
   // SPACE
@@ -149,7 +149,7 @@ export const locations = ref([
     image_url: '/images/location/oatly end.PNG',
     upper_location: '',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   {
     id: "16",
@@ -158,7 +158,7 @@ export const locations = ref([
     image_url: '/images/location/oatly end.PNG',
     upper_location: '15',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   {
     id: "0",
@@ -167,7 +167,7 @@ export const locations = ref([
     image_url: '/images/location/oatly end.PNG',
     upper_location: '16',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   {
     id: "17",
@@ -176,7 +176,7 @@ export const locations = ref([
     image_url: '/images/location/oatly end.PNG',
     upper_location: '17',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   {
     id: "18",
@@ -185,7 +185,7 @@ export const locations = ref([
     image_url: '/images/location/partager 💌.PNG',
     upper_location: '17b',
     is_hidden_place: true,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   {
     id: "19",
@@ -194,7 +194,7 @@ export const locations = ref([
     image_url: '/images/location/partager 💌.PNG',
     upper_location: '17b',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   
   // Support
@@ -205,7 +205,7 @@ export const locations = ref([
     image_url: '/images/location/partager 💌.PNG',
     upper_location: '1',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
   {
     id: "21",
@@ -214,6 +214,6 @@ export const locations = ref([
     image_url: '/images/location/rock-world2.PNG',
     upper_location: '20',
     is_hidden_place: false,
-    musics: ['1','2'],
+    musics: ['0','1'],
   },
 ] as locationInterface[]);
