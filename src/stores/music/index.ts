@@ -2,22 +2,22 @@ import { defineStore } from "pinia";
 import { readonly } from 'vue';
 
 
-import { music, lastMusic, musicVolume, isMusicPlaying } from './state';
-import { toggleMusic, playMusic, pauseMusic, changeMusicByLocation, setMusicVolume } from './action';
+import { music, musicLast, volumeMusic, isMusicPlaying } from './state';
+import { toggleMusic, playMusic, pauseMusic, changeMusicByLocation, setVolumeMusic } from './action';
 
 
 export const useMusicStore = defineStore("Music", () => {
   
   return {
     music: readonly(music),
-    lastMusic: readonly(lastMusic),
-    musicVolume: readonly(musicVolume),
+    musicLast: readonly(musicLast),
+    volumeMusic: readonly(volumeMusic),
     isMusicPlaying: readonly(isMusicPlaying),
     
     toggleMusic,
     changeMusicByLocation,
     playMusic,
     pauseMusic,
-    setMusicVolume,
+    setVolumeMusic,
   }
 })

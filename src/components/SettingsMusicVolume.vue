@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-slider v-if="isMusicPlaying" class="settings-music-volume" :modelValue="musicVolume * 100" color="white"
-      @update:modelValue="(value) => setMusicVolume(value / 100)" thumb-label></v-slider>
+    <v-slider v-if="isMusicPlaying" class="settings-music-volume" :modelValue="volumeMusic * 100" color="white"
+      @update:modelValue="(value) => setVolumeMusic(value / 100)" thumb-label></v-slider>
   </div>
 </template>
 
@@ -11,8 +11,8 @@ import { useMusicStore } from "@/stores/music";
 
 const musicStore = useMusicStore();
 
-const { musicVolume, isMusicPlaying } = storeToRefs(musicStore);
-const { setMusicVolume } = musicStore;
+const { volumeMusic, isMusicPlaying } = storeToRefs(musicStore);
+const { setVolumeMusic } = musicStore;
 
 </script>
 

@@ -2,9 +2,10 @@ import { ref } from 'vue';
 import type { musicInterface } from './interface';
 
 export const music = ref({} as musicInterface);
-export const musicVolume = ref(0.25 as number);
-export const lastMusic = ref({} as musicInterface);
+export const musicTempo = ref({} as musicInterface);
+export const musicLast = ref({} as musicInterface);
 export const musicsCache = ref([] as musicInterface[]);
+export const volumeMusic = ref(0.25 as number);
 
 export const isMusicPlaying = ref(false as boolean);
 

@@ -1,4 +1,4 @@
-import { music, musicVolume, lastMusic, musicsCache, isMusicPlaying, musics } from './state';
+import { music, volumeMusic, musicLast, musicsCache, isMusicPlaying, musics } from './state';
 import type { musicInterface } from './interface';
 import { currentLocation, locations } from '../location/state';
 
@@ -17,7 +17,7 @@ function setMusic(input: musicInterface) {
     audio.preload = "auto";
     audio.loop = true;
     audio.src = input.file;
-    audio.volume = musicVolume.value as number;
+    audio.volume = volumeMusic.value as number;
 
     music.value = {
       id: input.id,
@@ -68,7 +68,7 @@ function fadeOutMusic(input: musicInterface, duration: number) {
     clearInterval(fadeOutMusicInterval);
     input.audio.pause();
     input.audio.currentTime = 0 as number;
-    input.audio.volume = musicVolume.value as number;
+    input.audio.volume = volumeMusic.value as number;
   }
 
   fadeOutMusicInterval = window.setInterval(() => {
@@ -79,7 +79,7 @@ function fadeOutMusic(input: musicInterface, duration: number) {
       fadeOutMusicInterval = 0 as number;
       input.audio.pause();
       input.audio.currentTime = 0 as number;
-      input.audio.volume = musicVolume.value as number;
+      input.audio.volume = volumeMusic.value as number;
     }
   }, interval);
 }
@@ -92,18 +92,18 @@ function fadeInMusic(input: musicInterface, duration: number) {
     clearInterval(fadeInMusicInterval);
     input.audio.pause();
     input.audio.currentTime = 0 as number;
-    input.audio.volume = musicVolume.value as number;
+    input.audio.volume = volumeMusic.value as number;
   }
   input.audio.volume = 0 as number;
   input.audio.play();
 
   fadeInMusicInterval = window.setInterval(() => {
-    if (input.audio.volume < musicVolume.value - step) {
+    if (input.audio.volume < volumeMusic.value - step) {
       input.audio.volume += step as number;
     } else {
       clearInterval(fadeInMusicInterval);
       fadeInMusicInterval = 0 as number;
-      input.audio.volume = musicVolume.value as number;
+      input.audio.volume = volumeMusic.value as number;
       stopAllMusicExcept(input as musicInterface);
     }
   }, interval);
@@ -137,22 +137,27 @@ export function pauseMusic() {
 }
 
 
-export async function changeMusicByLocation(fadeDuration: number = 1200) {
+export async function changeMusicByLocation(fadeDuration: number = 8000) {
   if (isMusicPlaying.value) {
 
-    lastMusic.value = music.value as musicInterface;
+    musicLast.value = music.value as musicInterface;
     setRandomMusic();
 
     console.log('TEST - changeMusicByLocation', music.value.file); // TEST
 
-    await fadeOutMusic(lastMusic.value as musicInterface, fadeDuration as number);
+    await fadeOutMusic(musicLast.value as musicInterface, fadeDuration as number);
     await fadeInMusic(music.value as musicInterface, fadeDuration as number);
   }
 }
 
 
-export function setMusicVolume(input: number) {
-  musicVolume.value = input as number;
+export function loadTempoMusic() {
+
+}
+
+
+export function setVolumeMusic(input: number) {
+  volumeMusic.value = input as number;
   music.value.audio.volume = input as number;
 };
   
