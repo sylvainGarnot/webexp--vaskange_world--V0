@@ -14,6 +14,9 @@ function setMusic(input: musicInterface) {
   } else {
     const audio = new Audio() as HTMLAudioElement;
     audio.currentTime = 0;
+    if (musicTempo.value.audio) {
+      audio.currentTime = musicTempo.value.audio.currentTime;
+    }
     audio.preload = "auto";
     audio.loop = true;
     audio.src = input.file;
@@ -186,5 +189,6 @@ export function loadTempoMusic() {
 export function setVolumeMusic(input: number) {
   volumeMusic.value = input as number;
   music.value.audio.volume = input as number;
+  musicTempo.value.audio.volume = input as number;
 };
   

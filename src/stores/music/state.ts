@@ -43,14 +43,14 @@ export const musics = ref([
   },
   {
     id: '4',
-    file: '/music/tempo/90bpm/90bpm_piano.mp3',
+    file: '/music/tempo/90bpm/90bpm_guitar.mp3',
     // file: '/music/free/support city 🛖.aac',
     // file: 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA',
     audio: new Audio,
   },
   {
     id: '5',
-    file: '/music/tempo/90bpm/90bpm_piano.mp3',
+    file: '/music/tempo/90bpm/90bpm_guitar.mp3',
     // file: '/music/free/temple 🏯.aac',
     // file: 'data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA',
     audio: new Audio,
