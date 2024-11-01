@@ -7,6 +7,35 @@ let fadeInMusicInterval = 0 as number;
 
 
 // PRIVATE
+function initMusic() {
+  if (modeTempo.value && !musicTempo?.value?.audio?.src) {
+    const newMusicTempo = musics.value.find(m => m.id === 'music_tempo') as musicInterface
+    setMusicTempo(newMusicTempo as musicInterface)
+  }
+  if (!music?.value?.audio?.src) {
+    setMusic(getRandomMusicLocation())
+  }
+
+  // pour safari iOS
+  for (let index = 0; index < musics.value.length; index++) {
+    const audio = new Audio() as HTMLAudioElement;
+    audio.currentTime = 0;
+    if (musicTempo.value.audio) {
+      audio.currentTime = musicTempo.value.audio.currentTime;
+    }
+    audio.preload = "auto";
+    audio.loop = true;
+    audio.src = musics.value[index].file;
+    audio.volume = volumeMusic.value as number;
+
+    addMusicsCache({
+      id: musics.value[index].id,
+      file: musics.value[index].file,
+      audio,
+    } as musicInterface);
+  }
+}
+
 function addMusicsCache(input: musicInterface) {
   musicsCache.value.push(input as musicInterface);
 }
@@ -34,6 +63,7 @@ function setMusic(input: musicInterface) {
       file: input.file,
       audio,
     } as musicInterface;
+    
     addMusicsCache(music.value as musicInterface);
   }
 }
@@ -145,26 +175,14 @@ export function toggleMusic() {
 
 export function playMusic() {
   if (!isMusicPlaying.value) {
-    if (modeTempo.value && !musicTempo?.value?.audio?.src) {
-      const newMusicTempo = musics.value.find(m => m.id === 'music_tempo') as musicInterface;
-      setMusicTempo(newMusicTempo as musicInterface);
-    }
-    if (!music?.value?.audio?.src) {
-      setMusic(getRandomMusicLocation())
+    if (!music?.value?.audio?.src || (modeTempo.value && !musicTempo?.value?.audio?.src)) {
+      initMusic()
     }
     music.value.audio.play();
     if (modeTempo.value) {
       musicTempo.value.audio.play();
     }
     isMusicPlaying.value = true;
-
-    // YES
-    // var audioElement = document.createElement("audio");
-    // audioElement.setAttribute(
-    //   "src",
-    //   "https://upload.wikimedia.org/wikipedia/commons/6/6e/LL-Q150_%28fra%29-Fhala.K-France.wav"
-    // );
-    // audioElement.play();
   }
 }
 
@@ -187,14 +205,6 @@ export async function changeMusicByLocation(fadeDuration: number = 5000) {
   if (isMusicPlaying.value) {
     await fadeOutMusic(musicLast.value as musicInterface, fadeDuration as number);
     await fadeInMusic(music.value as musicInterface, fadeDuration as number);
-
-    // TRY
-    // var audioElement = document.createElement("audio");
-    // audioElement.setAttribute(
-    //   "src",
-    //   "https://upload.wikimedia.org/wikipedia/commons/6/6e/LL-Q150_%28fra%29-Fhala.K-France.wav"
-    // );
-    // audioElement.play();
   }
 }
 
