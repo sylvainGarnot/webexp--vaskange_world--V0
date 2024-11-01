@@ -7,9 +7,16 @@ let fadeInMusicInterval = 0 as number;
 
 
 // PRIVATE
+function addMusicsCache(input: musicInterface) {
+  musicsCache.value.push(input as musicInterface);
+}
+
 function setMusic(input: musicInterface) {
   const musicCache = musicsCache.value.find(m => m.id === input.id);
   if (musicCache) {
+    if (musicTempo.value.audio) {
+      musicCache.audio.currentTime = musicTempo.value.audio.currentTime;
+    }
     music.value = musicCache as musicInterface;
   } else {
     const audio = new Audio() as HTMLAudioElement;
@@ -46,20 +53,7 @@ function setMusicTempo(input: musicInterface) {
   } as musicInterface;
 }
 
-function addMusicsCache(input: musicInterface) {
-  musicsCache.value.push(input as musicInterface);
-}
-
-function stopAllMusicExcept(input: musicInterface) {
-  for (let index = 0; index < musicsCache.value.length; index++) {
-    if (musicsCache.value[index].id !== input.id) {
-      musicsCache.value[index].audio.pause();
-      musicsCache.value[index].audio.currentTime = 0 as number;
-    }
-  };
-}
-
-function setRandomMusic() {
+function getRandomMusicLocation() : musicInterface {
   let musicId;
   if (musics?.value.length > 0) {
     if (currentLocation?.value?.musics?.length > 0) {
@@ -75,9 +69,10 @@ function setRandomMusic() {
   if (musicId) {
     const music = musics.value.find(m => m.id === musicId) as musicInterface;
     if (music) {
-      setMusic(music as musicInterface);
+      return music as musicInterface
     }
   }
+  return musics.value[0] as musicInterface
 }
 
 function fadeOutMusic(input: musicInterface, duration: number) {
@@ -129,6 +124,15 @@ function fadeInMusic(input: musicInterface, duration: number) {
   }, interval);
 }
 
+function stopAllMusicExcept(input: musicInterface) {
+  for (let index = 0; index < musicsCache.value.length; index++) {
+    if (musicsCache.value[index].id !== input.id) {
+      musicsCache.value[index].audio.pause();
+      musicsCache.value[index].audio.currentTime = 0 as number;
+    }
+  };
+}
+
 
 // EXPORT
 export function toggleMusic() {
@@ -141,18 +145,26 @@ export function toggleMusic() {
 
 export function playMusic() {
   if (!isMusicPlaying.value) {
-    if (!music?.value?.audio?.src) {
-      setRandomMusic();
-    }
     if (modeTempo.value && !musicTempo?.value?.audio?.src) {
       const newMusicTempo = musics.value.find(m => m.id === 'music_tempo') as musicInterface;
       setMusicTempo(newMusicTempo as musicInterface);
+    }
+    if (!music?.value?.audio?.src) {
+      setMusic(getRandomMusicLocation())
     }
     music.value.audio.play();
     if (modeTempo.value) {
       musicTempo.value.audio.play();
     }
     isMusicPlaying.value = true;
+
+    // YES
+    // var audioElement = document.createElement("audio");
+    // audioElement.setAttribute(
+    //   "src",
+    //   "https://upload.wikimedia.org/wikipedia/commons/6/6e/LL-Q150_%28fra%29-Fhala.K-France.wav"
+    // );
+    // audioElement.play();
   }
 }
 
@@ -166,25 +178,25 @@ export function pauseMusic() {
   }
 }
 
-
 export async function changeMusicByLocation(fadeDuration: number = 5000) {
+
+  console.log('TEST - changeMusicByLocation'); // TEST
+  musicLast.value = music.value as musicInterface;
+  setMusic(getRandomMusicLocation())
+
   if (isMusicPlaying.value) {
-
-    musicLast.value = music.value as musicInterface;
-    setRandomMusic();
-
-    console.log('TEST - changeMusicByLocation', music.value.file); // TEST
-
     await fadeOutMusic(musicLast.value as musicInterface, fadeDuration as number);
     await fadeInMusic(music.value as musicInterface, fadeDuration as number);
+
+    // TRY
+    // var audioElement = document.createElement("audio");
+    // audioElement.setAttribute(
+    //   "src",
+    //   "https://upload.wikimedia.org/wikipedia/commons/6/6e/LL-Q150_%28fra%29-Fhala.K-France.wav"
+    // );
+    // audioElement.play();
   }
 }
-
-
-export function loadTempoMusic() {
-
-}
-
 
 export function setVolumeMusic(input: number) {
   volumeMusic.value = input as number;
