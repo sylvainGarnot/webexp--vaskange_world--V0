@@ -5,24 +5,13 @@ import { currentLocation, locations } from '../location/state';
 let fadeOutMusicInterval = 0 as number;
 let fadeInMusicInterval = 0 as number;
 
-
 // PRIVATE
 function initMusic() {
-  if (modeTempo.value && !musicTempo?.value?.audio?.src) {
-    const newMusicTempo = musics.value.find(m => m.id === 'music_tempo') as musicInterface
-    setMusicTempo(newMusicTempo as musicInterface)
-  }
-  if (!music?.value?.audio?.src) {
-    setMusic(getRandomMusicLocation())
-  }
+  // console.log('TEST INIT 1', new Date().getMilliseconds()); // TEST
 
   // pour safari iOS
   for (let index = 0; index < musics.value.length; index++) {
     const audio = new Audio() as HTMLAudioElement;
-    audio.currentTime = 0;
-    if (musicTempo.value.audio) {
-      audio.currentTime = musicTempo.value.audio.currentTime;
-    }
     audio.preload = "auto";
     audio.loop = true;
     audio.src = musics.value[index].file;
@@ -33,7 +22,18 @@ function initMusic() {
       file: musics.value[index].file,
       audio,
     } as musicInterface);
+    // console.log('TEST INIT 2', index, new Date().getMilliseconds()); // TEST
   }
+
+  if (modeTempo.value && !musicTempo?.value?.audio?.src) {
+    const newMusicTempo = musics.value.find(m => m.id === 'music_tempo') as musicInterface
+    setMusicTempo(newMusicTempo as musicInterface)
+    setMusic(getRandomMusicLocation())
+  } else if (!music?.value?.audio?.src) {
+    setMusic(getRandomMusicLocation())
+  }
+
+  // console.log('TEST INIT 9', new Date().getMilliseconds()); // TEST
 }
 
 function addMusicsCache(input: musicInterface) {
@@ -41,18 +41,12 @@ function addMusicsCache(input: musicInterface) {
 }
 
 function setMusic(input: musicInterface) {
+  // console.log('TEST setMusic 0', new Date().getMilliseconds()); // TEST
   const musicCache = musicsCache.value.find(m => m.id === input.id);
   if (musicCache) {
-    if (musicTempo.value.audio) {
-      musicCache.audio.currentTime = musicTempo.value.audio.currentTime;
-    }
     music.value = musicCache as musicInterface;
   } else {
     const audio = new Audio() as HTMLAudioElement;
-    audio.currentTime = 0;
-    if (musicTempo.value.audio) {
-      audio.currentTime = musicTempo.value.audio.currentTime;
-    }
     audio.preload = "auto";
     audio.loop = true;
     audio.src = input.file;
@@ -63,12 +57,13 @@ function setMusic(input: musicInterface) {
       file: input.file,
       audio,
     } as musicInterface;
-    
+
     addMusicsCache(music.value as musicInterface);
   }
 }
 
 function setMusicTempo(input: musicInterface) {
+  // console.log('TEST setMusicTempo 1'); // TEST
   const audio = new Audio() as HTMLAudioElement;
   audio.currentTime = 0;
   audio.preload = "auto";
@@ -81,6 +76,7 @@ function setMusicTempo(input: musicInterface) {
     file: input.file,
     audio,
   } as musicInterface;
+  // console.log('TEST setMusicTempo 9'); // TEST
 }
 
 function getRandomMusicLocation() : musicInterface {
@@ -112,7 +108,6 @@ function fadeOutMusic(input: musicInterface, duration: number) {
   if (fadeOutMusicInterval) {
     clearInterval(fadeOutMusicInterval);
     input.audio.pause();
-    input.audio.currentTime = 0 as number;
     input.audio.volume = volumeMusic.value as number;
   }
 
@@ -123,7 +118,6 @@ function fadeOutMusic(input: musicInterface, duration: number) {
       clearInterval(fadeOutMusicInterval);
       fadeOutMusicInterval = 0 as number;
       input.audio.pause();
-      input.audio.currentTime = 0 as number;
       input.audio.volume = volumeMusic.value as number;
     }
   }, interval);
@@ -136,11 +130,11 @@ function fadeInMusic(input: musicInterface, duration: number) {
   if (fadeInMusicInterval) {
     clearInterval(fadeInMusicInterval);
     input.audio.pause();
-    input.audio.currentTime = 0 as number;
     input.audio.volume = volumeMusic.value as number;
   }
   input.audio.volume = 0 as number;
   input.audio.play();
+  input.audio.currentTime = musicTempo.value.audio.currentTime; // ATTENTION !!
 
   fadeInMusicInterval = window.setInterval(() => {
     if (input.audio.volume < volumeMusic.value - step) {
@@ -158,7 +152,7 @@ function stopAllMusicExcept(input: musicInterface) {
   for (let index = 0; index < musicsCache.value.length; index++) {
     if (musicsCache.value[index].id !== input.id) {
       musicsCache.value[index].audio.pause();
-      musicsCache.value[index].audio.currentTime = 0 as number;
+      musicsCache.value[index].audio.currentTime = 0 as number; // TO DELETE
     }
   };
 }
@@ -173,15 +167,21 @@ export function toggleMusic() {
   }
 }
 
-export function playMusic() {
+export async function playMusic() {
   if (!isMusicPlaying.value) {
     if (!music?.value?.audio?.src || (modeTempo.value && !musicTempo?.value?.audio?.src)) {
+      // console.log('TEST INIT A', new Date().getMilliseconds()); // TEST
       initMusic()
+      // console.log('TEST INIT B', new Date().getMilliseconds()); // TEST
     }
-    music.value.audio.play();
-    if (modeTempo.value) {
+    
+    if (modeTempo?.value) {
+      // console.log('TEST PLAY musicTempo', musicTempo.value.audio.currentTime, new Date().getMilliseconds()); // TEST
       musicTempo.value.audio.play();
     }
+    music.value.audio.play();
+    music.value.audio.currentTime = musicTempo.value.audio.currentTime; // ATTENTION !!
+    // console.log('TEST PLAY music', music.value.audio.currentTime, new Date().getMilliseconds()); // TEST
     isMusicPlaying.value = true;
   }
 }
