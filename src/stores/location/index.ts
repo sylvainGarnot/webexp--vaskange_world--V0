@@ -2,8 +2,8 @@ import { defineStore } from "pinia";
 import { readonly } from 'vue';
 
 
-// import { currentLocation, isLocationIsChanging, locations_found, locations } from './state';
-import { currentLocation, locations_found, locations, isLocationEndReach } from './state';
+// import { currentLocation, locations_found, locations, isLocationEndReach, locationEndName, isLocationIsChanging } from './state'; // TEST
+import { currentLocation, locations_found, locations, isLocationEndReach, locationEndName } from './state';
 import { locationsName, theHiddenPlace, isTheHiddenPlaceFound } from './getter';
 import { setCurrentLocation, onLocationFound, setDefaultLocationFound, onLocationEndReach, setIsLocationEndReach } from './action';
 
@@ -12,10 +12,11 @@ export const useLocationStore = defineStore("Location", () => {
   
   return {
     currentLocation: readonly(currentLocation),
-    // isLocationIsChanging: readonly(isLocationIsChanging),
-    isLocationEndReach: readonly(isLocationEndReach),
-    locations: readonly(locations),
     locations_found: readonly(locations_found),
+    locations: readonly(locations),
+    isLocationEndReach: readonly(isLocationEndReach),
+    locationEndName: readonly(locationEndName),
+    // isLocationIsChanging: readonly(isLocationIsChanging),
 
     locationsName: readonly(locationsName),
     theHiddenPlace: readonly(theHiddenPlace),

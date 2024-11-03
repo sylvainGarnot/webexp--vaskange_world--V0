@@ -75,9 +75,10 @@ export function onLocationFound(input: locationInterface) {
 };
 
 export function setDefaultLocationFound() {
+  // DEFAULT VALUES
   onLocationFound(locations.value[0] as locationFoundInterface);
-  onLocationFound(locations.value[19] as locationFoundInterface);
-  onLocationFound(locations.value[16] as locationFoundInterface);
+  // onLocationFound(locations.value[19] as locationFoundInterface);
+  // onLocationFound(locations.value[16] as locationFoundInterface);
 }
 
 export function setIsLocationEndReach(input: boolean) {
