@@ -19,7 +19,7 @@
           class="transition-group-element" :title="element.title" :description="element.description"
           :imageUrl="`${element.image_url}`" />
         <VskThumbnail v-else v-for="element in elements" :key="`card-${element.id}`" class="transition-group-element"
-          :title="element.title" :imageUrl="`${element.image_url}`" :link="element.title"
+          :title="element.title" :imageUrl="`${element.image_url}`" :link="element.link"
           :description="element.description" @router-push="$emit('router-push')" />
         <VskThumbnail v-if="elements!.length < elementsMaxLength" title="À découvrir..."
           class="transition-group-element" :imageUrl="`/images/location/secret_place.PNG`" :key="elementsMaxLength" />
@@ -42,6 +42,7 @@ export interface elementInterface {
   id: string,
   title: string,
   description: string,
+  link: string,
   image_url: string,
 }
 

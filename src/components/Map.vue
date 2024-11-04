@@ -61,15 +61,16 @@ const locations_foundSorted = computed(() => {
   for (const element of locations_found.value as locationFoundInterface[]) {
     result.push({
       ...element,
-      title: element.name,
+      title: element.message,
       description: element?.nbrItemsToAcquired > 0 ? `secrets trouvé ${element?.nbrItemsAcquired} / ${element?.nbrItemsToAcquired}` : '',
+      link: element.name
     })
   }
   if (sortTypeLocation.value === 'défaut') {
     return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)));
   }
   else if (sortTypeLocation.value === 'alpha') {
-    return result.sort((a, b) => (a.name < b.name ? -1 : 1));
+    return result.sort((a, b) => (a.message < b.message ? -1 : 1));
   }
   else if (sortTypeLocation.value === 'date') {
     return result.sort((a, b) => (a.found_date < b.found_date ? -1 : 1));
@@ -83,6 +84,7 @@ const characters_foundSorted = computed(() => {
       ...element,
       title: element.name,
       description: element?.itemToAcquired ? `objet donné ${element?.itemAcquired ? '1' : '0'} / 1` : '',
+      link: element.name
     })
   }
   if (sortTypeCharacter.value === 'défaut') {
