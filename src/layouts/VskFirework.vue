@@ -18,6 +18,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
+@use 'sass:math';
 $width: 25vh;
 $animation-duration: 2s;
 
@@ -66,34 +67,32 @@ $animation-duration: 2s;
       $r: random(360) * 1deg;
       transform: rotate($r);
 
-      $w: (
-        random(82) + 18) / 100;
+      $w: math.div((random(82) + 18), 100);
       width: $width * $w;
 
-      $n: random(2
-      );
-    $dot-width: 2px;
+      $n: random(2);
+      $dot-width: 2px;
 
-    @if $n ==1 {
-      $dot-width: $dot-width * $w;
+      @if $n ==1 {
+        $dot-width: $dot-width * $w;
 
-      .line,
+        .line,
+        .dot {
+          opacity: $w;
+        }
+      }
+
+      @else if $n ==2 {
+        $dot-width: $dot-width * (2 - $w);
+      }
+
       .dot {
-        opacity: $w;
+        top: math.div(-$dot-width, 2);
+        height: $dot-width;
+        width: $dot-width;
       }
     }
-
-    @else if $n ==2 {
-      $dot-width: $dot-width * (2 - $w);
-    }
-
-    .dot {
-      top: -$dot-width / 2;
-      height: $dot-width;
-      width: $dot-width;
-    }
   }
-}
 }
 
 @keyframes firework {
