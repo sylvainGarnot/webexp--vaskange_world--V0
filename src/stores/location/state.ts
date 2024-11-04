@@ -352,4 +352,5 @@ export const locations = ref([
 //     is_hidden_place: false,
 //     musics: ['0','1'],
 //   },
+  
 ] as locationInterface[]);

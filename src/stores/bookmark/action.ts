@@ -104,7 +104,7 @@ export function updateBookmarkHasCharacter(inputBookmarks: bookmarkInterface[]) 
     if (
       inputBookmarks[index]?.intersectionInfo?.visibleBookmarkRatio >= 0.4 &&
       inputBookmarks[index]?.zoomFactor >= 1 &&
-      inputBookmarks[index]?.zoomFactor <= 10
+      inputBookmarks[index]?.zoomFactor <= 3
     ) {
       nearByBookmarksCharacter.push(inputBookmarks[index] as bookmarkInterface);
     }

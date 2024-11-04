@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="j8vvd53"></div>
+    <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="j8vvd53"></div> -->
+    <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="7weeyex"></div>
 
     <WebExperienceCharacterCall v-if="currentDialog && isCallDialogActive && !isDialogActive" />
     <WebExperienceAlertLocationEndReach />
@@ -44,7 +45,7 @@ const bookmarkStore = useBookmarkStore();
 const { updateBookmarkHasLocation, updateBookmarkHasCharacter } = bookmarkStore;
 
 const locationStore = useLocationStore();
-const { locations_found, locationsName, theHiddenPlace } = storeToRefs(locationStore);
+const { locations_found, locationsName, theHiddenPlace, locationEndName } = storeToRefs(locationStore);
 const { setCurrentLocation, setDefaultLocationFound, onLocationEndReach } = locationStore;
 
 const characterStore = useCharacterStore();
@@ -88,14 +89,14 @@ onMounted(() => {
       {
         name: charactersName.value,
         visibleBookmarkRatio: '>= 0.25',
-        zoomFactor: '<= 20',
+        zoomFactor: '<= 6',
       },
       updateBookmarkHasCharacter
     );
 
     EndlessPaper.onBookmarkNearby(
       {
-        name: ['big bang 🪐'],
+        name: [locationEndName.value],
         zoomFactor: '>= 25',
       },
       onLocationEndReach

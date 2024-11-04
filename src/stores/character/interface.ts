@@ -13,7 +13,7 @@ export interface characterFoundInterface extends characterInterface {
 }
 
 export interface currentCharacterInterface extends characterFoundInterface {
-  callBubble: {
+  bookmark: {
     width: number,
     height: number,
     top: number,

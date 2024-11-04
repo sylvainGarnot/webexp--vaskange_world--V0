@@ -21,15 +21,15 @@ export function setCurrentCharacter(inputCharacterFound: characterFoundInterface
   const bookmarkHeight = inputBookmark.screenSpacePosition.bottomLeft.y - inputBookmark.screenSpacePosition.topRight.y;
   const bookmarkTop = inputBookmark.screenSpacePosition.topRight.y;
   const bookmarkLeft = inputBookmark.screenSpacePosition.bottomLeft.x;
-  const callBubble = {
-    width: bookmarkWidth * 0.25,
-    height: bookmarkHeight*0.125,
+  const bookmark = {
+    width: bookmarkWidth,
+    height: bookmarkHeight,
     left: bookmarkLeft,
-    top: bookmarkTop + bookmarkHeight*0.25,
+    top: bookmarkTop,
   }
   const characterFound = {
     ...inputCharacterFound,
-    callBubble,
+    bookmark,
     screenAreaToBookmarkRatio: inputBookmark.intersectionInfo.screenAreaToBookmarkRatio,
   } as currentCharacterInterface;
 
