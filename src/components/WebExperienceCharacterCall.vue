@@ -15,7 +15,7 @@
           :style="`border-left: ${characterCallWidth * 0.2 + 6}px solid transparent; border-right: ${characterCallWidth * 0.2 + 6}px solid transparent; border-top: ${characterCallWidth * 0.4 + 6}px solid black;`">
         </div>
         <div class="vsk-character-call-arrow"
-          :style="`border-left: ${characterCallWidth * 0.2}px solid transparent; border-right: ${characterCallWidth * 0.2}px solid transparent; border-top: ${characterCallWidth * 0.4}px solid white;`">
+          :style="`border-left: ${characterCallWidth * 0.2}px solid transparent; border-right: ${characterCallWidth * 0.2}px solid transparent; border-top: ${characterCallWidth * 0.4}px solid white; top: -${characterCallWidth * 0.008}px`">
         </div>
       </div>
 
@@ -90,7 +90,6 @@ const characterCallHeight = computed(() => {
     transform: rotate(-40deg);
 
     .vsk-character-call-arrow {
-      top: 4px;
       left: 6px;
     }
   }
