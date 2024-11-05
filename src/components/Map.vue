@@ -10,8 +10,8 @@
           @router-push="isActive = false">
         </VskThumbnailGroup>
       </template>
-      <template v-slot:personnage>
-        <VskThumbnailGroup title="Rencontres" :elements="characters_foundSorted"
+      <template v-slot:secrets>
+        <VskThumbnailGroup title="Lieux secrets" :elements="characters_foundSorted"
           :elements-max-length="characters.length"
           @change-switch-value="(value: string) => { sortTypeCharacter = value as string }"
           @router-push="isActive = false">
@@ -39,7 +39,7 @@ const locationStore = useLocationStore()
 const { locations_found, locations } = storeToRefs(locationStore)
 
 const characterStore = useCharacterStore()
-const { characters_found, characters } = storeToRefs(characterStore)
+const { characters_hidden_found, characters } = storeToRefs(characterStore)
 
 const isActive = ref(false);
 const sortTypeLocation = ref('défaut');
@@ -51,8 +51,8 @@ const tabs = [
     value: 'lieux',
   },
   {
-    label: 'personnage',
-    value: 'personnage',
+    label: 'secrets',
+    value: 'secrets',
   }
 ]
 
@@ -79,10 +79,10 @@ const locations_foundSorted = computed(() => {
 
 const characters_foundSorted = computed(() => {
   const result = []
-  for (const element of characters_found.value as characterFoundInterface[]) {
+  for (const element of characters_hidden_found.value as characterFoundInterface[]) {
     result.push({
       ...element,
-      title: element.name,
+      title: element.label,
       description: element?.itemToAcquired ? `objet donné ${element?.itemAcquired ? '1' : '0'} / 1` : '',
       link: element.name
     })

@@ -1,8 +1,10 @@
 export interface characterInterface {
   id: string,
   name: string,
+  label: string,
   dialog: string,
   location: string,
+  is_hidden: boolean,
   image_url: string,
 }
 

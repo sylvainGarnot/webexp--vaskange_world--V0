@@ -1,7 +1,7 @@
 <template>
   <div id="vsk-dialog" class="vsk-dialog-container" v-if="isActive" @keyup.enter="handleNextDialog()">
     <div class="vsk-dialog-npc">
-      <span class="vsk-dialog-npc-author">{{ currentCharacter!.name }}</span>
+      <span v-if="currentCharacter.label" class="vsk-dialog-npc-author">{{ currentCharacter!.label }}</span>
       <p class="vsk-dialog-npc-dialog">
         {{ currentDialog?.speech_written[dialogStepNumber] }}
       </p>
