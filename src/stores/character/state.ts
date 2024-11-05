@@ -36,7 +36,7 @@ export const characters = ref([
     location: '1',
     image_url: '/images/character/football_maillot.png'
   },
-  // FOOTBALL - EASTER OK! à replacer
+  // FOOTBALL - EASTER OK! (à replacer)
   {
     id: '19',
     name: 'football_easter',
@@ -79,7 +79,7 @@ export const characters = ref([
     location: '2',
     image_url: '/images/character/baseball_gant.png'
   },
-  // // BASEBALL - EASTER BUG!
+  // // BASEBALL - EASTER ULTRABUG!
   {
     id: '29',
     name: 'baseball_easter',
@@ -133,18 +133,18 @@ export const characters = ref([
 
   
   // ##### TENNIS #####
-  // TENNIS - PERSO BUG!
+  // TENNIS - PERSO OK!
   {
     id: '40',
-    name: 'tennis_perso',
+    name: 'tenis_perso',
     dialog: '0',
     location: '4',
     image_url: '/images/character/tennis_perso.png'
   },
-  // TENNIS - EASTER BUG!
+  // TENNIS - EASTER ULTRABUG!
   {
     id: '49',
-    name: 'tennis_easter',
+    name: 'tenis_easter',
     dialog: '0',
     location: '4',
     image_url: '/images/character/tennis_easter.png'
@@ -152,7 +152,7 @@ export const characters = ref([
 
   
   // ##### MMA #####
-  // MMA - PERSO OK! à replacer
+  // MMA - PERSO OK! (à replacer)
   {
     id: '50',
     name: 'mma_perso',
@@ -160,7 +160,7 @@ export const characters = ref([
     location: '5',
     image_url: '/images/character/mma_perso.png'
   },
-  // MMA - BANDAGE BUG!
+  // MMA - BANDAGE ULTRABUG!
   {
     id: '51',
     name: 'mma_bandage',
@@ -176,7 +176,7 @@ export const characters = ref([
     location: '5',
     image_url: '/images/character/mma_dentier.png'
   },
-  // MMA - GANT BUG!
+  // MMA - GANT inéxistant!
   {
     id: '53',
     name: 'mma_gant',
@@ -184,7 +184,7 @@ export const characters = ref([
     location: '5',
     image_url: '/images/character/mma_gant.png'
   },
-  // MMA - EASTER ??? not found
+  // MMA - EASTER ULTRABUG!
   {
     id: '59',
     name: 'mma_easter',
@@ -195,7 +195,7 @@ export const characters = ref([
 
   
   // ##### CYCLISME #####
-  // CYCLISME - PERSO BUG!
+  // CYCLISME - PERSO inéxistant!
   {
     id: '60',
     name: 'cyclisme_perso',
@@ -211,7 +211,7 @@ export const characters = ref([
     location: '6',
     image_url: '/images/character/cyclisme_casque.png'
   },
-  // CYCLISME - GONFLEUR BUG!
+  // CYCLISME - GONFLEUR ULTRABUG!
   {
     id: '62',
     name: 'cyclisme_gonfleur',
@@ -227,7 +227,7 @@ export const characters = ref([
     location: '6',
     image_url: '/images/character/cyclisme_gourde.png'
   },
-  // CYCLISME - EASTER ??? not found
+  // CYCLISME - EASTER introuvable!
   {
     id: '69',
     name: 'cyclisme_easter',
@@ -270,7 +270,7 @@ export const characters = ref([
     location: '7',
     image_url: '/images/character/hockey_patins.png'
   },
-  // HOCKEY - EASTER ??? not found
+  // HOCKEY - EASTER introuvable!
   {
     id: '79',
     name: 'hockey_easter',
@@ -332,7 +332,7 @@ export const characters = ref([
     location: '9',
     image_url: '/images/character/montagne_perso.png'
   },
-  // MONTAGNE - OXYGENE BUG!
+  // MONTAGNE - OXYGENE ULTRABUG!
   {
     id: '91',
     name: 'montagne_oxygene',
@@ -348,7 +348,7 @@ export const characters = ref([
     location: '9',
     image_url: '/images/character/montagne_piolet.png'
   },
-  // MONTAGNE - TENTE BUG!
+  // MONTAGNE - TENTE ULTRABUG!
   {
     id: '93',
     name: 'montagne_tente',
@@ -356,7 +356,7 @@ export const characters = ref([
     location: '9',
     image_url: '/images/character/montagne_tente.png'
   },
-  // MONTAGNE - EASTER BUG! undone
+  // MONTAGNE - EASTER inéxistant!
   {
     id: '99',
     name: 'montagne_easter',
