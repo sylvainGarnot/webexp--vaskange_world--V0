@@ -61,7 +61,7 @@ const locations_foundSorted = computed(() => {
   for (const element of locations_found.value as locationFoundInterface[]) {
     result.push({
       ...element,
-      title: element.message,
+      title: element.label,
       description: element?.nbrItemsToAcquired > 0 ? `secrets trouvé ${element?.nbrItemsAcquired} / ${element?.nbrItemsToAcquired}` : '',
       link: element.name
     })
@@ -70,7 +70,7 @@ const locations_foundSorted = computed(() => {
     return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)));
   }
   else if (sortTypeLocation.value === 'alpha') {
-    return result.sort((a, b) => (a.message < b.message ? -1 : 1));
+    return result.sort((a, b) => (a.label < b.label ? -1 : 1));
   }
   else if (sortTypeLocation.value === 'date') {
     return result.sort((a, b) => (a.found_date < b.found_date ? -1 : 1));

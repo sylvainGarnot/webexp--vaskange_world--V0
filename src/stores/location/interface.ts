@@ -1,6 +1,7 @@
 export interface locationInterface {
   id: string,
   name: string,
+  label: string,
   message: string,
   image_url: string,
   is_hidden_place: boolean,

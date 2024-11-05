@@ -17,6 +17,7 @@ export const locations = ref([
   {
     id: '0',
     name: 'start_phone',
+    label: 'Start',
     message: 'Start',
     image_url: '/images/location/file.PNG',
     upper_location: '',
@@ -28,6 +29,7 @@ export const locations = ref([
   {
     id: '1',
     name: 'football',
+    label: 'Football',
     message: 'Football',
     image_url: '/images/location/file.PNG',
     upper_location: '0',
@@ -39,6 +41,7 @@ export const locations = ref([
   {
     id: '2',
     name: 'baseball',
+    label: 'Baseball',
     message: 'Baseball',
     image_url: '/images/location/file.PNG',
     upper_location: '1',
@@ -50,6 +53,7 @@ export const locations = ref([
   {
     id: '3',
     name: 'basket',
+    label: 'Basket',
     message: 'Basket',
     image_url: '/images/location/file.PNG',
     upper_location: '2',
@@ -61,6 +65,7 @@ export const locations = ref([
   {
     id: '4',
     name: 'tenis',
+    label: 'Tennis',
     message: 'Tennis',
     image_url: '/images/location/file.PNG',
     upper_location: '3',
@@ -72,6 +77,7 @@ export const locations = ref([
   {
     id: '5',
     name: 'mma',
+    label: 'Mma',
     message: 'Mma',
     image_url: '/images/location/file.PNG',
     upper_location: '4',
@@ -83,6 +89,7 @@ export const locations = ref([
   {
     id: '6',
     name: 'cyclisme',
+    label: 'Cyclisme',
     message: 'Cyclisme',
     image_url: '/images/location/file.PNG',
     upper_location: '5',
@@ -94,6 +101,7 @@ export const locations = ref([
   {
     id: '7',
     name: 'hockey',
+    label: 'Hockey',
     message: 'Hockey',
     image_url: '/images/location/file.PNG',
     upper_location: '6',
@@ -105,6 +113,7 @@ export const locations = ref([
   {
     id: '8',
     name: 'rugby',
+    label: 'Rugby',
     message: 'Rugby',
     image_url: '/images/location/file.PNG',
     upper_location: '7',
@@ -116,6 +125,7 @@ export const locations = ref([
   {
     id: '9',
     name: 'montagne',
+    label: 'Montagne',
     message: 'Montagne',
     image_url: '/images/location/file.PNG',
     upper_location: '8',
@@ -127,6 +137,7 @@ export const locations = ref([
   {
     id: '10',
     name: 'evrest',
+    label: 'Evrest',
     message: 'Evrest',
     image_url: '/images/location/file.PNG',
     upper_location: '9',
@@ -138,6 +149,7 @@ export const locations = ref([
   {
     id: '99',
     name: 'secret_end',
+    label: 'fin secrète',
     message: 'fin secrète',
     image_url: '/images/location/file.PNG',
     upper_location: '??',
