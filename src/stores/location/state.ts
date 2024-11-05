@@ -21,7 +21,7 @@ export const locations = ref([
     message: 'Start',
     image_url: '/images/location/file.PNG',
     upper_location: '',
-    is_hidden_place: false,
+    is_hidden: false,
     musics: ['0','1'],
   },
 
@@ -33,7 +33,7 @@ export const locations = ref([
     message: 'Football',
     image_url: '/images/location/file.PNG',
     upper_location: '0',
-    is_hidden_place: false,
+    is_hidden: false,
     musics: ['2','3'],
   },
 
@@ -45,7 +45,7 @@ export const locations = ref([
     message: 'Baseball',
     image_url: '/images/location/file.PNG',
     upper_location: '1',
-    is_hidden_place: false,
+    is_hidden: false,
     musics: ['0','1'],
   },
 
@@ -57,7 +57,7 @@ export const locations = ref([
     message: 'Basket',
     image_url: '/images/location/file.PNG',
     upper_location: '2',
-    is_hidden_place: false,
+    is_hidden: false,
     musics: ['2','3'],
   },
 
@@ -69,7 +69,7 @@ export const locations = ref([
     message: 'Tennis',
     image_url: '/images/location/file.PNG',
     upper_location: '3',
-    is_hidden_place: false,
+    is_hidden: false,
     musics: ['0','1'],
   },
 
@@ -81,7 +81,7 @@ export const locations = ref([
     message: 'Mma',
     image_url: '/images/location/file.PNG',
     upper_location: '4',
-    is_hidden_place: false,
+    is_hidden: false,
     musics: ['2','3'],
   },
 
@@ -93,7 +93,7 @@ export const locations = ref([
     message: 'Cyclisme',
     image_url: '/images/location/file.PNG',
     upper_location: '5',
-    is_hidden_place: false,
+    is_hidden: false,
     musics: ['0','1'],
   },
 
@@ -105,7 +105,7 @@ export const locations = ref([
     message: 'Hockey',
     image_url: '/images/location/file.PNG',
     upper_location: '6',
-    is_hidden_place: false,
+    is_hidden: false,
     musics: ['2','3'],
   },
 
@@ -117,7 +117,7 @@ export const locations = ref([
     message: 'Rugby',
     image_url: '/images/location/file.PNG',
     upper_location: '7',
-    is_hidden_place: false,
+    is_hidden: false,
     musics: ['2','3'],
   },
 
@@ -129,7 +129,7 @@ export const locations = ref([
     message: 'Montagne',
     image_url: '/images/location/file.PNG',
     upper_location: '8',
-    is_hidden_place: false,
+    is_hidden: false,
     musics: ['0','1'],
   },
 
@@ -141,7 +141,7 @@ export const locations = ref([
     message: 'Evrest',
     image_url: '/images/location/file.PNG',
     upper_location: '9',
-    is_hidden_place: false,
+    is_hidden: false,
     musics: ['0','1'],
   },
 
@@ -153,7 +153,7 @@ export const locations = ref([
     message: 'fin secrète',
     image_url: '/images/location/file.PNG',
     upper_location: '??',
-    is_hidden_place: true,
+    is_hidden: true,
     musics: ['2','3'],
   },
 
@@ -164,7 +164,7 @@ export const locations = ref([
 //     message: 'Welcome Home 🏠',
 //     image_url: '/images/location/big bang 🪐.PNG',
 //     upper_location: '17b',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
 //   {
@@ -173,7 +173,7 @@ export const locations = ref([
 //     message: 'Secret SPA 🔥💧🌱☁️',
 //     image_url: '/images/location/big bang 🪐.PNG',
 //     upper_location: '1',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
 //   {
@@ -182,7 +182,7 @@ export const locations = ref([
 //     message: 'Boite de nuit insectes 🪲🪩',
 //     image_url: '/images/location/big bang 🪐.PNG',
 //     upper_location: '1',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
   
@@ -193,7 +193,7 @@ export const locations = ref([
 //     message: 'Prairie 🌳',
 //     image_url: '/images/location/rock-world2.PNG',
 //     upper_location: '1',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['2','3'],
 //   },
 //   {
@@ -202,7 +202,7 @@ export const locations = ref([
 //     message: 'Holiday World 🏝️',
 //     image_url: '/images/location/big bang 🪐.PNG',
 //     upper_location: '4',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
 //   {
@@ -211,7 +211,7 @@ export const locations = ref([
 //     message: 'Snorkeling 🐠',
 //     image_url: '/images/location/Eson Island 🗿.PNG',
 //     upper_location: '5',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['4','5'],
 //   },
 //   {
@@ -220,7 +220,7 @@ export const locations = ref([
 //     message: 'Meduses 🪼',
 //     image_url: '/images/location/Eson Island 🗿.PNG',
 //     upper_location: '6',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
 //   {
@@ -229,7 +229,7 @@ export const locations = ref([
 //     message: 'Monstre marin 🦕',
 //     image_url: '/images/location/Eson Island 🗿.PNG',
 //     upper_location: '7',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
 //   {
@@ -238,7 +238,7 @@ export const locations = ref([
 //     message: 'Cocciland 🐞',
 //     image_url: '/images/location/rock-world2.PNG',
 //     upper_location: '5',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
 //   {
@@ -247,7 +247,7 @@ export const locations = ref([
 //     message: 'Treasure map 📜',
 //     image_url: '/images/location/grotte 🐳.PNG',
 //     upper_location: '9',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
 //   {
@@ -256,7 +256,7 @@ export const locations = ref([
 //     message: 'You found the treasure!! 💰',
 //     image_url: '/images/location/grotte 🐳.PNG',
 //     upper_location: '6',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
 //   {
@@ -265,7 +265,7 @@ export const locations = ref([
 //     message: 'The Holiday House 🕌',
 //     image_url: '/images/location/grotte 🐳.PNG',
 //     upper_location: '5',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
   
@@ -276,7 +276,7 @@ export const locations = ref([
 //     message: 'Dragon Island 🐉',
 //     image_url: '/images/location/grotte 🐳.PNG',
 //     upper_location: '12',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
 //   {
@@ -285,7 +285,7 @@ export const locations = ref([
 //     message: 'The Infinite Temple 🛕',
 //     image_url: '/images/location/rock-world2.PNG',
 //     upper_location: '13',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
 
@@ -296,7 +296,7 @@ export const locations = ref([
 //     message: 'THE END',
 //     image_url: '/images/location/oatly end.PNG',
 //     upper_location: '',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
 //   {
@@ -305,7 +305,7 @@ export const locations = ref([
 //     message: 'Big bang 🪐',
 //     image_url: '/images/location/oatly end.PNG',
 //     upper_location: '15',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
 //   {
@@ -314,7 +314,7 @@ export const locations = ref([
 //     message: 'Galaxie ✨ - Space World 💫',
 //     image_url: '/images/location/oatly end.PNG',
 //     upper_location: '16',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
 //   {
@@ -323,7 +323,7 @@ export const locations = ref([
 //     message: 'Univers 🌀',
 //     image_url: '/images/location/oatly end.PNG',
 //     upper_location: '17',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
 //   {
@@ -332,7 +332,7 @@ export const locations = ref([
 //     message: 'Star night club ⭐️',
 //     image_url: '/images/location/partager 💌.PNG',
 //     upper_location: '17b',
-//     is_hidden_place: true,
+//     is_hidden: true,
 //     musics: ['0','1'],
 //   },
 //   {
@@ -341,7 +341,7 @@ export const locations = ref([
 //     message: 'Coccibar 🐞',
 //     image_url: '/images/location/partager 💌.PNG',
 //     upper_location: '17b',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
   
@@ -352,7 +352,7 @@ export const locations = ref([
 //     message: "Rock'n World 🎸",
 //     image_url: '/images/location/partager 💌.PNG',
 //     upper_location: '1',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
 //   {
@@ -361,7 +361,7 @@ export const locations = ref([
 //     message: 'Matrix 📺',
 //     image_url: '/images/location/rock-world2.PNG',
 //     upper_location: '20',
-//     is_hidden_place: false,
+//     is_hidden: false,
 //     musics: ['0','1'],
 //   },
   

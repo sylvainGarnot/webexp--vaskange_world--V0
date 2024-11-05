@@ -8,7 +8,7 @@ export const locationsName = computed(() => {
 })
 
 export const theHiddenPlace = computed(() => {
-  return locations.value.find(l => l.is_hidden_place) as locationInterface;
+  return locations.value.find(l => l.is_hidden) as locationInterface;
 })
 
 export const isTheHiddenPlaceFound = computed(() => {
