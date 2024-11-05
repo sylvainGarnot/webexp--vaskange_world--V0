@@ -151,15 +151,17 @@ function handleShapeClick(shape: any) {
 
 <style lang="scss" scoped>
 .container {
-  background-color: #666666;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  overflow: hidden !important;
 
   .ep-webxp {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: hidden !important;
   }
 }
 </style>
