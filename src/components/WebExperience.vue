@@ -4,7 +4,7 @@
     <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="7weeyex"></div>
 
     <WebExperienceCharacterCall v-if="currentDialog && isCallDialogActive && !isDialogActive" />
-    <WebExperienceAlertLocationEndReach />
+    <WebExperienceAlertLocationEndReach v-if="isLocationEndReach" />
 
     <TransitionGroup name="fade-top" tag="div">
       <WebExperienceCharacterDialog v-if="isDialogActive && currentDialog?.type === 'default'" />
@@ -45,7 +45,7 @@ const bookmarkStore = useBookmarkStore();
 const { updateBookmarkHasLocation, updateBookmarkHasCharacter } = bookmarkStore;
 
 const locationStore = useLocationStore();
-const { locations_found, locationsName, theHiddenPlace, locationEndName } = storeToRefs(locationStore);
+const { locations_found, locationsName, theHiddenPlace, locationEndName, isLocationEndReach } = storeToRefs(locationStore);
 const { setCurrentLocation, setDefaultLocationFound, onLocationEndReach } = locationStore;
 
 const characterStore = useCharacterStore();
