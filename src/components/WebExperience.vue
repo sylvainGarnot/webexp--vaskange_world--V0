@@ -109,7 +109,9 @@ onMounted(() => {
 
     setDefaultLocationFound();
     setTimeout(() => {
-      if (route?.query?.location) {
+      if (route?.query?.location && route?.query?.force) {
+        EndlessPaper.visitBookmark(route?.query?.location as string);
+      } else if (route?.query?.location) {
         teleportTo(route?.query?.location as string);
       }
     }, 250);

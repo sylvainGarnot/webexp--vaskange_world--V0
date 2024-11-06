@@ -12,9 +12,4 @@ export const answers = ref([
     speech_writen: 'Merci, bye',
     type: 'leave',
   },
-  // {
-  //   id: '2',
-  //   speech_writen: 'Merci !',
-  //   type: 'accepted',
-  // },
 ] as answerInterface[]);

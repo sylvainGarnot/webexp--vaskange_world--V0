@@ -17,11 +17,11 @@
 
         <v-row no-gutters class="links mt-12 mx-12">
           <VskThumbnail :title="locationHome?.name" :imageUrl="`${locationHome?.image_url}`" :link="locationHome?.name"
-            :description="locationHome!.nbrItemsToAcquired > 0 ? `secrets trouvé ${locationHome?.nbrItemsAcquired} / ${locationHome?.nbrItemsToAcquired}` : ''"
+            :description="locationHome!.nbrItemsToAcquired > 0 ? `objets trouvés ${locationHome?.nbrItemsAcquired} / ${locationHome?.nbrItemsToAcquired}` : ''"
             @router-push="setIsLocationEndReach(false)" />
 
           <!-- <VskThumbnail :title="locationEnd?.name" :imageUrl="`${locationEnd?.image_url}`" :link="locationEnd?.name"
-            :description="locationEnd!.nbrItemsToAcquired > 0 ? `secrets trouvé ${locationEnd?.nbrItemsAcquired} / ${locationEnd?.nbrItemsToAcquired}` : ''"
+            :description="locationEnd!.nbrItemsToAcquired > 0 ? `objets trouvés ${locationEnd?.nbrItemsAcquired} / ${locationEnd?.nbrItemsToAcquired}` : ''"
             @router-push="setIsLocationEndReach(false)" /> -->
         </v-row>
       </template>

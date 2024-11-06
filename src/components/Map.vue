@@ -62,7 +62,7 @@ const locations_foundSorted = computed(() => {
     result.push({
       ...element,
       title: element.label,
-      description: element?.nbrItemsToAcquired > 0 ? `secrets trouvé ${element?.nbrItemsAcquired} / ${element?.nbrItemsToAcquired}` : '',
+      description: element?.nbrItemsToAcquired > 0 ? `objets trouvés ${element?.nbrItemsAcquired} / ${element?.nbrItemsToAcquired}` : '',
       link: element.name
     })
   }

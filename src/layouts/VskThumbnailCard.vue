@@ -35,6 +35,7 @@ const props = defineProps({
   border-radius: $radiusValue;
   position: relative;
   border: solid 1px $colorGrey;
+  overflow: hidden;
 
   .vsk-thumbnail-card-image {
     width: 75%;
