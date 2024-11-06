@@ -16,7 +16,7 @@
         </v-row>
 
         <v-row no-gutters class="links mt-12 mx-12">
-          <VskThumbnail :title="locationHome?.name" :imageUrl="`${locationHome?.image_url}`" :link="locationHome?.name"
+          <VskThumbnail :title="locationHome?.label" :imageUrl="`${locationHome?.image_url}`" :link="locationHome?.name"
             :description="locationHome!.nbrItemsToAcquired > 0 ? `objets trouvés ${locationHome?.nbrItemsAcquired} / ${locationHome?.nbrItemsToAcquired}` : ''"
             @router-push="setIsLocationEndReach(false)" />
 
