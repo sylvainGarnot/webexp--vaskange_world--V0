@@ -9,7 +9,7 @@
         @click="handleNextDialog()"></v-icon>
 
       <TransitionGroup name="fade-top" tag="div">
-        <WebExperienceCharacterDialogAnswer v-if="isAnswersActive" @repeat="dialogStepNumber = 0" @leave="handleLeave()"
+        <WebExperienceCharacterDialogAnswer v-if="isAnswersActive" @repeat="handleNextDialog()" @leave="handleLeave()"
           @accepted="handleAccepted()" />
       </TransitionGroup>
     </div>
@@ -78,14 +78,21 @@ function handleAccepted() {
 }
 
 function handleNextDialog() {
-  if (currentDialog.value && dialogStepNumber.value + 1 < currentDialog.value.speech_written!.length) {
-    dialogStepNumber.value++
+  if (currentDialog.value) {
+    if (dialogStepNumber.value + 1 < currentDialog.value.speech_written!.length) {
+      dialogStepNumber.value++
+    } else {
+      dialogStepNumber.value = 0
+    }
   }
 }
 
 function handleKeydown(event: any) {
   if (event.key === "Escape") {
     handleLeave()
+  }
+  if (event.key === " ") {
+    handleNextDialog()
   }
 }
 

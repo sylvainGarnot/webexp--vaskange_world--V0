@@ -87,7 +87,7 @@ export const items = ref([
 
   
   // ##### MMA #####
-  // MMA - BANDAGE ULTRABUG!
+  // MMA - BANDAGE
   {
     id: '51',
     name: 'Bandage poignet',
@@ -122,7 +122,7 @@ export const items = ref([
     is_hidden: false,
     image_url: '/images/item/cyclisme_casque.png'
   },
-  // CYCLISME - GONFLEUR ULTRABUG!
+  // CYCLISME - GONFLEUR
   {
     id: '62',
     name: 'Pompe à vélo',
@@ -176,7 +176,7 @@ export const items = ref([
     is_hidden: false,
     image_url: '/images/item/rugby_bouclier.png'
   },
-  // RUGBY - CASQUE ULTRABUG!
+  // RUGBY - CASQUE
   {
     id: '82',
     name: 'Casque de Rugby',
@@ -195,7 +195,7 @@ export const items = ref([
 
   
   // ##### MONTAGNE #####
-  // MONTAGNE - OXYGENE ULTRABUG!
+  // MONTAGNE - OXYGENE
   {
     id: '91',
     name: "Bouteille d'Oxygene",
@@ -211,7 +211,7 @@ export const items = ref([
     is_hidden: false,
     image_url: '/images/item/montagne_piolet.png'
   },
-  // MONTAGNE - TENTE ULTRABUG!
+  // MONTAGNE - TENTE
   {
     id: '93',
     name: 'Tente',

@@ -95,7 +95,7 @@ export const characters = ref([
     is_hidden: false,
     image_url: ''
   },
-  // BASEBALL - EASTER ULTRABUG!
+  // BASEBALL - EASTER
   {
     id: '29',
     name: 'baseball_easter',
@@ -171,7 +171,7 @@ export const characters = ref([
     is_hidden: false,
     image_url: ''
   },
-  // TENNIS - EASTER ULTRABUG!
+  // TENNIS - EASTER
   {
     id: '49',
     name: 'tenis_easter',
@@ -194,7 +194,7 @@ export const characters = ref([
     is_hidden: false,
     image_url: ''
   },
-  // MMA - BANDAGE ULTRABUG!
+  // MMA - BANDAGE
   {
     id: '51',
     name: 'mma_bandage',
@@ -224,7 +224,7 @@ export const characters = ref([
     is_hidden: false,
     image_url: ''
   },
-  // MMA - EASTER ULTRABUG!
+  // MMA - EASTER
   {
     id: '59',
     name: 'mma_easter',
@@ -257,7 +257,7 @@ export const characters = ref([
     is_hidden: false,
     image_url: ''
   },
-  // CYCLISME - GONFLEUR ULTRABUG!
+  // CYCLISME - GONFLEUR
   {
     id: '62',
     name: 'cyclisme_gonfleur',
@@ -405,7 +405,7 @@ export const characters = ref([
     is_hidden: false,
     image_url: ''
   },
-  // MONTAGNE - OXYGENE ULTRABUG!
+  // MONTAGNE - OXYGENE
   {
     id: '91',
     name: 'montagne_oxygene',
@@ -425,7 +425,7 @@ export const characters = ref([
     is_hidden: false,
     image_url: ''
   },
-  // MONTAGNE - TENTE ULTRABUG!
+  // MONTAGNE - TENTE
   {
     id: '93',
     name: 'montagne_tente',
