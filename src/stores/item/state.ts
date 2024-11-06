@@ -14,7 +14,7 @@ export const items = ref([
   // FOOTBALL - CRAMPON
   {
     id: '11',
-    name: 'football_crampon',
+    name: 'Crampons de Football',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/football_crampon.png'
@@ -22,7 +22,7 @@ export const items = ref([
   // FOOTBALL - MAILLOT
   {
     id: '12',
-    name: 'football_maillot',
+    name: 'Maillot de Football',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/football_maillot.png'
@@ -33,7 +33,7 @@ export const items = ref([
   // BASEBALL - BAT
   {
     id: '21',
-    name: 'baseball_bat',
+    name: 'Batte de Baseball',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/baseball_bat.png'
@@ -41,7 +41,7 @@ export const items = ref([
   // BASEBALL - CASQUETTE
   {
     id: '22',
-    name: 'baseball_casquette',
+    name: 'Casquette de Baseball',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/baseball_casquette.png'
@@ -49,7 +49,7 @@ export const items = ref([
   // BASEBALL - GANT
   {
     id: '23',
-    name: 'baseball_gant',
+    name: 'Gant de Baseball',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/baseball_gant.png'
@@ -60,7 +60,7 @@ export const items = ref([
   // BASKET - BANDEAU
   {
     id: '31',
-    name: 'basket_bandeau',
+    name: 'Bandeau',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/basket_bandeau.png'
@@ -68,7 +68,7 @@ export const items = ref([
   // BASKET - CHAUSSURE
   {
     id: '32',
-    name: 'basket_chaussure',
+    name: 'Baskets',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/basket_chaussure.png'
@@ -76,7 +76,7 @@ export const items = ref([
   // BASKET - MANCHETTE
   {
     id: '33',
-    name: 'basket_manchette',
+    name: 'Manchons de Basket',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/basket_manchette.png'
@@ -90,7 +90,7 @@ export const items = ref([
   // MMA - BANDAGE ULTRABUG!
   {
     id: '51',
-    name: 'mma_bandage',
+    name: 'Bandage poignet',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/mma_bandage.png'
@@ -98,7 +98,7 @@ export const items = ref([
   // MMA - DENTIER
   {
     id: '52',
-    name: 'mma_dentier',
+    name: 'Protège dent',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/mma_dentier.png'
@@ -106,7 +106,7 @@ export const items = ref([
   // MMA - GANT
   {
     id: '53',
-    name: 'mma_gant',
+    name: 'Gant de MMA',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/mma_gant.png'
@@ -117,7 +117,7 @@ export const items = ref([
   // CYCLISME - CASQUE
   {
     id: '61',
-    name: 'cyclisme_casque',
+    name: 'Casque de vélo',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/cyclisme_casque.png'
@@ -125,7 +125,7 @@ export const items = ref([
   // CYCLISME - GONFLEUR ULTRABUG!
   {
     id: '62',
-    name: 'cyclisme_gonfleur',
+    name: 'Pompe à vélo',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/cyclisme_gonfleur.png'
@@ -133,7 +133,7 @@ export const items = ref([
   // CYCLISME - GOURDE
   {
     id: '63',
-    name: 'cyclisme_gourde',
+    name: 'Gourde',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/cyclisme_gourde.png'
@@ -144,7 +144,7 @@ export const items = ref([
   // HOCKEY - CASQUE
   {
     id: '71',
-    name: 'hockey_casque',
+    name: 'Casque de Hockey',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/hockey_casque.png'
@@ -152,7 +152,7 @@ export const items = ref([
   // HOCKEY - CLUB
   {
     id: '72',
-    name: 'hockey_club',
+    name: 'Club de Hockey',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/hockey_club.png'
@@ -160,7 +160,7 @@ export const items = ref([
   // HOCKEY - PATINS
   {
     id: '73',
-    name: 'hockey_patins',
+    name: 'Patins de Hockey',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/hockey_patins.png'
@@ -171,7 +171,7 @@ export const items = ref([
   // RUGBY - BOUCLIER
   {
     id: '81',
-    name: 'rugby_bouclier',
+    name: 'Bouclier de percussion',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/rugby_bouclier.png'
@@ -179,7 +179,7 @@ export const items = ref([
   // RUGBY - CASQUE ULTRABUG!
   {
     id: '82',
-    name: 'rugby_casque',
+    name: 'Casque de Rugby',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/rugby_casque.png'
@@ -187,7 +187,7 @@ export const items = ref([
   // RUGBY - TEE
   {
     id: '83',
-    name: 'rugby_tee',
+    name: 'Tee de Rugby',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/rugby_tee.png'
@@ -198,7 +198,7 @@ export const items = ref([
   // MONTAGNE - OXYGENE ULTRABUG!
   {
     id: '91',
-    name: 'montagne_oxygene',
+    name: "Bouteille d'Oxygene",
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/montagne_oxygene.png'
@@ -206,7 +206,7 @@ export const items = ref([
   // MONTAGNE - PIOLET
   {
     id: '92',
-    name: 'Piolet',
+    name: "Piolet d'escalade",
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
     image_url: '/images/item/montagne_piolet.png'
