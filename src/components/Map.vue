@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskBtn image="map" @click="isActive = !isActive" :active="isActive" />
+    <VskBtn image="map" @click="open()" :active="isActive" :badge="newElement" />
 
     <VskCardTabs v-model:isActive="isActive" hasList :tabs="tabs">
       <template v-slot:lieux>
@@ -11,7 +11,7 @@
         </VskThumbnailGroup>
       </template>
       <template v-slot:secrets>
-        <VskThumbnailGroup title="Lieux secrets" :elements="characters_foundSorted"
+        <VskThumbnailGroup title="Lieux secrets" :elements="characters_hidden_foundSorted"
           :elements-max-length="characters.length"
           @change-switch-value="(value: string) => { sortTypeCharacter = value as string }"
           @router-push="isActive = false">
@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { storeToRefs } from 'pinia'
 
 import VskBtn from '@/layouts/VskBtn.vue'
@@ -45,6 +45,8 @@ const isActive = ref(false);
 const sortTypeLocation = ref('défaut');
 const sortTypeCharacter = ref('défaut');
 
+let newElement = ref(0);
+
 const tabs = [
   {
     label: 'lieux',
@@ -55,6 +57,13 @@ const tabs = [
     value: 'secrets',
   }
 ]
+
+watch(locations_found.value, () => {
+  newElement.value = newElement.value + 1
+}, { deep: false })
+watch(characters_hidden_found.value, () => {
+  newElement.value = newElement.value + 1
+}, { deep: false })
 
 const locations_foundSorted = computed(() => {
   const result = []
@@ -77,7 +86,7 @@ const locations_foundSorted = computed(() => {
   }
 })
 
-const characters_foundSorted = computed(() => {
+const characters_hidden_foundSorted = computed(() => {
   const result = []
   for (const element of characters_hidden_found.value as characterFoundInterface[]) {
     result.push({
@@ -97,6 +106,11 @@ const characters_foundSorted = computed(() => {
     return result.sort((a, b) => (a.found_date < b.found_date ? -1 : 1));
   }
 })
+
+function open() {
+  isActive.value = !isActive.value
+  newElement.value = 0
+}
 </script>
 
 <style lang="scss" scoped></style>

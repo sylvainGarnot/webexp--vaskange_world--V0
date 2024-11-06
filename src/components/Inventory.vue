@@ -1,7 +1,7 @@
 <template>
   <div>
-    <VskBtn image="joystick" :disable="items_acquired!.length === 0"
-      @click="items_acquired!.length > 0 ? isActive = !isActive : ''" :active="isActive" />
+    <VskBtn image="joystick" :disable="items_acquired!.length === 0" @click="open()" :active="isActive"
+      :badge="newElement" />
 
 
     <VskCard v-model:isActive="isActive" @close="onClose()" hasList>
@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import { storeToRefs } from 'pinia'
 
 import VskBtn from '@/layouts/VskBtn.vue'
@@ -42,6 +42,8 @@ const isActive = ref(false);
 const sortType = ref('défaut');
 const webExperienceAlertAllItemAcquiredIsActive = ref(false)
 
+let newElement = ref(0);
+
 const tabs = [
   {
     label: 'label 1',
@@ -53,6 +55,10 @@ const tabs = [
   }
 ]
 
+
+watch(items_acquired.value, () => {
+  newElement.value = newElement.value + 1
+}, { deep: false })
 
 const items_acquiredSorted = computed(() => {
   const result = []
@@ -77,6 +83,13 @@ const items_acquiredSorted = computed(() => {
 function onClose() {
   if (isAllItemsAcquired.value && !isTheHiddenPlaceFound.value) {
     webExperienceAlertAllItemAcquiredIsActive.value = true;
+  }
+}
+
+function open() {
+  if (items_acquired.value!.length > 0) {
+    isActive.value = !isActive.value
+    newElement.value = 0
   }
 }
 
