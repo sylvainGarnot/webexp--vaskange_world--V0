@@ -4,18 +4,18 @@
 
     <VskCardTabs v-model:isActive="isActive" hasList :tabs="tabs">
       <template v-slot:lieux>
-        <VskThumbnailGroup title="Lieux découverts" :elements="locations_foundSorted"
+        <VskThumbnailSimpleGroup title="Lieux découverts" :elements="locations_foundSorted"
           :elements-max-length="locations.length"
           @change-switch-value="(value: string) => { sortTypeLocation = value as string }"
           @router-push="isActive = false">
-        </VskThumbnailGroup>
+        </VskThumbnailSimpleGroup>
       </template>
       <template v-slot:secrets>
-        <VskThumbnailGroup title="Lieux secrets" :elements="characters_hidden_foundSorted"
+        <VskThumbnailSimpleGroup title="Lieux secrets" :elements="characters_hidden_foundSorted"
           :elements-max-length="characters.length"
           @change-switch-value="(value: string) => { sortTypeCharacter = value as string }"
           @router-push="isActive = false">
-        </VskThumbnailGroup>
+        </VskThumbnailSimpleGroup>
       </template>
     </VskCardTabs>
   </div>
@@ -27,7 +27,8 @@ import { storeToRefs } from 'pinia'
 
 import VskBtn from '@/layouts/VskBtn.vue'
 import VskCardTabs from '@/layouts/VskCardTabs.vue'
-import VskThumbnailGroup from '@/layouts/VskThumbnailGroup.vue'
+import VskThumbnailSimpleGroup from '@/layouts/VskThumbnailSimpleGroup.vue'
+import type { VskThumbnailSimpleElementInterface } from '@/layouts/VskThumbnailSimpleInterface';
 
 import { useLocationStore } from "@/stores/location"
 import type { locationFoundInterface } from '@/stores/location/interface';
@@ -66,44 +67,48 @@ watch(characters_hidden_found.value, () => {
 }, { deep: false })
 
 const locations_foundSorted = computed(() => {
-  const result = []
+  const result = [] as VskThumbnailSimpleElementInterface[]
   for (const element of locations_found.value as locationFoundInterface[]) {
     result.push({
-      ...element,
+      id: element.id,
       title: element.label,
       description: element?.nbrItemsToAcquired > 0 ? `objets trouvés ${element?.nbrItemsAcquired} / ${element?.nbrItemsToAcquired}` : '',
-      link: element.name
+      link: element.name,
+      image_url: element.image_url,
+      date: element.found_date
     })
   }
   if (sortTypeLocation.value === 'défaut') {
     return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)));
   }
   else if (sortTypeLocation.value === 'alpha') {
-    return result.sort((a, b) => (a.label < b.label ? -1 : 1));
+    return result.sort((a, b) => (a.title < b.title ? -1 : 1));
   }
   else if (sortTypeLocation.value === 'date') {
-    return result.sort((a, b) => (a.found_date < b.found_date ? -1 : 1));
+    return result.sort((a, b) => (a.date < b.date ? -1 : 1));
   }
 })
 
 const characters_hidden_foundSorted = computed(() => {
-  const result = []
+  const result = [] as VskThumbnailSimpleElementInterface[]
   for (const element of characters_hidden_found.value as characterFoundInterface[]) {
     result.push({
-      ...element,
+      id: element.id,
       title: element.label,
       description: element?.itemToAcquired ? `objet donné ${element?.itemAcquired ? '1' : '0'} / 1` : '',
-      link: element.name
+      link: element.name,
+      image_url: element.image_url,
+      date: element.found_date
     })
   }
   if (sortTypeCharacter.value === 'défaut') {
     return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)));
   }
   else if (sortTypeCharacter.value === 'alpha') {
-    return result.sort((a, b) => (a.name < b.name ? -1 : 1));
+    return result.sort((a, b) => (a.title < b.title ? -1 : 1));
   }
   else if (sortTypeCharacter.value === 'date') {
-    return result.sort((a, b) => (a.found_date < b.found_date ? -1 : 1));
+    return result.sort((a, b) => (a.date < b.date ? -1 : 1));
   }
 })
 

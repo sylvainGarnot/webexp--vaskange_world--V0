@@ -6,9 +6,9 @@
 
     <VskCard v-model:isActive="isActive" @close="onClose()" hasList>
       <template v-slot:content>
-        <VskThumbnailGroup thumbnail-card title="Objets Trouvés" :elements="items_acquiredSorted"
+        <VskThumbnailCardGroup thumbnail-card title="Objets Trouvés" :elements="items_acquiredSorted"
           :elements-max-length="items.length" @change-switch-value="(value: string) => { sortType = value as string }">
-        </VskThumbnailGroup>
+        </VskThumbnailCardGroup>
       </template>
     </VskCard>
 
@@ -25,7 +25,8 @@ import VskBtn from '@/layouts/VskBtn.vue'
 import WebExperienceAlertAllItemAcquired from "@/components/WebExperienceAlertAllItemAcquired.vue"
 
 import VskCard from '@/layouts/VskCard.vue'
-import VskThumbnailGroup from '@/layouts/VskThumbnailGroup.vue'
+import VskThumbnailCardGroup from '@/layouts/VskThumbnailCardGroup.vue'
+import type { VskThumbnailCardElementInterface } from '@/layouts/VskThumbnailCardInterface';
 
 
 import { useItemStore } from "@/stores/item"
@@ -61,21 +62,24 @@ watch(items_acquired.value, () => {
 }, { deep: false })
 
 const items_acquiredSorted = computed(() => {
-  const result = []
+  const result = [] as VskThumbnailCardElementInterface[]
   for (const element of items_acquired.value as itemAcquiredInterface[]) {
     result.push({
-      ...element,
+      id: element.id,
       title: element.name,
+      description: element.description,
+      image_url: element.image_url,
+      date: element.acquired_date,
     })
   }
   if (sortType.value === 'défaut') {
     return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)))
   }
   else if (sortType.value === 'alpha') {
-    return result.sort((a, b) => (a.name < b.name ? -1 : 1))
+    return result.sort((a, b) => (a.title < b.title ? -1 : 1))
   }
   else if (sortType.value === 'date') {
-    return result.sort((a, b) => (a.acquired_date < b.acquired_date ? -1 : 1))
+    return result.sort((a, b) => (a.date < b.date ? -1 : 1))
   }
 })
 

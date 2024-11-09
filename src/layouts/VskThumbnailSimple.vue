@@ -16,8 +16,8 @@ const emit = defineEmits(['router-push'])
 const props = defineProps({
   title: String,
   description: String,
-  imageUrl: String,
   link: String,
+  imageUrl: String,
 })
 
 function onClick() {

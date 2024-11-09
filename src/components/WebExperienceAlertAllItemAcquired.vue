@@ -16,7 +16,7 @@
         </v-row>
 
         <v-row no-gutters class="links mt-12 mx-12">
-          <VskThumbnail :title="theHiddenPlace?.name" :imageUrl="`${theHiddenPlace?.image_url}`"
+          <VskThumbnailSimple :title="theHiddenPlace?.name" :imageUrl="`${theHiddenPlace?.image_url}`"
             :link="theHiddenPlace?.name" @router-push="$emit('update:isActive', false)" />
         </v-row>
 
@@ -32,7 +32,7 @@ import { storeToRefs } from 'pinia'
 import { useLocationStore } from "@/stores/location";
 
 import VskCard from '@/layouts/VskCard.vue'
-import VskThumbnail from '@/layouts/VskThumbnail.vue'
+import VskThumbnailSimple from '@/layouts/VskThumbnailSimple.vue'
 import VskFirework from "@/layouts/VskFirework.vue"
 
 const emit = defineEmits(['update:isActive'])
