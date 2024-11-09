@@ -31,13 +31,13 @@ import type { PropType } from 'vue'
 import VskSwitchGroup from '@/layouts/VskSwitchGroup.vue'
 import VskThumbnailSimple from '@/layouts/VskThumbnailSimple.vue'
 import VskThumbnailCard from '@/layouts/VskThumbnailCard.vue'
-import type { VskThumbnailCardElementInterface } from './VskThumbnailCardInterface';
+import type { VskThumbnailCardInterface } from './VskThumbnailCardInterface';
 
 const emit = defineEmits(['change-switch-value', 'router-push'])
 
 const props = defineProps({
   title: String,
-  elements: Array as PropType<VskThumbnailCardElementInterface[]>,
+  elements: Array as PropType<VskThumbnailCardInterface[]>,
   elementsMaxLength: { type: Number, default: 0 },
 })
 

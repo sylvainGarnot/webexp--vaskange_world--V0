@@ -28,7 +28,7 @@ import { storeToRefs } from 'pinia'
 import VskBtn from '@/layouts/VskBtn.vue'
 import VskCardTabs from '@/layouts/VskCardTabs.vue'
 import VskThumbnailSimpleGroup from '@/layouts/VskThumbnailSimpleGroup.vue'
-import type { VskThumbnailSimpleElementInterface } from '@/layouts/VskThumbnailSimpleInterface';
+import type { VskThumbnailSimpleInterface } from '@/layouts/VskThumbnailSimpleInterface';
 
 import { useLocationStore } from "@/stores/location"
 import type { locationFoundInterface } from '@/stores/location/interface';
@@ -67,7 +67,7 @@ watch(characters_hidden_found.value, () => {
 }, { deep: false })
 
 const locations_foundSorted = computed(() => {
-  const result = [] as VskThumbnailSimpleElementInterface[]
+  const result = [] as VskThumbnailSimpleInterface[]
   for (const element of locations_found.value as locationFoundInterface[]) {
     result.push({
       id: element.id,
@@ -90,7 +90,7 @@ const locations_foundSorted = computed(() => {
 })
 
 const characters_hidden_foundSorted = computed(() => {
-  const result = [] as VskThumbnailSimpleElementInterface[]
+  const result = [] as VskThumbnailSimpleInterface[]
   for (const element of characters_hidden_found.value as characterFoundInterface[]) {
     result.push({
       id: element.id,

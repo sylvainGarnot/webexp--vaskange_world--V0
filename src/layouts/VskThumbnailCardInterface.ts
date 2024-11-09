@@ -1,4 +1,4 @@
-export interface VskThumbnailCardElementInterface {
+export interface VskThumbnailCardInterface {
   id: string,
   title: string,
   description: string,
