@@ -35,27 +35,8 @@ export const dialogs = ref([
   // START PHONE
 
   
-  // ##### FOOTBALL #####
+  // ##### FOOTBALL -2- #####
   // FOOTBALL - CRAMPON
-  {
-    id: '11',
-    speech_written: speech_item_found,
-    item_provided: '11',
-    answers: [],
-    type: 'gift',
-  },
-  // FOOTBALL - MAILLOT
-  {
-    id: '12',
-    speech_written: speech_item_found,
-    item_provided: '12',
-    answers: [],
-    type: 'gift',
-  },
-
-
-  // ##### BASEBALL #####
-  // BASEBALL - BAT
   {
     id: '21',
     speech_written: speech_item_found,
@@ -63,7 +44,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
   },
-  // BASEBALL - CASQUETTE
+  // FOOTBALL - MAILLOT
   {
     id: '22',
     speech_written: speech_item_found,
@@ -71,18 +52,10 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
   },
-  // BASEBALL - GANT
-  {
-    id: '23',
-    speech_written: speech_item_found,
-    item_provided: '23',
-    answers: [],
-    type: 'gift',
-  },
 
-  
-  // ##### BASKET #####
-  // BASKET - BANDEAU
+
+  // ##### BASEBALL -3- #####
+  // BASEBALL - BAT
   {
     id: '31',
     speech_written: speech_item_found,
@@ -90,7 +63,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
   },
-  // BASKET - CHAUSSURE
+  // BASEBALL - CASQUETTE
   {
     id: '32',
     speech_written: speech_item_found,
@@ -98,7 +71,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
   },
-  // BASKET - MANCHETTE
+  // BASEBALL - GANT
   {
     id: '33',
     speech_written: speech_item_found,
@@ -107,39 +80,39 @@ export const dialogs = ref([
     type: 'gift',
   },
 
+  
+  // ##### BASKET -4- #####
+  // BASKET - BANDEAU
+  {
+    id: '41',
+    speech_written: speech_item_found,
+    item_provided: '41',
+    answers: [],
+    type: 'gift',
+  },
+  // BASKET - CHAUSSURE
+  {
+    id: '42',
+    speech_written: speech_item_found,
+    item_provided: '42',
+    answers: [],
+    type: 'gift',
+  },
+  // BASKET - MANCHETTE
+  {
+    id: '43',
+    speech_written: speech_item_found,
+    item_provided: '43',
+    answers: [],
+    type: 'gift',
+  },
 
-  // ##### TENNIS #####
+
+  // ##### TENNIS -5- #####
 
   
-  // ##### MMA #####
+  // ##### MMA -6- #####
   // MMA - BANDAGE 
-  {
-    id: '51',
-    speech_written: speech_item_found,
-    item_provided: '51',
-    answers: [],
-    type: 'gift',
-  },
-  // MMA - DENTIER
-  {
-    id: '52',
-    speech_written: speech_item_found,
-    item_provided: '52',
-    answers: [],
-    type: 'gift',
-  },
-  // MMA - GANT
-  {
-    id: '53',
-    speech_written: speech_item_found,
-    item_provided: '53',
-    answers: [],
-    type: 'gift',
-  },
-
-  
-  // ##### CYCLISME #####
-  // CYCLISME - CASQUE
   {
     id: '61',
     speech_written: speech_item_found,
@@ -147,7 +120,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
   },
-  // CYCLISME - GONFLEUR
+  // MMA - DENTIER
   {
     id: '62',
     speech_written: speech_item_found,
@@ -155,7 +128,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
   },
-  // CYCLISME - GOURDE
+  // MMA - GANT
   {
     id: '63',
     speech_written: speech_item_found,
@@ -164,9 +137,9 @@ export const dialogs = ref([
     type: 'gift',
   },
 
-
-  // ##### HOCKEY #####
-  // HOCKEY - CASQUE
+  
+  // ##### CYCLISME -7- #####
+  // CYCLISME - CASQUE
   {
     id: '71',
     speech_written: speech_item_found,
@@ -174,7 +147,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
   },
-  // HOCKEY - CLUB
+  // CYCLISME - GONFLEUR
   {
     id: '72',
     speech_written: speech_item_found,
@@ -182,7 +155,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
   },
-  // HOCKEY - PATINS
+  // CYCLISME - GOURDE
   {
     id: '73',
     speech_written: speech_item_found,
@@ -191,9 +164,9 @@ export const dialogs = ref([
     type: 'gift',
   },
 
-  
-  // ##### RUGBY #####
-  // RUGBY - BOUCLIER
+
+  // ##### HOCKEY -8- #####
+  // HOCKEY - CASQUE
   {
     id: '81',
     speech_written: speech_item_found,
@@ -201,7 +174,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
   },
-  // RUGBY - CASQUE
+  // HOCKEY - CLUB
   {
     id: '82',
     speech_written: speech_item_found,
@@ -209,7 +182,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
   },
-  // RUGBY - TEE
+  // HOCKEY - PATINS
   {
     id: '83',
     speech_written: speech_item_found,
@@ -219,8 +192,8 @@ export const dialogs = ref([
   },
 
   
-  // ##### MONTAGNE #####
-  // MONTAGNE - OXYGENE
+  // ##### RUGBY -9- #####
+  // RUGBY - BOUCLIER
   {
     id: '91',
     speech_written: speech_item_found,
@@ -228,7 +201,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
   },
-  // MONTAGNE - PIOLET
+  // RUGBY - CASQUE
   {
     id: '92',
     speech_written: speech_item_found,
@@ -236,11 +209,38 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
   },
-  // MONTAGNE - TENTE
+  // RUGBY - TEE
   {
     id: '93',
     speech_written: speech_item_found,
     item_provided: '93',
+    answers: [],
+    type: 'gift',
+  },
+
+  
+  // ##### MONTAGNE -10- #####
+  // MONTAGNE - OXYGENE
+  {
+    id: '101',
+    speech_written: speech_item_found,
+    item_provided: '101',
+    answers: [],
+    type: 'gift',
+  },
+  // MONTAGNE - PIOLET
+  {
+    id: '102',
+    speech_written: speech_item_found,
+    item_provided: '102',
+    answers: [],
+    type: 'gift',
+  },
+  // MONTAGNE - TENTE
+  {
+    id: '103',
+    speech_written: speech_item_found,
+    item_provided: '103',
     answers: [],
     type: 'gift',
   },

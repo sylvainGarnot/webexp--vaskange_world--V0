@@ -8,150 +8,100 @@ export const characters_found = ref([] as characterFoundInterface[]);
 
 export const characters = ref([
 
-  // START PHONE
+  // ##### START PHONE -0- #####
+
+
+  // ##### EP_WebXP_Start -1- #####
 
   
-  // ##### FOOTBALL #####
+  // ##### FOOTBALL -2- #####
   // FOOTBALL - PERSO
   {
-    id: '10',
-    name: 'football_perso',
-    label: '',
-    dialog: '0',
-    location: '1',
-    is_hidden: false,
-    image_url: ''
-  },
-  // FOOTBALL - CRAMPON
-  {
-    id: '11',
-    name: 'football_crampon',
-    label: '',
-    dialog: '11',
-    location: '1',
-    is_hidden: false,
-    image_url: ''
-  },
-  // FOOTBALL - MAILLOT
-  {
-    id: '12',
-    name: 'football_maillot',
-    label: '',
-    dialog: '12',
-    location: '1',
-    is_hidden: false,
-    image_url: ''
-  },
-  // FOOTBALL - EASTER (à replacer)
-  {
-    id: '19',
-    name: 'football_easter',
-    label: 'Football easter eggs',
-    dialog: '9',
-    location: '1',
-    is_hidden: true,
-    image_url: ''
-  },
-
-
-  // ##### BASEBALL #####
-  // BASEBALL - PERSO
-  {
     id: '20',
-    name: 'baseball_perso',
+    name: 'football_perso',
     label: '',
     dialog: '0',
     location: '2',
     is_hidden: false,
     image_url: ''
   },
-  // BASEBALL - BAT
+  // FOOTBALL - CRAMPON
   {
     id: '21',
-    name: 'baseball_bat',
+    name: 'football_crampon',
     label: '',
     dialog: '21',
     location: '2',
     is_hidden: false,
     image_url: ''
   },
-  // BASEBALL - CASQUETTE
+  // FOOTBALL - MAILLOT
   {
     id: '22',
-    name: 'baseball_casquette',
+    name: 'football_maillot',
     label: '',
     dialog: '22',
     location: '2',
     is_hidden: false,
     image_url: ''
   },
-  // BASEBALL - GANT
-  {
-    id: '23',
-    name: 'baseball_gant',
-    label: '',
-    dialog: '23',
-    location: '2',
-    is_hidden: false,
-    image_url: ''
-  },
-  // BASEBALL - EASTER
+  // FOOTBALL - EASTER (à replacer)
   {
     id: '29',
-    name: 'baseball_easter',
-    label: '',
+    name: 'football_easter',
+    label: 'Football easter eggs',
     dialog: '9',
     location: '2',
     is_hidden: true,
     image_url: ''
   },
 
-  
-  // ##### BASKET #####
-  // BASKET - PERSO
+
+  // ##### BASEBALL -3- #####
+  // BASEBALL - PERSO
   {
     id: '30',
-    name: 'basket_perso',
+    name: 'baseball_perso',
     label: '',
     dialog: '0',
     location: '3',
     is_hidden: false,
     image_url: ''
   },
-  // BASKET - BANDEAU
+  // BASEBALL - BAT
   {
     id: '31',
-    name: 'basket_bandeau',
+    name: 'baseball_bat',
     label: '',
     dialog: '31',
     location: '3',
     is_hidden: false,
     image_url: ''
   },
-  // BASKET - CHAUSSURE
+  // BASEBALL - CASQUETTE
   {
     id: '32',
-    name: 'basket_chaussure',
+    name: 'baseball_casquette',
     label: '',
     dialog: '32',
     location: '3',
     is_hidden: false,
     image_url: ''
   },
-  // BASKET - MANCHETTE
+  // BASEBALL - GANT
   {
     id: '33',
-    name: 'basket_manchette',
+    name: 'baseball_gant',
     label: '',
     dialog: '33',
     location: '3',
     is_hidden: false,
     image_url: ''
   },
-  // BASKET - EASTER
+  // BASEBALL - EASTER
   {
     id: '39',
-    name: 'basket_easter',
+    name: 'baseball_easter',
     label: '',
     dialog: '9',
     location: '3',
@@ -160,232 +110,232 @@ export const characters = ref([
   },
 
   
-  // ##### TENNIS #####
-  // TENNIS - PERSO
+  // ##### BASKET -4- #####
+  // BASKET - PERSO
   {
     id: '40',
-    name: 'tenis_perso',
+    name: 'basket_perso',
     label: '',
     dialog: '0',
     location: '4',
+    is_hidden: false,
+    image_url: ''
+  },
+  // BASKET - BANDEAU
+  {
+    id: '41',
+    name: 'basket_bandeau',
+    label: '',
+    dialog: '41',
+    location: '4',
+    is_hidden: false,
+    image_url: ''
+  },
+  // BASKET - CHAUSSURE
+  {
+    id: '42',
+    name: 'basket_chaussure',
+    label: '',
+    dialog: '42',
+    location: '4',
+    is_hidden: false,
+    image_url: ''
+  },
+  // BASKET - MANCHETTE
+  {
+    id: '43',
+    name: 'basket_manchette',
+    label: '',
+    dialog: '43',
+    location: '4',
+    is_hidden: false,
+    image_url: ''
+  },
+  // BASKET - EASTER
+  {
+    id: '49',
+    name: 'basket_easter',
+    label: '',
+    dialog: '9',
+    location: '4',
+    is_hidden: true,
+    image_url: ''
+  },
+
+  
+  // ##### TENNIS -5- #####
+  // TENNIS - PERSO
+  {
+    id: '50',
+    name: 'tenis_perso',
+    label: '',
+    dialog: '0',
+    location: '5',
     is_hidden: false,
     image_url: ''
   },
   // TENNIS - EASTER
   {
-    id: '49',
+    id: '59',
     name: 'tenis_easter',
     label: '',
     dialog: '9',
-    location: '4',
+    location: '5',
     is_hidden: true,
     image_url: ''
   },
 
   
-  // ##### MMA #####
+  // ##### MMA -6- #####
   // MMA - PERSO (à replacer)
   {
-    id: '50',
-    name: 'mma_perso',
-    label: '',
-    dialog: '0',
-    location: '5',
-    is_hidden: false,
-    image_url: ''
-  },
-  // MMA - BANDAGE
-  {
-    id: '51',
-    name: 'mma_bandage',
-    label: '',
-    dialog: '51',
-    location: '5',
-    is_hidden: false,
-    image_url: ''
-  },
-  // MMA - DENTIER
-  {
-    id: '52',
-    name: 'mma_dentier',
-    label: '',
-    dialog: '52',
-    location: '5',
-    is_hidden: false,
-    image_url: ''
-  },
-  // MMA - GANT
-  {
-    id: '53',
-    name: 'mma_gant',
-    label: '',
-    dialog: '53',
-    location: '5',
-    is_hidden: false,
-    image_url: ''
-  },
-  // MMA - EASTER
-  {
-    id: '59',
-    name: 'mma_easter',
-    label: '',
-    dialog: '9',
-    location: '5',
-    is_hidden: true,
-    image_url: ''
-  },
-
-  
-  // ##### CYCLISME #####
-  // CYCLISME - PERSO inéxistant!
-  {
     id: '60',
-    name: 'cyclisme_perso',
+    name: 'mma_perso',
     label: '',
     dialog: '0',
     location: '6',
     is_hidden: false,
     image_url: ''
   },
-  // CYCLISME - CASQUE
+  // MMA - BANDAGE
   {
     id: '61',
-    name: 'cyclisme_casque',
+    name: 'mma_bandage',
     label: '',
     dialog: '61',
     location: '6',
     is_hidden: false,
     image_url: ''
   },
-  // CYCLISME - GONFLEUR
+  // MMA - DENTIER
   {
     id: '62',
-    name: 'cyclisme_gonfleur',
+    name: 'mma_dentier',
     label: '',
     dialog: '62',
     location: '6',
     is_hidden: false,
     image_url: ''
   },
-  // CYCLISME - GOURDE
+  // MMA - GANT
   {
     id: '63',
-    name: 'cyclisme_gourde',
+    name: 'mma_gant',
     label: '',
     dialog: '63',
     location: '6',
     is_hidden: false,
     image_url: ''
   },
-  // CYCLISME - EASTER inéxistant!
+  // MMA - EASTER
   {
     id: '69',
-    name: 'cyclisme_easter',
+    name: 'mma_easter',
     label: '',
     dialog: '9',
     location: '6',
     is_hidden: true,
+    image_url: ''
   },
 
-
-  // ##### HOCKEY #####
-  // HOCKEY - PERSO
+  
+  // ##### CYCLISME -7- #####
+  // CYCLISME - PERSO inéxistant!
   {
     id: '70',
-    name: 'hockey_perso',
+    name: 'cyclisme_perso',
     label: '',
     dialog: '0',
     location: '7',
     is_hidden: false,
     image_url: ''
   },
-  // HOCKEY - CASQUE
+  // CYCLISME - CASQUE
   {
     id: '71',
-    name: 'hockey_casque',
+    name: 'cyclisme_casque',
     label: '',
     dialog: '71',
     location: '7',
     is_hidden: false,
     image_url: ''
   },
-  // HOCKEY - CLUB
+  // CYCLISME - GONFLEUR
   {
     id: '72',
-    name: 'hockey_club',
+    name: 'cyclisme_gonfleur',
     label: '',
     dialog: '72',
     location: '7',
     is_hidden: false,
     image_url: ''
   },
-  // HOCKEY - PATINS
+  // CYCLISME - GOURDE
   {
     id: '73',
-    name: 'hockey_patins',
+    name: 'cyclisme_gourde',
     label: '',
     dialog: '73',
     location: '7',
     is_hidden: false,
     image_url: ''
   },
-  // HOCKEY - EASTER inéxistant!
+  // CYCLISME - EASTER inéxistant!
   {
     id: '79',
-    name: 'hockey_easter',
+    name: 'cyclisme_easter',
     label: '',
     dialog: '9',
     location: '7',
     is_hidden: true,
-    image_url: ''
   },
 
-  
-  // ##### RUGBY #####
-  // RUGBY - PERSO
+
+  // ##### HOCKEY -8- #####
+  // HOCKEY - PERSO
   {
     id: '80',
-    name: 'rugby_perso',
+    name: 'hockey_perso',
     label: '',
     dialog: '0',
     location: '8',
     is_hidden: false,
     image_url: ''
   },
-  // RUGBY - BOUCLIER
+  // HOCKEY - CASQUE
   {
     id: '81',
-    name: 'rugby_bouclier',
+    name: 'hockey_casque',
     label: '',
     dialog: '81',
     location: '8',
     is_hidden: false,
     image_url: ''
   },
-  // RUGBY - CASQUE
+  // HOCKEY - CLUB
   {
     id: '82',
-    name: 'rugby_casque',
+    name: 'hockey_club',
     label: '',
     dialog: '82',
     location: '8',
     is_hidden: false,
     image_url: ''
   },
-  // RUGBY - TEE
+  // HOCKEY - PATINS
   {
     id: '83',
-    name: 'rugby_tee',
+    name: 'hockey_patins',
     label: '',
     dialog: '83',
     location: '8',
     is_hidden: false,
     image_url: ''
   },
-  // RUGBY - EASTER
+  // HOCKEY - EASTER inéxistant!
   {
     id: '89',
-    name: 'rugby_easter',
+    name: 'hockey_easter',
     label: '',
     dialog: '9',
     location: '8',
@@ -394,54 +344,107 @@ export const characters = ref([
   },
 
   
-  // ##### MONTAGNE #####
-  // MONTAGNE - PERSO
+  // ##### RUGBY -9- #####
+  // RUGBY - PERSO
   {
     id: '90',
-    name: 'montagne_perso',
+    name: 'rugby_perso',
     label: '',
     dialog: '0',
     location: '9',
     is_hidden: false,
     image_url: ''
   },
-  // MONTAGNE - OXYGENE
+  // RUGBY - BOUCLIER
   {
     id: '91',
-    name: 'montagne_oxygene',
+    name: 'rugby_bouclier',
     label: '',
     dialog: '91',
     location: '9',
     is_hidden: false,
     image_url: ''
   },
-  // MONTAGNE - PIOLET
+  // RUGBY - CASQUE
   {
     id: '92',
-    name: 'montagne_piolet',
+    name: 'rugby_casque',
     label: '',
     dialog: '92',
     location: '9',
     is_hidden: false,
     image_url: ''
   },
-  // MONTAGNE - TENTE
+  // RUGBY - TEE
   {
     id: '93',
-    name: 'montagne_tente',
+    name: 'rugby_tee',
     label: '',
     dialog: '93',
     location: '9',
     is_hidden: false,
     image_url: ''
   },
-  // MONTAGNE - EASTER inéxistant!
+  // RUGBY - EASTER
   {
     id: '99',
-    name: 'montagne_easter',
+    name: 'rugby_easter',
     label: '',
     dialog: '9',
     location: '9',
+    is_hidden: true,
+    image_url: ''
+  },
+
+  
+  // ##### MONTAGNE -10- #####
+  // MONTAGNE - PERSO
+  {
+    id: '100',
+    name: 'montagne_perso',
+    label: '',
+    dialog: '0',
+    location: '10',
+    is_hidden: false,
+    image_url: ''
+  },
+  // MONTAGNE - OXYGENE
+  {
+    id: '101',
+    name: 'montagne_oxygene',
+    label: '',
+    dialog: '101',
+    location: '10',
+    is_hidden: false,
+    image_url: ''
+  },
+  // MONTAGNE - PIOLET
+  {
+    id: '102',
+    name: 'montagne_piolet',
+    label: '',
+    dialog: '102',
+    location: '10',
+    is_hidden: false,
+    image_url: ''
+  },
+  // MONTAGNE - TENTE
+  {
+    id: '103',
+    name: 'montagne_tente',
+    label: '',
+    dialog: '103',
+    location: '10',
+    is_hidden: false,
+    image_url: ''
+  },
+  // MONTAGNE - EASTER inéxistant!
+  {
+    id: '109',
+    name: 'montagne_easter',
+    label: '',
+    dialog: '9',
+    location: '10',
     is_hidden: true,
     image_url: '/images/character/montagne_easter.png'
   },
@@ -452,36 +455,5 @@ export const characters = ref([
   
   // ##### SECRET END #####
 
-  
-  // // #####################
-  // // TEST - VASKANGE WORLD
-  // // #####################
-  // {
-  //   id: '1',
-  //   name: 'jump-q1'
-  // label: '',
-  // dialog: '0',
-  //   location: '1',
-  // },
-  // {
-  //   id: '2',
-  //   name: 'rick 🐝'
-  // label: '',
-  // dialog: '2',
-  //   location: '4',
-  // },
-  // {
-  //   id: '3',
-  //   name: 'astro 1'
-  // label: '',
-  // dialog: '1',
-  //   location: '1',
-  // },
-  // {
-  //   id: '4',
-  //   name: 'shop 🖼️'
-  // label: '', 
-  // dialog: '2',
-  //   location: '1',
-  // },
+
 ] as characterInterface[]);

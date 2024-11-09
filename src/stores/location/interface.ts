@@ -4,6 +4,7 @@ export interface locationInterface {
   label: string,
   message: string,
   image_url: string,
+  image_url_unfound: string,
   is_hidden: boolean,
   upper_location: string,
   musics: string[],
