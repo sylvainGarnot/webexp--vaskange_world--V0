@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="vsk-thumbnail-group">
 
     <!-- TITRE-->
     <v-row v-if="title" no-gutters class="vsk-thumbnail-group-title mt-12">
@@ -68,12 +68,13 @@ function changeSwitchValue(value: string) {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '@/assets/styles/_global_variable.scss';
 
 .vsk-thumbnail-group-title {
   color: $colorWhite;
   font-size: 3.2vh;
+  padding: 0 $radiusValue*2;
 }
 
 .vsk-thumbnail-group-content {

@@ -4,14 +4,13 @@
 
     <VskCardTabs v-model:isActive="isActive" hasList :tabs="tabs">
       <template v-slot:lieux>
-        <VskThumbnailSimpleGroup title="Lieux découverts" :elements="locations_foundSorted"
-          :elements-max-length="locations.length"
+        <VskThumbnailSimpleGroup title="Lieux" :elements="locations_foundSorted" :elements-max-length="locations.length"
           @change-switch-value="(value: string) => { sortTypeLocation = value as string }"
           @router-push="isActive = false">
         </VskThumbnailSimpleGroup>
       </template>
       <template v-slot:secrets>
-        <VskThumbnailSimpleGroup title="Lieux secrets" :elements="characters_hidden_foundSorted"
+        <VskThumbnailSimpleGroup title="Secrets" :elements="characters_hidden_foundSorted"
           :elements-max-length="characters.length"
           @change-switch-value="(value: string) => { sortTypeCharacter = value as string }"
           @router-push="isActive = false">

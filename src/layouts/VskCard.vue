@@ -8,9 +8,9 @@
           <div class="vsk-card-content" :class="hasList ? 'mode-list' : ''">
 
             <!-- CONTENT -->
-            <v-row no-gutters :class="hasList ? '' : 'my-12'">
+            <div :class="hasList ? '' : 'my-12'">
               <slot name="content"></slot>
-            </v-row>
+            </div>
           </div>
 
           <v-icon class="vsk-card-close btn-click-animation" icon="$close" @click="
@@ -63,6 +63,7 @@ function close() {
     background-color: $colorBlackLightMax;
 
     overflow-y: hidden !important;
+    width: 100%;
 
     &.mode-list {
       position: absolute;
