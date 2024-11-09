@@ -325,7 +325,7 @@ export const characters = ref([
   // HOCKEY - PATINS
   {
     id: '83',
-    name: 'hockey_patins',
+    name: 'hockey_patin',
     label: '',
     dialog: '83',
     location: '8',

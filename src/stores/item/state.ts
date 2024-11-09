@@ -182,8 +182,8 @@ export const items = ref([
     name: 'Patins de Hockey',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     is_hidden: false,
-    image_url: '/images/item/color/hockey_patins.png',
-    image_url_unfound: '/images/item/black&white/hockey_patins.png'
+    image_url: '/images/item/color/hockey_patin.png',
+    image_url_unfound: '/images/item/black&white/hockey_patin.png'
   },
 
   
