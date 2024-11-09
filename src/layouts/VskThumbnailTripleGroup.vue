@@ -16,7 +16,7 @@
     <v-row no-gutters class="vsk-thumbnail-group-content px-3 pb-3">
       <TransitionGroup name="vsk-thumbnail-group-content--animation" class="transition-group-element" tag="div">
         <VskThumbnailTriple v-for="element in elements" :key="`${element.id}`" class="transition-group-element"
-          :imageUrl="`${element.background_url}`" />
+          :backgroundUrl="element.background_url" :imagesUrl="element.images_url" />
       </TransitionGroup>
     </v-row>
   </div>
@@ -35,7 +35,6 @@ const emit = defineEmits(['change-switch-value', 'router-push'])
 const props = defineProps({
   title: String,
   elements: Array as PropType<VskThumbnailTripleInterface[]>,
-  elementsMaxLength: { type: Number, default: 0 },
 })
 
 const switchValues = ref([
@@ -65,27 +64,4 @@ function changeSwitchValue(value: string) {
 }
 </script>
 
-<style lang="scss" scoped>
-@import '@/assets/styles/_global_variable.scss';
-
-.vsk-thumbnail-group-title {
-  color: $colorWhite;
-  font-size: 3.2vh;
-}
-
-.vsk-thumbnail-group-content {
-  overflow-y: scroll;
-  max-height: 45vh;
-  border-top: solid 1px $colorGrey;
-
-  div {
-    width: 100%;
-  }
-}
-
-.vsk-thumbnail-group-content--animation-move,
-.vsk-thumbnail-group-content--animation-enter-active,
-.vsk-thumbnail-group-content--animation-leave-active {
-  transition: all 0.5s ease;
-}
-</style>
+<style lang="scss" scoped></style>

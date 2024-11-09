@@ -1,7 +1,7 @@
 <template>
   <div class="vsk-thumbnail mt-3" @click="onClick()">
-    <div v-if="link" class="vsk-thumbnail-background"></div>
-    <img :src="imageUrl" />
+    <div v-if="link" class="vsk-thumbnail-background-layout"></div>
+    <img class="vsk-thumbnail-background" :src="imageUrl" />
     <span class="title">{{ title }}</span>
     <span v-if="description" class="description">{{ description }}</span>
   </div>
@@ -76,14 +76,14 @@ function onClick() {
     font-weight: 500;
   }
 
-  img {
+  img.vsk-thumbnail-background {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border: 2px solid $colorGold;
   }
 
-  .vsk-thumbnail-background {
+  .vsk-thumbnail-background-layout {
     position: absolute;
     z-index: 2;
     width: 100%;
