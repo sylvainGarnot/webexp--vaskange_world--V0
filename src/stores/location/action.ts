@@ -42,8 +42,8 @@ export function onLocationFound(input: locationInterface) {
   const locationFound = {
     ...input,
     found_date: new Date(),
-    nbrItemsToAcquired: 0,
-    nbrItemsAcquired: 0,
+    itemsAcquired: [],
+    itemsToAcquired: [],
   } as locationFoundInterface;
 
   if (!locations_found.value.find(l => l.id === locationFound.id)) {
@@ -57,11 +57,11 @@ export function onLocationFound(input: locationInterface) {
 
           const item = items.value.find(it => it.id === dialog.item_provided)
           if (item) {
-            locationFound.nbrItemsToAcquired++
+            locationFound.itemsToAcquired.push(item.id)
 
             const itemAcquired = items_acquired.value.find(it => it.id === item?.id)
             if (itemAcquired) {
-              locationFound.nbrItemsAcquired++
+              locationFound.itemsAcquired.push(item.id)
             }
           }
         }

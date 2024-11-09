@@ -24,7 +24,7 @@ export function onItemProvided(input: itemInterface) {
 
           const characterFoundLocation = locations_found.value.find(l => l.id === characterFound.location)
           if (characterFoundLocation) {
-            characterFoundLocation.nbrItemsAcquired++
+            characterFoundLocation.itemsAcquired.push(newItemAcquired.id)
           }
         }
       }

@@ -72,7 +72,7 @@ const locations_foundSorted = computed(() => {
     result.push({
       id: element.id,
       title: element.label,
-      description: element?.nbrItemsToAcquired > 0 ? `objets trouvés ${element?.nbrItemsAcquired} / ${element?.nbrItemsToAcquired}` : '',
+      description: element?.itemsToAcquired.length > 0 ? `objets trouvés ${element?.itemsAcquired.length} / ${element?.itemsToAcquired.length}` : '',
       link: element.name,
       image_url: element.image_url,
       date: element.found_date

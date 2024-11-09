@@ -12,6 +12,6 @@ export interface locationInterface {
 
 export interface locationFoundInterface extends locationInterface {
   found_date: Date,
-  nbrItemsToAcquired: number,
-  nbrItemsAcquired: number,
+  itemsAcquired: string[],
+  itemsToAcquired: string[],
 }
