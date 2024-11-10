@@ -6,8 +6,8 @@
 
     <VskCard v-model:isActive="isActive" @close="onClose()" hasList>
       <template v-slot:content>
-        <VskThumbnailTripleGroup thumbnail-card title="Objets Trouvés" :elements="itemsSorted"
-          @change-switch-value="(value: string) => { sortType = value as string }">
+        <VskThumbnailTripleGroup thumbnail-card title="Objets Trouvés" :elements="itemsSortedByDate"
+          v-model:switchValues="switchValues">
         </VskThumbnailTripleGroup>
       </template>
     </VskCard>
@@ -27,10 +27,10 @@ import WebExperienceAlertAllItemAcquired from "@/components/WebExperienceAlertAl
 import VskCard from '@/layouts/VskCard.vue'
 import VskThumbnailTripleGroup from '@/layouts/VskThumbnailTripleGroup.vue'
 import type { VskThumbnailTripleInterface } from '@/layouts/VskThumbnailTripleInterface.ts'
+import type { VskSwitchInterface } from '@/layouts/VskSwitchInterface';
 
 import { useItemStore } from "@/stores/item"
 import { useLocationStore } from "@/stores/location";
-// import type { itemAcquiredInterface } from '@/stores/item/interface';
 
 const itemStore = useItemStore()
 const { items_acquired, items, isAllItemsAcquired } = storeToRefs(itemStore)
@@ -38,16 +38,40 @@ const { items_acquired, items, isAllItemsAcquired } = storeToRefs(itemStore)
 const locationStore = useLocationStore();
 const { locations_found, isTheHiddenPlaceFound } = storeToRefs(locationStore);
 
-const isActive = ref(false);
-const sortType = ref('défaut');
+
+// VARIABLES
+const isActive = ref(false as boolean);
 const webExperienceAlertAllItemAcquiredIsActive = ref(false)
 
-let newElement = ref(0);
+let newElement = ref(0 as number);
+
+const switchValues = ref([
+  {
+    name: 'date_asc',
+    label: 'Premier',
+    selected: true,
+  },
+  {
+    name: 'date_desc',
+    label: 'Dernier',
+    selected: false,
+  },
+] as VskSwitchInterface[]);
+
+const switchValueNameSelected = ref('date_asc' as string)
 
 
 watch(items_acquired.value, () => {
   newElement.value = newElement.value + 1
 }, { deep: false })
+
+watch(switchValues.value, () => {
+  for (let index = 0; index < switchValues.value.length; index++) {
+    if (switchValues.value[index].selected) {
+      switchValueNameSelected.value = switchValues.value[index].name as string
+    }
+  }
+}, { deep: true })
 
 
 const itemsSorted = computed(() => {
@@ -89,26 +113,21 @@ const itemsSorted = computed(() => {
 })
 
 const itemsSortedByDate = computed(() => {
-  // return itemsSorted as VskThumbnailTripleInterface[]
+  const result = Array.from(itemsSorted.value) as VskThumbnailTripleInterface[]
 
-  // for (const element of items_acquired.value as itemAcquiredInterface[]) {
-  //   result.push({
-  //     id: element.id,
-  //     title: element.name,
-  //     description: element.description,
-  //     image_url: element.image_url,
-  //     date: element.acquired_date,
-  //   })
-  // }
-  // if (sortType.value === 'défaut') {
+  // if (switchValueNameSelected.value === 'défaut') {
   //   return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)))
   // }
-  // else if (sortType.value === 'alpha') {
+  // else if (switchValueNameSelected.value === 'alpha') {
   //   return result.sort((a, b) => (a.title < b.title ? -1 : 1))
   // }
-  // else if (sortType.value === 'date') {
-  //   return result.sort((a, b) => (a.date < b.date ? -1 : 1))
-  // }
+  if (switchValueNameSelected.value === 'date_asc') {
+    return result.sort((a, b) => (a.date < b.date ? -1 : 1))
+  }
+  else if (switchValueNameSelected.value === 'date_desc') {
+    return result.sort((a, b) => (a.date < b.date ? 1 : -1))
+  }
+  return result
 })
 
 

@@ -10,7 +10,7 @@
 
     <!-- FILTRES -->
     <VskSwitchGroup class="v-row v-row--no-gutters mt-6 mb-3 px-8" :fields="switchValues"
-      @select="(value: string) => changeSwitchValue(value as string)" />
+      @update:fields="(value: string) => emit('switchValues:update', value as string)" />
 
     <!-- LIST -->
     <v-row no-gutters class="vsk-thumbnail-group-content px-3 pb-3">
@@ -25,47 +25,22 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import type { PropType } from 'vue'
 
 import VskSwitchGroup from '@/layouts/VskSwitchGroup.vue'
 import VskThumbnailSimple from '@/layouts/VskThumbnailSimple.vue'
 import VskThumbnailCard from '@/layouts/VskThumbnailCard.vue'
 import type { VskThumbnailCardInterface } from './VskThumbnailCardInterface';
+import type { VskSwitchInterface } from './VskSwitchInterface';
 
-const emit = defineEmits(['change-switch-value', 'router-push'])
+const emit = defineEmits(['switchValues:update', 'router-push'])
 
 const props = defineProps({
   title: String,
   elements: Array as PropType<VskThumbnailCardInterface[]>,
   elementsMaxLength: { type: Number, default: 0 },
+  switchValues: Array as PropType<VskSwitchInterface[]>,
 })
-
-const switchValues = ref([
-  {
-    label: 'défaut',
-    selected: true,
-  },
-  {
-    label: 'alpha',
-    selected: false,
-  },
-  {
-    label: 'date',
-    selected: false,
-  },
-]);
-
-function changeSwitchValue(value: string) {
-  for (let index = 0; index < switchValues.value.length; index++) {
-    if (switchValues.value[index].label === value) {
-      switchValues.value[index].selected = true
-      emit('change-switch-value', switchValues.value[index].label)
-    } else {
-      switchValues.value[index].selected = false
-    }
-  }
-}
 </script>
 
 <style lang="scss" scoped></style>
