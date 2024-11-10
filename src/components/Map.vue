@@ -42,8 +42,8 @@ const characterStore = useCharacterStore()
 const { characters_hidden_found, characters } = storeToRefs(characterStore)
 
 const isActive = ref(false);
-const sortTypeLocation = ref('défaut');
-const sortTypeCharacter = ref('défaut');
+const sortTypeLocation = ref('date_asc');
+const sortTypeCharacter = ref('date_asc');
 
 let newElement = ref(0);
 
@@ -77,15 +77,22 @@ const locations_foundSorted = computed(() => {
       date: element.found_date
     })
   }
-  if (sortTypeLocation.value === 'défaut') {
-    return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)));
+  // if (sortTypeLocation.value === 'défaut') {
+  //   return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)));
+  // }
+  // else if (sortTypeLocation.value === 'alpha') {
+  //   return result.sort((a, b) => (a.title < b.title ? -1 : 1));
+  // }
+  // else if (sortTypeLocation.value === 'date') {
+  //   return result.sort((a, b) => (a.date < b.date ? -1 : 1));
+  // }
+  if (sortTypeLocation.value === 'date_asc') {
+    return result.sort((a, b) => (a.date < b.date ? -1 : 1))
   }
-  else if (sortTypeLocation.value === 'alpha') {
-    return result.sort((a, b) => (a.title < b.title ? -1 : 1));
+  else if (sortTypeLocation.value === 'date_desc') {
+    return result.sort((a, b) => (a.date < b.date ? 1 : -1))
   }
-  else if (sortTypeLocation.value === 'date') {
-    return result.sort((a, b) => (a.date < b.date ? -1 : 1));
-  }
+  return result
 })
 
 const characters_hidden_foundSorted = computed(() => {
@@ -100,14 +107,20 @@ const characters_hidden_foundSorted = computed(() => {
       date: element.found_date
     })
   }
-  if (sortTypeCharacter.value === 'défaut') {
-    return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)));
-  }
-  else if (sortTypeCharacter.value === 'alpha') {
-    return result.sort((a, b) => (a.title < b.title ? -1 : 1));
-  }
-  else if (sortTypeCharacter.value === 'date') {
+  // if (sortTypeCharacter.value === 'défaut') {
+  //   return result.sort((a, b) => (parseInt(a.id) - parseInt(b.id)));
+  // }
+  // else if (sortTypeCharacter.value === 'alpha') {
+  //   return result.sort((a, b) => (a.title < b.title ? -1 : 1));
+  // }
+  // else if (sortTypeCharacter.value === 'date') {
+  //   return result.sort((a, b) => (a.date < b.date ? -1 : 1));
+  // }
+  if (sortTypeCharacter.value === 'date_asc') {
     return result.sort((a, b) => (a.date < b.date ? -1 : 1));
+  }
+  else if (sortTypeCharacter.value === 'date_desc') {
+    return result.sort((a, b) => (a.date > b.date ? -1 : 1));
   }
 })
 

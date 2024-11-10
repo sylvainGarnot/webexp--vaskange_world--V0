@@ -1,8 +1,8 @@
 <template>
   <div>
-    <span :class="selected ? 'selected' : 'unselected'" @click="!selected ? $emit('select', label as string) : ''">{{
+    <span :class="selected ? 'selected' : 'unselected'" @click="!selected ? $emit('select', name as string) : ''">{{
       label
-    }}</span>
+      }}</span>
   </div>
 </template>
 
@@ -10,6 +10,7 @@
 
 const props = defineProps({
   label: String,
+  name: String,
   selected: Boolean,
 })
 

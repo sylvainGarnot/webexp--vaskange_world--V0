@@ -18,9 +18,9 @@
         <VskThumbnailSimple v-for="element in elements" :key="`card-${element.id}`" class="transition-group-element"
           :title="element.title" :imageUrl="`${element.image_url}`" :link="element.link"
           :description="element.description" @router-push="$emit('router-push')" />
-        <VskThumbnailSimple v-if="elements!.length < elementsMaxLength" title="À découvrir..."
-          class="transition-group-element" :imageUrl="`/images/location/secret_place.PNG`" :key="elementsMaxLength" />
       </TransitionGroup>
+      <VskThumbnailSimple v-if="elements && elements!.length < elementsMaxLength" title="À découvrir..."
+        :imageUrl="`/images/location/secret_place.PNG`" :key="elementsMaxLength" />
     </v-row>
   </div>
 </template>
@@ -42,25 +42,35 @@ const props = defineProps({
 })
 
 const switchValues = ref([
+  // {
+  //   label: 'défaut',
+  //   selected: true,
+  // },
+  // {
+  //   label: 'alpha',
+  //   selected: false,
+  // },
+  // {
+  //   label: 'date',
+  //   selected: false,
+  // },
   {
-    label: 'défaut',
+    name: 'date_asc',
+    label: 'Premier',
     selected: true,
   },
   {
-    label: 'alpha',
-    selected: false,
-  },
-  {
-    label: 'date',
+    name: 'date_desc',
+    label: 'Dernier',
     selected: false,
   },
 ]);
 
-function changeSwitchValue(value: string) {
+function changeSwitchValue(input: string) {
   for (let index = 0; index < switchValues.value.length; index++) {
-    if (switchValues.value[index].label === value) {
+    if (switchValues.value[index].name === input) {
       switchValues.value[index].selected = true
-      emit('change-switch-value', switchValues.value[index].label)
+      emit('change-switch-value', input)
     } else {
       switchValues.value[index].selected = false
     }
