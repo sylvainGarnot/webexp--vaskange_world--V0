@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 const props = defineProps({
   backgroundUrl: String,
-  imagesUrl: [String],
+  imagesUrl: Array,
 })
 </script>
 
