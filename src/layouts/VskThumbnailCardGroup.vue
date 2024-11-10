@@ -18,7 +18,7 @@
         <VskThumbnailCard v-for="element in elements" :key="element.id" class="transition-group-element"
           :title="element.title" :description="element.description" :imageUrl="`${element.image_url}`" />
         <VskThumbnailSimple v-if="elements!.length < elementsMaxLength" title="À découvrir..."
-          class="transition-group-element" :imageUrl="`/images/location/secret_place.PNG`" :key="elementsMaxLength" />
+          class="transition-group-element" :imageUrl="`/images/location/secret_place.png`" :key="elementsMaxLength" />
       </TransitionGroup>
     </v-row>
   </div>
