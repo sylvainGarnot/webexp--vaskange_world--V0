@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskBtn image="joystick" :disable="items_acquired!.length === 0" @click="open()" :active="isActive"
+    <VskBtn image="/icon/inventaire.png" :disable="items_acquired!.length === 0" @click="open()" :active="isActive"
       :badge="newElement" />
 
 

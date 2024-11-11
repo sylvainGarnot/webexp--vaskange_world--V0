@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskBtn :image="isFullscreen ? 'compress' : 'expand'" @click="toggleFullscreen()" />
+    <VskBtn :image="`/icon/fullscreen_${isFullscreen ? 'compress' : 'expand'}.png`" @click="toggleFullscreen()" />
   </div>
 </template>
 

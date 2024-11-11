@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskBtn image="map" @click="open()" :active="isActive" :badge="newElement" />
+    <VskBtn image="/icon/map.png" @click="open()" :active="isActive" :badge="newElement" />
 
     <VskCardTabs v-model:isActive="isActive" hasList :tabs="tabs">
       <template v-slot:lieux>

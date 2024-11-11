@@ -2,7 +2,7 @@
   <div class="vsk-btn-container">
     <button class="vsk-btn" :class="classes">
       <div v-if="disable" class="vsk-btn-disable-background"></div>
-      <img class="icon" :src="`/icones/${image}.png`" />
+      <img class="icon" :src="image" />
     </button>
     <v-badge v-if="badge" class="menu-element-badge" color="error" :content="badge" inline></v-badge>
   </div>
