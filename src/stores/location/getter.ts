@@ -4,7 +4,11 @@ import type { locationInterface } from './interface';
 
 
 export const locationsName = computed(() => {
-  return locations.value.map(l => l.name);
+  return locations.value.map(l => l.name) as string[];
+})
+
+export const locationsFoundId = computed(() => {
+  return locations_found.value.map(l => l.id) as string[];
 })
 
 export const theHiddenPlace = computed(() => {

@@ -7,6 +7,7 @@ import { changeMusicByLocation } from '../music/action';
 import { characters } from '../character/state';
 import { dialogs } from '../dialog/state';
 import { items, items_acquired } from '../item/state';
+import { locationsFoundId } from './getter';
 
 import { currentBookmark, zoomIn } from '../bookmark/state';
 import { setCurrentBookmark, setZoomIn } from '../bookmark/action';
@@ -19,7 +20,15 @@ function addLocationFound(input: locationFoundInterface) {
   locations_found.value.push(input as locationFoundInterface);
 }
 
-// EXPORT
+function setCookieLocationsFound(input: string[]) {
+  document.cookie = `locations_found=${input}`
+}
+
+function removeCookieLocationsFound() {
+  setCookieLocationsFound([''])
+}
+
+// EXPORT - SETTER
 export function setCurrentLocation(input: locationFoundInterface) {
   console.log('TEST - TRY setCurrentLocation', input.name, isLocationIsChanging.value); // TEST
   if (!isLocationIsChanging.value && input.name !== currentLocation.value.name) {
@@ -34,6 +43,48 @@ export function setCurrentLocation(input: locationFoundInterface) {
     }, 800);
   }
 };
+
+export function setDefaultLocationFound() {
+  onLocationFound(locations.value[0] as locationFoundInterface);
+  onLocationFound(locations.value[1] as locationFoundInterface);
+  // onLocationFound(locations.value[2] as locationFoundInterface);
+  // onLocationFound(locations.value[3] as locationFoundInterface);
+  // onLocationFound(locations.value[4] as locationFoundInterface);
+  // onLocationFound(locations.value[5] as locationFoundInterface);
+  // onLocationFound(locations.value[6] as locationFoundInterface);
+  // onLocationFound(locations.value[7] as locationFoundInterface);
+  // onLocationFound(locations.value[8] as locationFoundInterface);
+  // onLocationFound(locations.value[9] as locationFoundInterface);
+  // onLocationFound(locations.value[10] as locationFoundInterface);
+  // onLocationFound(locations.value[99] as locationFoundInterface);
+}
+
+export function setIsLocationEndReach(input: boolean) {
+  console.log('TEST setIsLocationEndReach', input) // TEST
+  isLocationEndReach.value = input;
+}
+
+// EXPORT - EVENTS
+export function onLocationEndReach(inputBookmarks: bookmarkInterface[]) {
+  console.log('TEST onLocationEndReach'); // TEST
+
+  inputBookmarks = inputBookmarks.sort((a, b) => b.zoomFactor - a.zoomFactor);
+  const closestInputBookmark = inputBookmarks[0] as bookmarkInterface;
+  if (closestInputBookmark?.zoomFactor) {
+    if (currentBookmark?.value?.zoomFactor) {
+      if (closestInputBookmark.zoomFactor < currentBookmark.value.zoomFactor) {
+        setZoomIn(true);
+      } else {
+        setZoomIn(false);
+      }
+    }
+    setCurrentBookmark(closestInputBookmark as bookmarkInterface);
+  }
+
+  if (!isLocationEndReach.value && !zoomIn.value) {
+    setIsLocationEndReach(true);
+  }
+}
 
 export function onLocationFound(input: locationInterface) {
 
@@ -72,50 +123,6 @@ export function onLocationFound(input: locationInterface) {
   }
 
   setCurrentLocation(locationFound as locationFoundInterface);
+
+  setCookieLocationsFound(locationsFoundId.value as string[])
 };
-
-export function setDefaultLocationFound() {
-  // DEFAULT VALUES
-  onLocationFound(locations.value[0] as locationFoundInterface);
-  onLocationFound(locations.value[1] as locationFoundInterface);
-  
-  // TEST
-  // onLocationFound(locations.value[2] as locationFoundInterface);
-  // onLocationFound(locations.value[3] as locationFoundInterface);
-  // onLocationFound(locations.value[4] as locationFoundInterface);
-  // onLocationFound(locations.value[5] as locationFoundInterface);
-  // onLocationFound(locations.value[6] as locationFoundInterface);
-  // onLocationFound(locations.value[7] as locationFoundInterface);
-  // onLocationFound(locations.value[8] as locationFoundInterface);
-  // onLocationFound(locations.value[9] as locationFoundInterface);
-  // onLocationFound(locations.value[10] as locationFoundInterface);
-  // onLocationFound(locations.value[99] as locationFoundInterface);
-}
-
-export function setIsLocationEndReach(input: boolean) {
-  console.log('TEST setIsLocationEndReach', input) // TEST
-  isLocationEndReach.value = input;
-}
-
-export function onLocationEndReach(inputBookmarks: bookmarkInterface[]) {
-  console.log('TEST onLocationEndReach'); // TEST
-
-  
-  // SET ZOOMIN
-  inputBookmarks = inputBookmarks.sort((a, b) => b.zoomFactor - a.zoomFactor);
-  const closestInputBookmark = inputBookmarks[0] as bookmarkInterface;
-  if (closestInputBookmark?.zoomFactor) {
-    if (currentBookmark?.value?.zoomFactor) {
-      if (closestInputBookmark.zoomFactor < currentBookmark.value.zoomFactor) {
-        setZoomIn(true);
-      } else {
-        setZoomIn(false);
-      }
-    }
-    setCurrentBookmark(closestInputBookmark as bookmarkInterface);
-  }
-
-  if (!isLocationEndReach.value && !zoomIn.value) {
-    setIsLocationEndReach(true);
-  }
-}

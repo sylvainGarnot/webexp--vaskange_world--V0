@@ -4,7 +4,7 @@ import { readonly } from 'vue';
 
 // import { currentLocation, locations_found, locations, isLocationEndReach, locationEndName, isLocationIsChanging } from './state'; // TEST
 import { currentLocation, locations_found, locations, isLocationEndReach, locationEndName } from './state';
-import { locationsName, theHiddenPlace, isTheHiddenPlaceFound } from './getter';
+import { locationsName, locationsFoundId, theHiddenPlace, isTheHiddenPlaceFound } from './getter';
 import { setCurrentLocation, onLocationFound, setDefaultLocationFound, onLocationEndReach, setIsLocationEndReach } from './action';
 
 
@@ -19,6 +19,7 @@ export const useLocationStore = defineStore("Location", () => {
     // isLocationIsChanging: readonly(isLocationIsChanging),
 
     locationsName: readonly(locationsName),
+    locationsFoundId: readonly(locationsFoundId),
     theHiddenPlace: readonly(theHiddenPlace),
     isTheHiddenPlaceFound: readonly(isTheHiddenPlaceFound),
     
