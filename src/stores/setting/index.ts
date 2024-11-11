@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { readonly } from 'vue';
 
 import { isFullscreen, cookies } from './state';
-import { setIsFullscreen, toggleFullscreen, getCookies } from './action';
+import { setIsFullscreen, toggleFullscreen, getBrowserCookies, postBrowserCookie, deleteBrowserCookies } from './action';
 
 export const useSettingStore = defineStore("Setting", () => {
   
@@ -12,6 +12,8 @@ export const useSettingStore = defineStore("Setting", () => {
 
     setIsFullscreen,
     toggleFullscreen,
-    getCookies,
+    getBrowserCookies,
+    postBrowserCookie,
+    deleteBrowserCookies,
   }
 })

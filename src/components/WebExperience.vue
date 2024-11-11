@@ -13,17 +13,23 @@
     <TransitionGroup name="fade-top" tag="div">
       <WebExperienceCharacterDialogGift v-if="isDialogActive && currentDialog?.type === 'gift'" />
     </TransitionGroup>
+
+    <TransitionGroup name="fade-top" tag="div">
+      <WebExperienceLoadUserData v-model:isActive="isLoadUserDataDialogActive" key="0" />
+    </TransitionGroup>
+
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, watch } from "vue";
+import { onMounted, watch, ref } from "vue";
 import { useRoute } from 'vue-router';
 
 import WebExperienceCharacterCall from "@/components/WebExperienceCharacterCall.vue";
 import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
 import WebExperienceCharacterDialogGift from "@/components/WebExperienceCharacterDialogGift.vue";
 import WebExperienceAlertLocationEndReach from "@/components/WebExperienceAlertLocationEndReach.vue";
+import WebExperienceLoadUserData from "@/components/WebExperienceLoadUserData.vue";
 
 import { useApi } from "./WebExperienceApi.js";
 import { shapes } from "../assets/constants/shapes";
@@ -33,6 +39,7 @@ import { useBookmarkStore } from "@/stores/bookmark";
 import { useLocationStore } from "@/stores/location";
 import { useCharacterStore } from "@/stores/character";
 import { useDialogStore } from "@/stores/dialog";
+import { useSettingStore } from "@/stores/setting";
 
 import type { locationFoundInterface, locationInterface } from "@/stores/location/interface.js";
 import type { characterFoundInterface } from "@/stores/character/interface.js";
@@ -56,6 +63,11 @@ const dialogStore = useDialogStore();
 const { currentDialog, isDialogActive, isCallDialogActive } = storeToRefs(dialogStore);
 const { setIsDialogActive } = dialogStore;
 
+const settingStore = useSettingStore();
+const { cookies } = storeToRefs(settingStore)
+const { getBrowserCookies } = settingStore;
+
+const isLoadUserDataDialogActive = ref(false);
 
 
 // WATCHER
@@ -69,7 +81,7 @@ watch(
 // MOUNTED
 onMounted(() => {
   EndlessPaper.onLoad(function () {
-    console.log("TEST - WebXP LOADED !"); // TEST
+    // console.log("TEST - WebXP LOADED !"); // TEST
 
     EndlessPaper.showNavBar(false);
     EndlessPaper.showTravelButtons(false);
@@ -107,7 +119,14 @@ onMounted(() => {
     EndlessPaper.addShapeEventListener("touchend", handleShapeClick);
     EndlessPaper.setShapes(shapes);
 
-    setDefaultLocationFound();
+    getBrowserCookies()
+    if (cookies.value && cookies.value.length > 0) {
+      isLoadUserDataDialogActive.value = true
+    } else {
+      // setDefaultLocationFound();
+    }
+
+
     setTimeout(() => {
       if (route?.query?.location && route?.query?.force) {
         EndlessPaper.visitBookmark(route?.query?.location as string);

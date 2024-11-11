@@ -1,10 +1,19 @@
-import { cookies, isFullscreen } from './state';
+import { cookies, cookiesKey, isFullscreen } from './state';
 import type { cookieInterface } from './interface';
 
 // PRIVATE
 function setCookies(input: cookieInterface[]) {
   cookies.value = input as cookieInterface[];
 }
+
+function setCookie(key: string, values: string[]) {
+  for (let index = 0; index < cookies.value.length; index++) {
+    if (cookies.value[index].key === key) {
+      cookies.value[index].values = values
+    }
+  }
+}
+
 
 // EXPORT
 export function setIsFullscreen(input: boolean) {
@@ -19,7 +28,7 @@ export function toggleFullscreen() {
   }
 };
 
-export function getCookies() {
+export function getBrowserCookies() {
   let result = [] as cookieInterface[]
 
   let cookies = document.cookie.split(';')
@@ -30,12 +39,16 @@ export function getCookies() {
       if (cookie.charAt(j) === '=') {
         const cookieKey = cookie.substring(0, j).trim()
 
-        let cookieValues = cookie.substring(j + 1).trim().split(',')
+        if (cookieKey && cookiesKey.value.includes(cookieKey)) {
+          let cookieValues = cookie.substring(j + 1).trim().split(',')
 
-        result.push({
-          key: cookieKey,
-          values: Array.from(cookieValues)
-        })
+          if (cookieValues && cookieValues[0]) {
+            result.push({
+              key: cookieKey,
+              values: Array.from(cookieValues)
+            }) 
+          }
+        }
 
         j = cookie.length
       } else {
@@ -44,4 +57,16 @@ export function getCookies() {
     }
   }
   setCookies(result)
+}
+
+export function postBrowserCookie(key: string, values: string[]) {
+  document.cookie = `${key}=${values}`
+  setCookie(key as string, values as string[])
+}
+
+export function deleteBrowserCookies() {
+  for (let index = 0; index < cookiesKey.value.length; index++) {
+    document.cookie = `${cookiesKey.value[index]}=`
+  }
+  setCookies([])
 }

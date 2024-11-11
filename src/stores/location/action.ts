@@ -13,19 +13,15 @@ import { currentBookmark, zoomIn } from '../bookmark/state';
 import { setCurrentBookmark, setZoomIn } from '../bookmark/action';
 import type { bookmarkInterface } from '../bookmark/interface';
 
+import { postBrowserCookie } from '../setting/action';
+import { cookies } from '../setting/state';
+import type { cookieInterface } from '../setting/interface';
+
 
 // PRIVATE
 function addLocationFound(input: locationFoundInterface) {
   console.log('TEST - addLocationFound', input.name); // TEST
   locations_found.value.push(input as locationFoundInterface);
-}
-
-function setCookieLocationsFound(input: string[]) {
-  document.cookie = `locations_found=${input}`
-}
-
-function removeCookieLocationsFound() {
-  setCookieLocationsFound([''])
 }
 
 // EXPORT - SETTER
@@ -57,6 +53,20 @@ export function setDefaultLocationFound() {
   // onLocationFound(locations.value[9] as locationFoundInterface);
   // onLocationFound(locations.value[10] as locationFoundInterface);
   // onLocationFound(locations.value[99] as locationFoundInterface);
+}
+
+export function setLocationFromCookies() {
+  const cookieLocationsFound = cookies.value.find(c => c.key === 'locations_found') as cookieInterface
+  const cookieLocationsFoundIds = cookieLocationsFound.values as string[]
+
+  if (cookieLocationsFoundIds && cookieLocationsFoundIds.length > 0) {
+    for (let index = 0; index < cookieLocationsFoundIds.length; index++) {
+      const location = locations.value.find(l => l.id === cookieLocationsFoundIds[index]) as locationInterface
+      if (location) {
+        onLocationFound(location as locationInterface)
+      }
+    }
+  }
 }
 
 export function setIsLocationEndReach(input: boolean) {
@@ -124,5 +134,5 @@ export function onLocationFound(input: locationInterface) {
 
   setCurrentLocation(locationFound as locationFoundInterface);
 
-  setCookieLocationsFound(locationsFoundId.value as string[])
+  postBrowserCookie('locations_found', locationsFoundId.value as string[])
 };
