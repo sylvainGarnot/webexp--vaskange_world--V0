@@ -45,6 +45,16 @@ export const characters = ref([
     is_hidden: false,
     image_url: ''
   },
+  // FOOTBALL - MAILLOT
+  {
+    id: '23',
+    name: 'football_captain',
+    label: '',
+    dialog: '23',
+    location: '2',
+    is_hidden: false,
+    image_url: ''
+  },
   // FOOTBALL - EASTER
   {
     id: '29',
@@ -170,6 +180,36 @@ export const characters = ref([
     name: 'tennis_perso',
     label: '',
     dialog: '0',
+    location: '5',
+    is_hidden: false,
+    image_url: ''
+  },
+  // TENNIS - BANDEAU
+  {
+    id: '51',
+    name: 'tennis_bandeau',
+    label: '',
+    dialog: '51',
+    location: '5',
+    is_hidden: false,
+    image_url: ''
+  },
+  // TENNIS - CASQUETTE
+  {
+    id: '52',
+    name: 'tennis_casquette',
+    label: '',
+    dialog: '52',
+    location: '5',
+    is_hidden: false,
+    image_url: ''
+  },
+  // TENNIS - RAQUETTE
+  {
+    id: '53',
+    name: 'tennis_raquette',
+    label: '',
+    dialog: '53',
     location: '5',
     is_hidden: false,
     image_url: ''

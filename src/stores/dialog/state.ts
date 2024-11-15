@@ -52,6 +52,14 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
   },
+  // FOOTBALL - CAPTAIN
+  {
+    id: '23',
+    speech_written: speech_item_found,
+    item_provided: '23',
+    answers: [],
+    type: 'gift',
+  },
 
 
   // ##### BASEBALL -3- #####
@@ -109,6 +117,30 @@ export const dialogs = ref([
 
 
   // ##### TENNIS -5- #####
+  // TENNIS - BANDEAU
+  {
+    id: '51',
+    speech_written: speech_item_found,
+    item_provided: '51',
+    answers: [],
+    type: 'gift',
+  },
+  // TENNIS - CASQUETTE
+  {
+    id: '52',
+    speech_written: speech_item_found,
+    item_provided: '52',
+    answers: [],
+    type: 'gift',
+  },
+  // TENNIS - RAQUETTE
+  {
+    id: '53',
+    speech_written: speech_item_found,
+    item_provided: '53',
+    answers: [],
+    type: 'gift',
+  },
 
   
   // ##### MMA -6- #####

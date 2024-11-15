@@ -32,6 +32,15 @@ export const items = ref([
     image_url: '/images/item/color/football_maillot.png',
     image_url_unfound: '/images/item/black&white/football_maillot.png'
   },
+  // FOOTBALL - MAILLOT
+  {
+    id: '23',
+    name: 'Football Capitaine',
+    description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
+    is_hidden: false,
+    image_url: '/images/item/color/football_captain.png',
+    image_url_unfound: '/images/item/black&white/football_captain.png'
+  },
 
 
   // ##### BASEBALL -3- #####
@@ -95,6 +104,33 @@ export const items = ref([
 
   
   // ##### TENNIS -5- #####
+  // TENNIS - BANDEAU
+  {
+    id: '51',
+    name: 'Bandeau',
+    description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
+    is_hidden: false,
+    image_url: '/images/item/color/tennis_bandeau.png',
+    image_url_unfound: '/images/item/black&white/tennis_bandeau.png'
+  },
+  // TENNIS - CASQUETTE
+  {
+    id: '52',
+    name: 'Casquette',
+    description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
+    is_hidden: false,
+    image_url: '/images/item/color/tennis_casquette.png',
+    image_url_unfound: '/images/item/black&white/tennis_casquette.png'
+  },
+  // TENNIS - RAQUETTE
+  {
+    id: '53',
+    name: 'Raquette',
+    description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
+    is_hidden: false,
+    image_url: '/images/item/color/tennis_raquette.png',
+    image_url_unfound: '/images/item/black&white/tennis_raquette.png'
+  },
 
   
   // ##### MMA -6- #####
