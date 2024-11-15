@@ -67,13 +67,11 @@ function close() {
 </script>
 
 <style lang="scss">
+@import '@/assets/styles/_global_variable.scss';
+
 .v-carousel {
   height: 54vh !important;
   max-height: 780px !important;
-
-  @media (max-width: 599px) {
-    height: 62vh !important;
-  }
 
   .v-window__controls .v-btn {
     opacity: 0.25;
@@ -83,12 +81,22 @@ function close() {
       opacity: 1;
     }
   }
-}
 
-.v-carousel .v-carousel__controls {
-  top: 0.8vh !important;
-  left: 50% !important;
-  transform: translateX(-50%);
-  width: 50%;
+  .v-carousel__controls {
+    top: $radiusValue !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    width: 50%;
+  }
+
+  @media (max-width: 599px) {
+    height: 62vh !important;
+  }
+
+  @media (min-width: 600px) {
+    .v-carousel-item {
+      margin: 0px calc(82.5px + $radiusValue);
+    }
+  }
 }
 </style>

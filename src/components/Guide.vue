@@ -44,6 +44,7 @@ const carouselItems = [
     name: 'guide',
     title: 'Guide',
     description: 'Bienvenue dans cette expérience BetClic, suivez ces quelques conseils avant de commencer',
+    image_url: '/images/guide/guide-lieu.gif',
   },
   {
     name: 'lieu',
