@@ -60,7 +60,9 @@ export function updateBookmarkHasLocation(inputBookmarks: bookmarkInterface[]) {
   
   // STEP-A.2) Zoom in/out Location
   if (closestInnerBookmarkLocation?.intersectionInfo?.visibleBookmarkRatio > 0.009) {
+    // ZOOM-IN
     if (zoomIn?.value && isZoomStarted.value && closestInnerBookmarkLocation?.zoomFactor < 1) {
+      // console.log('ZOOM IN') // TEST
       if (closestInnerBookmarkLocation?.name !== currentLocation?.value?.name) {
 
         const locationFound = locations_found.value.find(l => l.name === closestInnerBookmarkLocation.name) as locationFoundInterface
@@ -74,7 +76,9 @@ export function updateBookmarkHasLocation(inputBookmarks: bookmarkInterface[]) {
         }
       }
     }
-    else if (!zoomIn?.value && isZoomStarted.value && closestInnerBookmarkLocation?.zoomFactor > 3) {
+    // ZOOM-OUT
+    else if (!zoomIn?.value && isZoomStarted.value && closestInnerBookmarkLocation?.zoomFactor > 9) {
+      // console.log('ZOOM OUT') // TEST
       const closestInnerLocation = locations.value.find(l => l.name === closestInnerBookmarkLocation?.name) as locationInterface
       if (closestInnerLocation?.upper_location !== currentLocation?.value?.id) {
         const locationFound = locations_found.value.find(l => l.id === closestInnerLocation?.upper_location) as locationFoundInterface;

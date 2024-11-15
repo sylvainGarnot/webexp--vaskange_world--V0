@@ -93,7 +93,7 @@ onMounted(() => {
       {
         name: locationsName.value,
         visibleBookmarkRatio: '> 0.005',
-        zoomFactor: '< 3.5',
+        zoomFactor: '< 12',
       },
       updateBookmarkHasLocation
     );
