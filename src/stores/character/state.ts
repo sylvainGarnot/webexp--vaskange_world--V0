@@ -45,7 +45,7 @@ export const characters = ref([
     is_hidden: false,
     image_url: ''
   },
-  // FOOTBALL - EASTER (à replacer)
+  // FOOTBALL - EASTER
   {
     id: '29',
     name: 'football_easter',
@@ -102,7 +102,7 @@ export const characters = ref([
   {
     id: '39',
     name: 'baseball_easter',
-    label: '',
+    label: 'Baseball easter eggs',
     dialog: '9',
     location: '3',
     is_hidden: true,
@@ -155,7 +155,7 @@ export const characters = ref([
   {
     id: '49',
     name: 'basket_easter',
-    label: '',
+    label: 'Basket easter eggs',
     dialog: '9',
     location: '4',
     is_hidden: true,
@@ -167,7 +167,7 @@ export const characters = ref([
   // TENNIS - PERSO
   {
     id: '50',
-    name: 'tenis_perso',
+    name: 'tennis_perso',
     label: '',
     dialog: '0',
     location: '5',
@@ -177,8 +177,8 @@ export const characters = ref([
   // TENNIS - EASTER
   {
     id: '59',
-    name: 'tenis_easter',
-    label: '',
+    name: 'tennis_easter',
+    label: 'Tennis easter eggs',
     dialog: '9',
     location: '5',
     is_hidden: true,
@@ -231,7 +231,7 @@ export const characters = ref([
   {
     id: '69',
     name: 'mma_easter',
-    label: '',
+    label: 'Mma easter eggs',
     dialog: '9',
     location: '6',
     is_hidden: true,
@@ -240,7 +240,7 @@ export const characters = ref([
 
   
   // ##### CYCLISME -7- #####
-  // CYCLISME - PERSO inéxistant!
+  // CYCLISME - PERSO
   {
     id: '70',
     name: 'cyclisme_perso',
@@ -370,7 +370,7 @@ export const characters = ref([
   {
     id: '99',
     name: 'rugby_easter',
-    label: '',
+    label: 'Rugby easter eggs',
     dialog: '9',
     location: '9',
     is_hidden: true,
@@ -419,11 +419,11 @@ export const characters = ref([
     is_hidden: false,
     image_url: ''
   },
-  // MONTAGNE - EASTER inéxistant!
+  // MONTAGNE - EASTER
   {
     id: '109',
     name: 'montagne_easter',
-    label: '',
+    label: 'Montagne easter eggs',
     dialog: '9',
     location: '10',
     is_hidden: true,

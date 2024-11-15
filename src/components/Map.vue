@@ -10,7 +10,8 @@
       </template>
       <template v-slot:secrets>
         <VskThumbnailSimpleGroup title="Secrets" :elements="characters_hidden_foundSorted"
-          :elements-max-length="characters.length" v-model:switchValues="switchValues" @router-push="isActive = false">
+          :elements-max-length="characters_hidden.length" v-model:switchValues="switchValues"
+          @router-push="isActive = false">
         </VskThumbnailSimpleGroup>
       </template>
     </VskCardTabs>
@@ -37,7 +38,7 @@ const locationStore = useLocationStore()
 const { locations_found, locations } = storeToRefs(locationStore)
 
 const characterStore = useCharacterStore()
-const { characters_hidden_found, characters } = storeToRefs(characterStore)
+const { characters_hidden, characters_hidden_found } = storeToRefs(characterStore)
 
 
 // VARIABLES

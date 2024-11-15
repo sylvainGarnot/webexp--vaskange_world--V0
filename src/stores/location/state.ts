@@ -81,7 +81,7 @@ export const locations = ref([
   // TENNIS -5-
   {
     id: '5',
-    name: 'tenis',
+    name: 'tennis',
     label: 'Tennis',
     message: 'Tennis',
     image_url: '/images/location/color/location_05.png',
@@ -157,17 +157,17 @@ export const locations = ref([
   },
 
   // EVREST -11-
-  {
-    id: '11',
-    name: 'evrest',
-    label: 'Evrest',
-    message: 'Evrest',
-    image_url: '/images/location/color/location_11.png',
-    image_url_unfound: '/images/location/black&white/location_11.png',
-    upper_location: '10',
-    is_hidden: false,
-    musics: ['0','1'],
-  },
+  // {
+  //   id: '11',
+  //   name: 'evrest',
+  //   label: 'Evrest',
+  //   message: 'Evrest',
+  //   image_url: '/images/location/color/???.png',
+  //   image_url_unfound: '/images/location/black&white/???.png',
+  //   upper_location: '10',
+  //   is_hidden: false,
+  //   musics: ['0','1'],
+  // },
 
   // SECRET END -99-
   {

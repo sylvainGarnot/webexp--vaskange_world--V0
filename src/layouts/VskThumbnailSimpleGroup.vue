@@ -19,7 +19,7 @@
           :title="element.title" :imageUrl="`${element.image_url}`" :link="element.link"
           :description="element.description" @router-push="$emit('router-push')" />
       </TransitionGroup>
-      <VskThumbnailSimple v-if="elements && elements!.length < elementsMaxLength" title="À découvrir..."
+      <VskThumbnailSimple v-if="elements && elements.length < elementsMaxLength" title="À découvrir..."
         :imageUrl="`/images/location/secret_place.png`" :key="elementsMaxLength" />
     </v-row>
   </div>
