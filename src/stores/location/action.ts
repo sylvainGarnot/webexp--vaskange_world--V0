@@ -41,7 +41,7 @@ export function setCurrentLocation(input: locationFoundInterface) {
 };
 
 export function setDefaultLocationFound() {
-  onLocationFound(locations.value[0] as locationFoundInterface);
+  // onLocationFound(locations.value[0] as locationFoundInterface);
   onLocationFound(locations.value[1] as locationFoundInterface);
   // onLocationFound(locations.value[2] as locationFoundInterface);
   // onLocationFound(locations.value[3] as locationFoundInterface);

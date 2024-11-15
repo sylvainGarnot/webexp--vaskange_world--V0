@@ -23,7 +23,7 @@ export const locations = ref([
     image_url_unfound: '/images/location/black&white/location_00.png',
     upper_location: '',
     is_hidden: false,
-    musics: ['0','1'],
+    musics: ['2','3'],
   },
 
   // EP_WebXP_Start -1-

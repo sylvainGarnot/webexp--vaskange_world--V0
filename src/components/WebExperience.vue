@@ -128,7 +128,7 @@ onMounted(() => {
     if (cookies.value && cookies.value.length > 0) {
       // isLoadUserDataDialogActive.value = true
     } else {
-      // setDefaultLocationFound();
+      setDefaultLocationFound();
     }
 
 
