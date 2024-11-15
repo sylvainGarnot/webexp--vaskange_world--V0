@@ -31,7 +31,7 @@ export function updateBookmarkHasLocation(inputBookmarks: bookmarkInterface[]) {
   // const test = inputBookmarks.find(b => b.name === "prairie 🌳") as bookmarkInterface; // TEST
   // const test = inputBookmarks.find(b => b.name === "vac-mer 🏝️") as bookmarkInterface; // TEST
   // console.log('TEST Bookmark Location bookmarks v/s/z', test?.intersectionInfo?.visibleBookmarkRatio, test?.intersectionInfo?.screenAreaToBookmarkRatio, test?.zoomFactor);
-  // console.log('TEST Bookmark Location', inputBookmarks);
+  // console.log('TEST Bookmark Location', inputBookmarks); // TEST
 
   // STEP-A) SET INNER BOOKMARKS LOCATION
   let innerBookmarksLocation = [] as bookmarkInterface[];
@@ -96,15 +96,15 @@ export function updateBookmarkHasCharacter(inputBookmarks: bookmarkInterface[]) 
   // TEST
   // const test = inputBookmarks.find(b => b.name === "jump-q1") as bookmarkInterface; // TEST
   // console.log('TEST Bookmark Character bookmarks v/s/z', test?.intersectionInfo?.visibleBookmarkRatio, test?.intersectionInfo?.screenAreaToBookmarkRatio, test?.zoomFactor);
-  // console.log('TEST Bookmark Character', inputBookmarks);
+  // console.log('TEST Bookmark Character', inputBookmarks); // TEST
   
   // STEP-B) SET CLOSEST NEARBY BOOKMARKS CHARACTER
   let nearByBookmarksCharacter = [] as bookmarkInterface[];
   for (let index = 0; index < inputBookmarks.length; index++) {
     if (
-      inputBookmarks[index]?.intersectionInfo?.visibleBookmarkRatio >= 0.4 &&
-      inputBookmarks[index]?.zoomFactor >= 1 &&
-      inputBookmarks[index]?.zoomFactor <= 3
+      inputBookmarks[index]?.intersectionInfo?.visibleBookmarkRatio >= 0.15 &&
+      inputBookmarks[index]?.zoomFactor >= 0.5 &&
+      inputBookmarks[index]?.zoomFactor <= 9
     ) {
       nearByBookmarksCharacter.push(inputBookmarks[index] as bookmarkInterface);
     }

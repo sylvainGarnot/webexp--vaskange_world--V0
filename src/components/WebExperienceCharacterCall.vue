@@ -67,7 +67,7 @@ const characterCallHeight = computed(() => {
 .vsk-character-bookmark-test {
   position: absolute;
   border: solid 4px cyan;
-  display: none;
+  display: none; // TEST
 }
 
 .vsk-character-call-container,

@@ -101,8 +101,8 @@ onMounted(() => {
     EndlessPaper.onBookmarkNearby(
       {
         name: charactersName.value,
-        visibleBookmarkRatio: '>= 0.25',
-        zoomFactor: '<= 6',
+        visibleBookmarkRatio: '>= 0.05',
+        zoomFactor: '<= 12',
       },
       updateBookmarkHasCharacter
     );
