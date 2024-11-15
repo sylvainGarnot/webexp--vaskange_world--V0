@@ -59,12 +59,12 @@ const tabs = [
 const switchValues = ref([
   {
     name: 'date_asc',
-    label: 'Premier',
+    label: 'premier trouvé',
     selected: true,
   },
   {
     name: 'date_desc',
-    label: 'Dernier',
+    label: 'dernier trouvé',
     selected: false,
   },
 ] as VskSwitchInterface[]);
