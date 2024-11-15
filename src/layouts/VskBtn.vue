@@ -4,7 +4,7 @@
       <div v-if="disable" class="vsk-btn-disable-background"></div>
       <img class="icon" :src="image" />
     </button>
-    <v-badge v-if="badge" class="menu-element-badge" color="error" :content="badge" inline></v-badge>
+    <v-badge v-if="badge" class="menu-element-badge" :color="badgeType" :content="badge" inline></v-badge>
   </div>
 </template>
 
@@ -16,6 +16,10 @@ const props = defineProps({
   disable: Boolean,
   active: Boolean,
   badge: Number,
+  badgeType: {
+    type: String,
+    default: 'error',
+  }
 })
 
 const classes = computed(() => {
