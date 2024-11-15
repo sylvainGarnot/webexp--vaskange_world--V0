@@ -280,15 +280,6 @@ export const characters = ref([
     is_hidden: false,
     image_url: ''
   },
-  // CYCLISME - EASTER inéxistant!
-  {
-    id: '79',
-    name: 'cyclisme_easter',
-    label: '',
-    dialog: '9',
-    location: '7',
-    is_hidden: true,
-  },
 
 
   // ##### HOCKEY -8- #####
@@ -325,21 +316,11 @@ export const characters = ref([
   // HOCKEY - PATINS
   {
     id: '83',
-    name: 'hockey_patin',
+    name: 'hockey_patins',
     label: '',
     dialog: '83',
     location: '8',
     is_hidden: false,
-    image_url: ''
-  },
-  // HOCKEY - EASTER inéxistant!
-  {
-    id: '89',
-    name: 'hockey_easter',
-    label: '',
-    dialog: '9',
-    location: '8',
-    is_hidden: true,
     image_url: ''
   },
 
@@ -446,7 +427,7 @@ export const characters = ref([
     dialog: '9',
     location: '10',
     is_hidden: true,
-    image_url: '/images/character/montagne_easter.png'
+    image_url: ''
   },
 
   
