@@ -78,26 +78,27 @@ const itemsSorted = computed(() => {
   const tripleItems = [] as VskThumbnailTripleInterface[]
 
   for (let i = 0; i < locations_found.value.length; i++) {
-    const location = locations_found.value[i]
+    const locationFound = locations_found.value[i]
 
-    if (location.itemsToAcquired.length > 0) {
+    if (locationFound.itemsToAcquired.length > 0) {
 
       const newTripleItem = {
-        id: location.id,
-        background_url: location.image_url,
+        id: locationFound.id,
+        background_url: locationFound.image_url,
         images_url: [],
-        date: location.found_date,
+        date: locationFound.found_date,
       } as VskThumbnailTripleInterface
 
-      for (let index = 0; index < location.itemsToAcquired.length; index++) {
-        if (!location.itemsAcquired.includes(location.itemsToAcquired[index])) {
-          newTripleItem.background_url = location.image_url_unfound
+      for (let index = 0; index < locationFound.itemsToAcquired.length; index++) {
+        if (!locationFound.itemsAcquired.includes(locationFound.itemsToAcquired[index])) {
+          newTripleItem.background_url = locationFound.image_url_unfound
         }
       }
 
-      for (let j = 0; j < location.itemsToAcquired.length; j++) {
-        const itemId = location.itemsToAcquired[j]
-        if (location.itemsAcquired.includes(itemId)) {
+      for (let j = 0; j < locationFound.itemsToAcquired.length; j++) {
+        const itemId = locationFound.itemsToAcquired[j]
+
+        if (locationFound.itemsAcquired.includes(itemId)) {
           const itemAcquired = items_acquired.value.find(i => i.id === itemId)
           newTripleItem.images_url.push(itemAcquired?.image_url as string)
         } else {

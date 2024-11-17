@@ -63,7 +63,7 @@ export const dialogs = ref([
 
 
   // ##### BASEBALL -3- #####
-  // BASEBALL - BAT
+  // BASEBALL - CASQUETTE
   {
     id: '31',
     speech_written: speech_item_found,
@@ -71,7 +71,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
   },
-  // BASEBALL - CASQUETTE
+  // BASEBALL - BATTE
   {
     id: '32',
     speech_written: speech_item_found,

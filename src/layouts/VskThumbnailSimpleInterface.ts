@@ -3,6 +3,7 @@ export interface VskThumbnailSimpleInterface {
   title: string,
   description: string,
   link: string,
-  image_url: string,
+  background_url: string,
+  images_url: string[],
   date: Date
 }

@@ -36,6 +36,7 @@ import { useCharacterStore } from "@/stores/character"
 import type { characterFoundInterface, characterInterface } from '@/stores/character/interface';
 
 import { useItemStore } from "@/stores/item"
+import type { itemAcquiredInterface, itemInterface } from '@/stores/item/interface';
 
 const locationStore = useLocationStore()
 const { locations_found, locations } = storeToRefs(locationStore)
@@ -104,12 +105,30 @@ const locationsSorted = computed(() => {
   for (const location of locations.value as locationInterface[]) {
     const locationFound = locations_found.value.find(l => l.id === location.id) as locationFoundInterface
     if (locationFound as locationFoundInterface) {
+
+      const images_url = [] as string[]
+      if (locationFound.itemsToAcquired.length > 0) {
+
+        for (let j = 0; j < locationFound.itemsToAcquired.length; j++) {
+          const itemId = locationFound.itemsToAcquired[j] as string
+
+          if (locationFound.itemsAcquired.includes(itemId)) {
+            const itemAcquired = items_acquired.value.find(i => i.id === itemId) as itemAcquiredInterface
+            images_url.push(itemAcquired?.image_url as string)
+          } else {
+            const itemToAcquired = items.value.find(i => i.id === itemId) as itemInterface
+            images_url.push(itemToAcquired?.image_url_unfound as string)
+          }
+        }
+      }
+
       result.push({
         id: locationFound.id,
         title: locationFound.label,
         description: locationFound?.itemsToAcquired.length > 0 ? `objets trouvés ${locationFound?.itemsAcquired.length} / ${locationFound?.itemsToAcquired.length}` : '',
         link: locationFound.name,
-        image_url: locationFound.image_url,
+        background_url: locationFound.image_url,
+        images_url,
         date: locationFound.found_date
       } as VskThumbnailSimpleInterface)
     } else {
@@ -118,7 +137,8 @@ const locationsSorted = computed(() => {
         title: 'À découvrir...',
         description: '',
         link: '',
-        image_url: location.image_url_unfound,
+        background_url: location.image_url_unfound,
+        images_url: [],
         date: new Date()
       } as VskThumbnailSimpleInterface)
     }
@@ -141,17 +161,6 @@ const locationsSorted = computed(() => {
 const characters_hidden_sorted = computed(() => {
   const result = [] as VskThumbnailSimpleInterface[]
 
-  for (const element of characters_hidden_found.value as characterFoundInterface[]) {
-    result.push({
-      id: element.id,
-      title: element.label,
-      description: element?.itemToAcquired ? `objet donné ${element?.itemAcquired ? '1' : '0'} / 1` : '',
-      link: element.name,
-      image_url: element.image_url,
-      date: element.found_date
-    })
-  }
-
   for (const characterHidden of characters_hidden.value as characterInterface[]) {
     const characterHiddenFound = characters_hidden_found.value.find(c => c.id === characterHidden.id) as characterFoundInterface
     if (characterHiddenFound as characterFoundInterface) {
@@ -160,7 +169,8 @@ const characters_hidden_sorted = computed(() => {
         title: characterHiddenFound.label,
         description: characterHiddenFound?.itemToAcquired ? `objet donné ${characterHiddenFound?.itemAcquired ? '1' : '0'} / 1` : '',
         link: characterHiddenFound.name,
-        image_url: characterHiddenFound.image_url,
+        background_url: characterHiddenFound.image_url,
+        images_url: [],
         date: characterHiddenFound.found_date
       } as VskThumbnailSimpleInterface)
     } else {
@@ -169,7 +179,8 @@ const characters_hidden_sorted = computed(() => {
         title: 'À découvrir...',
         description: '',
         link: '',
-        image_url: characterHidden.image_url_unfound,
+        background_url: characterHidden.image_url_unfound,
+        images_url: [],
         date: new Date()
       } as VskThumbnailSimpleInterface)
     }

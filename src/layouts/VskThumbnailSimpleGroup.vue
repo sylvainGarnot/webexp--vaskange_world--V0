@@ -23,11 +23,11 @@
     <v-row no-gutters class="vsk-thumbnail-group-content px-3 pb-3 mt-3">
       <TransitionGroup name="vsk-thumbnail-group-content--animation" class="transition-group-element" tag="div">
         <VskThumbnailSimple v-for="element in elements" :key="`card-${element.id}`" class="transition-group-element"
-          :title="element.title" :imageUrl="`${element.image_url}`" :link="element.link"
-          :description="element.description" @router-push="$emit('router-push')" />
+          :title="element.title" :backgroundUrl="`${element.background_url}`" :link="element.link"
+          :description="element.description" @router-push="$emit('router-push')" :imagesUrl="element.images_url" />
       </TransitionGroup>
-      <VskThumbnailSimple v-if="elements && elements.length < elementsMaxLength" title="À découvrir..."
-        :imageUrl="`/images/location/secret_place.png`" :key="elementsMaxLength" />
+      <!-- <VskThumbnailSimple v-if="elements && elements.length < elementsMaxLength" title="À découvrir..."
+        :backgroundUrl="`/images/location/secret_place.png`" :key="elementsMaxLength" /> -->
     </v-row>
   </div>
 </template>

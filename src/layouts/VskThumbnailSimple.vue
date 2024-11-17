@@ -1,9 +1,17 @@
 <template>
   <div class="vsk-thumbnail mt-3" :class="link ? 'active' : ''" @click="onClick()">
-    <div v-if="link" class="vsk-thumbnail-background-layout"></div>
-    <img class="vsk-thumbnail-background" :src="imageUrl" />
-    <span class="title">{{ title }}</span>
-    <span v-if="description" class="description">{{ description }}</span>
+    <div v-if="link" class="vsk-thumbnail--background-layout"></div>
+    <img class="vsk-thumbnail--background" :src="backgroundUrl" />
+
+    <v-row v-if="imagesUrl && imagesUrl.length > 0" no-gutters class="vsk-thumbnail--img-container-row">
+      <v-col class="vsk-thumbnail--img-container-col" v-if="imagesUrl && imagesUrl.length > 0"
+        :cols="12 / imagesUrl.length" align="center" v-for="imageUrl in imagesUrl">
+        <div class="vsk-thumbnail--img" :style="`background-image: url(${imageUrl})`"></div>
+      </v-col>
+    </v-row>
+
+    <span class="vsk-thumbnail--title">{{ title }}</span>
+    <span v-if="description" class="vsk-thumbnail--description">{{ description }}</span>
   </div>
 </template>
 
@@ -17,7 +25,8 @@ const props = defineProps({
   title: String,
   description: String,
   link: String,
-  imageUrl: String,
+  backgroundUrl: String,
+  imagesUrl: Array,
 })
 
 function onClick() {
@@ -40,24 +49,24 @@ function onClick() {
 
 .vsk-thumbnail,
 .vsk-thumbnail img,
-.vsk-thumbnail .vsk-thumbnail-background,
-.vsk-thumbnail .vsk-thumbnail-background-layout {
+.vsk-thumbnail .vsk-thumbnail--background,
+.vsk-thumbnail .vsk-thumbnail--background-layout {
   border-radius: $radiusValue;
 }
 
 .vsk-thumbnail {
   width: 100%;
-  height: 12vh;
+  height: 14vh;
   position: relative;
 
-  span.title {
+  span.vsk-thumbnail--title {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
 
-  span.description {
+  span.vsk-thumbnail--description {
     position: absolute;
     bottom: 0.4vh;
     right: 0.4vh;
@@ -71,13 +80,13 @@ function onClick() {
     font-weight: 500;
   }
 
-  img.vsk-thumbnail-background {
+  img.vsk-thumbnail--background {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .vsk-thumbnail-background-layout {
+  .vsk-thumbnail--background-layout {
     position: absolute;
     z-index: 2;
     width: 100%;
@@ -92,29 +101,49 @@ function onClick() {
 }
 
 .vsk-thumbnail.active {
-  span.title {
+  span.vsk-thumbnail--title {
     color: $colorWhite;
-    font-size: 2.8vh;
+    font-size: 3.2vh;
     font-weight: 700;
     text-shadow: $shadow;
     white-space: nowrap;
   }
 
-  img.vsk-thumbnail-background {
+  img.vsk-thumbnail--background {
     border: 2px solid $colorGold;
+  }
+
+  .vsk-thumbnail--img-container-row {
+    position: absolute;
+    top: 0;
+    height: 40%;
+    width: 40%;
+
+    .vsk-thumbnail--img-container-col {
+
+      .vsk-thumbnail--img {
+        height: 100%;
+
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        filter: drop-shadow(5px 10px 3px $colorBlackLight);
+      }
+    }
   }
 }
 
 .vsk-thumbnail {
-  span.title {
+  span.vsk-thumbnail--title {
     color: $colorWhite;
-    font-size: 1.6vh;
+    font-size: 1.8vh;
     font-weight: 700;
     text-shadow: $shadow;
     white-space: nowrap;
   }
 
-  img.vsk-thumbnail-background {
+  img.vsk-thumbnail--background {
     border: 2px solid $colorGrey;
   }
 }

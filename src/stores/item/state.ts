@@ -41,21 +41,21 @@ export const items = ref([
 
 
   // ##### BASEBALL -3- #####
-  // BASEBALL - BAT
-  {
-    id: '31',
-    name: 'Batte de Baseball',
-    description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
-    image_url: '/images/item/color/baseball_bat.png',
-    image_url_unfound: '/images/item/black&white/baseball_bat.png'
-  },
   // BASEBALL - CASQUETTE
   {
-    id: '32',
+    id: '31',
     name: 'Casquette de Baseball',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/baseball_casquette.png',
     image_url_unfound: '/images/item/black&white/baseball_casquette.png'
+  },
+  // BASEBALL - BATTE
+  {
+    id: '32',
+    name: 'Batte de Baseball',
+    description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
+    image_url: '/images/item/color/baseball_bat.png',
+    image_url_unfound: '/images/item/black&white/baseball_bat.png'
   },
   // BASEBALL - GANT
   {

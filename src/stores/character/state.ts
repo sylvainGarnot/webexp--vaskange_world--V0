@@ -84,10 +84,10 @@ export const characters = ref([
     image_url: '',
     image_url_unfound: '',
   },
-  // BASEBALL - BAT
+  // BASEBALL - CASQUETTE
   {
     id: '31',
-    name: 'baseball_bat',
+    name: 'baseball_casquette',
     label: '',
     dialog: '31',
     location: '3',
@@ -95,10 +95,10 @@ export const characters = ref([
     image_url: '',
     image_url_unfound: '',
   },
-  // BASEBALL - CASQUETTE
+  // BASEBALL - BATTE
   {
     id: '32',
-    name: 'baseball_casquette',
+    name: 'baseball_bat',
     label: '',
     dialog: '32',
     location: '3',
