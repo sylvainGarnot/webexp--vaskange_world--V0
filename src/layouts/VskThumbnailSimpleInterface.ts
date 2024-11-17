@@ -5,5 +5,6 @@ export interface VskThumbnailSimpleInterface {
   link: string,
   background_url: string,
   images_url: string[],
-  date: Date
+  date: Date,
+  completed: boolean
 }

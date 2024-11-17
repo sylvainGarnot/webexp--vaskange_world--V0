@@ -24,7 +24,8 @@
       <TransitionGroup name="vsk-thumbnail-group-content--animation" class="transition-group-element" tag="div">
         <VskThumbnailSimple v-for="element in elements" :key="`card-${element.id}`" class="transition-group-element"
           :title="element.title" :backgroundUrl="`${element.background_url}`" :link="element.link"
-          :description="element.description" @router-push="$emit('router-push')" :imagesUrl="element.images_url" />
+          :description="element.description" @router-push="$emit('router-push')" :imagesUrl="element.images_url"
+          :completed="element.completed" />
       </TransitionGroup>
       <!-- <VskThumbnailSimple v-if="elements && elements.length < elementsMaxLength" title="À découvrir..."
         :backgroundUrl="`/images/location/secret_place.png`" :key="elementsMaxLength" /> -->

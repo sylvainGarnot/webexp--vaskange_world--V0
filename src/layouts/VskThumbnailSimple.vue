@@ -1,7 +1,7 @@
 <template>
   <div class="vsk-thumbnail mt-3" :class="link ? 'active' : ''" @click="onClick()">
     <div v-if="link" class="vsk-thumbnail--background-layout"></div>
-    <img class="vsk-thumbnail--background" :src="backgroundUrl" />
+    <img class="vsk-thumbnail--background" :class="completed ? 'completed' : ''" :src="backgroundUrl" />
 
     <v-row v-if="imagesUrl && imagesUrl.length > 0" no-gutters class="vsk-thumbnail--img-container-row">
       <v-col class="vsk-thumbnail--img-container-col" v-if="imagesUrl && imagesUrl.length > 0"
@@ -12,6 +12,8 @@
 
     <span class="vsk-thumbnail--title">{{ title }}</span>
     <span v-if="description" class="vsk-thumbnail--description">{{ description }}</span>
+
+    <v-icon v-if="completed" class="vsk-thumbnail--badge" size="large">mdi-star</v-icon>
   </div>
 </template>
 
@@ -27,6 +29,7 @@ const props = defineProps({
   link: String,
   backgroundUrl: String,
   imagesUrl: Array,
+  completed: Boolean,
 })
 
 function onClick() {
@@ -110,7 +113,11 @@ function onClick() {
   }
 
   img.vsk-thumbnail--background {
-    border: 2px solid $colorGold;
+    border: 2px solid $colorWhite;
+
+    &.completed {
+      border: 2px solid $colorGold;
+    }
   }
 
   .vsk-thumbnail--img-container-row {
@@ -131,6 +138,13 @@ function onClick() {
         filter: drop-shadow(5px 10px 3px $colorBlackLight);
       }
     }
+  }
+
+  .vsk-thumbnail--badge {
+    position: absolute;
+    color: $colorGoldDark;
+    right: -$radiusValue*1.1;
+    top: -$radiusValue*1.6;
   }
 }
 

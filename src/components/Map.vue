@@ -129,7 +129,8 @@ const locationsSorted = computed(() => {
         link: locationFound.name,
         background_url: locationFound.image_url,
         images_url,
-        date: locationFound.found_date
+        date: locationFound.found_date,
+        completed: locationFound?.itemsToAcquired.length > 0 && locationFound?.itemsToAcquired.length === locationFound?.itemsAcquired.length ? true : false,
       } as VskThumbnailSimpleInterface)
     } else {
       result.push({
@@ -139,7 +140,8 @@ const locationsSorted = computed(() => {
         link: '',
         background_url: location.image_url_unfound,
         images_url: [],
-        date: new Date()
+        date: new Date(),
+        completed: false,
       } as VskThumbnailSimpleInterface)
     }
   }
@@ -171,7 +173,8 @@ const characters_hidden_sorted = computed(() => {
         link: characterHiddenFound.name,
         background_url: characterHiddenFound.image_url,
         images_url: [],
-        date: characterHiddenFound.found_date
+        date: characterHiddenFound.found_date,
+        completed: false,
       } as VskThumbnailSimpleInterface)
     } else {
       result.push({
@@ -181,7 +184,8 @@ const characters_hidden_sorted = computed(() => {
         link: '',
         background_url: characterHidden.image_url_unfound,
         images_url: [],
-        date: new Date()
+        date: new Date(),
+        completed: false,
       } as VskThumbnailSimpleInterface)
     }
   }
