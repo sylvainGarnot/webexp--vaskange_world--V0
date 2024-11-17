@@ -27,13 +27,14 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useMusicStore } from "@/stores/music";
 
 import VskBtn from '@/layouts/VskBtn.vue'
 import VskCardCarousel from '@/layouts/VskCardCarousel.vue'
+import { locations_found } from '@/stores/location/state';
 
-const isActive = ref(true);
+const isActive = ref(false);
 // const progression = ref(0)
 
 const musicStore = useMusicStore();
@@ -88,6 +89,14 @@ const carouselItems = [
 // onMounted(() => {
 //   recursive()
 // });
+
+
+watch(locations_found.value, (value) => {
+  if (value.length === 1) {
+    isActive.value = true
+  }
+}, { deep: false })
+
 </script>
 
 <style lang="scss" scoped>

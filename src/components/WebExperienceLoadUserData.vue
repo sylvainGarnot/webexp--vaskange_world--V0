@@ -25,7 +25,7 @@
 
 <script lang="ts" setup>
 import VskCard from '@/layouts/VskCard.vue'
-import { setLocationFoundFromCookies } from '@/stores/location/action';
+import { setLocationFoundFromCookies, setDefaultLocationFound } from '@/stores/location/action';
 import { setCharacterFoundFromCookies } from '@/stores/character/action';
 import { setItemAcquiredFromCookies } from '@/stores/item/action';
 import { deleteBrowserCookies } from '@/stores/setting/action';
@@ -55,6 +55,8 @@ function handleReprendre() {
 function handleRecommencer() {
   deleteBrowserCookies()
   emit('update:isActive', false)
+
+  setDefaultLocationFound();
 }
 
 </script>
