@@ -64,9 +64,9 @@ function onClick() {
 
   span.vsk-thumbnail--title {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    padding-left: $radiusValue;
   }
 
   span.vsk-thumbnail--description {
@@ -103,6 +103,7 @@ function onClick() {
   }
 }
 
+// ACTIVE
 .vsk-thumbnail.active {
   span.vsk-thumbnail--title {
     color: $colorWhite;
@@ -122,9 +123,11 @@ function onClick() {
 
   .vsk-thumbnail--img-container-row {
     position: absolute;
-    top: 0;
-    height: 40%;
-    width: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 70%;
+    width: 70%;
 
     .vsk-thumbnail--img-container-col {
 
@@ -148,6 +151,7 @@ function onClick() {
   }
 }
 
+// NOT ACTIVE
 .vsk-thumbnail {
   span.vsk-thumbnail--title {
     color: $colorWhite;

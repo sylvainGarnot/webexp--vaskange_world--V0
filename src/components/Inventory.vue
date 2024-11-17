@@ -7,7 +7,7 @@
     <VskCard v-model:isActive="isActive" @close="onClose()" hasList>
       <template v-slot:content>
         <VskThumbnailTripleGroup thumbnail-card title="Objets Trouvés"
-          :subtitle="`objets trouvés : ${items_acquired.length}/${items.length}`" :elements="itemsSortedByDate"
+          :subtitle="`${items_acquired.length}/${items.length}`" :elements="itemsSortedByDate"
           v-model:switchValues="switchValues">
         </VskThumbnailTripleGroup>
       </template>
