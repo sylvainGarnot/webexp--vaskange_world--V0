@@ -85,6 +85,10 @@ watch(locations_found.value, () => {
   newElement.value = newElement.value + 1
 }, { deep: false })
 
+watch(items_acquired.value, () => {
+  newElement.value = newElement.value + 1
+}, { deep: false })
+
 watch(characters_hidden_found.value, () => {
   newElement.value = newElement.value + 1
 }, { deep: false })
