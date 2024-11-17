@@ -98,7 +98,7 @@ export const characters = ref([
   // BASEBALL - BATTE
   {
     id: '32',
-    name: 'baseball_batte',
+    name: 'baseball_bat',
     label: '',
     dialog: '32',
     location: '3',
