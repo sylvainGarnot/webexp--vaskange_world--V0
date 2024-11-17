@@ -1,10 +1,17 @@
-import { currentCharacter, characters_found } from './state';
+import { currentCharacter, characters_found, characters } from './state';
+import { charactersFoundId } from './getter'
 import type { currentCharacterInterface, characterFoundInterface, characterInterface } from './interface';
+
 import type { bookmarkInterface } from '../bookmark/interface';
 
-import { setIsDialogActive } from '../dialog/action';
 import { dialogs } from '../dialog/state';
+import { setIsDialogActive } from '../dialog/action';
+
 import { items_acquired } from '../item/state';
+
+import { cookies } from '../setting/state'
+import { postBrowserCookie } from '../setting/action'
+import type { cookieInterface } from '../setting/interface'
 
 
 // PRIVATE
@@ -13,7 +20,8 @@ function addCharacterFound(input: characterFoundInterface) {
   characters_found.value.push(input as characterFoundInterface);
 };
 
-// EXPORT
+
+// EXPORT SETTER
 export function setCurrentCharacter(inputCharacterFound: characterFoundInterface, inputBookmark: bookmarkInterface) {
   console.log('TEST - setCurrentCharacter', inputCharacterFound.name); // TEST
   
@@ -43,9 +51,23 @@ export function emptyCurrentCharacter() {
   setIsDialogActive(false);
 }
 
-export function onCharacterFound(inputCharacter: characterInterface, inputBookmark: bookmarkInterface) {
+export function setCharacterFoundFromCookies() {
+  const cookieCharacterFound = cookies.value.find(c => c.key === 'characters_found') as cookieInterface
+  if (cookieCharacterFound) {
+    
+    const cookieCharacterFoundIds = cookieCharacterFound.values as string[]
+    if (cookieCharacterFoundIds && cookieCharacterFoundIds.length > 0) {
+      for (let index = 0; index < cookieCharacterFoundIds.length; index++) {
+        const character = characters.value.find(l => l.id === cookieCharacterFoundIds[index]) as characterInterface
+        if (character) {
+          onCharacterFound(character as characterInterface, {} as bookmarkInterface)
+        }
+      }
+    }
+  }
+}
 
-  // Request POST /character_found/ (id character & id player)
+export function onCharacterFound(inputCharacter: characterInterface, inputBookmark: bookmarkInterface) {
 
   const characterFound = {
     ...inputCharacter,
@@ -69,5 +91,12 @@ export function onCharacterFound(inputCharacter: characterInterface, inputBookma
     addCharacterFound(characterFound as characterFoundInterface);
   }
 
-  setCurrentCharacter(characterFound as characterFoundInterface, inputBookmark as bookmarkInterface);
+  if (inputBookmark && inputBookmark.id) {
+    console.log('NONONONONON', inputBookmark) // TEST
+    setCurrentCharacter(characterFound as characterFoundInterface, inputBookmark as bookmarkInterface);
+  }
+
+  // Request POST /character_found/ (id character & id player)
+  // POST BROWSER COOKIES
+  postBrowserCookie('characters_found', charactersFoundId.value as string[])
 };

@@ -24,6 +24,7 @@ function addLocationFound(input: locationFoundInterface) {
   locations_found.value.push(input as locationFoundInterface);
 }
 
+
 // EXPORT - SETTER
 export function setCurrentLocation(input: locationFoundInterface) {
   console.log('TEST - TRY setCurrentLocation', input.name, isLocationIsChanging.value); // TEST
@@ -41,29 +42,20 @@ export function setCurrentLocation(input: locationFoundInterface) {
 };
 
 export function setDefaultLocationFound() {
-  // onLocationFound(locations.value[0] as locationFoundInterface);
   onLocationFound(locations.value[1] as locationFoundInterface);
-  // onLocationFound(locations.value[2] as locationFoundInterface);
-  // onLocationFound(locations.value[3] as locationFoundInterface);
-  // onLocationFound(locations.value[4] as locationFoundInterface);
-  // onLocationFound(locations.value[5] as locationFoundInterface);
-  // onLocationFound(locations.value[6] as locationFoundInterface);
-  // onLocationFound(locations.value[7] as locationFoundInterface);
-  // onLocationFound(locations.value[8] as locationFoundInterface);
-  // onLocationFound(locations.value[9] as locationFoundInterface);
-  // onLocationFound(locations.value[10] as locationFoundInterface);
-  // onLocationFound(locations.value[99] as locationFoundInterface);
 }
 
-export function setLocationFromCookies() {
+export function setLocationFoundFromCookies() {
   const cookieLocationsFound = cookies.value.find(c => c.key === 'locations_found') as cookieInterface
-  const cookieLocationsFoundIds = cookieLocationsFound.values as string[]
-
-  if (cookieLocationsFoundIds && cookieLocationsFoundIds.length > 0) {
-    for (let index = 0; index < cookieLocationsFoundIds.length; index++) {
-      const location = locations.value.find(l => l.id === cookieLocationsFoundIds[index]) as locationInterface
-      if (location) {
-        onLocationFound(location as locationInterface)
+  if (cookieLocationsFound) {
+    
+    const cookieLocationsFoundIds = cookieLocationsFound.values as string[]
+    if (cookieLocationsFoundIds && cookieLocationsFoundIds.length > 0) {
+      for (let index = 0; index < cookieLocationsFoundIds.length; index++) {
+        const location = locations.value.find(l => l.id === cookieLocationsFoundIds[index]) as locationInterface
+        if (location) {
+          onLocationFound(location as locationInterface)
+        }
       }
     }
   }
@@ -73,6 +65,7 @@ export function setIsLocationEndReach(input: boolean) {
   console.log('TEST setIsLocationEndReach', input) // TEST
   isLocationEndReach.value = input;
 }
+
 
 // EXPORT - EVENTS
 export function onLocationEndReach(inputBookmarks: bookmarkInterface[]) {

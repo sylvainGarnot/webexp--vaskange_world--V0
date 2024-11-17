@@ -25,7 +25,9 @@
 
 <script lang="ts" setup>
 import VskCard from '@/layouts/VskCard.vue'
-import { setLocationFromCookies } from '@/stores/location/action';
+import { setLocationFoundFromCookies } from '@/stores/location/action';
+import { setCharacterFoundFromCookies } from '@/stores/character/action';
+import { setItemAcquiredFromCookies } from '@/stores/item/action';
 import { deleteBrowserCookies } from '@/stores/setting/action';
 
 const emit = defineEmits(['update:isActive'])
@@ -35,7 +37,18 @@ const props = defineProps({
 })
 
 function handleReprendre() {
-  setLocationFromCookies()
+  setLocationFoundFromCookies()
+
+  setTimeout(() => {
+    setCharacterFoundFromCookies()
+
+    setTimeout(() => {
+      setItemAcquiredFromCookies()
+    }, 800);
+
+  }, 800);
+
+
   emit('update:isActive', false)
 }
 

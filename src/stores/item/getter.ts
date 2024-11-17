@@ -11,6 +11,10 @@ export const itemProvidedByCurrentDialog = computed(() => {
   return null;
 })
 
+export const itemsAcquiredId = computed(() => {
+  return items_acquired.value.map(i => i.id) as string[];
+})
+
 export const isAllItemsAcquired = computed(() => {
   return items_acquired.value.length >= items.value.length
 })

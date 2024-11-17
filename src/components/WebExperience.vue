@@ -65,7 +65,7 @@ const { currentDialog, isDialogActive, isCallDialogActive } = storeToRefs(dialog
 const { setIsDialogActive } = dialogStore;
 
 const settingStore = useSettingStore();
-const { cookies } = storeToRefs(settingStore)
+const { cookies, isCookiesEnough } = storeToRefs(settingStore)
 const { getBrowserCookies } = settingStore;
 
 const isLoadUserDataDialogActive = ref(false);
@@ -120,13 +120,10 @@ onMounted(() => {
     EndlessPaper.addShapeEventListener("touchend", handleShapeClick);
     EndlessPaper.setShapes(shapes);
 
-    // PRÉSENTATION BETCLIC
-    // getBrowserCookies()
-    // location trouvé > 5
-    // character (lieux cachés) trouvé > 0
-    // item trouvé > 0
-    if (cookies.value && cookies.value.length > 0) {
-      // isLoadUserDataDialogActive.value = true
+    getBrowserCookies()
+    if (cookies.value && cookies.value.length > 0 && isCookiesEnough.value
+    ) {
+      isLoadUserDataDialogActive.value = true
     } else {
       setDefaultLocationFound();
     }

@@ -5,7 +5,7 @@ import { readonly } from 'vue';
 // import { currentLocation, locations_found, locations, isLocationEndReach, locationEndName, isLocationIsChanging } from './state'; // TEST
 import { currentLocation, locations_found, locations, isLocationEndReach, locationEndName } from './state';
 import { locationsName, locationsFoundId, theHiddenPlace, isTheHiddenPlaceFound } from './getter';
-import { setCurrentLocation, onLocationFound, setDefaultLocationFound, onLocationEndReach, setIsLocationEndReach } from './action';
+import { setCurrentLocation, onLocationFound, setDefaultLocationFound, onLocationEndReach, setIsLocationEndReach, setLocationFoundFromCookies } from './action';
 
 
 export const useLocationStore = defineStore("Location", () => {
@@ -28,5 +28,6 @@ export const useLocationStore = defineStore("Location", () => {
     setDefaultLocationFound,
     onLocationEndReach,
     setIsLocationEndReach,
+    setLocationFoundFromCookies,
   }
 })

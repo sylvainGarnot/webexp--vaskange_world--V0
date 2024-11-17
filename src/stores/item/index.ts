@@ -2,8 +2,8 @@ import { defineStore } from "pinia";
 import { readonly } from 'vue';
 
 import { items_acquired, items } from './state';
-import { itemProvidedByCurrentDialog, isAllItemsAcquired } from './getter';
-import { onItemProvided } from './action';
+import { itemProvidedByCurrentDialog, isAllItemsAcquired, itemsAcquiredId } from './getter';
+import { onItemProvided, setItemAcquiredFromCookies } from './action';
 
 export const useItemStore = defineStore("Item", () => {
 
@@ -13,7 +13,9 @@ export const useItemStore = defineStore("Item", () => {
 
     itemProvidedByCurrentDialog: readonly(itemProvidedByCurrentDialog),
     isAllItemsAcquired: readonly(isAllItemsAcquired),
+    itemsAcquiredId: readonly(itemsAcquiredId),
 
-    onItemProvided
+    onItemProvided,
+    setItemAcquiredFromCookies,
   }
 });
