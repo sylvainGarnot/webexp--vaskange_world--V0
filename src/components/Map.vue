@@ -4,12 +4,13 @@
 
     <VskCardTabs v-model:isActive="isActive" hasList :tabs="tabs">
       <template v-slot:lieux>
-        <VskThumbnailSimpleGroup title="Carte des lieux" :elements="locationsSorted"
+        <VskThumbnailSimpleGroup title="Carte des lieux"
+          :subtitle="`objets trouvés : ${items_acquired.length}/${items.length}`" :elements="locationsSorted"
           :elements-max-length="locations.length" v-model:switchValues="switchValues" @router-push="isActive = false">
         </VskThumbnailSimpleGroup>
       </template>
       <template v-slot:secrets>
-        <VskThumbnailSimpleGroup title="Lieux secrets" :elements="characters_hidden_sorted"
+        <VskThumbnailSimpleGroup title="Lieux secrets" subtitle="hey" :elements="characters_hidden_sorted"
           :elements-max-length="characters_hidden.length" v-model:switchValues="switchValues"
           @router-push="isActive = false">
         </VskThumbnailSimpleGroup>
@@ -34,11 +35,16 @@ import type { locationInterface, locationFoundInterface } from '@/stores/locatio
 import { useCharacterStore } from "@/stores/character"
 import type { characterFoundInterface, characterInterface } from '@/stores/character/interface';
 
+import { useItemStore } from "@/stores/item"
+
 const locationStore = useLocationStore()
 const { locations_found, locations } = storeToRefs(locationStore)
 
 const characterStore = useCharacterStore()
 const { characters_hidden, characters_hidden_found } = storeToRefs(characterStore)
+
+const itemStore = useItemStore()
+const { items, items_acquired } = storeToRefs(itemStore)
 
 
 // VARIABLES

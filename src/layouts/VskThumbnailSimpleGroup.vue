@@ -8,12 +8,19 @@
       </v-col>
     </v-row>
 
+    <!-- SUBTITLE -->
+    <v-row v-if="subtitle" no-gutters class="vsk-thumbnail-group-subtitle mt-3">
+      <v-col cols="12" align="center">
+        <h3>{{ subtitle }}</h3>
+      </v-col>
+    </v-row>
+
     <!-- FILTRES -->
-    <VskSwitchGroup class="v-row v-row--no-gutters mt-6 mb-3 px-8" :fields="switchValues"
-      @update:fields="(value: string) => emit('switchValues:update', value as string)" />
+    <VskSwitchGroup v-if="switchValues && switchValues.length > 0" class="v-row v-row--no-gutters mt-6 px-8"
+      :fields="switchValues" @update:fields="(value: string) => emit('switchValues:update', value as string)" />
 
     <!-- LIST -->
-    <v-row no-gutters class="vsk-thumbnail-group-content px-3 pb-3">
+    <v-row no-gutters class="vsk-thumbnail-group-content px-3 pb-3 mt-3">
       <TransitionGroup name="vsk-thumbnail-group-content--animation" class="transition-group-element" tag="div">
         <VskThumbnailSimple v-for="element in elements" :key="`card-${element.id}`" class="transition-group-element"
           :title="element.title" :imageUrl="`${element.image_url}`" :link="element.link"
@@ -38,6 +45,7 @@ const emit = defineEmits(['switchValues:update', 'router-push'])
 
 const props = defineProps({
   title: String,
+  subtitle: String,
   elements: Array as PropType<VskThumbnailSimpleInterface[]>,
   elementsMaxLength: { type: Number, default: 0 },
   switchValues: Array as PropType<VskSwitchInterface[]>,
@@ -50,6 +58,12 @@ const props = defineProps({
 .vsk-thumbnail-group-title {
   color: $colorWhite;
   font-size: 3.2vh;
+  padding: 0 $radiusValue*2;
+}
+
+.vsk-thumbnail-group-subtitle {
+  color: $colorWhite;
+  font-size: 1.4vh;
   padding: 0 $radiusValue*2;
 }
 
