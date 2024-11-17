@@ -8,8 +8,8 @@
             <h3>Bon retour !</h3>
           </v-col>
           <v-col cols="12" align="center">
-            <p>Vous pouvez recommencer votre expérience de zéro</p>
-            <p>Ou reprendre là où vous en étiez</p>
+            <p>Vous pouvez reprendre là où vous en étiez</p>
+            <p>Ou recommencer votre expérience de zéro</p>
           </v-col>
           <v-col cols="12" align="center" class="mt-6">
             <v-btn @click="handleReprendre()">reprendre là où j'en étais</v-btn>

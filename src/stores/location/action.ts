@@ -97,8 +97,6 @@ export function onLocationEndReach(inputBookmarks: bookmarkInterface[]) {
 }
 
 export function onLocationFound(input: locationInterface) {
-
-  // Request POST /location_found/ (id location & id player)
   
   const locationFound = {
     ...input,
@@ -134,5 +132,7 @@ export function onLocationFound(input: locationInterface) {
 
   setCurrentLocation(locationFound as locationFoundInterface);
 
+  // Request POST /location_found/ (id location & id player)
+  // POST BROWSER COOKIES
   postBrowserCookie('locations_found', locationsFoundId.value as string[])
 };

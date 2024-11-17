@@ -7,10 +7,14 @@ function setCookies(input: cookieInterface[]) {
 }
 
 function setCookie(key: string, values: string[]) {
-  for (let index = 0; index < cookies.value.length; index++) {
-    if (cookies.value[index].key === key) {
-      cookies.value[index].values = values
-    }
+  const cookie = cookies.value.find(c => c.key === key)
+  if (cookie) {
+    cookie.values = values
+  } else {
+    cookies.value.push({
+      key,
+      values
+    })
   }
 }
 
