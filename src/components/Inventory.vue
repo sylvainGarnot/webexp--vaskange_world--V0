@@ -1,7 +1,7 @@
 <template>
   <div>
     <VskBtn image="/icon/inventaire.png" :disable="items_acquired!.length === 0" @click="open()" :active="isActive"
-      :badge="newElement" :badge-type="isAllItemsAcquired ? 'info' : 'error'" />
+      :badge="newElement" />
 
 
     <VskCard v-model:isActive="isActive" @close="onClose()" hasList>

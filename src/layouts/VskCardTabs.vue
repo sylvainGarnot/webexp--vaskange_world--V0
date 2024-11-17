@@ -1,7 +1,7 @@
 <template>
   <div>
-    <v-dialog class="vsk-card-v-dialog" :modelValue="isActive"
-      @update:modelValue="$event => $emit('update:isActive', $event)" :class="hasList ? 'mode-list' : ''">
+    <v-dialog class="vsk-card-v-dialog" :modelValue="isActive" @update:modelValue="$event => onIsActiveUpdate($event)"
+      :class="hasList ? 'mode-list' : ''">
       <template v-slot:default>
 
         <v-card class="vsk-card-v-card" :class="hasList ? 'mode-list' : ''">
@@ -18,12 +18,11 @@
             </v-tabs-window-item>
           </v-tabs-window>
 
-          <v-icon class="vsk-card-close btn-click-animation" icon="$close"
-            @click="$emit('update:isActive', false)"></v-icon>
+          <v-icon class="vsk-card-close btn-click-animation" icon="$close" @click="close()"></v-icon>
         </v-card>
 
         <v-icon v-if="hasCloseFooter" class="vsk-card-close-footer btn-click-animation" icon="$vuetify"
-          @click="$emit('update:isActive', false)"></v-icon>
+          @click="close()"></v-icon>
       </template>
     </v-dialog>
   </div>
@@ -33,7 +32,7 @@
 import { ref } from 'vue';
 import type { PropType } from 'vue';
 
-const emit = defineEmits(['update:isActive'])
+const emit = defineEmits(['update:isActive', 'close'])
 
 const props = defineProps({
   isActive: Boolean,
@@ -47,6 +46,19 @@ const currentTab = ref('tabs-option-1');
 interface tabInterface {
   label: string,
   value: string,
+}
+
+function onIsActiveUpdate(event: boolean) {
+  if (event) {
+    emit('update:isActive', true)
+  } else {
+    close()
+  }
+}
+
+function close() {
+  emit('update:isActive', false)
+  emit('close')
 }
 </script>
 

@@ -8,10 +8,10 @@
             <h3>Félicitations !</h3>
           </v-col>
           <v-col cols="12" align="center">
-            <p>Vous avez trouvé tout les secrets de ce jeu</p>
+            <p>Vous avez trouvé tout les Objets de ce jeu</p>
             <p>Vous pouvez maintenant aller dans la zone final</p>
-            <p>en cliquant sur ce lien ci-dessous</p>
-            <p>Des récompenses vous attendent</p>
+            <p>en cliquant sur le lien ci-dessous</p>
+            <p>Des récompenses vous y attendent</p>
           </v-col>
         </v-row>
 

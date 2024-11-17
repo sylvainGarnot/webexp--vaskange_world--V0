@@ -1,8 +1,9 @@
 <template>
   <div>
-    <VskBtn image="/icon/map.png" @click="open()" :active="isActive" :badge="newElement" />
+    <VskBtn image="/icon/map.png" @click="open()" :active="isActive" :badge="newElement"
+      :badge-star="isAllItemsAcquired && !isTheHiddenPlaceFound" />
 
-    <VskCardTabs v-model:isActive="isActive" hasList :tabs="tabs">
+    <VskCardTabs v-model:isActive="isActive" @close="onClose()" hasList :tabs="tabs">
       <template v-slot:lieux>
         <VskThumbnailSimpleGroup title="Carte des lieux"
           :subtitle="`objets trouvés : ${items_acquired.length}/${items.length}`" :elements="locationsSorted"
@@ -16,6 +17,9 @@
         </VskThumbnailSimpleGroup>
       </template>
     </VskCardTabs>
+
+    <WebExperienceAlertAllItemAcquired v-model:isActive="webExperienceAlertAllItemAcquiredIsActive" />
+
   </div>
 </template>
 
@@ -23,6 +27,7 @@
 import { ref, computed, watch } from 'vue';
 import { storeToRefs } from 'pinia'
 
+import WebExperienceAlertAllItemAcquired from "@/components/WebExperienceAlertAllItemAcquired.vue"
 import VskBtn from '@/layouts/VskBtn.vue'
 import VskCardTabs from '@/layouts/VskCardTabs.vue'
 import VskThumbnailSimpleGroup from '@/layouts/VskThumbnailSimpleGroup.vue'
@@ -39,17 +44,18 @@ import { useItemStore } from "@/stores/item"
 import type { itemAcquiredInterface, itemInterface } from '@/stores/item/interface';
 
 const locationStore = useLocationStore()
-const { locations_found, locations } = storeToRefs(locationStore)
+const { locations_found, locations, isTheHiddenPlaceFound } = storeToRefs(locationStore)
 
 const characterStore = useCharacterStore()
 const { characters_hidden, characters_hidden_found } = storeToRefs(characterStore)
 
 const itemStore = useItemStore()
-const { items, items_acquired } = storeToRefs(itemStore)
+const { items, items_acquired, isAllItemsAcquired } = storeToRefs(itemStore)
 
 
 // VARIABLES
 const isActive = ref(false as boolean);
+const webExperienceAlertAllItemAcquiredIsActive = ref(false)
 
 let newElement = ref(0 as number);
 
@@ -215,6 +221,13 @@ function open() {
   isActive.value = !isActive.value
   newElement.value = 0
 }
+
+function onClose() {
+  if (isAllItemsAcquired.value && !isTheHiddenPlaceFound.value) {
+    webExperienceAlertAllItemAcquiredIsActive.value = true;
+  }
+}
+
 </script>
 
 <style lang="scss" scoped></style>

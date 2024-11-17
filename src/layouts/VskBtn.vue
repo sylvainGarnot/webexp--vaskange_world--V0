@@ -1,10 +1,12 @@
 <template>
-  <div class="vsk-btn-container">
+  <div class="vsk-btn--container">
     <button class="vsk-btn" :class="classes">
-      <div v-if="disable" class="vsk-btn-disable-background"></div>
+      <div v-if="disable" class="vsk-btn--disable-background"></div>
       <img class="icon" :src="image" />
     </button>
-    <v-badge v-if="badge" class="menu-element-badge" :color="badgeType" :content="badge" inline></v-badge>
+    <v-badge v-if="badge" class="vsk-btn--badge" :color="badgeType" :content="badge" inline></v-badge>
+    <v-icon v-if="badgeStar" class="vsk-btn--badge-star" size="large">mdi-star</v-icon>
+
   </div>
 </template>
 
@@ -19,7 +21,8 @@ const props = defineProps({
   badgeType: {
     type: String,
     default: 'error',
-  }
+  },
+  badgeStar: Boolean,
 })
 
 const classes = computed(() => {
@@ -30,7 +33,7 @@ const classes = computed(() => {
 <style lang="scss" scoped>
 @import '@/assets/styles/_global_variable.scss';
 
-.vsk-btn-container {
+.vsk-btn--container {
   position: relative;
 
   .vsk-btn {
@@ -66,7 +69,7 @@ const classes = computed(() => {
       cursor: not-allowed;
       background-color: transparent;
 
-      .vsk-btn-disable-background {
+      .vsk-btn--disable-background {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -78,11 +81,18 @@ const classes = computed(() => {
     }
   }
 
-  .menu-element-badge {
+  .vsk-btn--badge {
     position: absolute;
     right: -15%;
     top: -12%;
     transition: background-color 250ms ease-in;
+  }
+
+  .vsk-btn--badge-star {
+    position: absolute;
+    color: $colorGoldDark;
+    top: -$radiusValue*1.6;
+    left: -$radiusValue*1.1;
   }
 }
 </style>
