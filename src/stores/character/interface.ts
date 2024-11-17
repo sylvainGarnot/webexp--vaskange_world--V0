@@ -6,6 +6,7 @@ export interface characterInterface {
   location: string,
   is_hidden: boolean,
   image_url: string,
+  image_url_unfound: string,
 }
 
 export interface characterFoundInterface extends characterInterface {

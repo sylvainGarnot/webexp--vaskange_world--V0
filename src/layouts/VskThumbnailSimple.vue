@@ -1,5 +1,5 @@
 <template>
-  <div class="vsk-thumbnail mt-3" @click="onClick()">
+  <div class="vsk-thumbnail mt-3" :class="link ? 'active' : ''" @click="onClick()">
     <div v-if="link" class="vsk-thumbnail-background-layout"></div>
     <img class="vsk-thumbnail-background" :src="imageUrl" />
     <span class="title">{{ title }}</span>
@@ -40,7 +40,8 @@ function onClick() {
 
 .vsk-thumbnail,
 .vsk-thumbnail img,
-.vsk-thumbnail .vsk-thumbnail-background {
+.vsk-thumbnail .vsk-thumbnail-background,
+.vsk-thumbnail .vsk-thumbnail-background-layout {
   border-radius: $radiusValue;
 }
 
@@ -54,12 +55,6 @@ function onClick() {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    color: $colorWhite;
-    font-size: 2.8vh;
-    font-weight: 700;
-    text-shadow: $shadow;
-    white-space: nowrap;
   }
 
   span.description {
@@ -80,7 +75,6 @@ function onClick() {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border: 2px solid $colorGold;
   }
 
   .vsk-thumbnail-background-layout {
@@ -94,6 +88,34 @@ function onClick() {
     &:hover {
       background-color: $colorWhiteLightMax;
     }
+  }
+}
+
+.vsk-thumbnail.active {
+  span.title {
+    color: $colorWhite;
+    font-size: 2.8vh;
+    font-weight: 700;
+    text-shadow: $shadow;
+    white-space: nowrap;
+  }
+
+  img.vsk-thumbnail-background {
+    border: 2px solid $colorGold;
+  }
+}
+
+.vsk-thumbnail {
+  span.title {
+    color: $colorWhite;
+    font-size: 1.6vh;
+    font-weight: 700;
+    text-shadow: $shadow;
+    white-space: nowrap;
+  }
+
+  img.vsk-thumbnail-background {
+    border: 2px solid $colorGrey;
   }
 }
 </style>

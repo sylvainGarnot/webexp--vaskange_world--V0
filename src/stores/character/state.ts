@@ -23,7 +23,8 @@ export const characters = ref([
     dialog: '0',
     location: '2',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // FOOTBALL - CRAMPON
   {
@@ -33,7 +34,8 @@ export const characters = ref([
     dialog: '21',
     location: '2',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // FOOTBALL - MAILLOT
   {
@@ -43,7 +45,8 @@ export const characters = ref([
     dialog: '22',
     location: '2',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // FOOTBALL - MAILLOT
   {
@@ -53,7 +56,8 @@ export const characters = ref([
     dialog: '23',
     location: '2',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // FOOTBALL - EASTER
   {
@@ -63,7 +67,8 @@ export const characters = ref([
     dialog: '9',
     location: '2',
     is_hidden: true,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
 
 
@@ -76,7 +81,8 @@ export const characters = ref([
     dialog: '0',
     location: '3',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // BASEBALL - BAT
   {
@@ -86,7 +92,8 @@ export const characters = ref([
     dialog: '31',
     location: '3',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // BASEBALL - CASQUETTE
   {
@@ -96,7 +103,8 @@ export const characters = ref([
     dialog: '32',
     location: '3',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // BASEBALL - GANT
   {
@@ -106,7 +114,8 @@ export const characters = ref([
     dialog: '33',
     location: '3',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // BASEBALL - EASTER
   {
@@ -116,7 +125,8 @@ export const characters = ref([
     dialog: '9',
     location: '3',
     is_hidden: true,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
 
   
@@ -129,7 +139,8 @@ export const characters = ref([
     dialog: '0',
     location: '4',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // BASKET - BANDEAU
   {
@@ -139,7 +150,8 @@ export const characters = ref([
     dialog: '41',
     location: '4',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // BASKET - CHAUSSURE
   {
@@ -149,7 +161,8 @@ export const characters = ref([
     dialog: '42',
     location: '4',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // BASKET - MANCHETTE
   {
@@ -159,7 +172,8 @@ export const characters = ref([
     dialog: '43',
     location: '4',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // BASKET - EASTER
   {
@@ -169,7 +183,8 @@ export const characters = ref([
     dialog: '9',
     location: '4',
     is_hidden: true,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
 
   
@@ -182,7 +197,8 @@ export const characters = ref([
     dialog: '0',
     location: '5',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // TENNIS - BANDEAU
   {
@@ -192,7 +208,8 @@ export const characters = ref([
     dialog: '51',
     location: '5',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // TENNIS - CASQUETTE
   {
@@ -202,7 +219,8 @@ export const characters = ref([
     dialog: '52',
     location: '5',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // TENNIS - RAQUETTE
   {
@@ -212,7 +230,8 @@ export const characters = ref([
     dialog: '53',
     location: '5',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // TENNIS - EASTER
   {
@@ -222,7 +241,8 @@ export const characters = ref([
     dialog: '9',
     location: '5',
     is_hidden: true,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
 
   
@@ -235,7 +255,8 @@ export const characters = ref([
     dialog: '0',
     location: '6',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // MMA - BANDAGE
   {
@@ -245,7 +266,8 @@ export const characters = ref([
     dialog: '61',
     location: '6',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // MMA - DENTIER
   {
@@ -255,7 +277,8 @@ export const characters = ref([
     dialog: '62',
     location: '6',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // MMA - GANT
   {
@@ -265,7 +288,8 @@ export const characters = ref([
     dialog: '63',
     location: '6',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // MMA - EASTER
   {
@@ -275,7 +299,8 @@ export const characters = ref([
     dialog: '9',
     location: '6',
     is_hidden: true,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
 
   
@@ -288,7 +313,8 @@ export const characters = ref([
     dialog: '0',
     location: '7',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // CYCLISME - CASQUE
   {
@@ -298,7 +324,8 @@ export const characters = ref([
     dialog: '71',
     location: '7',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // CYCLISME - GONFLEUR
   {
@@ -308,7 +335,8 @@ export const characters = ref([
     dialog: '72',
     location: '7',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // CYCLISME - GOURDE
   {
@@ -318,7 +346,8 @@ export const characters = ref([
     dialog: '73',
     location: '7',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
 
 
@@ -331,7 +360,8 @@ export const characters = ref([
     dialog: '0',
     location: '8',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // HOCKEY - CASQUE
   {
@@ -341,7 +371,8 @@ export const characters = ref([
     dialog: '81',
     location: '8',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // HOCKEY - CLUB
   {
@@ -351,7 +382,8 @@ export const characters = ref([
     dialog: '82',
     location: '8',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // HOCKEY - PATINS
   {
@@ -361,7 +393,8 @@ export const characters = ref([
     dialog: '83',
     location: '8',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
 
   
@@ -374,7 +407,8 @@ export const characters = ref([
     dialog: '0',
     location: '9',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // RUGBY - BOUCLIER
   {
@@ -384,7 +418,8 @@ export const characters = ref([
     dialog: '91',
     location: '9',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // RUGBY - CASQUE
   {
@@ -394,7 +429,8 @@ export const characters = ref([
     dialog: '92',
     location: '9',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // RUGBY - TEE
   {
@@ -404,7 +440,8 @@ export const characters = ref([
     dialog: '93',
     location: '9',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // RUGBY - EASTER
   {
@@ -414,7 +451,8 @@ export const characters = ref([
     dialog: '9',
     location: '9',
     is_hidden: true,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
 
   
@@ -427,7 +465,8 @@ export const characters = ref([
     dialog: '0',
     location: '10',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // MONTAGNE - OXYGENE
   {
@@ -437,7 +476,8 @@ export const characters = ref([
     dialog: '101',
     location: '10',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // MONTAGNE - PIOLET
   {
@@ -447,7 +487,8 @@ export const characters = ref([
     dialog: '102',
     location: '10',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // MONTAGNE - TENTE
   {
@@ -457,7 +498,8 @@ export const characters = ref([
     dialog: '103',
     location: '10',
     is_hidden: false,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
   // MONTAGNE - EASTER
   {
@@ -467,7 +509,8 @@ export const characters = ref([
     dialog: '9',
     location: '10',
     is_hidden: true,
-    image_url: ''
+    image_url: '',
+    image_url_unfound: '',
   },
 
   
