@@ -2,13 +2,10 @@
   <div id="TheMenu">
     <v-row no-gutters class="the-menu-container pb-4">
       <v-col cols="auto">
-        <Inventory />
+        <Guide />
       </v-col>
       <v-col cols="auto" class="pl-2 pl-md-5">
         <Map />
-      </v-col>
-      <v-col cols="auto" class="pl-2 pl-md-5">
-        <Guide />
       </v-col>
       <v-col cols="auto" class="pl-2 pl-md-5">
         <SettingsFullScreen />
@@ -29,7 +26,7 @@ import SettingsMusicToggle from "@/components/SettingsMusicToggle.vue";
 import SettingsFullScreen from "@/components/SettingsFullScreen.vue";
 import Map from "@/components/Map.vue";
 import Guide from "@/components/Guide.vue";
-import Inventory from "@/components/Inventory.vue";
+// import Inventory from "@/components/Inventory.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -56,7 +53,8 @@ import Inventory from "@/components/Inventory.vue";
       transition: all 600ms ease;
     }
 
-    .the-menu-settings-music-toggle:hover + .the-menu-settings-music-volume, .the-menu-settings-music-volume:hover {
+    .the-menu-settings-music-toggle:hover+.the-menu-settings-music-volume,
+    .the-menu-settings-music-volume:hover {
       opacity: 1;
     }
   }
