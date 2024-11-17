@@ -6,7 +6,8 @@
 
     <VskCard v-model:isActive="isActive" @close="onClose()" hasList>
       <template v-slot:content>
-        <VskThumbnailTripleGroup thumbnail-card title="Objets Trouvés" :elements="itemsSortedByDate"
+        <VskThumbnailTripleGroup thumbnail-card title="Objets Trouvés"
+          :subtitle="`objets trouvés : ${items_acquired.length}/${items.length}`" :elements="itemsSortedByDate"
           v-model:switchValues="switchValues">
         </VskThumbnailTripleGroup>
       </template>
@@ -46,32 +47,32 @@ const webExperienceAlertAllItemAcquiredIsActive = ref(false)
 let newElement = ref(0 as number);
 
 const switchValues = ref([
-  {
-    name: 'date_asc',
-    label: 'premier trouvé',
-    selected: true,
-  },
-  {
-    name: 'date_desc',
-    label: 'dernier trouvé',
-    selected: false,
-  },
+  // {
+  //   name: 'date_asc',
+  //   label: 'premier trouvé',
+  //   selected: true,
+  // },
+  // {
+  //   name: 'date_desc',
+  //   label: 'dernier trouvé',
+  //   selected: false,
+  // },
 ] as VskSwitchInterface[]);
 
-const switchValueNameSelected = ref('date_asc' as string)
+// const switchValueNameSelected = ref('date_asc' as string)
 
 
 watch(items_acquired.value, () => {
   newElement.value = newElement.value + 1
 }, { deep: false })
 
-watch(switchValues.value, () => {
-  for (let index = 0; index < switchValues.value.length; index++) {
-    if (switchValues.value[index].selected) {
-      switchValueNameSelected.value = switchValues.value[index].name as string
-    }
-  }
-}, { deep: true })
+// watch(switchValues.value, () => {
+//   for (let index = 0; index < switchValues.value.length; index++) {
+//     if (switchValues.value[index].selected) {
+//       switchValueNameSelected.value = switchValues.value[index].name as string
+//     }
+//   }
+// }, { deep: true })
 
 
 const itemsSorted = computed(() => {
@@ -127,12 +128,12 @@ const itemsSortedByDate = computed(() => {
   // else if (switchValueNameSelected.value === 'alpha') {
   //   return result.sort((a, b) => (a.title < b.title ? -1 : 1))
   // }
-  if (switchValueNameSelected.value === 'date_asc') {
-    return result.sort((a, b) => (a.date < b.date ? -1 : 1))
-  }
-  else if (switchValueNameSelected.value === 'date_desc') {
-    return result.sort((a, b) => (a.date < b.date ? 1 : -1))
-  }
+  // if (switchValueNameSelected.value === 'date_asc') {
+  //   return result.sort((a, b) => (a.date < b.date ? -1 : 1))
+  // }
+  // else if (switchValueNameSelected.value === 'date_desc') {
+  //   return result.sort((a, b) => (a.date < b.date ? 1 : -1))
+  // }
   return result
 })
 
