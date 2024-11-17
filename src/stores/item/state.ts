@@ -20,7 +20,7 @@ export const items = ref([
     name: 'Crampons de Football',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/football_crampon.png',
-    image_url_unfound: '/images/item/black&white/football_crampon.png'
+    image_url_unfound: '/images/item/black/football_crampon.png'
   },
   // FOOTBALL - MAILLOT
   {
@@ -28,7 +28,7 @@ export const items = ref([
     name: 'Maillot de Football',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/football_maillot.png',
-    image_url_unfound: '/images/item/black&white/football_maillot.png'
+    image_url_unfound: '/images/item/black/football_maillot.png'
   },
   // FOOTBALL - MAILLOT
   {
@@ -36,7 +36,7 @@ export const items = ref([
     name: 'Football Capitaine',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/football_captain.png',
-    image_url_unfound: '/images/item/black&white/football_captain.png'
+    image_url_unfound: '/images/item/black/football_captain.png'
   },
 
 
@@ -47,15 +47,15 @@ export const items = ref([
     name: 'Casquette de Baseball',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/baseball_casquette.png',
-    image_url_unfound: '/images/item/black&white/baseball_casquette.png'
+    image_url_unfound: '/images/item/black/baseball_casquette.png'
   },
   // BASEBALL - BATTE
   {
     id: '32',
     name: 'Batte de Baseball',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
-    image_url: '/images/item/color/baseball_bat.png',
-    image_url_unfound: '/images/item/black&white/baseball_bat.png'
+    image_url: '/images/item/color/baseball_batte.png',
+    image_url_unfound: '/images/item/black/baseball_batte.png'
   },
   // BASEBALL - GANT
   {
@@ -63,7 +63,7 @@ export const items = ref([
     name: 'Gant de Baseball',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/baseball_gant.png',
-    image_url_unfound: '/images/item/black&white/baseball_gant.png'
+    image_url_unfound: '/images/item/black/baseball_gant.png'
   },
 
   
@@ -74,7 +74,7 @@ export const items = ref([
     name: 'Bandeau',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/basket_bandeau.png',
-    image_url_unfound: '/images/item/black&white/basket_bandeau.png'
+    image_url_unfound: '/images/item/black/basket_bandeau.png'
   },
   // BASKET - CHAUSSURE
   {
@@ -82,7 +82,7 @@ export const items = ref([
     name: 'Baskets',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/basket_chaussure.png',
-    image_url_unfound: '/images/item/black&white/basket_chaussure.png'
+    image_url_unfound: '/images/item/black/basket_chaussure.png'
   },
   // BASKET - MANCHETTE
   {
@@ -90,7 +90,7 @@ export const items = ref([
     name: 'Manchons de Basket',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/basket_manchette.png',
-    image_url_unfound: '/images/item/black&white/basket_manchette.png'
+    image_url_unfound: '/images/item/black/basket_manchette.png'
   },
 
   
@@ -101,7 +101,7 @@ export const items = ref([
     name: 'Bandeau',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/tennis_bandeau.png',
-    image_url_unfound: '/images/item/black&white/tennis_bandeau.png'
+    image_url_unfound: '/images/item/black/tennis_bandeau.png'
   },
   // TENNIS - CASQUETTE
   {
@@ -109,7 +109,7 @@ export const items = ref([
     name: 'Casquette',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/tennis_casquette.png',
-    image_url_unfound: '/images/item/black&white/tennis_casquette.png'
+    image_url_unfound: '/images/item/black/tennis_casquette.png'
   },
   // TENNIS - RAQUETTE
   {
@@ -117,7 +117,7 @@ export const items = ref([
     name: 'Raquette',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/tennis_raquette.png',
-    image_url_unfound: '/images/item/black&white/tennis_raquette.png'
+    image_url_unfound: '/images/item/black/tennis_raquette.png'
   },
 
   
@@ -128,7 +128,7 @@ export const items = ref([
     name: 'Bandage poignet',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/mma_bandage.png',
-    image_url_unfound: '/images/item/black&white/mma_bandage.png'
+    image_url_unfound: '/images/item/black/mma_bandage.png'
   },
   // MMA - DENTIER
   {
@@ -136,7 +136,7 @@ export const items = ref([
     name: 'Protège dent',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/mma_dentier.png',
-    image_url_unfound: '/images/item/black&white/mma_dentier.png'
+    image_url_unfound: '/images/item/black/mma_dentier.png'
   },
   // MMA - GANT
   {
@@ -144,7 +144,7 @@ export const items = ref([
     name: 'Gant de MMA',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/mma_gant.png',
-    image_url_unfound: '/images/item/black&white/mma_gant.png'
+    image_url_unfound: '/images/item/black/mma_gant.png'
   },
 
   
@@ -155,7 +155,7 @@ export const items = ref([
     name: 'Casque de vélo',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/cyclisme_casque.png',
-    image_url_unfound: '/images/item/black&white/cyclisme_casque.png'
+    image_url_unfound: '/images/item/black/cyclisme_casque.png'
   },
   // CYCLISME - GONFLEUR
   {
@@ -163,7 +163,7 @@ export const items = ref([
     name: 'Pompe à vélo',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/cyclisme_gonfleur.png',
-    image_url_unfound: '/images/item/black&white/cyclisme_gonfleur.png'
+    image_url_unfound: '/images/item/black/cyclisme_gonfleur.png'
   },
   // CYCLISME - GOURDE
   {
@@ -171,7 +171,7 @@ export const items = ref([
     name: 'Gourde',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/cyclisme_gourde.png',
-    image_url_unfound: '/images/item/black&white/cyclisme_gourde.png'
+    image_url_unfound: '/images/item/black/cyclisme_gourde.png'
   },
 
 
@@ -182,7 +182,7 @@ export const items = ref([
     name: 'Casque de Hockey',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/hockey_casque.png',
-    image_url_unfound: '/images/item/black&white/hockey_casque.png'
+    image_url_unfound: '/images/item/black/hockey_casque.png'
   },
   // HOCKEY - CLUB
   {
@@ -190,7 +190,7 @@ export const items = ref([
     name: 'Club de Hockey',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/hockey_club.png',
-    image_url_unfound: '/images/item/black&white/hockey_club.png'
+    image_url_unfound: '/images/item/black/hockey_club.png'
   },
   // HOCKEY - PATINS
   {
@@ -198,7 +198,7 @@ export const items = ref([
     name: 'Patins de Hockey',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/hockey_patin.png',
-    image_url_unfound: '/images/item/black&white/hockey_patin.png'
+    image_url_unfound: '/images/item/black/hockey_patin.png'
   },
 
   
@@ -209,7 +209,7 @@ export const items = ref([
     name: 'Bouclier de percussion',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/rugby_bouclier.png',
-    image_url_unfound: '/images/item/black&white/rugby_bouclier.png'
+    image_url_unfound: '/images/item/black/rugby_bouclier.png'
   },
   // RUGBY - CASQUE
   {
@@ -217,7 +217,7 @@ export const items = ref([
     name: 'Casque de Rugby',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/rugby_casque.png',
-    image_url_unfound: '/images/item/black&white/rugby_casque.png'
+    image_url_unfound: '/images/item/black/rugby_casque.png'
   },
   // RUGBY - TEE
   {
@@ -225,7 +225,7 @@ export const items = ref([
     name: 'Tee de Rugby',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/rugby_tee.png',
-    image_url_unfound: '/images/item/black&white/rugby_tee.png'
+    image_url_unfound: '/images/item/black/rugby_tee.png'
   },
 
   
@@ -236,7 +236,7 @@ export const items = ref([
     name: "Bouteille d'Oxygene",
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/montagne_oxygene.png',
-    image_url_unfound: '/images/item/black&white/montagne_oxygene.png'
+    image_url_unfound: '/images/item/black/montagne_oxygene.png'
   },
   // MONTAGNE - PIOLET
   {
@@ -244,7 +244,7 @@ export const items = ref([
     name: "Piolet d'escalade",
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/montagne_piolet.png',
-    image_url_unfound: '/images/item/black&white/montagne_piolet.png'
+    image_url_unfound: '/images/item/black/montagne_piolet.png'
   },
   // MONTAGNE - TENTE
   {
@@ -252,7 +252,7 @@ export const items = ref([
     name: 'Tente',
     description: 'Trouve tout les objets cachés pour découvrir un lieu caché',
     image_url: '/images/item/color/montagne_tente.png',
-    image_url_unfound: '/images/item/black&white/montagne_tente.png'
+    image_url_unfound: '/images/item/black/montagne_tente.png'
   },
 
 ] as itemInterface[]);
