@@ -87,6 +87,7 @@ const itemsSorted = computed(() => {
         background_url: locationFound.image_url,
         images_url: [],
         date: locationFound.found_date,
+        completed: false,
       } as VskThumbnailTripleInterface
 
       for (let index = 0; index < locationFound.itemsToAcquired.length; index++) {
@@ -105,6 +106,10 @@ const itemsSorted = computed(() => {
           const itemToAcquired = items.value.find(i => i.id === itemId)
           newTripleItem.images_url.push(itemToAcquired?.image_url_unfound as string)
         }
+      }
+
+      if (locationFound?.itemsToAcquired.length > 0 && locationFound?.itemsToAcquired.length === locationFound?.itemsAcquired.length) {
+        newTripleItem.completed = true
       }
 
       tripleItems.push(newTripleItem as VskThumbnailTripleInterface)

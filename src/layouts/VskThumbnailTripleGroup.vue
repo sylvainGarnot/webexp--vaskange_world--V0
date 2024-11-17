@@ -16,7 +16,7 @@
     <v-row no-gutters class="vsk-thumbnail-group-content px-3 pb-3">
       <TransitionGroup name="vsk-thumbnail-group-content--animation" class="transition-group-element" tag="div">
         <VskThumbnailTriple v-for="element in elements" :key="`${element.id}`" class="transition-group-element"
-          :backgroundUrl="element.background_url" :imagesUrl="element.images_url" />
+          :backgroundUrl="element.background_url" :imagesUrl="element.images_url" :completed="element.completed" />
       </TransitionGroup>
     </v-row>
   </div>
