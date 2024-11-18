@@ -11,9 +11,10 @@
         </VskThumbnailSimpleGroup>
       </template>
       <template v-slot:secrets>
-        <VskThumbnailSimpleGroup title="Lieux secrets" subtitle="hey" :elements="characters_hidden_sorted"
-          :elements-max-length="characters_hidden.length" v-model:switchValues="switchValues"
-          @router-push="isActive = false">
+        <VskThumbnailSimpleGroup title="Lieux secrets"
+          :subtitle="`${characters_hidden_found.length}/${characters_hidden.length}`"
+          :elements="characters_hidden_sorted" :elements-max-length="characters_hidden.length"
+          v-model:switchValues="switchValues" @router-push="isActive = false">
         </VskThumbnailSimpleGroup>
       </template>
     </VskCardTabs>
