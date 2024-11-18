@@ -56,6 +56,7 @@ function close() {
   if (closeOccuration > 0) {
     emit('close')
   } else {
+    emit('close')
     emit('close-first-time')
   }
   closeOccuration++

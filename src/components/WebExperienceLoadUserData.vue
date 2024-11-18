@@ -1,6 +1,7 @@
 <template>
   <div>
-    <VskCard :isActive="isActive" @update:is-active="$event => $emit('update:isActive', $event)">
+    <VskCard :isActive="isActive" @update:is-active="$event => $emit('update:isActive', $event)"
+      @close="handleReprendre()">
       <template v-slot:content>
 
         <v-row no-gutters class="message mt-4">
@@ -29,6 +30,7 @@ import { setLocationFoundFromCookies, setDefaultLocationFound } from '@/stores/l
 import { setCharacterFoundFromCookies } from '@/stores/character/action';
 import { setItemAcquiredFromCookies } from '@/stores/item/action';
 import { deleteBrowserCookies } from '@/stores/setting/action';
+import { playMusic } from '@/stores/music/action';
 
 const emit = defineEmits(['update:isActive'])
 
@@ -47,16 +49,14 @@ function handleReprendre() {
     }, 800);
 
   }, 800);
-
-
+  playMusic()
   emit('update:isActive', false)
 }
 
 function handleRecommencer() {
   deleteBrowserCookies()
+  setDefaultLocationFound()
   emit('update:isActive', false)
-
-  setDefaultLocationFound();
 }
 
 </script>

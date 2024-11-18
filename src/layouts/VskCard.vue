@@ -25,13 +25,15 @@
 </template>
 
 <script lang="ts" setup>
-const emit = defineEmits(['update:isActive', 'close'])
+const emit = defineEmits(['update:isActive', 'close', 'close-first-time'])
 
 const props = defineProps({
   isActive: Boolean,
   hasList: Boolean,
   hasCloseFooter: Boolean,
 })
+
+let closeOccuration = 0
 
 function onIsActiveUpdate(event: boolean) {
   if (event) {
@@ -43,8 +45,15 @@ function onIsActiveUpdate(event: boolean) {
 
 function close() {
   emit('update:isActive', false)
-  emit('close')
+  if (closeOccuration > 0) {
+    emit('close')
+  } else {
+    emit('close')
+    emit('close-first-time')
+  }
+  closeOccuration++
 }
+
 </script>
 
 <style lang="scss">
