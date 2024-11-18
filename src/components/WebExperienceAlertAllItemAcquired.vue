@@ -16,7 +16,7 @@
         </v-row>
 
         <v-row no-gutters class="links mt-12 mx-12">
-          <VskThumbnailSimple :title="theHiddenPlace?.name" :imageUrl="`${theHiddenPlace?.image_url}`"
+          <VskThumbnailSimple :title="theHiddenPlace?.label" :background-url="`${theHiddenPlace?.image_url}`"
             :link="theHiddenPlace?.name" @router-push="$emit('update:isActive', false)" />
         </v-row>
 

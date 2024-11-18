@@ -5,7 +5,7 @@
     <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="jgZZ1y7"></div>
 
     <WebExperienceCharacterCall v-if="currentDialog && isCallDialogActive && !isDialogActive" />
-    <!-- <WebExperienceAlertLocationEndReach v-if="isLocationEndReach" /> -->
+    <WebExperienceAlertLocationEndReach v-if="isLocationEndReach" />
 
     <TransitionGroup name="fade-top" tag="div">
       <WebExperienceCharacterDialog v-if="isDialogActive && currentDialog?.type === 'default'" />
