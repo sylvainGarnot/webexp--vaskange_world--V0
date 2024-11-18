@@ -67,8 +67,8 @@ export const characters = ref([
     dialog: '9',
     location: '2',
     is_hidden: true,
-    image_url: '',
-    image_url_unfound: '',
+    image_url: '/images/character/color/easter_eggs_02.png',
+    image_url_unfound: '/images/character/black&white&blur/easter_eggs_02.png',
   },
 
 
@@ -125,8 +125,8 @@ export const characters = ref([
     dialog: '9',
     location: '3',
     is_hidden: true,
-    image_url: '',
-    image_url_unfound: '',
+    image_url: '/images/character/color/easter_eggs_03.png',
+    image_url_unfound: '/images/character/black&white&blur/easter_eggs_03.png',
   },
 
   
@@ -183,8 +183,8 @@ export const characters = ref([
     dialog: '9',
     location: '4',
     is_hidden: true,
-    image_url: '',
-    image_url_unfound: '',
+    image_url: '/images/character/color/easter_eggs_04.png',
+    image_url_unfound: '/images/character/black&white&blur/easter_eggs_04.png',
   },
 
   
@@ -241,8 +241,8 @@ export const characters = ref([
     dialog: '9',
     location: '5',
     is_hidden: true,
-    image_url: '',
-    image_url_unfound: '',
+    image_url: '/images/character/color/easter_eggs_05.png',
+    image_url_unfound: '/images/character/black&white&blur/easter_eggs_05.png',
   },
 
   
@@ -299,8 +299,8 @@ export const characters = ref([
     dialog: '9',
     location: '6',
     is_hidden: true,
-    image_url: '',
-    image_url_unfound: '',
+    image_url: '/images/character/color/easter_eggs_06.png',
+    image_url_unfound: '/images/character/black&white&blur/easter_eggs_06.png',
   },
 
   
@@ -451,8 +451,8 @@ export const characters = ref([
     dialog: '9',
     location: '9',
     is_hidden: true,
-    image_url: '',
-    image_url_unfound: '',
+    image_url: '/images/character/color/easter_eggs_09.png',
+    image_url_unfound: '/images/character/black&white&blur/easter_eggs_09.png',
   },
 
   
@@ -509,8 +509,8 @@ export const characters = ref([
     dialog: '9',
     location: '10',
     is_hidden: true,
-    image_url: '',
-    image_url_unfound: '',
+    image_url: '/images/character/color/easter_eggs_10.png',
+    image_url_unfound: '/images/character/black&white&blur/easter_eggs_10.png',
   },
 
   
