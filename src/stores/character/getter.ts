@@ -30,3 +30,7 @@ export const characters_hidden_found = computed(() => {
   }
   return result;
 })
+
+export const characters_found_sorted_by_date = computed(() => {
+  return characters_found.value.sort((a, b) => (a.found_date < b.found_date ? 1 : -1)) as characterFoundInterface[]
+})

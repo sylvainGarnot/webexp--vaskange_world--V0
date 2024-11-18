@@ -17,7 +17,9 @@ import type { cookieInterface } from '../setting/interface'
 // PRIVATE
 function addCharacterFound(input: characterFoundInterface) {
   console.log('TEST - addCharacterFound', input.name); // TEST
-  characters_found.value.push(input as characterFoundInterface);
+  // characters_found.value.push(input as characterFoundInterface);
+  characters_found.value.unshift(input as characterFoundInterface);
+  // characters_found.value = [...characters_found.value, input] 
 };
 
 
@@ -91,8 +93,8 @@ export function onCharacterFound(inputCharacter: characterInterface, inputBookma
     addCharacterFound(characterFound as characterFoundInterface);
   }
 
-  if (inputBookmark && inputBookmark.id) {
-    console.log('NONONONONON', inputBookmark) // TEST
+  if (inputBookmark && inputBookmark.name) {
+    // console.log('onCharacterFound setCurrentCharacter', inputBookmark) // TEST
     setCurrentCharacter(characterFound as characterFoundInterface, inputBookmark as bookmarkInterface);
   }
 

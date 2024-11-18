@@ -47,7 +47,7 @@ const locationStore = useLocationStore()
 const { locations_found, locations, isTheHiddenPlaceFound } = storeToRefs(locationStore)
 
 const characterStore = useCharacterStore()
-const { characters_hidden, characters_hidden_found } = storeToRefs(characterStore)
+const { characters_hidden, characters_hidden_found, characters_found, characters_found_sorted_by_date } = storeToRefs(characterStore)
 
 const itemStore = useItemStore()
 const { items, items_acquired, isAllItemsAcquired } = storeToRefs(itemStore)
@@ -95,8 +95,10 @@ watch(items_acquired.value, () => {
   newElement.value = newElement.value + 1
 }, { deep: false })
 
-watch(characters_hidden_found.value, () => {
-  newElement.value = newElement.value + 1
+watch(characters_found.value, () => {
+  if (characters_found_sorted_by_date?.value[0]?.is_hidden) {
+    newElement.value = newElement.value + 1
+  }
 }, { deep: false })
 
 // watch(switchValues.value, () => {

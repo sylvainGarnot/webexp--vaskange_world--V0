@@ -3,7 +3,7 @@ import { readonly } from 'vue';
 
 
 import { currentCharacter, characters_found, characters } from './state';
-import { charactersName, characters_hidden, characters_hidden_found, charactersFoundId } from './getter';
+import { charactersName, characters_hidden, characters_hidden_found, charactersFoundId, characters_found_sorted_by_date } from './getter';
 import { emptyCurrentCharacter, onCharacterFound, setCharacterFoundFromCookies} from './action';
 
 
@@ -18,6 +18,7 @@ export const useCharacterStore = defineStore("Character", () => {
     characters_hidden: readonly(characters_hidden),
     characters_hidden_found: readonly(characters_hidden_found),
     charactersFoundId: readonly(charactersFoundId),
+    characters_found_sorted_by_date: readonly(characters_found_sorted_by_date),
 
     onCharacterFound,
     emptyCurrentCharacter,
