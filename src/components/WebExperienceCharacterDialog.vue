@@ -5,13 +5,12 @@
       <p class="vsk-dialog-npc-dialog">
         {{ currentDialog?.speech_written[dialogStepNumber] }}
       </p>
-      <v-icon v-if="!isAnswersActive" class="vsk-dialog-npc-next-icon btn-click-animation" icon="$vuetify"
-        @click="handleNextDialog()"></v-icon>
+      <v-icon class="vsk-dialog-npc-next-icon btn-click-animation" icon="$vuetify" @click="handleNextDialog()"></v-icon>
 
-      <TransitionGroup name="fade-top" tag="div">
+      <!-- <TransitionGroup name="fade-top" tag="div">
         <WebExperienceCharacterDialogAnswer v-if="isAnswersActive" @repeat="handleNextDialog()" @leave="handleLeave()"
           @accepted="handleAccepted()" />
-      </TransitionGroup>
+      </TransitionGroup> -->
     </div>
 
   </div>
@@ -82,7 +81,8 @@ function handleNextDialog() {
     if (dialogStepNumber.value + 1 < currentDialog.value.speech_written!.length) {
       dialogStepNumber.value++
     } else {
-      dialogStepNumber.value = 0
+      // dialogStepNumber.value = 
+      handleLeave()
     }
   }
 }

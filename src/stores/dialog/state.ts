@@ -35,6 +35,16 @@ export const dialogs = ref([
 
   
   // ##### FOOTBALL -2- #####
+  // FOOTBALL - PERSONNAGE
+  {
+    id: '20',
+    speech_written: [
+      'Suis la trajectoire du ballon pour tenter de trouver un code promo !'
+    ],
+    item_provided: '',
+    answers: [],
+    type: 'default',
+  },
   // FOOTBALL - CRAMPON
   {
     id: '21',
@@ -62,6 +72,17 @@ export const dialogs = ref([
 
 
   // ##### BASEBALL -3- #####
+  // BASEBALL - PERSONNAGE
+  {
+    id: '30',
+    speech_written: [
+      'Oh j’ai jamais frappé une balle aussi fort,',
+      'je pense qu’on la retrouvera jamais...'
+    ],
+    item_provided: '',
+    answers: [],
+    type: 'default',
+  },
   // BASEBALL - CASQUETTE
   {
     id: '31',
@@ -89,6 +110,16 @@ export const dialogs = ref([
 
   
   // ##### BASKET -4- #####
+  // BASKET - PERSONNAGE
+  {
+    id: '40',
+    speech_written: [
+      'J’suis capable de shooter d’aussi loin que Steph Curry !'
+    ],
+    item_provided: '',
+    answers: [],
+    type: 'default',
+  },
   // BASKET - BANDEAU
   {
     id: '41',
@@ -116,6 +147,16 @@ export const dialogs = ref([
 
 
   // ##### TENNIS -5- #####
+  // TENNIS - PERSONNAGE
+  {
+    id: '50',
+    speech_written: [
+      'Merci pour tout Isner… mais je sers clairement plus fort que toi !'
+    ],
+    item_provided: '',
+    answers: [],
+    type: 'default',
+  },
   // TENNIS - BANDEAU
   {
     id: '51',
@@ -143,6 +184,17 @@ export const dialogs = ref([
 
   
   // ##### MMA -6- #####
+  // MMA - PERSONNAGE
+  {
+    id: '60',
+    speech_written: [
+      'Des grands kicks comme Jon Jones !',
+      'Je pense qu’on ne retrouvera jamais le bout d’arbre explosé…'
+    ],
+    item_provided: '',
+    answers: [],
+    type: 'default',
+  },
   // MMA - BANDAGE 
   {
     id: '61',
@@ -170,6 +222,17 @@ export const dialogs = ref([
 
   
   // ##### CYCLISME -7- #####
+  // CYCLISME - PERSONNAGE
+  {
+    id: '70',
+    speech_written: [
+      'Encore quelques kilomètres avant de voir le bout, il faut s’accrocher...',
+      'il reste encore plein de Freebets à trouver !'
+    ],
+    item_provided: '',
+    answers: [],
+    type: 'default',
+  },
   // CYCLISME - CASQUE
   {
     id: '71',
@@ -197,6 +260,16 @@ export const dialogs = ref([
 
 
   // ##### HOCKEY -8- #####
+  // HOCKEY - PERSONNAGE
+  {
+    id: '80',
+    speech_written: [
+      'Avec mon palet préféré, aucune chance que je rate le but !'
+    ],
+    item_provided: '',
+    answers: [],
+    type: 'default',
+  },
   // HOCKEY - CASQUE
   {
     id: '81',
@@ -224,6 +297,16 @@ export const dialogs = ref([
 
   
   // ##### RUGBY -9- #####
+  // RUGBY - PERSONNAGE
+  {
+    id: '90',
+    speech_written: [
+      'J’ai jamais vu autant de vent... Je sais même pas où va finir le ballon'
+    ],
+    item_provided: '',
+    answers: [],
+    type: 'default',
+  },
   // RUGBY - BOUCLIER
   {
     id: '91',
@@ -274,5 +357,15 @@ export const dialogs = ref([
     item_provided: '103',
     answers: [],
     type: 'gift',
+  },
+  // MONTAGNE - EASTER EGGS
+  {
+    id: '109',
+    speech_written: [
+      'GWAHAH GWAHAH'
+    ],
+    item_provided: '',
+    answers: [],
+    type: 'default',
   },
 ] as dialogInterface[]);
