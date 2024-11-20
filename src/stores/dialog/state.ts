@@ -5,8 +5,6 @@ export const isDialogActive = ref(false as boolean);
 
 const speech_item_found = [
   'Bravo ! Tu as trouvé un nouvel objet ✅',
-  'Il a été ajouté à ton inventaire.',
-  'Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
 ] 
 
 export const dialogs = ref([
