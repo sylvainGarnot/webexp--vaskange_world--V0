@@ -63,7 +63,7 @@ export const characters = ref([
   {
     id: '29',
     name: 'football_easter',
-    label: 'Football easter eggs',
+    label: 'Code promo Scène finale',
     dialog: '9',
     location: '2',
     is_hidden: true,
@@ -121,7 +121,7 @@ export const characters = ref([
   {
     id: '39',
     name: 'baseball_easter',
-    label: 'Baseball easter eggs',
+    label: 'Code promo Baseball',
     dialog: '9',
     location: '3',
     is_hidden: true,
@@ -179,7 +179,7 @@ export const characters = ref([
   {
     id: '49',
     name: 'basket_easter',
-    label: 'Basket easter eggs',
+    label: 'Code promo Basket',
     dialog: '9',
     location: '4',
     is_hidden: true,
@@ -237,7 +237,7 @@ export const characters = ref([
   {
     id: '59',
     name: 'tennis_easter',
-    label: 'Tennis easter eggs',
+    label: 'Code promo Tennis',
     dialog: '9',
     location: '5',
     is_hidden: true,
@@ -295,7 +295,7 @@ export const characters = ref([
   {
     id: '69',
     name: 'mma_easter',
-    label: 'Mma easter eggs',
+    label: 'Code promo MMA',
     dialog: '9',
     location: '6',
     is_hidden: true,
@@ -447,7 +447,7 @@ export const characters = ref([
   {
     id: '99',
     name: 'rugby_easter',
-    label: 'Rugby easter eggs',
+    label: 'Code promo Rugby',
     dialog: '9',
     location: '9',
     is_hidden: true,
@@ -505,7 +505,7 @@ export const characters = ref([
   {
     id: '109',
     name: 'montagne_easter',
-    label: 'Montagne easter eggs',
+    label: 'Code promo Montagne',
     dialog: '9',
     location: '10',
     is_hidden: true,

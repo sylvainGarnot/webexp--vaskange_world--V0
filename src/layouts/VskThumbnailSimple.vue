@@ -10,7 +10,7 @@
       </v-col>
     </v-row>
 
-    <span class="vsk-thumbnail--title">{{ title }}</span>
+    <div class="vsk-thumbnail--title"><span>{{ title }}</span></div>
     <span v-if="description" class="vsk-thumbnail--description">{{ description }}</span>
 
     <v-icon v-if="completed" class="vsk-thumbnail--badge" size="large">mdi-star</v-icon>
@@ -62,7 +62,7 @@ function onClick() {
   height: 14vh;
   position: relative;
 
-  span.vsk-thumbnail--title {
+  .vsk-thumbnail--title {
     position: absolute;
     top: 0;
     left: 0;
@@ -105,9 +105,9 @@ function onClick() {
 
 // ACTIVE
 .vsk-thumbnail.active {
-  span.vsk-thumbnail--title {
+  .vsk-thumbnail--title {
     color: $colorWhite;
-    font-size: 3.2vh;
+    font-size: 2.5vh;
     font-weight: 700;
     text-shadow: $shadow;
     white-space: nowrap;
@@ -153,7 +153,7 @@ function onClick() {
 
 // NOT ACTIVE
 .vsk-thumbnail {
-  span.vsk-thumbnail--title {
+  .vsk-thumbnail--title {
     color: $colorWhite;
     font-size: 1.8vh;
     font-weight: 700;
