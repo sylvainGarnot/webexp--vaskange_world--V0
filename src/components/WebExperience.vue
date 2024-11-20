@@ -89,6 +89,7 @@ onMounted(() => {
     EndlessPaper.setLogoPosition("topleft")
     EndlessPaper.showNavInstructions(false)
 
+    // BOOKMARK LOCATION
     EndlessPaper.onBookmarkNearby(
       {
         name: locationsName.value,
@@ -98,15 +99,17 @@ onMounted(() => {
       updateBookmarkHasLocation
     );
 
+    // BOOKMARK CHARACTER
     EndlessPaper.onBookmarkNearby(
       {
         name: charactersName.value,
         visibleBookmarkRatio: '>= 0.05',
-        zoomFactor: '<= 12',
+        zoomFactor: '<= 20',
       },
       updateBookmarkHasCharacter
     );
 
+    // BOOKMARK END LOCATION
     EndlessPaper.onBookmarkNearby(
       {
         name: [locationEndName.value],
