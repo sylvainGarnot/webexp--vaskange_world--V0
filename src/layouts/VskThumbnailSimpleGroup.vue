@@ -8,6 +8,13 @@
       </v-col>
     </v-row>
 
+    <!-- DESCRIPTION -->
+    <v-row v-if="description" no-gutters class="vsk-thumbnail-group-description mt-3">
+      <v-col cols="12" align="center">
+        <p>{{ description }}</p>
+      </v-col>
+    </v-row>
+
     <!-- SUBTITLE -->
     <v-row v-if="subtitle" no-gutters class="vsk-thumbnail-group-subtitle mt-3">
       <v-col cols="12" align="center">
@@ -47,6 +54,7 @@ const emit = defineEmits(['switchValues:update', 'router-push'])
 const props = defineProps({
   title: String,
   subtitle: String,
+  description: String,
   elements: Array as PropType<VskThumbnailSimpleInterface[]>,
   elementsMaxLength: { type: Number, default: 0 },
   switchValues: Array as PropType<VskSwitchInterface[]>,
@@ -62,10 +70,16 @@ const props = defineProps({
   padding: 0 $radiusValue*2;
 }
 
+.vsk-thumbnail-group-description {
+  padding: 0 $radiusValue*3;
+  font-size: 1.25vh;
+  color: $colorGrey;
+}
+
 .vsk-thumbnail-group-subtitle {
-  color: $colorWhite;
+  padding: 0 $radiusValue*3;
   font-size: 1.4vh;
-  padding: 0 $radiusValue*2;
+  color: $colorWhite;
 }
 
 .vsk-thumbnail-group-content {

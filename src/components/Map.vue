@@ -5,13 +5,15 @@
 
     <VskCardTabs v-model:isActive="isActive" @close="onClose()" hasList :tabs="tabs">
       <template v-slot:lieux>
-        <VskThumbnailSimpleGroup title="Carte des lieux"
-          :subtitle="`objets trouvés : ${items_acquired.length}/${items.length}`" :elements="locationsSorted"
-          :elements-max-length="locations.length" v-model:switchValues="switchValues" @router-push="isActive = false">
+        <VskThumbnailSimpleGroup title="Lieux et Objets" description="Retrouve ici tous les lieux et les objets que tu as déjà trouvés. Si tu veux te téléporter dans une scène,
+          tu as simplement à cliquer dessus !" :subtitle="`objets trouvés : ${items_acquired.length}/${items.length}`"
+          :elements="locationsSorted" :elements-max-length="locations.length" v-model:switchValues="switchValues"
+          @router-push="isActive = false">
         </VskThumbnailSimpleGroup>
       </template>
-      <template v-slot:secrets>
+      <template v-slot:codes_promos>
         <VskThumbnailSimpleGroup title="Lieux secrets"
+          description="Retrouve les codes promos cachés dans les différents univers sportifs !"
           :subtitle="`${characters_hidden_found.length}/${characters_hidden.length}`"
           :elements="characters_hidden_sorted" :elements-max-length="characters_hidden.length"
           v-model:switchValues="switchValues" @router-push="isActive = false">
@@ -66,8 +68,8 @@ const tabs = [
     value: 'lieux',
   },
   {
-    label: 'secrets',
-    value: 'secrets',
+    label: 'codes promos',
+    value: 'codes_promos',
   }
 ]
 
