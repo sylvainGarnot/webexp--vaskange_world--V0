@@ -18,10 +18,10 @@
             </v-img>
           </v-col>
           <v-col cols="8">
-            <v-card-title class="web-experience-character-dialog-gift-item-name">
+            <v-card-text align="center" class="web-experience-character-dialog-gift-item-name">
               {{ itemProvidedByCurrentDialog?.name }}
               <v-divider :thickness="1" class="border-opacity-50 mt-3" color="grey"></v-divider>
-            </v-card-title>
+            </v-card-text>
 
             <v-card-text class="web-experience-character-dialog-gift-item-description mt-1">
               {{ itemProvidedByCurrentDialog?.description }}
@@ -96,6 +96,8 @@ function onClose() {
   font-size: 2.6vh;
   font-weight: 700;
   line-height: 1;
+
+  word-wrap: break-word !important;
 }
 
 .web-experience-character-dialog-gift-item-description {

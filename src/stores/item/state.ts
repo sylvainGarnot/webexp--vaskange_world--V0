@@ -25,7 +25,7 @@ export const items = ref([
   // FOOTBALL - MAILLOT
   {
     id: '22',
-    name: 'Maillot de Football',
+    name: "Maillot de l'Équipe de France",
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/football_maillot.png',
     image_url_unfound: '/images/item/black/football_maillot.png'
@@ -33,7 +33,7 @@ export const items = ref([
   // FOOTBALL - MAILLOT
   {
     id: '23',
-    name: 'Football Capitaine',
+    name: 'Barssard de capitaine',
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/football_captain.png',
     image_url_unfound: '/images/item/black/football_captain.png'
@@ -71,7 +71,7 @@ export const items = ref([
   // BASKET - BANDEAU
   {
     id: '41',
-    name: 'Bandeau',
+    name: 'Bandeau de Basket',
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/basket_bandeau.png',
     image_url_unfound: '/images/item/black/basket_bandeau.png'
@@ -79,7 +79,7 @@ export const items = ref([
   // BASKET - CHAUSSURE
   {
     id: '42',
-    name: 'Baskets',
+    name: 'Chaussure de Basket',
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/basket_chaussure.png',
     image_url_unfound: '/images/item/black/basket_chaussure.png'
@@ -87,7 +87,7 @@ export const items = ref([
   // BASKET - MANCHETTE
   {
     id: '43',
-    name: 'Manchons de Basket',
+    name: 'Manchon de Basket',
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/basket_manchette.png',
     image_url_unfound: '/images/item/black/basket_manchette.png'
@@ -98,7 +98,7 @@ export const items = ref([
   // TENNIS - BANDEAU
   {
     id: '51',
-    name: 'Bandeau',
+    name: 'Bandeau de Tennis',
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/tennis_bandeau.png',
     image_url_unfound: '/images/item/black/tennis_bandeau.png'
@@ -106,7 +106,7 @@ export const items = ref([
   // TENNIS - CASQUETTE
   {
     id: '52',
-    name: 'Casquette',
+    name: 'Casquette de Tennis',
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/tennis_casquette.png',
     image_url_unfound: '/images/item/black/tennis_casquette.png'
@@ -114,7 +114,7 @@ export const items = ref([
   // TENNIS - RAQUETTE
   {
     id: '53',
-    name: 'Raquette',
+    name: 'Raquette de Tennis',
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/tennis_raquette.png',
     image_url_unfound: '/images/item/black/tennis_raquette.png'
@@ -125,7 +125,7 @@ export const items = ref([
   // MMA - BANDAGE
   {
     id: '61',
-    name: 'Bandage poignet',
+    name: 'Bandage de MMA',
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/mma_bandage.png',
     image_url_unfound: '/images/item/black/mma_bandage.png'
@@ -133,7 +133,7 @@ export const items = ref([
   // MMA - DENTIER
   {
     id: '62',
-    name: 'Protège dent',
+    name: 'Protège dents de MMA',
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/mma_dentier.png',
     image_url_unfound: '/images/item/black/mma_dentier.png'
@@ -152,7 +152,7 @@ export const items = ref([
   // CYCLISME - CASQUE
   {
     id: '71',
-    name: 'Casque de vélo',
+    name: 'Casque de Cyclisme',
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/cyclisme_casque.png',
     image_url_unfound: '/images/item/black/cyclisme_casque.png'
@@ -168,7 +168,7 @@ export const items = ref([
   // CYCLISME - GOURDE
   {
     id: '73',
-    name: 'Gourde',
+    name: 'Gourde de Cyclisme',
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/cyclisme_gourde.png',
     image_url_unfound: '/images/item/black/cyclisme_gourde.png'
@@ -187,7 +187,7 @@ export const items = ref([
   // HOCKEY - CLUB
   {
     id: '82',
-    name: 'Club de Hockey',
+    name: 'Crosse de Hockey',
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/hockey_club.png',
     image_url_unfound: '/images/item/black/hockey_club.png'
@@ -195,7 +195,7 @@ export const items = ref([
   // HOCKEY - PATINS
   {
     id: '83',
-    name: 'Patins de Hockey',
+    name: 'Patins à glace',
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/hockey_patin.png',
     image_url_unfound: '/images/item/black/hockey_patin.png'
@@ -206,7 +206,7 @@ export const items = ref([
   // RUGBY - BOUCLIER
   {
     id: '91',
-    name: 'Bouclier de percussion',
+    name: 'Bouclier de Rugby',
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/rugby_bouclier.png',
     image_url_unfound: '/images/item/black/rugby_bouclier.png'
@@ -233,7 +233,7 @@ export const items = ref([
   // MONTAGNE - OXYGENE
   {
     id: '101',
-    name: "Bouteille d'Oxygene",
+    name: "Bouteille d'oxygene",
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/montagne_oxygene.png',
     image_url_unfound: '/images/item/black/montagne_oxygene.png'
@@ -241,7 +241,7 @@ export const items = ref([
   // MONTAGNE - PIOLET
   {
     id: '102',
-    name: "Piolet d'escalade",
+    name: "Piolet d'alpinisme",
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/montagne_piolet.png',
     image_url_unfound: '/images/item/black/montagne_piolet.png'
@@ -249,10 +249,18 @@ export const items = ref([
   // MONTAGNE - TENTE
   {
     id: '103',
-    name: 'Tente',
+    name: "Tente d'alpinisme",
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
     image_url: '/images/item/color/montagne_tente.png',
     image_url_unfound: '/images/item/black/montagne_tente.png'
   },
+  // MONTAGNE - DRAPEAU
+  // {
+  //   id: '104',
+  //   name: 'Drapeau Betclic',
+  //   description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
+  //   image_url: '/images/item/color/???.png',
+  //   image_url_unfound: '/images/item/black/???.png'
+  // },
 
 ] as itemInterface[]);
