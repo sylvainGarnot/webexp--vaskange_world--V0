@@ -2,6 +2,7 @@ export interface characterInterface {
   id: string,
   name: string,
   label: string,
+  label_dialog: string,
   dialog: string,
   location: string,
   is_hidden: boolean,
