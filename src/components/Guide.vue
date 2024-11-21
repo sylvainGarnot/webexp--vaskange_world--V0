@@ -12,7 +12,7 @@
         </v-row>
         <v-row no-gutters class="guide-content mt-9">
           <v-col v-if="carouselItem.image_url" cols="12" md="6" sm="12" align="center">
-            <img :src="carouselItem.image_url" />
+            <!-- <img loading="lazy" :src="carouselItem.image_url" /> -->
             <!-- <v-progress-linear v-if="carouselItem.progress" :buffer-value="progression"
               color="#9A843A"></v-progress-linear> -->
           </v-col>

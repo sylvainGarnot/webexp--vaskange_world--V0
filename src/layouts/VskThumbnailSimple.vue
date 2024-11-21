@@ -1,7 +1,7 @@
 <template>
   <div class="vsk-thumbnail mt-3" :class="link ? 'active' : ''" @click="onClick()">
     <div v-if="link" class="vsk-thumbnail--background-layout"></div>
-    <img class="vsk-thumbnail--background" :class="completed ? 'completed' : ''" :src="backgroundUrl" />
+    <img loading="lazy" class="vsk-thumbnail--background" :class="completed ? 'completed' : ''" :src="backgroundUrl" />
 
     <v-row v-if="imagesUrl && imagesUrl.length > 0" no-gutters class="vsk-thumbnail--img-container-row">
       <v-col class="vsk-thumbnail--img-container-col" v-if="imagesUrl && imagesUrl.length > 0"

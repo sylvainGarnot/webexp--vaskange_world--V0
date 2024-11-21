@@ -2,7 +2,7 @@
   <div class="vsk-thumbnail-card mt-3">
     <v-row no-gutters class="mt-2">
       <v-col cols="4">
-        <v-img class="vsk-thumbnail-card-image" :src="imageUrl">
+        <v-img loading="lazy" class="vsk-thumbnail-card-image" :src="imageUrl">
         </v-img>
       </v-col>
       <v-col cols="8">

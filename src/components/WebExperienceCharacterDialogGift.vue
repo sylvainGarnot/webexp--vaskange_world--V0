@@ -13,7 +13,7 @@
         </v-row>
         <v-row no-gutters class="mt-9 mb-2">
           <v-col cols="4">
-            <v-img class="web-experience-character-dialog-gift-item-image"
+            <v-img loading="lazy" class="web-experience-character-dialog-gift-item-image"
               :src="itemProvidedByCurrentDialog?.image_url">
             </v-img>
           </v-col>
