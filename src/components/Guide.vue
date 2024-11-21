@@ -44,34 +44,34 @@ const carouselItems = [
   {
     name: 'guide',
     title: 'Guide',
-    description: 'Bienvenue dans cette expérience BetClic, suivez ces quelques conseils avant de commencer',
+    description: '🤯 Prêt à vivre une expérience unique pour la Journée Mondiale du Freebet ? Suis nos conseils pour vivre la meilleure expérience et tenter de remporter des Freebets* 🤝  (Logo Freebets à gauche)',
     image_url: '/images/guide/guide-lieu.gif',
   },
   {
     name: 'lieu',
     title: 'Lieux',
-    description: 'Explorez et découvrez de nouveaux lieux en zoomant.',
+    description: 'Explore et découvre de nouveaux lieux en zoomant (Vidéo d’une personne qui zoome manuellement) Si tu es sur téléphone, n’hésite pas à le tourner pour jouer à l’horizontal ! 👌',
     image_url: '/images/guide/guide-lieu.gif',
     // progress: true,
   },
   {
     name: 'personnage',
     title: 'Personnages',
-    description: 'Parlez à des personnages, certain vous donne des indices, d’autre ont des récompenses.',
+    description: 'Rapproche-toi des personnages pour avoir de précieux indices, ils pourront te guider vers des Freebets (on voit le dialogue avec le personnage football) 💬',
     image_url: '/images/guide/guide-dialog.gif',
     // progress: true,
   },
   {
     name: 'ihm',
     title: 'Menu',
-    description: 'Retrouvez les lieux et personnages que vous avez rencontré.',
+    description: 'Sur l’icône « Cartes » retrouve les lieux déjà découverts et ceux que tu dois encore trouver ! (On voit une personne cliquer sur l’icône carte et parcourir) 🗺️',
     image_url: '/images/guide/guide-ihm.gif',
     // progress: true,
   },
   {
     name: 'secret',
     title: 'Secret',
-    description: 'Trouvez tout les objets pour gagner une surprise.',
+    description: 'Prêt à vivre une grande aventure ? Zoom vers la ligne de départ (photo avec le gars qui tient le tél) 🏁',
     image_url: '/images/guide/guide-final.png',
   }
 ]
@@ -109,7 +109,7 @@ watch(locations_found.value, (value) => {
 
 .guide-content {
   color: $colorWhite;
-  font-size: 2.4vh;
+  font-size: 1.85vh;
 
   p {
     position: relative;
