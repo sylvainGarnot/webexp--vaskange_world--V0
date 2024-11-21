@@ -44,7 +44,7 @@ const carouselItems = [
   {
     name: 'guide',
     title: 'Guide',
-    description: '🤯 Prêt à vivre une expérience unique pour la Journée Mondiale du Freebet ? Suis nos conseils pour vivre la meilleure expérience et tenter de remporter des Freebets* 🤝  (Logo Freebets à gauche)',
+    description: '🤯 Prêt à vivre une expérience unique pour la Journée Mondiale du Freebet? Suis nos conseils pour vivre la meilleure expérience et tenter de remporter des Freebets* 🤝  (Logo Freebets à gauche)',
     image_url: '/images/guide/guide-lieu.gif',
   },
   {
