@@ -358,6 +358,14 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
   },
+  // MONTAGNE - DRAPEAU
+  {
+    id: '104',
+    speech_written: speech_item_found,
+    item_provided: '104',
+    answers: [],
+    type: 'gift',
+  },
   // MONTAGNE - EASTER EGGS
   {
     id: '109',

@@ -543,6 +543,18 @@ export const characters = ref([
     image_url: '',
     image_url_unfound: '',
   },
+  // MONTAGNE - DRAPEAU
+  {
+    id: '104',
+    name: 'montagne_drapeau',
+    label: '',
+    label_dialog: '',
+    dialog: '104',
+    location: '10',
+    is_hidden: false,
+    image_url: '',
+    image_url_unfound: '',
+  },
   // MONTAGNE - EASTER
   {
     id: '109',

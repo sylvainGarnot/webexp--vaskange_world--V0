@@ -255,12 +255,12 @@ export const items = ref([
     image_url_unfound: '/images/item/black/montagne_tente.png'
   },
   // MONTAGNE - DRAPEAU
-  // {
-  //   id: '104',
-  //   name: 'Drapeau Betclic',
-  //   description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
-  //   image_url: '/images/item/color/???.png',
-  //   image_url_unfound: '/images/item/black/???.png'
-  // },
+  {
+    id: '104',
+    name: 'Drapeau Betclic',
+    description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets 😍',
+    image_url: '/images/item/color/montagne_drapeau.png',
+    image_url_unfound: '/images/item/black/montagne_drapeau.png'
+  },
 
 ] as itemInterface[]);
