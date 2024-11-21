@@ -72,13 +72,13 @@ const props = defineProps({
 
 .vsk-thumbnail-group-description {
   padding: 0 $radiusValue*3;
-  font-size: 1.25vh;
+  font-size: 1.6vh;
   color: $colorGrey;
 }
 
 .vsk-thumbnail-group-subtitle {
   padding: 0 $radiusValue*3;
-  font-size: 1.4vh;
+  font-size: 1.5vh;
   color: $colorWhite;
 }
 

@@ -70,7 +70,7 @@ function close() {
   button,
   span {
     color: $colorGrey;
-    font-size: 1.5vh;
+    font-size: 1.95vh;
     font-weight: 500;
 
     &.v-tab--selected {

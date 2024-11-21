@@ -110,7 +110,7 @@ watch(locations_found.value, (value) => {
 
 .guide-content {
   color: $colorWhite;
-  font-size: 1.85vh;
+  font-size: 1.95vh;
 
   p {
     position: relative;
