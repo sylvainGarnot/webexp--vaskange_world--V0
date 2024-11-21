@@ -584,7 +584,19 @@ export const characters = ref([
   // ##### EVREST #####
 
   
-  // ##### SECRET END #####
+  // ##### SECRET END -99- #####
+  // SECRET END - PERSO
+  {
+    id: '990',
+    name: 'secret_end_perso',
+    label: '',
+    label_dialog: '',
+    dialog: '990',
+    location: '99',
+    is_hidden: false,
+    image_url: '',
+    image_url_unfound: '',
+  },
 
 
 ] as characterInterface[]);
