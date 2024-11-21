@@ -1,6 +1,6 @@
 <template>
   <div class="vsk-btn--container">
-    <button class="vsk-btn" :class="classes">
+    <button class="vsk-btn" :class="classes" :style="style">
       <div v-if="disable" class="vsk-btn--disable-background"></div>
       <img class="icon" :src="image" />
     </button>
@@ -23,6 +23,7 @@ const props = defineProps({
     default: 'error',
   },
   badgeStar: Boolean,
+  style: String,
 })
 
 const classes = computed(() => {
