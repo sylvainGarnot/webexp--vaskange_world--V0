@@ -8,30 +8,47 @@ const speech_item_found = [
 ] 
 
 export const dialogs = ref([
-  {
-    id: '0',
-    speech_written: [
-      'Hello ! Il y a plusieurs objets ici à trouver.',
-      'Si tu réussis à tous les réunir un lieu secret te sera accessible.',
-      'Et si tu es encore plus curieux tu peux aussi trouver des codes cachés. Bonne chance !'
-    ],
-    item_provided: '',
-    answers: ['1','0'],
-    type: 'default',
-  },
-  {
-    id: '9',
-    speech_written: [
-      'Félicitation !',
-      'Regarde bien ces codes, ils vont te servir pour...',
-    ],
-    item_provided: '',
-    answers: ['1','0'],
-    type: 'default',
-  },
+
+  // TEST
+  // {
+  //   id: '0',
+  //   speech_written: [
+  //     'Hello ! Il y a plusieurs objets ici à trouver.',
+  //     'Si tu réussis à tous les réunir un lieu secret te sera accessible.',
+  //     'Et si tu es encore plus curieux tu peux aussi trouver des codes cachés. Bonne chance !'
+  //   ],
+  //   item_provided: '',
+  //   answers: ['1','0'],
+  //   type: 'default',
+  // },
+  // {
+  //   id: '9',
+  //   speech_written: [
+  //     'Félicitation !',
+  //     'Regarde bien ces codes, ils vont te servir pour...',
+  //   ],
+  //   item_provided: '',
+  //   answers: ['1','0'],
+  //   type: 'default',
+  // },
 
 
-  // START PHONE
+  // ##### START PHONE -0- #####
+
+
+  // ##### EP_WebXP_Start -1- #####
+  // FIRST - PERSO
+  {
+    id: '10',
+    speech_written: [
+      'HELLO : REGLE DU JEU 0',
+      'HELLO : REGLE DU JEU 1',
+      'HELLO : REGLE DU JEU 2',
+    ],
+    item_provided: '',
+    answers: [],
+    type: 'default',
+  },
 
   
   // ##### FOOTBALL -2- #####

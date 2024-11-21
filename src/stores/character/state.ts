@@ -12,6 +12,18 @@ export const characters = ref([
 
 
   // ##### EP_WebXP_Start -1- #####
+  // FIRST - PERSO
+  {
+    id: '10',
+    name: 'first_perso',
+    label: '',
+    label_dialog: '',
+    dialog: '10',
+    location: '1',
+    is_hidden: false,
+    image_url: '',
+    image_url_unfound: '',
+  },
 
   
   // ##### FOOTBALL -2- #####
