@@ -22,6 +22,7 @@ export interface currentCharacterInterface extends characterFoundInterface {
     height: number,
     top: number,
     left: number,
+    zoomFactor: number,
   },
   screenAreaToBookmarkRatio: number,
 }

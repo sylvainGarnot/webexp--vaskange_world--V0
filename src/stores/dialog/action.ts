@@ -8,9 +8,9 @@ import { isDialogActive } from './state';
 export function setIsDialogActive(input: boolean) {
   if (!input) {
     setTimeout(() => {
-      isDialogActive.value = input as boolean;
-    }, 250);
+      isDialogActive.value = false as boolean;
+    }, 0);
   } else {
-    isDialogActive.value = input as boolean;
+    isDialogActive.value = true as boolean;
   }
 };

@@ -120,7 +120,7 @@ export function updateBookmarkHasCharacter(inputBookmarks: bookmarkInterface[]) 
   if (closestNearByBookmarkCharacter) {
     const characterFound = characters_found.value.find(c => c.name === closestNearByBookmarkCharacter.name) as characterFoundInterface;
     if (characterFound) {
-      setCurrentCharacter(characterFound as characterFoundInterface, closestNearByBookmarkCharacter as bookmarkInterface);
+      setCurrentCharacter(characterFound as characterFoundInterface, closestNearByBookmarkCharacter as bookmarkInterface, inputBookmarks as bookmarkInterface[]);
       // TEST
       // console.log('TEST closestNearByBookmarkCharacter v/s/z/Zi', closestNearByBookmarkCharacter?.name, closestNearByBookmarkCharacter?.intersectionInfo?.visibleBookmarkRatio, closestNearByBookmarkCharacter?.intersectionInfo?.screenAreaToBookmarkRatio, closestNearByBookmarkCharacter?.zoomFactor)
     }

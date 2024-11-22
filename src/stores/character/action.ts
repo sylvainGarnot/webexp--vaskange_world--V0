@@ -2,9 +2,12 @@ import { currentCharacter, characters_found, characters } from './state';
 import { charactersFoundId } from './getter'
 import type { currentCharacterInterface, characterFoundInterface, characterInterface } from './interface';
 
+import { currentBookmark, zoomIn} from '../bookmark/state';
+import { setCurrentBookmark, setZoomIn } from '../bookmark/action';
 import type { bookmarkInterface } from '../bookmark/interface';
 
 import { dialogs } from '../dialog/state';
+import { currentDialog } from '../dialog/getter';
 import { setIsDialogActive } from '../dialog/action';
 
 import { items_acquired } from '../item/state';
@@ -24,7 +27,7 @@ function addCharacterFound(input: characterFoundInterface) {
 
 
 // EXPORT SETTER
-export function setCurrentCharacter(inputCharacterFound: characterFoundInterface, inputBookmark: bookmarkInterface) {
+export function setCurrentCharacter(inputCharacterFound: characterFoundInterface, inputBookmark: bookmarkInterface, inputBookmarks: bookmarkInterface[] = []) {
   console.log('TEST - setCurrentCharacter', inputCharacterFound.name); // TEST
   
   const bookmarkWidth = inputBookmark.screenSpacePosition.topRight.x - inputBookmark.screenSpacePosition.bottomLeft.x;
@@ -36,6 +39,7 @@ export function setCurrentCharacter(inputCharacterFound: characterFoundInterface
     height: bookmarkHeight,
     left: bookmarkLeft,
     top: bookmarkTop,
+    zoomFactor: inputBookmark.zoomFactor,
   }
   const characterFound = {
     ...inputCharacterFound,
@@ -43,8 +47,27 @@ export function setCurrentCharacter(inputCharacterFound: characterFoundInterface
     screenAreaToBookmarkRatio: inputBookmark.intersectionInfo.screenAreaToBookmarkRatio,
   } as currentCharacterInterface;
 
+  // SET ZOOMIN before setCurrentCharacter
+  inputBookmarks = inputBookmarks.sort((a, b) => b.zoomFactor - a.zoomFactor);
+  const closestInputBookmark = inputBookmarks[0] as bookmarkInterface;
+  if (closestInputBookmark?.zoomFactor) {
+    if (currentCharacter?.value?.bookmark?.zoomFactor) {
+      if (closestInputBookmark.zoomFactor < currentCharacter.value.bookmark?.zoomFactor) {
+        setZoomIn(true);
+      } else {
+        setZoomIn(false);
+      }
+    }
+    setCurrentBookmark(closestInputBookmark as bookmarkInterface);
+  }
+
   currentCharacter.value = characterFound as currentCharacterInterface;
-  setIsDialogActive(false);
+
+  if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.75 && currentDialog.value?.type === 'gift' && zoomIn.value) {
+    setIsDialogActive(true);
+  } else {
+    setIsDialogActive(false);
+  }
 };
 
 export function emptyCurrentCharacter() {
