@@ -1,5 +1,5 @@
 import { currentCharacter, characters_found, characters } from './state';
-import { charactersFoundId } from './getter'
+import { charactersFoundId, hasCurrentCharacterItemToGive, isCurrentCharacterItemToGiveGiven } from './getter'
 import type { currentCharacterInterface, characterFoundInterface, characterInterface } from './interface';
 
 import { currentBookmark, zoomIn} from '../bookmark/state';
@@ -63,7 +63,7 @@ export function setCurrentCharacter(inputCharacterFound: characterFoundInterface
 
   currentCharacter.value = characterFound as currentCharacterInterface;
 
-  if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.75 && currentDialog.value?.type === 'gift' && zoomIn.value) {
+  if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.75 && currentDialog.value?.type === 'gift' && zoomIn.value && hasCurrentCharacterItemToGive.value && !isCurrentCharacterItemToGiveGiven.value) {
     setIsDialogActive(true);
   } else {
     setIsDialogActive(false);
