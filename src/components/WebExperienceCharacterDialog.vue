@@ -6,6 +6,7 @@
           }}</span>
         <p class="vsk-dialog--npc-dialog" v-html="currentDialog?.speech_written[dialogStepNumber]">
         </p>
+
         <v-icon v-if="isHandleNextDialogActive" class="vsk-dialog--npc-next-icon btn-click-animation" icon="$vuetify"
           @click="handleNextDialog()"></v-icon>
 
@@ -25,6 +26,7 @@ import { useDialogStore } from "@/stores/dialog";
 import { useCharacterStore } from "@/stores/character";
 import { useItemStore } from "@/stores/item";
 import { locations_found } from "@/stores/location/state";
+import { setIsDialogMentionLegalActive } from "@/stores/dialog/action";
 // import type { itemInterface } from '@/stores/item/interface';
 // import WebExperienceCharacterDialogAnswer from "@/components/WebExperienceCharacterDialogAnswer.vue";
 
@@ -47,7 +49,7 @@ const { items, items_acquired } = storeToRefs(itemStore);
 // DATA
 const dialogStepNumber = ref(0);
 const isHandleNextDialogActive = ref(true)
-const timingBetweenStep = 850
+const timingBetweenStep = 50
 
 
 // COMPUTED
@@ -85,10 +87,15 @@ onMounted(() => {
   window.addEventListener("keydown", handleKeydown);
 
   handleIsHandleNextDialogActive()
+
+  if (currentDialog.value?.type.includes('mention-legal')) {
+    setIsDialogMentionLegalActive(true)
+  }
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener("keydown", handleKeydown)
+  setIsDialogMentionLegalActive(false)
 })
 
 
@@ -96,6 +103,7 @@ onBeforeUnmount(() => {
 // FUNCTION
 function handleLeave() {
   dialogStepNumber.value = -1;
+  setIsDialogMentionLegalActive(false)
 }
 
 // function handleAccepted() {
@@ -156,8 +164,12 @@ function handleKeydown(event: any) {
   .vsk-dialog--container {
     position: absolute;
     left: 0;
-    bottom: 20vh;
+    bottom: 22vh;
     width: 100%;
+
+    @media (max-width: 599px) {
+      bottom: 32vh;
+    }
 
     .vsk-dialog--npc {
       position: relative;

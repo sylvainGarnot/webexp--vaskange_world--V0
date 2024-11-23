@@ -3,6 +3,8 @@ import type { dialogInterface } from './interface';
 
 export const isDialogActive = ref(false as boolean);
 
+export const isDialogMentionLegalActive = ref(false as boolean);
+
 const speech_item_found = [
   'Bravo ! Tu as trouvé un nouvel objet ✅',
 ] 
@@ -55,7 +57,7 @@ export const dialogs = ref([
     ],
     item_provided: '',
     answers: [],
-    type: 'default--force',
+    type: 'default--force--mention-legal',
     openOnZoom: true,
     isLarge: true,
   },

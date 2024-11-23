@@ -8,7 +8,7 @@ import type { bookmarkInterface } from '../bookmark/interface';
 
 import { dialogs } from '../dialog/state';
 import { currentDialog } from '../dialog/getter';
-import { setIsDialogActive } from '../dialog/action';
+import { setIsDialogActive, setIsDialogMentionLegalActive } from '../dialog/action';
 
 import { items_acquired } from '../item/state';
 
@@ -65,8 +65,11 @@ export function setCurrentCharacter(inputCharacterFound: characterFoundInterface
 
   if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.75 && currentDialog.value?.type === 'gift' && currentDialog.value?.openOnZoom && zoomIn.value && hasCurrentCharacterItemToGive.value && !isCurrentCharacterItemToGiveGiven.value) {
     setIsDialogActive(true);
-  } else if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.25 && currentDialog.value?.type === 'default--force' && currentDialog.value?.openOnZoom && zoomIn.value) {
+  } else if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.25 && currentDialog.value?.type.includes('force') && currentDialog.value?.openOnZoom && zoomIn.value) {
     setIsDialogActive(true);
+    // if (currentDialog.value?.type.includes('mention-legal')) {
+    //   setIsDialogMentionLegalActive(true)
+    // }
   } else {
     setIsDialogActive(false);
   }
