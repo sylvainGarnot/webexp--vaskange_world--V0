@@ -1,6 +1,5 @@
 <template>
-  <div id="vsk-dialog" class="vsk-dialog--overlay"
-    :class="type === 'default--force' && items_acquired.length === 0 ? 'overlay--active' : ''" v-if="isActive">
+  <div id="vsk-dialog" class="vsk-dialog--overlay" :class="isOverlayActive ? 'overlay--active' : ''" v-if="isActive">
     <div class="vsk-dialog--container">
       <div class="vsk-dialog--npc">
         <span v-if="currentCharacter.label_dialog" class="vsk-dialog--npc-author">{{ currentCharacter!.label_dialog
@@ -25,6 +24,7 @@ import { storeToRefs } from 'pinia';
 import { useDialogStore } from "@/stores/dialog";
 import { useCharacterStore } from "@/stores/character";
 import { useItemStore } from "@/stores/item";
+import { locations_found } from "@/stores/location/state";
 // import type { itemInterface } from '@/stores/item/interface';
 // import WebExperienceCharacterDialogAnswer from "@/components/WebExperienceCharacterDialogAnswer.vue";
 
@@ -61,6 +61,9 @@ const isLastStepReach = computed(() => {
     return dialogStepNumber.value >= currentDialog.value.speech_written.length - 1
   }
   return false
+})
+const isOverlayActive = computed(() => {
+  return props.type === 'default--force' && (locations_found.value.length > 2 || items_acquired.value.length > 0)
 })
 
 
