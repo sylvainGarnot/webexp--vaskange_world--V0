@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 import { storeToRefs } from 'pinia';
 
 import { useDialogStore } from "@/stores/dialog";
@@ -63,11 +63,8 @@ const { isTheHiddenPlaceFound } = storeToRefs(locationStore);
 const isActive = ref(true);
 const webExperienceAlertAllItemAcquiredIsActive = ref(false)
 
-onMounted(() => {
-  onItemProvided(itemProvidedByCurrentDialog.value as itemInterface);
-})
-
 function onClose() {
+  onItemProvided(itemProvidedByCurrentDialog.value as itemInterface);
   if (isAllItemsAcquired.value && !isTheHiddenPlaceFound.value) {
     webExperienceAlertAllItemAcquiredIsActive.value = true;
   }
