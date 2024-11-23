@@ -13,7 +13,7 @@
             <p>Ou recommencer votre expérience de zéro</p>
           </v-col>
           <v-col cols="12" align="center" class="mt-6">
-            <v-btn @click="handleReprendre()">reprendre là où j'en étais</v-btn>
+            <v-btn @click="handleReprendre()">Reprendre votre sauvegarde</v-btn>
           </v-col>
           <v-col cols="12" align="center" class="mt-6">
             <v-btn @click="handleRecommencer()">Recommencer</v-btn>
