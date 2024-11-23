@@ -74,20 +74,35 @@ function close() {
   height: 54vh !important;
   max-height: 780px !important;
 
-  .v-window__controls .v-btn {
-    opacity: 0.25;
-    transition: opacity 350ms ease;
+  .v-window__controls {
+    .v-btn {
+      opacity: 0.25;
+      transition: opacity 350ms ease;
 
-    &:hover {
-      opacity: 1;
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 599px) {
+      .v-window__left {
+        left: -15px;
+      }
+
+      .v-window__right {
+        right: -15px;
+      }
     }
   }
 
   .v-carousel__controls {
-    top: $radiusValue !important;
-    left: 50% !important;
-    transform: translateX(-50%);
-    width: 50%;
+    bottom: $radiusValue !important;
+
+    @media (max-width: 599px) {
+      .v-carousel__controls__item {
+        margin: 2px !important;
+      }
+    }
   }
 
   @media (max-width: 599px) {
@@ -99,5 +114,10 @@ function close() {
       margin: 0px calc(82.5px + $radiusValue);
     }
   }
+
+}
+
+.vsk-card-close-footer {
+  bottom: -4.2vh !important;
 }
 </style>

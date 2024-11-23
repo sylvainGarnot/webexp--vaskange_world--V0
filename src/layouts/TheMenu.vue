@@ -2,7 +2,7 @@
   <div id="TheMenu">
     <v-row no-gutters class="the-menu-container pb-4">
       <v-col cols="auto">
-        <Guide />
+        <Regle />
       </v-col>
       <v-col cols="auto" class="pl-2 pl-md-5">
         <Map />
@@ -25,8 +25,7 @@ import SettingsMusicVolume from "@/components/SettingsMusicVolume.vue";
 import SettingsMusicToggle from "@/components/SettingsMusicToggle.vue";
 import SettingsFullScreen from "@/components/SettingsFullScreen.vue";
 import Map from "@/components/Map.vue";
-import Guide from "@/components/Guide.vue";
-// import Inventory from "@/components/Inventory.vue";
+import Regle from "@/components/Regle.vue";
 </script>
 
 <style lang="scss" scoped>
