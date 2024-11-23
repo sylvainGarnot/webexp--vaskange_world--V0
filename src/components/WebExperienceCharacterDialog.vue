@@ -1,18 +1,14 @@
 <template>
   <div id="vsk-dialog" class="vsk-dialog--overlay"
-    :class="type === 'default--force' && items_acquired.length === 0 ? 'overlay--active' : ''" v-if="isActive"
-    @keyup.enter="handleNextDialog()">
+    :class="type === 'default--force' && items_acquired.length === 0 ? 'overlay--active' : ''" v-if="isActive">
     <div class="vsk-dialog--container">
       <div class="vsk-dialog--npc">
         <span v-if="currentCharacter.label_dialog" class="vsk-dialog--npc-author">{{ currentCharacter!.label_dialog
           }}</span>
-        <p class="vsk-dialog--npc-dialog">
-          {{ currentDialog?.speech_written[dialogStepNumber] }}
+        <p class="vsk-dialog--npc-dialog" v-html="currentDialog?.speech_written[dialogStepNumber]">
         </p>
-        <TransitionGroup name="fade-top">
-          <v-icon v-if="isHandleNextDialogActive" class="vsk-dialog--npc-next-icon btn-click-animation" icon="$vuetify"
-            @click="handleNextDialog()"></v-icon>
-        </TransitionGroup>
+        <v-icon v-if="isHandleNextDialogActive" class="vsk-dialog--npc-next-icon btn-click-animation" icon="$vuetify"
+          @click="handleNextDialog()"></v-icon>
 
         <!-- <TransitionGroup name="fade-top" tag="div">
         <WebExperienceCharacterDialogAnswer v-if="isAnswersActive" @repeat="handleNextDialog()" @leave="handleLeave()"
@@ -60,6 +56,12 @@ const isActive = computed(() => {
 const isAnswersActive = computed(() => {
   return currentDialog.value && dialogStepNumber.value + 1 >= currentDialog.value.speech_written!.length;
 })
+const isLastStepReach = computed(() => {
+  if (currentDialog.value) {
+    return dialogStepNumber.value >= currentDialog.value.speech_written.length - 1
+  }
+  return false
+})
 
 
 // LIFE CYCLE
@@ -93,7 +95,7 @@ function handleLeave() {
 function handleNextDialog() {
   handleIsHandleNextDialogActive()
   if (currentDialog.value) {
-    if (dialogStepNumber.value + 1 < currentDialog.value.speech_written!.length) {
+    if (!isLastStepReach.value) {
       dialogStepNumber.value++
     } else {
       // dialogStepNumber.value = 
@@ -113,10 +115,17 @@ function handleIsHandleNextDialogActive() {
 
 
 function handleKeydown(event: any) {
-  if (event.key === "Escape" && !props.type?.includes('force')) {
-    handleLeave()
+  if (event.key === "Escape") {
+    if (!props.type?.includes('force')) {
+      handleLeave()
+    } else if (isLastStepReach.value) {
+      handleLeave()
+    }
   }
   if (event.key === " " && isHandleNextDialogActive.value) {
+    handleNextDialog()
+  }
+  if (event.key === "Enter" && isHandleNextDialogActive.value) {
     handleNextDialog()
   }
 }
@@ -127,13 +136,6 @@ function handleKeydown(event: any) {
 @import '@/assets/styles/_global_variable.scss';
 
 .vsk-dialog--overlay {
-
-  &.overlay--active {
-    position: fixed;
-    overflow-y: scroll;
-    inset: 0;
-    background-color: $colorBlackLightUltra;
-  }
 
   .vsk-dialog--container {
     position: absolute;
@@ -171,7 +173,7 @@ function handleKeydown(event: any) {
         text-align: center;
 
         color: $colorWhite;
-        font-size: 3.2vh;
+        font-size: 2.85vh;
       }
 
       .vsk-dialog--npc-next-icon {
@@ -194,6 +196,36 @@ function handleKeydown(event: any) {
         }
       }
     }
+  }
+
+  &.overlay--active {
+    position: fixed;
+    overflow-y: scroll;
+    inset: 0;
+    background-color: $colorBlackLightUltra;
+
+    .vsk-dialog--npc {
+      max-width: 1380px;
+      max-height: 350px;
+      height: 35vh;
+      border-radius: 12vh;
+    }
+  }
+}
+</style>
+
+<style lang="scss">
+@import '@/assets/styles/_global_variable.scss';
+
+.vsk-dialog--npc-dialog {
+  a {
+    color: $colorGrey !important;
+  }
+
+  img {
+    max-width: 75px;
+    width: 6.5vh;
+    margin: 20px 10px 0 10px;
   }
 }
 </style>

@@ -41,9 +41,17 @@ export const dialogs = ref([
   {
     id: '10',
     speech_written: [
-      'HELLO : REGLE DU JEU 0',
-      'HELLO : REGLE DU JEU 1',
-      'HELLO : REGLE DU JEU 2',
+      'Avant de commencer, tu dois certifier avoir plus de 18 ans pour participer à l’expérience ✅<br>📎 Toutes les infos du jeu sont sur notre <a href="https://www.google.com">règlement</a>',
+      '🤑 Cette course cache énoooormément de Freebets*… Tu veux en gagner ? 3 solutions s’offrent à toi',
+      '1. Trouve tous les items sportifs qui sont cachés le long du parcours. Il suffit de zoomer dessus pour les récupérer dans ton inventaire !',
+      '1. Quand tu auras tout collecté, tu seras téléporté dans un lieu secret qui te fera participer à un grand tirage au sort 🍀',
+      '2. Trouve les codes promos écris dans les différentes scènes. Tu vois un élément écrit quelque part ? Écris-le dans ton app’ Betclic, il renferme peut-être des Freebets 📲',
+      '3. Enfin, RDV sur les réseaux sociaux de Betclic toute la journée pour avoir des indices et jouer à des jeux exclusifs 🎁',
+      `Avant de partir… Tu dois être abonné aux réseaux sociaux suivants de Betclic pour pouvoir remporter des Freebets* <br>
+      <a target="_blank" href="https://www.google.com"><img src="logo/instagram_logo.png"/></a>
+      <a target="_blank" href="https://www.google.com"><img src="logo/tiktok_logo.png"/></a>
+      <a target="_blank" href="https://www.google.com"><img src="logo/twitter_logo.png"/></a>`,
+      'Tu as toutes les infos bg : tu peux désormais zoomer dans l’app’ Betclic du téléphone et débuter ta course. <br><br> Bonne chance 💪',
     ],
     item_provided: '',
     answers: [],
