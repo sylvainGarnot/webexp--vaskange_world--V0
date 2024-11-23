@@ -84,8 +84,8 @@ const classes = computed(() => {
 
   .vsk-btn--badge {
     position: absolute;
-    right: -15%;
-    top: -12%;
+    right: -20%;
+    top: -20%;
     transition: background-color 250ms ease-in;
   }
 
@@ -95,5 +95,14 @@ const classes = computed(() => {
     top: -$radiusValue*1.6;
     left: -$radiusValue*1.1;
   }
+}
+</style>
+
+<style>
+.v-badge__badge {
+  width: 25px !important;
+  height: 25px;
+  border-radius: 50%;
+  animation: bounceVpx 1.5s ease infinite;
 }
 </style>
