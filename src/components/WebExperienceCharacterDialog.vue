@@ -1,5 +1,5 @@
 <template>
-  <div id="vsk-dialog" class="vsk-dialog--overlay" :class="isOverlayActive ? 'overlay--active' : ''" v-if="isActive">
+  <div id="vsk-dialog" class="vsk-dialog--overlay" :class="classes" v-if="isActive">
     <div class="vsk-dialog--container">
       <div class="vsk-dialog--npc">
         <span v-if="currentCharacter.label_dialog" class="vsk-dialog--npc-author">{{ currentCharacter!.label_dialog
@@ -30,6 +30,7 @@ import { locations_found } from "@/stores/location/state";
 
 const props = defineProps({
   type: String,
+  isLarge: Boolean,
 })
 
 const characterStore = useCharacterStore();
@@ -62,8 +63,20 @@ const isLastStepReach = computed(() => {
   }
   return false
 })
-const isOverlayActive = computed(() => {
-  return props.type === 'default--force' && (locations_found.value.length > 2 || items_acquired.value.length > 0)
+
+const isReadingMandatory = computed(() => {
+  return props.type?.includes('force') && locations_found.value.length <= 3 && items_acquired.value.length === 0
+})
+
+const classes = computed(() => {
+  let result = ''
+  if (isReadingMandatory.value) {
+    result += 'overlay--active '
+  }
+  if (props.isLarge) {
+    result += 'large '
+  }
+  return result
 })
 
 
@@ -108,7 +121,7 @@ function handleNextDialog() {
 }
 
 function handleIsHandleNextDialogActive() {
-  if (props.type?.includes('force')) {
+  if (isReadingMandatory.value) {
     isHandleNextDialogActive.value = false
     setTimeout(() => {
       isHandleNextDialogActive.value = true
@@ -119,7 +132,7 @@ function handleIsHandleNextDialogActive() {
 
 function handleKeydown(event: any) {
   if (event.key === "Escape") {
-    if (!props.type?.includes('force')) {
+    if (!isReadingMandatory.value) {
       handleLeave()
     } else if (isLastStepReach.value) {
       handleLeave()
@@ -206,7 +219,9 @@ function handleKeydown(event: any) {
     overflow-y: scroll;
     inset: 0;
     background-color: $colorBlackLightUltra;
+  }
 
+  &.large {
     .vsk-dialog--npc {
       max-width: 1380px;
       max-height: 350px;

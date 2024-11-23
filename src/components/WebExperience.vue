@@ -10,7 +10,7 @@
 
     <TransitionGroup name="fade-top" tag="div">
       <WebExperienceCharacterDialog v-if="isDialogActive && currentDialog?.type.includes('default')"
-        :type="currentDialog?.type" />
+        :type="currentDialog?.type" :is-large="currentDialog?.isLarge" />
     </TransitionGroup>
 
     <TransitionGroup name="fade-top" tag="div">

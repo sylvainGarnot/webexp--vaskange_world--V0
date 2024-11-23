@@ -57,6 +57,7 @@ export const dialogs = ref([
     answers: [],
     type: 'default--force',
     openOnZoom: true,
+    isLarge: true,
   },
 
   
@@ -71,6 +72,7 @@ export const dialogs = ref([
     answers: [],
     type: 'default',
     openOnZoom: false,
+    isLarge: false,
   },
   // FOOTBALL - CRAMPON
   {
@@ -80,6 +82,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // FOOTBALL - MAILLOT
   {
@@ -89,6 +92,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // FOOTBALL - CAPTAIN
   {
@@ -98,6 +102,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
 
 
@@ -113,6 +118,7 @@ export const dialogs = ref([
     answers: [],
     type: 'default',
     openOnZoom: false,
+    isLarge: false,
   },
   // BASEBALL - CASQUETTE
   {
@@ -122,6 +128,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // BASEBALL - BATTE
   {
@@ -131,6 +138,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // BASEBALL - GANT
   {
@@ -140,6 +148,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
 
   
@@ -154,6 +163,7 @@ export const dialogs = ref([
     answers: [],
     type: 'default',
     openOnZoom: false,
+    isLarge: false,
   },
   // BASKET - BANDEAU
   {
@@ -163,6 +173,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // BASKET - CHAUSSURE
   {
@@ -172,6 +183,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // BASKET - MANCHETTE
   {
@@ -181,6 +193,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
 
 
@@ -195,6 +208,7 @@ export const dialogs = ref([
     answers: [],
     type: 'default',
     openOnZoom: false,
+    isLarge: false,
   },
   // TENNIS - BANDEAU
   {
@@ -204,6 +218,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // TENNIS - CASQUETTE
   {
@@ -213,6 +228,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // TENNIS - RAQUETTE
   {
@@ -222,6 +238,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
 
   
@@ -237,6 +254,7 @@ export const dialogs = ref([
     answers: [],
     type: 'default',
     openOnZoom: false,
+    isLarge: false,
   },
   // MMA - BANDAGE 
   {
@@ -246,6 +264,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // MMA - DENTIER
   {
@@ -255,6 +274,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // MMA - GANT
   {
@@ -264,6 +284,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
 
   
@@ -279,6 +300,7 @@ export const dialogs = ref([
     answers: [],
     type: 'default',
     openOnZoom: false,
+    isLarge: false,
   },
   // CYCLISME - CASQUE
   {
@@ -288,6 +310,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // CYCLISME - GONFLEUR
   {
@@ -297,6 +320,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // CYCLISME - GOURDE
   {
@@ -306,6 +330,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
 
 
@@ -320,6 +345,7 @@ export const dialogs = ref([
     answers: [],
     type: 'default',
     openOnZoom: false,
+    isLarge: false,
   },
   // HOCKEY - CASQUE
   {
@@ -329,6 +355,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // HOCKEY - CLUB
   {
@@ -338,6 +365,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // HOCKEY - PATINS
   {
@@ -347,6 +375,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
 
   
@@ -361,6 +390,7 @@ export const dialogs = ref([
     answers: [],
     type: 'default',
     openOnZoom: false,
+    isLarge: false,
   },
   // RUGBY - BOUCLIER
   {
@@ -370,6 +400,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // RUGBY - CASQUE
   {
@@ -379,6 +410,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // RUGBY - TEE
   {
@@ -388,6 +420,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
 
   
@@ -400,6 +433,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // MONTAGNE - PIOLET
   {
@@ -409,6 +443,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // MONTAGNE - TENTE
   {
@@ -418,6 +453,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // MONTAGNE - DRAPEAU
   {
@@ -427,6 +463,7 @@ export const dialogs = ref([
     answers: [],
     type: 'gift',
     openOnZoom: true,
+    isLarge: false,
   },
   // MONTAGNE - EASTER EGGS
   {
@@ -438,6 +475,7 @@ export const dialogs = ref([
     answers: [],
     type: 'default',
     openOnZoom: false,
+    isLarge: false,
   },
 
 
@@ -454,6 +492,7 @@ export const dialogs = ref([
     answers: [],
     type: 'default',
     openOnZoom: false,
+    isLarge: false,
   },
 
 ] as dialogInterface[]);
