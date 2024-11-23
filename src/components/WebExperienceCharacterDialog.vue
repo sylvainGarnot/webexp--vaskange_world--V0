@@ -9,8 +9,10 @@
         <p class="vsk-dialog--npc-dialog">
           {{ currentDialog?.speech_written[dialogStepNumber] }}
         </p>
-        <v-icon class="vsk-dialog--npc-next-icon btn-click-animation" icon="$vuetify"
-          @click="handleNextDialog()"></v-icon>
+        <TransitionGroup name="fade-top">
+          <v-icon v-if="isHandleNextDialogActive" class="vsk-dialog--npc-next-icon btn-click-animation" icon="$vuetify"
+            @click="handleNextDialog()"></v-icon>
+        </TransitionGroup>
 
         <!-- <TransitionGroup name="fade-top" tag="div">
         <WebExperienceCharacterDialogAnswer v-if="isAnswersActive" @repeat="handleNextDialog()" @leave="handleLeave()"
@@ -47,6 +49,8 @@ const { items, items_acquired } = storeToRefs(itemStore);
 
 // DATA
 const dialogStepNumber = ref(0);
+const isHandleNextDialogActive = ref(true)
+const timingBetweenStep = 850
 
 
 // COMPUTED
@@ -61,6 +65,8 @@ const isAnswersActive = computed(() => {
 // LIFE CYCLE
 onMounted(() => {
   window.addEventListener("keydown", handleKeydown);
+
+  handleIsHandleNextDialogActive()
 });
 
 onBeforeUnmount(() => {
@@ -85,6 +91,7 @@ function handleLeave() {
 // }
 
 function handleNextDialog() {
+  handleIsHandleNextDialogActive()
   if (currentDialog.value) {
     if (dialogStepNumber.value + 1 < currentDialog.value.speech_written!.length) {
       dialogStepNumber.value++
@@ -95,11 +102,21 @@ function handleNextDialog() {
   }
 }
 
+function handleIsHandleNextDialogActive() {
+  if (props.type?.includes('force')) {
+    isHandleNextDialogActive.value = false
+    setTimeout(() => {
+      isHandleNextDialogActive.value = true
+    }, timingBetweenStep);
+  }
+}
+
+
 function handleKeydown(event: any) {
-  if (event.key === "Escape") {
+  if (event.key === "Escape" && !props.type?.includes('force')) {
     handleLeave()
   }
-  if (event.key === " ") {
+  if (event.key === " " && isHandleNextDialogActive.value) {
     handleNextDialog()
   }
 }
