@@ -63,7 +63,9 @@ export function setCurrentCharacter(inputCharacterFound: characterFoundInterface
 
   currentCharacter.value = characterFound as currentCharacterInterface;
 
-  if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.75 && currentDialog.value?.type === 'gift' && zoomIn.value && hasCurrentCharacterItemToGive.value && !isCurrentCharacterItemToGiveGiven.value) {
+  if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.75 && currentDialog.value?.type === 'gift' && currentDialog.value?.openOnZoom && zoomIn.value && hasCurrentCharacterItemToGive.value && !isCurrentCharacterItemToGiveGiven.value) {
+    setIsDialogActive(true);
+  } else if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.25 && currentDialog.value?.type === 'default--force' && currentDialog.value?.openOnZoom && zoomIn.value) {
     setIsDialogActive(true);
   } else {
     setIsDialogActive(false);

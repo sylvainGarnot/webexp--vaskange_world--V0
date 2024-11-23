@@ -9,7 +9,8 @@
     <WebExperienceAlertLocationEndReach v-if="isLocationEndReach" />
 
     <TransitionGroup name="fade-top" tag="div">
-      <WebExperienceCharacterDialog v-if="isDialogActive && currentDialog?.type === 'default'" />
+      <WebExperienceCharacterDialog v-if="isDialogActive && currentDialog?.type.includes('default')"
+        :type="currentDialog?.type" />
     </TransitionGroup>
 
     <TransitionGroup name="fade-top" tag="div">

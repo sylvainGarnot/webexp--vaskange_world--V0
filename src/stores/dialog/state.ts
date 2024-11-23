@@ -47,7 +47,8 @@ export const dialogs = ref([
     ],
     item_provided: '',
     answers: [],
-    type: 'default',
+    type: 'default--force',
+    openOnZoom: true,
   },
 
   
@@ -61,6 +62,7 @@ export const dialogs = ref([
     item_provided: '',
     answers: [],
     type: 'default',
+    openOnZoom: false,
   },
   // FOOTBALL - CRAMPON
   {
@@ -69,6 +71,7 @@ export const dialogs = ref([
     item_provided: '21',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // FOOTBALL - MAILLOT
   {
@@ -77,6 +80,7 @@ export const dialogs = ref([
     item_provided: '22',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // FOOTBALL - CAPTAIN
   {
@@ -85,6 +89,7 @@ export const dialogs = ref([
     item_provided: '23',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
 
 
@@ -99,6 +104,7 @@ export const dialogs = ref([
     item_provided: '',
     answers: [],
     type: 'default',
+    openOnZoom: false,
   },
   // BASEBALL - CASQUETTE
   {
@@ -107,6 +113,7 @@ export const dialogs = ref([
     item_provided: '31',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // BASEBALL - BATTE
   {
@@ -115,6 +122,7 @@ export const dialogs = ref([
     item_provided: '32',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // BASEBALL - GANT
   {
@@ -123,6 +131,7 @@ export const dialogs = ref([
     item_provided: '33',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
 
   
@@ -136,6 +145,7 @@ export const dialogs = ref([
     item_provided: '',
     answers: [],
     type: 'default',
+    openOnZoom: false,
   },
   // BASKET - BANDEAU
   {
@@ -144,6 +154,7 @@ export const dialogs = ref([
     item_provided: '41',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // BASKET - CHAUSSURE
   {
@@ -152,6 +163,7 @@ export const dialogs = ref([
     item_provided: '42',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // BASKET - MANCHETTE
   {
@@ -160,6 +172,7 @@ export const dialogs = ref([
     item_provided: '43',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
 
 
@@ -173,6 +186,7 @@ export const dialogs = ref([
     item_provided: '',
     answers: [],
     type: 'default',
+    openOnZoom: false,
   },
   // TENNIS - BANDEAU
   {
@@ -181,6 +195,7 @@ export const dialogs = ref([
     item_provided: '51',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // TENNIS - CASQUETTE
   {
@@ -189,6 +204,7 @@ export const dialogs = ref([
     item_provided: '52',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // TENNIS - RAQUETTE
   {
@@ -197,6 +213,7 @@ export const dialogs = ref([
     item_provided: '53',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
 
   
@@ -211,6 +228,7 @@ export const dialogs = ref([
     item_provided: '',
     answers: [],
     type: 'default',
+    openOnZoom: false,
   },
   // MMA - BANDAGE 
   {
@@ -219,6 +237,7 @@ export const dialogs = ref([
     item_provided: '61',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // MMA - DENTIER
   {
@@ -227,6 +246,7 @@ export const dialogs = ref([
     item_provided: '62',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // MMA - GANT
   {
@@ -235,6 +255,7 @@ export const dialogs = ref([
     item_provided: '63',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
 
   
@@ -249,6 +270,7 @@ export const dialogs = ref([
     item_provided: '',
     answers: [],
     type: 'default',
+    openOnZoom: false,
   },
   // CYCLISME - CASQUE
   {
@@ -257,6 +279,7 @@ export const dialogs = ref([
     item_provided: '71',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // CYCLISME - GONFLEUR
   {
@@ -265,6 +288,7 @@ export const dialogs = ref([
     item_provided: '72',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // CYCLISME - GOURDE
   {
@@ -273,6 +297,7 @@ export const dialogs = ref([
     item_provided: '73',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
 
 
@@ -286,6 +311,7 @@ export const dialogs = ref([
     item_provided: '',
     answers: [],
     type: 'default',
+    openOnZoom: false,
   },
   // HOCKEY - CASQUE
   {
@@ -294,6 +320,7 @@ export const dialogs = ref([
     item_provided: '81',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // HOCKEY - CLUB
   {
@@ -302,6 +329,7 @@ export const dialogs = ref([
     item_provided: '82',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // HOCKEY - PATINS
   {
@@ -310,6 +338,7 @@ export const dialogs = ref([
     item_provided: '83',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
 
   
@@ -323,6 +352,7 @@ export const dialogs = ref([
     item_provided: '',
     answers: [],
     type: 'default',
+    openOnZoom: false,
   },
   // RUGBY - BOUCLIER
   {
@@ -331,6 +361,7 @@ export const dialogs = ref([
     item_provided: '91',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // RUGBY - CASQUE
   {
@@ -339,6 +370,7 @@ export const dialogs = ref([
     item_provided: '92',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // RUGBY - TEE
   {
@@ -347,6 +379,7 @@ export const dialogs = ref([
     item_provided: '93',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
 
   
@@ -358,6 +391,7 @@ export const dialogs = ref([
     item_provided: '101',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // MONTAGNE - PIOLET
   {
@@ -366,6 +400,7 @@ export const dialogs = ref([
     item_provided: '102',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // MONTAGNE - TENTE
   {
@@ -374,6 +409,7 @@ export const dialogs = ref([
     item_provided: '103',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // MONTAGNE - DRAPEAU
   {
@@ -382,6 +418,7 @@ export const dialogs = ref([
     item_provided: '104',
     answers: [],
     type: 'gift',
+    openOnZoom: true,
   },
   // MONTAGNE - EASTER EGGS
   {
@@ -392,6 +429,7 @@ export const dialogs = ref([
     item_provided: '',
     answers: [],
     type: 'default',
+    openOnZoom: false,
   },
 
 
@@ -407,6 +445,7 @@ export const dialogs = ref([
     item_provided: '',
     answers: [],
     type: 'default',
+    openOnZoom: false,
   },
 
 ] as dialogInterface[]);

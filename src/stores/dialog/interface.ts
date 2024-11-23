@@ -4,4 +4,5 @@ export interface dialogInterface {
   item_provided: string,
   answers: string[],
   type: string,
+  openOnZoom: boolean
 }
