@@ -26,9 +26,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount, watch, onUpdated } from 'vue';
 import VskBtn from '@/layouts/VskBtn.vue'
 import VskCardCarousel from '@/layouts/VskCardCarousel.vue'
+import { setIsDialogMentionLegalActive } from '@/stores/dialog/action';
 
 const isActive = ref(false);
 
@@ -72,6 +73,20 @@ const carouselItems = [
     description: 'Tu as toutes les infos bg : tu peux désormais zoomer dans l’app’ Betclic du téléphone et débuter ta course.',
   },
 ]
+
+
+// LIFE CYCLE
+onMounted(() => {
+  setIsDialogMentionLegalActive(isActive.value)
+});
+onUpdated(() => {
+  setIsDialogMentionLegalActive(isActive.value)
+});
+
+onBeforeUnmount(() => {
+  setIsDialogMentionLegalActive(false)
+})
+
 
 </script>
 
