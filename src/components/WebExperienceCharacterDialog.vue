@@ -249,6 +249,10 @@ function handleKeydown(event: any) {
     color: $colorGrey !important;
   }
 
+  u {
+    color: $colorGold;
+  }
+
   img {
     max-width: 75px;
     width: 6.5vh;

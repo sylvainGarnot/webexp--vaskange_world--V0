@@ -62,7 +62,7 @@ const carouselItems = [
     name: '1c',
     image_url: '/icon/!!.png',
     title: 'Jeux exclusifs',
-    description: `Enfin, RDV sur les réseaux sociaux de Betclic toute la journée pour avoir des indices et <u>jouer à des jeux exclusifs</u> 🎁 <br>
+    description: `Enfin, RDV sur les réseaux sociaux de Betclic toute la journée pour avoir des indices et jouer à des <u>jeux exclusifs</u> 🎁 <br>
       <a target="_blank" href="https://www.instagram.com/betclicfrance/ "><img src="logo/instagram.png"/></a>
       <a target="_blank" href="https://www.tiktok.com/@betclicfrance "><img src="logo/tiktok.png"/></a>
       <a target="_blank" href="https://x.com/Betclic"><img src="logo/x.png"/></a>`,
@@ -152,6 +152,10 @@ onBeforeUnmount(() => {
   .vsk-regle--description {
     a {
       color: $colorGrey !important;
+    }
+
+    u {
+      color: $colorGold;
     }
 
     img {
