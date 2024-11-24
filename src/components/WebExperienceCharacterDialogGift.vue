@@ -69,7 +69,6 @@ function onClose() {
   if (isAllItemsAcquired.value && !isTheHiddenPlaceFound.value) {
     webExperienceAlertAllItemAcquiredIsActive.value = true;
   }
-  playSound('son_bouton_1')
 }
 
 onMounted(() => {
