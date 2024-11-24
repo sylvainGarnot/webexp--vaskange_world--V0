@@ -11,7 +11,7 @@
           <!-- ILLUSTRATION -->
           <v-row no-gutters class="vsk-guide--illustration">
             <div class="vsk-guide--illustration-container" v-if="carouselItem.video_url">
-              <video :src="carouselItem.video_url" autoplay loop muted preload="none" />
+              <video :src="carouselItem.video_url" autoplay loop muted preload="none" playsinline />
             </div>
           </v-row>
 
