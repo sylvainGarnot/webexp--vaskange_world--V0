@@ -106,9 +106,7 @@ function handleLeave() {
   dialogStepNumber.value = -1;
   setIsDialogMentionLegalActive(false)
 
-  if (isReadingMandatory.value) {
-    setIsDialogRegleRead(true)
-  }
+  setIsDialogRegleRead(true)
 }
 
 // function handleAccepted() {
