@@ -79,14 +79,26 @@ export const characters = ref([
   {
     id: '29',
     name: 'football_easter',
-    label: 'Code promo Scène finale',
+    label: 'Code promo football',
     label_dialog: '',
     dialog: '',
     location: '2',
     is_hidden: true,
-    image_url: '/images/character/color/easter_eggs_02.png',
-    image_url_unfound: '/images/character/black&white&blur/easter_eggs_02.png',
+    image_url: '/images/character/color/footballeaster.png',
+    image_url_unfound: '/images/character/black&white&blur/footballeaster.png',
   },
+  // FOOTBALL - EASTER 2
+  // {
+  //   id: '29b',
+  //   name: 'football_easter2',
+  //   label: '2éme Code promo football',
+  //   label_dialog: '',
+  //   dialog: '',
+  //   location: '2',
+  //   is_hidden: true,
+  //   image_url: '/images/character/color/footballeaster2.png',
+  //   image_url_unfound: '/images/character/black&white&blur/footballeaster2.png',
+  // },
 
 
   // ##### BASEBALL -3- #####
@@ -147,9 +159,21 @@ export const characters = ref([
     dialog: '',
     location: '3',
     is_hidden: true,
-    image_url: '/images/character/color/easter_eggs_03.png',
-    image_url_unfound: '/images/character/black&white&blur/easter_eggs_03.png',
+    image_url: '/images/character/color/baseballeaster.png',
+    image_url_unfound: '/images/character/black&white&blur/baseballeaster.png',
   },
+  // BASEBALL - EASTER 2
+  // {
+  //   id: '39b',
+  //   name: 'baseball_easter',
+  //   label: '2éme Code promo Baseball',
+  //   label_dialog: '',
+  //   dialog: '',
+  //   location: '3',
+  //   is_hidden: true,
+  //   image_url: '/images/character/color/baseballeaster2.png',
+  //   image_url_unfound: '/images/character/black&white&blur/baseballeaster2.png',
+  // },
 
   
   // ##### BASKET -4- #####
@@ -210,8 +234,8 @@ export const characters = ref([
     dialog: '',
     location: '4',
     is_hidden: true,
-    image_url: '/images/character/color/easter_eggs_04.png',
-    image_url_unfound: '/images/character/black&white&blur/easter_eggs_04.png',
+    image_url: '/images/character/color/basketeaster.png',
+    image_url_unfound: '/images/character/black&white&blur/basketeaster.png',
   },
 
   
@@ -273,8 +297,8 @@ export const characters = ref([
     dialog: '',
     location: '5',
     is_hidden: true,
-    image_url: '/images/character/color/easter_eggs_05.png',
-    image_url_unfound: '/images/character/black&white&blur/easter_eggs_05.png',
+    image_url: '/images/character/color/tenniseaster.png',
+    image_url_unfound: '/images/character/black&white&blur/tenniseaster.png',
   },
 
   
@@ -336,8 +360,8 @@ export const characters = ref([
     dialog: '',
     location: '6',
     is_hidden: true,
-    image_url: '/images/character/color/easter_eggs_06.png',
-    image_url_unfound: '/images/character/black&white&blur/easter_eggs_06.png',
+    image_url: '/images/character/color/mmaeaster.png',
+    image_url_unfound: '/images/character/black&white&blur/mmaeaster.png',
   },
 
   
@@ -390,6 +414,30 @@ export const characters = ref([
     image_url: '',
     image_url_unfound: '',
   },
+  // CYCLISME - EASTER
+  {
+    id: '79',
+    name: 'cyclisme_easter',
+    label: 'Code promo Cyclisme',
+    label_dialog: '',
+    dialog: '',
+    location: '7',
+    is_hidden: true,
+    image_url: '/images/character/color/cyclismeeaster.png',
+    image_url_unfound: '/images/character/black&white&blur/cyclismeeaster.png',
+  },
+  // CYCLISME - EASTER 2
+  // {
+  //   id: '79b',
+  //   name: 'cyclisme_easter',
+  //   label: '2éme Code promo Cyclisme',
+  //   label_dialog: '',
+  //   dialog: '',
+  //   location: '7',
+  //   is_hidden: true,
+  //   image_url: '/images/character/color/cyclismeeaster2.png',
+  //   image_url_unfound: '/images/character/black&white&blur/cyclismeeaster2.png',
+  // },
 
 
   // ##### HOCKEY -8- #####
@@ -441,6 +489,30 @@ export const characters = ref([
     image_url: '',
     image_url_unfound: '',
   },
+  // HOCKEY - EASTER
+  {
+    id: '89',
+    name: 'hockey_easter',
+    label: 'Code promo Hockey',
+    label_dialog: '',
+    dialog: '',
+    location: '8',
+    is_hidden: true,
+    image_url: '/images/character/color/hockeyeaster.png',
+    image_url_unfound: '/images/character/black&white&blur/hockeyeaster.png',
+  },
+  // HOCKEY - EASTER 2
+  // {
+  //   id: '89b',
+  //   name: 'hockey_easter',
+  //   label: '2éme Code promo Hockey',
+  //   label_dialog: '',
+  //   dialog: '',
+  //   location: '8',
+  //   is_hidden: true,
+  //   image_url: '/images/character/color/hockeyeaster2.png',
+  //   image_url_unfound: '/images/character/black&white&blur/hockeyeaster2.png',
+  // },
 
   
   // ##### RUGBY -9- #####
@@ -501,8 +573,8 @@ export const characters = ref([
     dialog: '',
     location: '9',
     is_hidden: true,
-    image_url: '/images/character/color/easter_eggs_09.png',
-    image_url_unfound: '/images/character/black&white&blur/easter_eggs_09.png',
+    image_url: '/images/character/color/rugbyeaster.png',
+    image_url_unfound: '/images/character/black&white&blur/rugbyeaster.png',
   },
 
   
@@ -576,8 +648,8 @@ export const characters = ref([
     dialog: '109',
     location: '10',
     is_hidden: true,
-    image_url: '/images/character/color/easter_eggs_10.png',
-    image_url_unfound: '/images/character/black&white&blur/easter_eggs_10.png',
+    image_url: '/images/character/color/everesteaster.png',
+    image_url_unfound: '/images/character/black&white&blur/everesteaster.png',
   },
 
   
@@ -589,13 +661,13 @@ export const characters = ref([
   {
     id: '990',
     name: 'secret_end_perso',
-    label: '',
+    label: 'Code promo Scène finale',
     label_dialog: '',
     dialog: '990',
     location: '99',
-    is_hidden: false,
-    image_url: '',
-    image_url_unfound: '',
+    is_hidden: true,
+    image_url: '/images/character/color/secreteaster.png',
+    image_url_unfound: '/images/character/black&white&blur/secreteaster.png',
   },
 
 
