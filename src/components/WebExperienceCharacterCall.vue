@@ -19,15 +19,17 @@
         </div>
       </div>
 
-      <div class="vsk-character-call-content">
+      <div class="vsk-character-call-content" v-if="hasCurrentCharacterItemToGive">
         <p :style="`line-height: ${characterCallHeight}px; font-size: ${characterCallHeight * 0.45}px;`">
           !!!</p>
-        <!-- <p
+      </div>
+      <div class="vsk-character-call-content" v-else>
+        <p
           :style="`line-height: ${characterCallHeight}px; font-size: ${characterCallHeight * 0.45}px; padding-right: ${characterCallHeight * 0.2}px;`">
           Hey
           <span :style="`right: ${characterCallHeight * 0.08}px;`">
             !!</span>
-        </p> -->
+        </p>
       </div>
     </div>
   </div>
@@ -41,7 +43,7 @@ import { useCharacterStore } from "@/stores/character";
 import { useDialogStore } from "@/stores/dialog";
 
 const characterStore = useCharacterStore();
-const { currentCharacter } = storeToRefs(characterStore);
+const { currentCharacter, hasCurrentCharacterItemToGive } = storeToRefs(characterStore);
 
 const dialogStore = useDialogStore();
 const { setIsDialogActive } = dialogStore;
