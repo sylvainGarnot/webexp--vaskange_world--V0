@@ -415,17 +415,17 @@ export const characters = ref([
     image_url_unfound: '',
   },
   // CYCLISME - EASTER
-  {
-    id: '79',
-    name: 'cyclisme_easter',
-    label: 'Code promo Cyclisme',
-    label_dialog: '',
-    dialog: '',
-    location: '7',
-    is_hidden: true,
-    image_url: '/images/character/color/cyclismeeaster.jpg',
-    image_url_unfound: '/images/character/black&white&blur/cyclismeeaster.jpg',
-  },
+  // {
+  //   id: '79',
+  //   name: 'cyclisme_easter',
+  //   label: 'Code promo Cyclisme',
+  //   label_dialog: '',
+  //   dialog: '',
+  //   location: '7',
+  //   is_hidden: true,
+  //   image_url: '/images/character/color/cyclismeeaster.jpg',
+  //   image_url_unfound: '/images/character/black&white&blur/cyclismeeaster.jpg',
+  // },
   // CYCLISME - EASTER 2
   // {
   //   id: '79b',
@@ -490,17 +490,17 @@ export const characters = ref([
     image_url_unfound: '',
   },
   // HOCKEY - EASTER
-  {
-    id: '89',
-    name: 'hockey_easter',
-    label: 'Code promo Hockey',
-    label_dialog: '',
-    dialog: '',
-    location: '8',
-    is_hidden: true,
-    image_url: '/images/character/color/hockeyeaster.jpg',
-    image_url_unfound: '/images/character/black&white&blur/hockeyeaster.jpg',
-  },
+  // {
+  //   id: '89',
+  //   name: 'hockey_easter',
+  //   label: 'Code promo Hockey',
+  //   label_dialog: '',
+  //   dialog: '',
+  //   location: '8',
+  //   is_hidden: true,
+  //   image_url: '/images/character/color/hockeyeaster.jpg',
+  //   image_url_unfound: '/images/character/black&white&blur/hockeyeaster.jpg',
+  // },
   // HOCKEY - EASTER 2
   // {
   //   id: '89b',
