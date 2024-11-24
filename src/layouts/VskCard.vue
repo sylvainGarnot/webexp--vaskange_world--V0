@@ -17,8 +17,8 @@
             close()"></v-icon>
         </v-card>
 
-        <v-icon v-if="hasCloseFooter" class="vsk-card-close-footer btn-click-animation" icon="$vuetify"
-          @click="close()"></v-icon>
+        <img v-if="hasCloseFooter" class="vsk-card-close-footer btn-click-animation" src="/icon/fleche.png"
+          @click="close()" />
       </template>
     </v-dialog>
   </div>
@@ -114,23 +114,15 @@ function close() {
     }
   }
 
-  .vsk-card-close-footer {
+  img.vsk-card-close-footer {
     position: absolute;
     left: 50%;
     bottom: -1.8vh;
     animation: bounce 2s ease infinite;
-
-    color: $colorWhite;
-    font-size: 5.8vh;
-    text-shadow: $shadow;
+    width: 6.5vh;
 
     cursor: pointer;
     transition: background-color 250ms ease-in;
-    border-radius: $radiusValue;
-
-    &:hover {
-      background-color: $colorWhiteLightMax;
-    }
   }
 }
 </style>

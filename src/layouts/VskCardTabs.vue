@@ -21,8 +21,8 @@
           <v-icon class="vsk-card-close btn-click-animation" icon="$close" @click="close()"></v-icon>
         </v-card>
 
-        <v-icon v-if="hasCloseFooter" class="vsk-card-close-footer btn-click-animation" icon="$vuetify"
-          @click="close()"></v-icon>
+        <img v-if="hasCloseFooter" class="vsk-card-close-footer btn-click-animation" src="/icon/fleche.png"
+          @click="close()" />
       </template>
     </v-dialog>
   </div>

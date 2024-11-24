@@ -7,8 +7,8 @@
         <p class="vsk-dialog--npc-dialog" v-html="currentDialog?.speech_written[dialogStepNumber]">
         </p>
 
-        <v-icon v-if="isHandleNextDialogActive" class="vsk-dialog--npc-next-icon btn-click-animation" icon="$vuetify"
-          @click="handleNextDialog()"></v-icon>
+        <img v-if="isHandleNextDialogActive" class="vsk-dialog--npc-next-icon btn-click-animation"
+          src="/icon/fleche.png" @click="handleNextDialog()" />
 
         <!-- <TransitionGroup name="fade-top" tag="div">
         <WebExperienceCharacterDialogAnswer v-if="isAnswersActive" @repeat="handleNextDialog()" @leave="handleLeave()"
@@ -49,7 +49,7 @@ const { items, items_acquired } = storeToRefs(itemStore);
 // DATA
 const dialogStepNumber = ref(0);
 const isHandleNextDialogActive = ref(true)
-const timingBetweenStep = 50
+const timingBetweenStep = 500
 
 
 // COMPUTED
@@ -204,24 +204,16 @@ function handleKeydown(event: any) {
         font-size: 2.85vh;
       }
 
-      .vsk-dialog--npc-next-icon {
+      img.vsk-dialog--npc-next-icon {
         position: absolute;
         left: 50%;
-        bottom: -3.4vh;
+        bottom: -4.2vh;
         cursor: pointer;
         animation: bounce 2s ease infinite;
-
-        color: $colorWhite;
-        font-size: 5.8vh;
-        text-shadow: $shadow;
+        width: 6.5vh;
 
         cursor: pointer;
         transition: background-color 250ms ease-in;
-        border-radius: $radiusValue;
-
-        &:hover {
-          background-color: $colorWhiteLightMax;
-        }
       }
     }
   }
