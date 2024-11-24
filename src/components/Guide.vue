@@ -13,6 +13,9 @@
         <v-row no-gutters class="guide-content mt-9">
           <v-col v-if="carouselItem.image_url" cols="12" md="6" sm="12" align="center">
             <img loading="lazy" :src="carouselItem.image_url" :class="carouselItem.png ? 'png-transparent' : ''" />
+          </v-col>
+          <v-col v-else-if="carouselItem.video_url" cols="12" md="6" sm="12" align="center">
+            <video loading="lazy" :src="carouselItem.video_url" :class="carouselItem.png ? 'png-transparent' : ''" />
             <!-- <v-progress-linear v-if="carouselItem.progress" :buffer-value="progression"
               color="#9A843A"></v-progress-linear> -->
           </v-col>
@@ -46,27 +49,31 @@ const carouselItems = [
     title: 'Guide',
     description: '🤯 Prêt à vivre une expérience unique pour la Journée Mondiale du Freebet? Suis nos conseils pour vivre la meilleure expérience et tenter de remporter des Freebets* 🤝',
     image_url: '/images/guide/freebet.png',
+    video_url: '',
     png: true,
   },
   {
     name: 'lieu',
     title: 'Lieux',
     description: 'Explore et découvre de nouveaux lieux en zoomant. Si tu es sur téléphone, n’hésite pas à le tourner pour jouer à l’horizontal ! 👌',
-    image_url: '/images/guide/guide-lieu.mp4',
+    image_url: '',
+    video_url: '/images/guide/guide-lieu.mp4',
     // progress: true,
   },
   {
     name: 'personnage',
     title: 'Personnages',
     description: 'Rapproche-toi des personnages pour avoir de précieux indices, ils pourront te guider vers des Freebets 💬',
-    image_url: '/images/guide/guide-dialog.mp4',
+    image_url: '',
+    video_url: '/images/guide/guide-dialog.mp4',
     // progress: true,
   },
   {
     name: 'ihm',
     title: 'Menu',
     description: 'Sur l’icône « Cartes » retrouve les lieux déjà découverts et ceux que tu dois encore trouver ! 🗺️',
-    image_url: '/images/guide/guide-ihm.mp4',
+    image_url: '',
+    video_url: '/images/guide/guide-ihm.mp4',
     // progress: true,
   },
   {
@@ -74,6 +81,7 @@ const carouselItems = [
     title: 'À toi de jouer',
     description: 'Prêt à vivre une grande aventure ? Zoom vers la ligne de départ 🏁',
     image_url: '/images/guide/guide-final.png',
+    video_url: '',
   }
 ]
 
@@ -118,6 +126,7 @@ watch(locations_found.value, (value) => {
     transform: translateY(-50%);
   }
 
+  video,
   img {
     width: auto;
     height: 100%;
