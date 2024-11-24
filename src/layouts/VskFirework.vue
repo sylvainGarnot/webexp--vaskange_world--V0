@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <div class="line-container" v-for="i in 300">
+      <div class="line-container" v-for="i in 150">
         <div class="line" :class="color">
         </div>
         <div class="dot" :class="color">
@@ -62,7 +62,7 @@ $animation-duration: 2s;
 .line-container {
   transform-origin: right;
 
-  @for $i from 1 through 300 {
+  @for $i from 1 through 150 {
     &:nth-child(#{$i}) {
       $r: random(360) * 1deg;
       transform: rotate($r);
