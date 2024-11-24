@@ -46,6 +46,7 @@ import { useSettingStore } from "@/stores/setting";
 
 import type { locationFoundInterface, locationInterface } from "@/stores/location/interface.js";
 import type { characterFoundInterface } from "@/stores/character/interface.js";
+import { apiPostVisit } from "@/api/post";
 
 
 const route = useRoute();
@@ -131,6 +132,7 @@ onMounted(() => {
       isLoadUserDataDialogActive.value = true
     } else {
       setDefaultLocationFound();
+      apiPostVisit()
     }
 
 
