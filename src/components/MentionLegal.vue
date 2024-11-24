@@ -27,7 +27,7 @@
 
 .vsk-mention-legal {
   position: fixed;
-  bottom: 0;
+  top: 0;
   left: 0;
   height: 15%;
   min-height: 180px;
