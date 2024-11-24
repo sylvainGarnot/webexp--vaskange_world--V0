@@ -4,18 +4,25 @@
 
     <VskCardCarousel v-model:isActive="isActive" :carousel-items="carouselItems" nextItemBtnLabel="conseil suivant">
       <template v-for="carouselItem in carouselItems" :key="carouselItem.name" v-slot:[carouselItem.name]>
+
         <div class="vsk-regle--container px-5">
+
+          <!-- ILLUSTRATION -->
           <v-row no-gutters class="vsk-regle--illustration">
             <div class="vsk-regle--illustration-container">
               <img v-if="carouselItem.image_url" loading="lazy" :src="carouselItem.image_url" />
             </div>
           </v-row>
+
+          <!-- TITLE -->
           <v-row no-gutters class="vsk-regle--title">
             <v-col cols="12" align="center">
               <h3>{{ carouselItem.title }}</h3>
             </v-col>
           </v-row>
-          <v-row no-gutters class="mt-3 vsk-regle--description">
+
+          <!-- DESCRIPTION -->
+          <v-row no-gutters class="vsk-regle--description mt-3">
             <v-col cols="12" align="center" v-html="carouselItem.description">
             </v-col>
           </v-row>

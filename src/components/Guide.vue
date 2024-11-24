@@ -1,30 +1,34 @@
 <template>
   <div>
-    <!-- <VskBtn image="/icon/freebet.png" @click="isActive = !isActive" :active="isActive" style="padding: 12.5px" /> -->
+    <VskBtn class="mt-4 ml-4" image="/icon/guide.png" @click="isActive = !isActive" :active="isActive" />
 
     <VskCardCarousel v-model:isActive="isActive" :carousel-items="carouselItems" nextItemBtnLabel="conseil suivant"
       @close-first-time="playMusic">
       <template v-for="carouselItem in carouselItems" :key="carouselItem.name" v-slot:[carouselItem.name]>
-        <v-row no-gutters class="guide-title mt-15">
-          <v-col cols="12" align="center">
-            <h3>{{ carouselItem.title }}</h3>
-          </v-col>
-        </v-row>
-        <v-row no-gutters class="guide-content mt-9">
-          <v-col v-if="carouselItem.image_url" cols="12" md="6" sm="12" align="center">
-            <img loading="lazy" :src="carouselItem.image_url"
-              :class="carouselItem.image_url ? 'png-transparent' : ''" />
-          </v-col>
-          <v-col v-else-if="carouselItem.video_url" cols="12" md="6" sm="12" align="center">
-            <video :src="carouselItem.video_url" autoplay loop muted preload="none" />
-            <!-- <v-progress-linear v-if=" carouselItem.progress" :buffer-value="progression"
-              color="#9A843A"></v-progress-linear> -->
-          </v-col>
-          <v-col cols="12" :md="carouselItem.image_url ? '6' : '12'" sm="12" class="px-5"
-            :class="carouselItem.image_url ? 'mt-3' : 'mt-16'" align="center">
-            <p>{{ carouselItem.description }}</p>
-          </v-col>
-        </v-row>
+
+        <div class="vsk-guide--container px-5">
+
+          <!-- ILLUSTRATION -->
+          <v-row no-gutters class="vsk-guide--illustration">
+            <div class="vsk-guide--illustration-container" v-if="carouselItem.video_url">
+              <video :src="carouselItem.video_url" autoplay loop muted preload="none" />
+            </div>
+          </v-row>
+
+          <!-- TITLE -->
+          <v-row no-gutters class="vsk-guide--title">
+            <v-col cols="12" align="center">
+              <h3>{{ carouselItem.title }}</h3>
+            </v-col>
+          </v-row>
+
+          <!-- DESCRIPTION -->
+          <v-row no-gutters class="vsk-guide--description mt-3">
+            <v-col cols="12" align="center" v-html="carouselItem.description">
+            </v-col>
+          </v-row>
+        </div>
+
       </template>
     </VskCardCarousel>
   </div>
@@ -48,22 +52,19 @@ const carouselItems = [
   {
     name: 'lieu',
     title: 'Zoomer pour explorer',
-    description: 'Explore et découvre de nouveaux lieux en zoomant 👌',
-    image_url: '',
+    description: 'Explore en <u>zoomant</u> 👌 et découvre de nouveaux <u>lieux</u> !',
     video_url: '/images/guide/ZOOM_HAND.mp4',
   },
   {
     name: 'personnage',
-    title: 'Trouve tout les objets cachés',
-    description: 'Trouver les différents objets betclic cachés dans les scènes! Finissez la course et retrouvez TOUS les objets afin de découvrir une FIN SECRET!',
-    image_url: '',
+    title: 'Récolte les objets cachés',
+    description: 'Réunis <u>tout</u> les objets cachés afin de découvrir une <u>fin secrete</u> !',
     video_url: '/images/guide/OBJETS.mp4',
   },
   {
     name: 'ihm',
-    title: 'Revenir sur un lieu',
-    description: 'Sur l’icône « Cartes » retrouve les lieux et objets déjà découverts. Vous pouvez également vous téléporter à travers les différentes scènes découvertes ! 🗺️',
-    image_url: '',
+    title: 'Déplace toi grâce à la carte',
+    description: 'La <u>carte</u> te permet de te <u>téléporter</u> sur les lieux déjà découverts ! 🗺️',
     video_url: '/images/guide/MENU.mp4',
   },
 ]
@@ -94,32 +95,54 @@ watch(locations_found.value, (value) => {
 <style lang="scss" scoped>
 @import '@/assets/styles/_global_variable.scss';
 
-.guide-title {
-  color: $colorWhite;
-  font-size: 3.2vh;
-}
+.vsk-guide--container {
+  position: relative;
+  height: 100%;
 
-.guide-content {
-  color: $colorWhite;
-  font-size: 1.95vh;
-
-  p {
+  .vsk-guide--illustration {
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    height: 50%;
+
+    .vsk-guide--illustration-container {
+      height: 100%;
+
+      video {
+        padding: $radiusValue*2 0;
+        width: auto;
+        height: 100%;
+        border: 0 solid;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
   }
 
-  video,
-  img {
-    width: auto;
-    height: 100%;
-    max-height: 25vh;
-    object-fit: cover;
-    border: 2px solid $colorGold;
-    border-radius: $radiusValue;
+  .vsk-guide--title {
+    color: $colorWhite;
+    font-size: 3.2vh;
+  }
 
-    &.png-transparent {
-      border: 0;
+  .vsk-guide--description {
+    color: $colorWhite;
+    font-size: 1.95vh;
+
+    p {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+</style>
+<style lang="scss">
+@import '@/assets/styles/_global_variable.scss';
+
+.vsk-guide--container {
+  .vsk-guide--description {
+    u {
+      color: $colorGold;
     }
   }
 }
