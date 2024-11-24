@@ -50,7 +50,7 @@ const { items, items_acquired } = storeToRefs(itemStore);
 // DATA
 const dialogStepNumber = ref(0);
 const isHandleNextDialogActive = ref(true)
-const timingBetweenStep = 500
+const timingBetweenStep = 5 // TEST
 
 
 // COMPUTED
