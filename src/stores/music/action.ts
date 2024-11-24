@@ -80,16 +80,24 @@ function setMusicTempo(input: musicInterface) {
 }
 
 function getRandomMusicLocation() : musicInterface {
-  let musicId;
+  let musicId = locations.value[0].musics[0]
   if (musics?.value.length > 0) {
     if (currentLocation?.value?.musics?.length > 0) {
-      musicId = currentLocation.value.musics[
-        Math.floor(Math.random() * currentLocation.value.musics.length)
-      ];
+      if (currentLocation?.value?.musics?.length > 1) {
+        musicId = currentLocation.value.musics[
+          Math.floor(Math.random() * currentLocation.value.musics.length)
+        ];
+      } else {
+        musicId = currentLocation.value.musics[0]
+      }
     } else if (locations?.value[0]?.musics?.length > 0) {
-      musicId = locations.value[0].musics[
-        Math.floor(Math.random() * locations.value[0].musics.length)
-      ];
+      if (locations?.value[0]?.musics?.length > 1) {
+        musicId = locations.value[0].musics[
+          Math.floor(Math.random() * locations.value[0].musics.length)
+        ];
+      } else {
+        musicId = locations.value[0].musics[0]
+      }
     }
   }
   if (musicId) {
@@ -199,12 +207,17 @@ export function pauseMusic() {
 export async function changeMusicByLocation(fadeDuration: number = 5000) {
 
   console.log('TEST - changeMusicByLocation'); // TEST
-  musicLast.value = music.value as musicInterface;
-  setMusic(getRandomMusicLocation())
 
-  if (isMusicPlaying.value) {
-    await fadeOutMusic(musicLast.value as musicInterface, fadeDuration as number);
-    await fadeInMusic(music.value as musicInterface, fadeDuration as number);
+  // MODE : une seule musique tout les 3 lieux
+  if (!music.value.id || music.value.id !== currentLocation?.value?.musics[0]) {
+    musicLast.value = music.value as musicInterface;
+
+    setMusic(getRandomMusicLocation())
+
+    if (isMusicPlaying.value) {
+      await fadeOutMusic(musicLast.value as musicInterface, fadeDuration as number);
+      await fadeInMusic(music.value as musicInterface, fadeDuration as number);
+    }
   }
 }
 

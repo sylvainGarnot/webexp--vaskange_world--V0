@@ -23,7 +23,7 @@ export const locations = ref([
     image_url_unfound: '/images/location/black&white&blur/poker.jpg',
     upper_location: '',
     is_hidden: false,
-    musics: ['2','3'],
+    musics: ['0'],
   },
 
   // EP_WebXP_Start -1-
@@ -36,7 +36,7 @@ export const locations = ref([
     image_url_unfound: '/images/location/black&white&blur/start.jpg',
     upper_location: '0',
     is_hidden: false,
-    musics: ['0','1'],
+    musics: ['0'],
   },
   
   // FOOTBALL -2-
@@ -49,7 +49,7 @@ export const locations = ref([
     image_url_unfound: '/images/location/black&white&blur/football.jpg',
     upper_location: '1',
     is_hidden: false,
-    musics: ['2','3'],
+    musics: ['0'],
   },
 
   // BASEBALL -3-
@@ -62,7 +62,7 @@ export const locations = ref([
     image_url_unfound: '/images/location/black&white&blur/baseball.jpg',
     upper_location: '2',
     is_hidden: false,
-    musics: ['0','1'],
+    musics: ['1'],
   },
 
   // BASKET -4-
@@ -75,7 +75,7 @@ export const locations = ref([
     image_url_unfound: '/images/location/black&white&blur/basket.jpg',
     upper_location: '3',
     is_hidden: false,
-    musics: ['2','3'],
+    musics: ['1'],
   },
 
   // TENNIS -5-
@@ -88,7 +88,7 @@ export const locations = ref([
     image_url_unfound: '/images/location/black&white&blur/tennis.jpg',
     upper_location: '4',
     is_hidden: false,
-    musics: ['0','1'],
+    musics: ['1'],
   },
 
   // MMA -6-
@@ -101,7 +101,7 @@ export const locations = ref([
     image_url_unfound: '/images/location/black&white&blur/mma.jpg',
     upper_location: '5',
     is_hidden: false,
-    musics: ['2','3'],
+    musics: ['0'],
   },
 
   // CYCLISME -7-
@@ -114,7 +114,7 @@ export const locations = ref([
     image_url_unfound: '/images/location/black&white&blur/cyclisme.jpg',
     upper_location: '6',
     is_hidden: false,
-    musics: ['0','1'],
+    musics: ['0'],
   },
 
   // HOCKEY -8-
@@ -127,7 +127,7 @@ export const locations = ref([
     image_url_unfound: '/images/location/black&white&blur/hockey.jpg',
     upper_location: '7',
     is_hidden: false,
-    musics: ['2','3'],
+    musics: ['0'],
   },
 
   // RUGBY -9-
@@ -140,7 +140,7 @@ export const locations = ref([
     image_url_unfound: '/images/location/black&white&blur/rugby.jpg',
     upper_location: '8',
     is_hidden: false,
-    musics: ['2','3'],
+    musics: ['1'],
   },
 
   // MONTAGNE -10-
@@ -153,21 +153,8 @@ export const locations = ref([
     image_url_unfound: '/images/location/black&white&blur/everest.jpg',
     upper_location: '9',
     is_hidden: false,
-    musics: ['0','1'],
+    musics: ['1'],
   },
-
-  // EVREST -11-
-  // {
-  //   id: '11',
-  //   name: 'evrest',
-  //   label: 'Evrest',
-  //   message: 'Evrest',
-  //   image_url: '/images/location/color/???.jpg',
-  //   image_url_unfound: '/images/location/black&white&blur/???.jpg',
-  //   upper_location: '10',
-  //   is_hidden: false,
-  //   musics: ['0','1'],
-  // },
 
   // SECRET END -99-
   {
@@ -179,7 +166,7 @@ export const locations = ref([
     image_url_unfound: '/images/location/black&white&blur/secretend.jpg',
     upper_location: '0',
     is_hidden: true,
-    musics: ['2','3'],
+    musics: ['1'],
   },
   
 ] as locationInterface[]);

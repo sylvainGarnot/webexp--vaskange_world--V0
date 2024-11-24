@@ -11,48 +11,30 @@ export const isMusicPlaying = ref(false as boolean);
 export const volumeMusic = ref(0.5 as number);
 
 export const musics = ref([
+  
+    // TEST
+    // file: '/music/free/coccibar 🐞.aac',
+    // file: '/music/free/fin quest 1 🔥.aac',
+    // file: '/music/free/matrix 📺.aac',
+    // file: '/music/free/star night club ⭐️.aac',
+    // file: '/music/free/support city 🛖.aac',
+    // file: '/music/free/temple 🏯.aac',
+    // file: '/music/free/trésor 💰.aac',
   {
     id: 'music_tempo',
-    file: '/music/tempo/90bpm/90bpm_drum.mp3',
+    file: '/music/JMDF_Musique_V1.mp3',
     audio: new Audio,
   },
   {
     id: '0',
-    file: '/music/tempo/90bpm/90bpm_piano.mp3',
-    // file: '/music/free/coccibar 🐞.aac',
+    file: '/music/SD_Ambiance_Test_1.mp3',
+    // file: '/music/free/trésor 💰.aac', // TEST
     audio: new Audio,
   },
   {
     id: '1',
-    file: '/music/tempo/90bpm/90bpm_piano.mp3',
-    // file: '/music/free/fin quest 1 🔥.aac',
+    file: '/music/SD_Ambiance_Test_2.mp3',
+    // file: '/music/free/temple 🏯.aac', // TEST
     audio: new Audio,
   },
-  {
-    id: '2',
-    file: '/music/tempo/90bpm/90bpm_guitar.mp3',
-    // file: '/music/free/matrix 📺.aac',
-    audio: new Audio,
-  },
-  {
-    id: '3',
-    file: '/music/tempo/90bpm/90bpm_guitar.mp3',
-    // file: '/music/free/star night club ⭐️.aac',
-    audio: new Audio,
-  },
-  // {
-  //   id: '4',
-  //   // file: '/music/free/support city 🛖.aac',
-  //   audio: new Audio,
-  // },
-  // {
-  //   id: '5',
-  //   // file: '/music/free/temple 🏯.aac',
-  //   audio: new Audio,
-  // },
-  // {
-  //   id: '6',
-  //   // file: '/music/free/trésor 💰.aac',
-  //   audio: new Audio,
-  // },
 ] as musicInterface[]);
