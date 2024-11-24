@@ -19,6 +19,7 @@
 
 <script lang="ts" setup>
 import { useRouter, useRoute } from 'vue-router';
+import { playSound } from '@/stores/music/action';
 const router = useRouter();
 const route = useRoute();
 const emit = defineEmits(['router-push'])
@@ -33,6 +34,7 @@ const props = defineProps({
 })
 
 function onClick() {
+  playSound('son_bouton_1')
   if (props.link) {
     if (route.query.location === props.link) {
       router.push({ name: 'home' });

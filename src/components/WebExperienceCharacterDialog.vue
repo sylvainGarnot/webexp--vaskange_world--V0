@@ -28,6 +28,7 @@ import { useItemStore } from "@/stores/item";
 import { locations_found } from "@/stores/location/state";
 import { setIsDialogMentionLegalActive, setIsDialogRegleRead } from "@/stores/dialog/action";
 import { isDialogRegleRead } from "@/stores/dialog/state";
+import { playSound } from "@/stores/music/action";
 // import type { itemInterface } from '@/stores/item/interface';
 // import WebExperienceCharacterDialogAnswer from "@/components/WebExperienceCharacterDialogAnswer.vue";
 
@@ -121,6 +122,7 @@ function handleLeave() {
 
 function handleNextDialog() {
   handleIsHandleNextDialogActive()
+  playSound('son_bouton_1')
   if (currentDialog.value) {
     if (!isLastStepReach.value) {
       dialogStepNumber.value++

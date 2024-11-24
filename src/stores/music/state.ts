@@ -5,13 +5,27 @@ export const music = ref({} as musicInterface);
 export const musicTempo = ref({} as musicInterface);
 export const musicLast = ref({} as musicInterface);
 export const musicsCache = ref([] as musicInterface[]);
+export const soundsCache = ref([] as musicInterface[]);
 
 export const modeTempo = ref(true as boolean);
 export const isMusicPlaying = ref(false as boolean);
 export const volumeMusic = ref(0.5 as number);
 
+export const sounds = ref([
+  {
+    id: 'son_bouton_1',
+    file: '/music/SD_Bouton_1.mp3',
+    audio: new Audio,
+  },
+  {
+    id: 'son_bouton_2',
+    file: '/music/SD_Bouton_2.mp3',
+    audio: new Audio,
+  },
+] as musicInterface[])
+
 export const musics = ref([
-  
+
     // TEST
     // file: '/music/free/coccibar 🐞.aac',
     // file: '/music/free/fin quest 1 🔥.aac',

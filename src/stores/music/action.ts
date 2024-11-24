@@ -1,5 +1,5 @@
-import { music, volumeMusic, musicLast, musicsCache, isMusicPlaying, musics, musicTempo, modeTempo } from './state';
-import type { musicInterface } from './interface';
+import { music, sounds, volumeMusic, musicLast, musicsCache, soundsCache, isMusicPlaying, musics, musicTempo, modeTempo } from './state';
+import type { musicInterface, soundInterface } from './interface';
 import { currentLocation, locations } from '../location/state';
 
 let fadeOutMusicInterval = 0 as number;
@@ -226,4 +226,34 @@ export function setVolumeMusic(input: number) {
   music.value.audio.volume = input as number;
   musicTempo.value.audio.volume = input as number;
 };
-  
+
+function addSoundsCache(input: soundInterface) {
+  soundsCache.value.push(input as soundInterface);
+}
+
+export async function playSound(inputId: string) {
+  const soundInput = sounds.value.find(s => s.id === inputId)
+
+  if (soundInput) {
+    const soundCache = soundsCache.value.find(s => s.id === soundInput.id);
+    if (soundCache) {
+      soundCache.audio.currentTime = 0
+      soundCache.audio.volume = volumeMusic.value as number
+      soundCache.audio.play()
+    } else {
+      const audio = new Audio() as HTMLAudioElement;
+      audio.preload = "auto"
+      audio.loop = false
+      audio.src = soundInput.file
+      audio.currentTime = 0
+      audio.volume = volumeMusic.value as number
+      audio.play()
+
+      addSoundsCache({
+        id: soundInput.id,
+        file: soundInput.file,
+        audio,
+      } as soundInterface);
+    }
+  }
+}

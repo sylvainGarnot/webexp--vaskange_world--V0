@@ -38,7 +38,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { storeToRefs } from 'pinia';
 
 import { useDialogStore } from "@/stores/dialog";
@@ -49,6 +49,7 @@ import VskCard from '@/layouts/VskCard.vue'
 import VskFirework from "@/layouts/VskFirework.vue";
 import WebExperienceAlertAllItemAcquired from "@/components/WebExperienceAlertAllItemAcquired.vue";
 import type { itemInterface } from "@/stores/item/interface";
+import { playSound } from "@/stores/music/action";
 
 const itemStore = useItemStore();
 const { itemProvidedByCurrentDialog, isAllItemsAcquired } = storeToRefs(itemStore);
@@ -68,7 +69,12 @@ function onClose() {
   if (isAllItemsAcquired.value && !isTheHiddenPlaceFound.value) {
     webExperienceAlertAllItemAcquiredIsActive.value = true;
   }
+  playSound('son_bouton_1')
 }
+
+onMounted(() => {
+  playSound('son_bouton_2')
+})
 </script>
 
 <style lang="scss" scoped>

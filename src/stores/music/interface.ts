@@ -3,3 +3,6 @@ export interface musicInterface {
   file: string,
   audio: HTMLAudioElement,
 }
+
+export interface soundInterface extends musicInterface {
+}

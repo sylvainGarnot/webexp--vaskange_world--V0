@@ -6,7 +6,7 @@
     </div>
 
     <!-- CHARACTER CALL -->
-    <div class="vsk-character-call-container" @click="setIsDialogActive(true)"
+    <div class="vsk-character-call-container" @click="handleClick"
       :style="`top: ${characterCallTop}px; left: ${characterCallLeft}px; width: ${characterCallWidth}px; height: ${characterCallHeight}px; border-width: ${characterCallWidth * 0.02}px`">
 
       <div class="vsk-character-call-arrow-container"
@@ -41,6 +41,7 @@ import { storeToRefs } from 'pinia'
 
 import { useCharacterStore } from "@/stores/character";
 import { useDialogStore } from "@/stores/dialog";
+import { playSound } from '@/stores/music/action';
 
 const characterStore = useCharacterStore();
 const { currentCharacter, hasCurrentCharacterItemToGive } = storeToRefs(characterStore);
@@ -60,6 +61,14 @@ const characterCallWidth = computed(() => {
 const characterCallHeight = computed(() => {
   return currentCharacter.value.bookmark?.width * 0.125
 })
+
+
+function handleClick() {
+  setIsDialogActive(true)
+  if (!hasCurrentCharacterItemToGive.value) {
+    playSound('son_bouton_1')
+  }
+}
 
 
 </script>

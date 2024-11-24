@@ -1,17 +1,17 @@
 <template>
   <div class="vsk-btn--container">
-    <button class="vsk-btn" :class="classes" :style="style">
+    <button class="vsk-btn" :class="classes" :style="style" @click="playSound('son_bouton_1')">
       <div v-if="disable" class="vsk-btn--disable-background"></div>
       <img loading="lazy" class="icon" :src="image" />
     </button>
     <v-badge v-if="badge" class="vsk-btn--badge" :color="badgeType" :content="badge" inline></v-badge>
     <v-icon v-if="badgeStar" class="vsk-btn--badge-star" size="large">mdi-star</v-icon>
-
   </div>
 </template>
 
 <script setup>
 import { computed } from 'vue';
+import { playSound } from '@/stores/music/action';
 
 const props = defineProps({
   image: String,
