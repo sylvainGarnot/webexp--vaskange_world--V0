@@ -16,6 +16,8 @@ import { cookies } from '../setting/state'
 import { postBrowserCookie } from '../setting/action'
 import type { cookieInterface } from '../setting/interface'
 
+import { locations_found } from '../location/state'
+
 
 // PRIVATE
 function addCharacterFound(input: characterFoundInterface) {
@@ -65,7 +67,7 @@ export function setCurrentCharacter(inputCharacterFound: characterFoundInterface
 
   if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.75 && currentDialog.value?.type === 'gift' && currentDialog.value?.openOnZoom && zoomIn.value && hasCurrentCharacterItemToGive.value && !isCurrentCharacterItemToGiveGiven.value) {
     setIsDialogActive(true);
-  } else if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.25 && currentDialog.value?.type.includes('force') && !isDialogRegleRead.value && currentDialog.value?.openOnZoom && zoomIn.value) {
+  } else if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.25 && currentDialog.value?.type.includes('force') && !isDialogRegleRead.value && currentDialog.value?.openOnZoom && zoomIn.value && locations_found.value.length <= 3 && items_acquired.value.length === 0) {
     setIsDialogActive(true);
     // if (currentDialog.value?.type.includes('mention-legal')) {
     //   setIsDialogMentionLegalActive(true)
