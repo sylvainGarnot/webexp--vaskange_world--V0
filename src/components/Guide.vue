@@ -12,11 +12,12 @@
         </v-row>
         <v-row no-gutters class="guide-content mt-9">
           <v-col v-if="carouselItem.image_url" cols="12" md="6" sm="12" align="center">
-            <img loading="lazy" :src="carouselItem.image_url" :class="carouselItem.png ? 'png-transparent' : ''" />
+            <img loading="lazy" :src="carouselItem.image_url"
+              :class="carouselItem.image_url ? 'png-transparent' : ''" />
           </v-col>
           <v-col v-else-if="carouselItem.video_url" cols="12" md="6" sm="12" align="center">
-            <video loading="lazy" :src="carouselItem.video_url" :class="carouselItem.png ? 'png-transparent' : ''" />
-            <!-- <v-progress-linear v-if="carouselItem.progress" :buffer-value="progression"
+            <video :src="carouselItem.video_url" autoplay loop muted preload="none" />
+            <!-- <v-progress-linear v-if=" carouselItem.progress" :buffer-value="progression"
               color="#9A843A"></v-progress-linear> -->
           </v-col>
           <v-col cols="12" :md="carouselItem.image_url ? '6' : '12'" sm="12" class="px-5"
@@ -45,44 +46,26 @@ const { playMusic } = musicStore;
 
 const carouselItems = [
   {
-    name: 'guide',
-    title: 'Guide',
-    description: '🤯 Prêt à vivre une expérience unique pour la Journée Mondiale du Freebet? Suis nos conseils pour vivre la meilleure expérience et tenter de remporter des Freebets* 🤝',
-    image_url: '/images/guide/freebet.png',
-    video_url: '',
-    png: true,
-  },
-  {
     name: 'lieu',
-    title: 'Lieux',
-    description: 'Explore et découvre de nouveaux lieux en zoomant. Si tu es sur téléphone, n’hésite pas à le tourner pour jouer à l’horizontal ! 👌',
+    title: 'Zoomer pour explorer',
+    description: 'Explore et découvre de nouveaux lieux en zoomant 👌',
     image_url: '',
-    video_url: '/images/guide/guide-lieu.mp4',
-    // progress: true,
+    video_url: '/images/guide/ZOOM_HAND.mp4',
   },
   {
     name: 'personnage',
-    title: 'Personnages',
-    description: 'Rapproche-toi des personnages pour avoir de précieux indices, ils pourront te guider vers des Freebets 💬',
+    title: 'Trouve tout les objets cachés',
+    description: 'Trouver les différents objets betclic cachés dans les scènes! Finissez la course et retrouvez TOUS les objets afin de découvrir une FIN SECRET!',
     image_url: '',
-    video_url: '/images/guide/guide-dialog.mp4',
-    // progress: true,
+    video_url: '/images/guide/OBJETS.mp4',
   },
   {
     name: 'ihm',
-    title: 'Menu',
-    description: 'Sur l’icône « Cartes » retrouve les lieux déjà découverts et ceux que tu dois encore trouver ! 🗺️',
+    title: 'Revenir sur un lieu',
+    description: 'Sur l’icône « Cartes » retrouve les lieux et objets déjà découverts. Vous pouvez également vous téléporter à travers les différentes scènes découvertes ! 🗺️',
     image_url: '',
-    video_url: '/images/guide/guide-ihm.mp4',
-    // progress: true,
+    video_url: '/images/guide/MENU.mp4',
   },
-  {
-    name: 'secret',
-    title: 'À toi de jouer',
-    description: 'Prêt à vivre une grande aventure ? Zoom vers la ligne de départ 🏁',
-    image_url: '/images/guide/guide-final.png',
-    video_url: '',
-  }
 ]
 
 // function recursive() {
