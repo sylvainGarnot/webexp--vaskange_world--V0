@@ -10,7 +10,7 @@
         </div>
       </v-col>
       <v-col cols="3" class="vsk-mention-legal--illustration">
-        <img src="/logo/logo_gouvernement.svg" loading="lazy" />
+        <img src="/logo/gouvernement.svg" loading="lazy" />
       </v-col>
     </v-row>
   </div>

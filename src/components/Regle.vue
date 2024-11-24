@@ -63,9 +63,9 @@ const carouselItems = [
     name: '2',
     title: 'Abonnes-toi !',
     description: `Avant de partir… Tu dois être abonné aux réseaux sociaux suivants de Betclic pour pouvoir remporter des Freebets* <br>
-      <a target="_blank" href="https://www.instagram.com/betclicfrance/ "><img src="logo/instagram_logo.png"/></a>
-      <a target="_blank" href="https://www.tiktok.com/@betclicfrance "><img src="logo/tiktok_logo.png"/></a>
-      <a target="_blank" href="https://x.com/Betclic"><img src="logo/twitter_logo.png"/></a>`,
+      <a target="_blank" href="https://www.instagram.com/betclicfrance/ "><img src="logo/instagram.png"/></a>
+      <a target="_blank" href="https://www.tiktok.com/@betclicfrance "><img src="logo/tiktok.png"/></a>
+      <a target="_blank" href="https://x.com/Betclic"><img src="logo/x.png"/></a>`,
   },
   {
     name: '3',

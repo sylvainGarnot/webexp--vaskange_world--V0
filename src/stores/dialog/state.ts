@@ -50,9 +50,9 @@ export const dialogs = ref([
       '2. Trouve les codes promos écris dans les différentes scènes. Tu vois un élément écrit quelque part ? Écris-le dans ton app’ Betclic, il renferme peut-être des Freebets 📲',
       '3. Enfin, RDV sur les réseaux sociaux de Betclic toute la journée pour avoir des indices et jouer à des jeux exclusifs 🎁',
       `Avant de partir… Tu dois être abonné aux réseaux sociaux suivants de Betclic pour pouvoir remporter des Freebets* <br>
-      <a target="_blank" href="https://www.instagram.com/betclicfrance/ "><img src="logo/instagram_logo.png"/></a>
-      <a target="_blank" href="https://www.tiktok.com/@betclicfrance "><img src="logo/tiktok_logo.png"/></a>
-      <a target="_blank" href="https://x.com/Betclic"><img src="logo/twitter_logo.png"/></a>`,
+      <a target="_blank" href="https://www.instagram.com/betclicfrance/ "><img src="logo/instagram.png"/></a>
+      <a target="_blank" href="https://www.tiktok.com/@betclicfrance "><img src="logo/tiktok.png"/></a>
+      <a target="_blank" href="https://x.com/Betclic"><img src="logo/x.png"/></a>`,
       'Tu as toutes les infos bg : tu peux désormais zoomer dans l’app’ Betclic du téléphone et débuter ta course. <br><br> Bonne chance 💪',
     ],
     item_provided: '',
