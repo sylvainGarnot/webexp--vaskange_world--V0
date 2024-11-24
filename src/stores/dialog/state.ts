@@ -3,6 +3,7 @@ import type { dialogInterface } from './interface';
 
 export const isDialogActive = ref(false as boolean);
 
+export const isDialogRegleRead = ref(false as boolean);
 export const isDialogMentionLegalActive = ref(false as boolean);
 
 const speech_item_found = [

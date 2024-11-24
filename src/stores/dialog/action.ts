@@ -1,4 +1,4 @@
-import { isDialogActive, isDialogMentionLegalActive } from './state';
+import { isDialogActive, isDialogMentionLegalActive, isDialogRegleRead } from './state';
 
 
 // PRIVATE
@@ -17,4 +17,8 @@ export function setIsDialogActive(input: boolean) {
 
 export function setIsDialogMentionLegalActive(input: boolean) {
   isDialogMentionLegalActive.value = input
+}
+
+export function setIsDialogRegleRead(input: boolean) {
+  isDialogRegleRead.value = input
 }

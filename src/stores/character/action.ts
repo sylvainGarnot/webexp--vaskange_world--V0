@@ -6,7 +6,7 @@ import { currentBookmark, zoomIn} from '../bookmark/state';
 import { setCurrentBookmark, setZoomIn } from '../bookmark/action';
 import type { bookmarkInterface } from '../bookmark/interface';
 
-import { dialogs } from '../dialog/state';
+import { dialogs, isDialogRegleRead } from '../dialog/state';
 import { currentDialog } from '../dialog/getter';
 import { setIsDialogActive, setIsDialogMentionLegalActive } from '../dialog/action';
 
@@ -65,7 +65,7 @@ export function setCurrentCharacter(inputCharacterFound: characterFoundInterface
 
   if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.75 && currentDialog.value?.type === 'gift' && currentDialog.value?.openOnZoom && zoomIn.value && hasCurrentCharacterItemToGive.value && !isCurrentCharacterItemToGiveGiven.value) {
     setIsDialogActive(true);
-  } else if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.25 && currentDialog.value?.type.includes('force') && currentDialog.value?.openOnZoom && zoomIn.value) {
+  } else if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.25 && currentDialog.value?.type.includes('force') && !isDialogRegleRead.value && currentDialog.value?.openOnZoom && zoomIn.value) {
     setIsDialogActive(true);
     // if (currentDialog.value?.type.includes('mention-legal')) {
     //   setIsDialogMentionLegalActive(true)

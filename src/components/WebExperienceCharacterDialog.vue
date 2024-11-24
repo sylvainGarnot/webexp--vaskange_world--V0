@@ -26,7 +26,8 @@ import { useDialogStore } from "@/stores/dialog";
 import { useCharacterStore } from "@/stores/character";
 import { useItemStore } from "@/stores/item";
 import { locations_found } from "@/stores/location/state";
-import { setIsDialogMentionLegalActive } from "@/stores/dialog/action";
+import { setIsDialogMentionLegalActive, setIsDialogRegleRead } from "@/stores/dialog/action";
+import { isDialogRegleRead } from "@/stores/dialog/state";
 // import type { itemInterface } from '@/stores/item/interface';
 // import WebExperienceCharacterDialogAnswer from "@/components/WebExperienceCharacterDialogAnswer.vue";
 
@@ -67,7 +68,7 @@ const isLastStepReach = computed(() => {
 })
 
 const isReadingMandatory = computed(() => {
-  return props.type?.includes('force') && locations_found.value.length <= 3 && items_acquired.value.length === 0
+  return props.type?.includes('force') && locations_found.value.length <= 3 && items_acquired.value.length === 0 && !isDialogRegleRead.value
 })
 
 const classes = computed(() => {
@@ -104,6 +105,10 @@ onBeforeUnmount(() => {
 function handleLeave() {
   dialogStepNumber.value = -1;
   setIsDialogMentionLegalActive(false)
+
+  if (isReadingMandatory.value) {
+    setIsDialogRegleRead(true)
+  }
 }
 
 // function handleAccepted() {
