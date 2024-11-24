@@ -84,8 +84,8 @@ export const characters = ref([
     dialog: '',
     location: '2',
     is_hidden: true,
-    image_url: '/images/character/color/footballeaster.png',
-    image_url_unfound: '/images/character/black&white&blur/footballeaster.png',
+    image_url: '/images/character/color/footballeaster.jpg',
+    image_url_unfound: '/images/character/black&white&blur/footballeaster.jpg',
   },
   // FOOTBALL - EASTER 2
   // {
@@ -96,8 +96,8 @@ export const characters = ref([
   //   dialog: '',
   //   location: '2',
   //   is_hidden: true,
-  //   image_url: '/images/character/color/footballeaster2.png',
-  //   image_url_unfound: '/images/character/black&white&blur/footballeaster2.png',
+  //   image_url: '/images/character/color/footballeaster2.jpg',
+  //   image_url_unfound: '/images/character/black&white&blur/footballeaster2.jpg',
   // },
 
 
@@ -159,8 +159,8 @@ export const characters = ref([
     dialog: '',
     location: '3',
     is_hidden: true,
-    image_url: '/images/character/color/baseballeaster.png',
-    image_url_unfound: '/images/character/black&white&blur/baseballeaster.png',
+    image_url: '/images/character/color/baseballeaster.jpg',
+    image_url_unfound: '/images/character/black&white&blur/baseballeaster.jpg',
   },
   // BASEBALL - EASTER 2
   // {
@@ -171,8 +171,8 @@ export const characters = ref([
   //   dialog: '',
   //   location: '3',
   //   is_hidden: true,
-  //   image_url: '/images/character/color/baseballeaster2.png',
-  //   image_url_unfound: '/images/character/black&white&blur/baseballeaster2.png',
+  //   image_url: '/images/character/color/baseballeaster2.jpg',
+  //   image_url_unfound: '/images/character/black&white&blur/baseballeaster2.jpg',
   // },
 
   
@@ -234,8 +234,8 @@ export const characters = ref([
     dialog: '',
     location: '4',
     is_hidden: true,
-    image_url: '/images/character/color/basketeaster.png',
-    image_url_unfound: '/images/character/black&white&blur/basketeaster.png',
+    image_url: '/images/character/color/basketeaster.jpg',
+    image_url_unfound: '/images/character/black&white&blur/basketeaster.jpg',
   },
 
   
@@ -297,8 +297,8 @@ export const characters = ref([
     dialog: '',
     location: '5',
     is_hidden: true,
-    image_url: '/images/character/color/tenniseaster.png',
-    image_url_unfound: '/images/character/black&white&blur/tenniseaster.png',
+    image_url: '/images/character/color/tenniseaster.jpg',
+    image_url_unfound: '/images/character/black&white&blur/tenniseaster.jpg',
   },
 
   
@@ -360,8 +360,8 @@ export const characters = ref([
     dialog: '',
     location: '6',
     is_hidden: true,
-    image_url: '/images/character/color/mmaeaster.png',
-    image_url_unfound: '/images/character/black&white&blur/mmaeaster.png',
+    image_url: '/images/character/color/mmaeaster.jpg',
+    image_url_unfound: '/images/character/black&white&blur/mmaeaster.jpg',
   },
 
   
@@ -423,8 +423,8 @@ export const characters = ref([
     dialog: '',
     location: '7',
     is_hidden: true,
-    image_url: '/images/character/color/cyclismeeaster.png',
-    image_url_unfound: '/images/character/black&white&blur/cyclismeeaster.png',
+    image_url: '/images/character/color/cyclismeeaster.jpg',
+    image_url_unfound: '/images/character/black&white&blur/cyclismeeaster.jpg',
   },
   // CYCLISME - EASTER 2
   // {
@@ -435,8 +435,8 @@ export const characters = ref([
   //   dialog: '',
   //   location: '7',
   //   is_hidden: true,
-  //   image_url: '/images/character/color/cyclismeeaster2.png',
-  //   image_url_unfound: '/images/character/black&white&blur/cyclismeeaster2.png',
+  //   image_url: '/images/character/color/cyclismeeaster2.jpg',
+  //   image_url_unfound: '/images/character/black&white&blur/cyclismeeaster2.jpg',
   // },
 
 
@@ -498,8 +498,8 @@ export const characters = ref([
     dialog: '',
     location: '8',
     is_hidden: true,
-    image_url: '/images/character/color/hockeyeaster.png',
-    image_url_unfound: '/images/character/black&white&blur/hockeyeaster.png',
+    image_url: '/images/character/color/hockeyeaster.jpg',
+    image_url_unfound: '/images/character/black&white&blur/hockeyeaster.jpg',
   },
   // HOCKEY - EASTER 2
   // {
@@ -510,8 +510,8 @@ export const characters = ref([
   //   dialog: '',
   //   location: '8',
   //   is_hidden: true,
-  //   image_url: '/images/character/color/hockeyeaster2.png',
-  //   image_url_unfound: '/images/character/black&white&blur/hockeyeaster2.png',
+  //   image_url: '/images/character/color/hockeyeaster2.jpg',
+  //   image_url_unfound: '/images/character/black&white&blur/hockeyeaster2.jpg',
   // },
 
   
@@ -573,8 +573,8 @@ export const characters = ref([
     dialog: '',
     location: '9',
     is_hidden: true,
-    image_url: '/images/character/color/rugbyeaster.png',
-    image_url_unfound: '/images/character/black&white&blur/rugbyeaster.png',
+    image_url: '/images/character/color/rugbyeaster.jpg',
+    image_url_unfound: '/images/character/black&white&blur/rugbyeaster.jpg',
   },
 
   
@@ -648,8 +648,8 @@ export const characters = ref([
     dialog: '109',
     location: '10',
     is_hidden: true,
-    image_url: '/images/character/color/everesteaster.png',
-    image_url_unfound: '/images/character/black&white&blur/everesteaster.png',
+    image_url: '/images/character/color/everesteaster.jpg',
+    image_url_unfound: '/images/character/black&white&blur/everesteaster.jpg',
   },
 
   
@@ -666,8 +666,8 @@ export const characters = ref([
     dialog: '990',
     location: '99',
     is_hidden: true,
-    image_url: '/images/character/color/secreteaster.png',
-    image_url_unfound: '/images/character/black&white&blur/secreteaster.png',
+    image_url: '/images/character/color/secreteaster.jpg',
+    image_url_unfound: '/images/character/black&white&blur/secreteaster.jpg',
   },
 
 

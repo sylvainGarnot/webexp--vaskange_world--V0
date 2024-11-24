@@ -1,6 +1,6 @@
 <template>
   <div>
-    <VskBtn image="/icon/freebet.png" @click="isActive = !isActive" :active="isActive" style="padding: 12.5px" />
+    <VskBtn image="/icon/freebet_icon.png" @click="isActive = !isActive" :active="isActive" />
 
     <VskCardCarousel v-model:isActive="isActive" :carousel-items="carouselItems" nextItemBtnLabel="conseil suivant">
       <template v-for="carouselItem in carouselItems" :key="carouselItem.name" v-slot:[carouselItem.name]>
