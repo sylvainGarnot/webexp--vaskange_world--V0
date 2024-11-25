@@ -247,9 +247,10 @@ function handleKeydown(event: any) {
 .vsk-dialog--npc-dialog {
   a {
     color: $colorGrey !important;
+    font-weight: 700;
   }
 
-  u {
+  i {
     color: $colorGold;
   }
 

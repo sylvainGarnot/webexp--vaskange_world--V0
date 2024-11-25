@@ -52,19 +52,19 @@ const carouselItems = [
   {
     name: 'lieu',
     title: 'Zoomer pour explorer',
-    description: 'Explore en <u>zoomant</u> 👌 et découvre de nouveaux <u>lieux</u> !',
+    description: 'Explore en <i>zoomant</i> 👌 et découvre de nouveaux <i>lieux</i> !',
     video_url: '/images/guide/ZOOM_HAND.mp4',
   },
   {
     name: 'personnage',
     title: 'Récolte les objets cachés',
-    description: 'Réunis <u>tout</u> les objets cachés afin de découvrir une <u>fin secrete</u> !',
+    description: 'Rendez vous sur la <i>ligne de départ</i> pour connaitre les règles',
     video_url: '/images/guide/OBJETS.mp4',
   },
   {
     name: 'ihm',
     title: 'Déplace toi grâce à la carte',
-    description: 'La <u>carte</u> te permet de te <u>téléporter</u> sur les lieux déjà découverts ! 🗺️',
+    description: 'La <i>carte</i> te permet de te <i>téléporter</i> sur les lieux déjà découverts ! 🗺️',
     video_url: '/images/guide/MENU.mp4',
   },
 ]
@@ -141,7 +141,7 @@ watch(locations_found.value, (value) => {
 
 .vsk-guide--container {
   .vsk-guide--description {
-    u {
+    i {
       color: $colorGold;
     }
   }

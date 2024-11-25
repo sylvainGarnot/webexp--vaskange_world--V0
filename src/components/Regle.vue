@@ -45,31 +45,31 @@ const carouselItems = [
     name: '0',
     image_url: '/icon/freebet_dessin.png',
     title: 'Règles',
-    description: 'Avant de commencer, tu dois certifier avoir plus de <u>18 ans</u> pour participer à l’expérience ✅<br><br>📎 Toutes les infos du jeu sont sur notre <a target="_blank" href="https://www.google.com">règlement</a>',
+    description: 'Avant de commencer, tu dois certifier avoir plus de <i>18 ans</i> pour participer à l’expérience ✅<br><br>📎 Toutes les infos du jeu sont sur notre <a target="_blank" href="https://www.google.com">règlement</a>',
   },
   {
     name: '1',
     image_url: '/icon/freebet_dessin.png',
     title: 'Freebets',
-    description: `🤑 Cette course cache énoooormément de Freebets*… Tu veux en gagner? <u>3 solutions</u> s’offrent à toi :`,
+    description: `🤑 Cette course cache énoooormément de Freebets*… Tu veux en gagner? <i>3 solutions</i> s’offrent à toi :`,
   },
   {
     name: '1a',
     image_url: '/icon/football_ballon.png',
     title: 'Lieux Secrets',
-    description: `Trouve <u>tous</u> les items sportifs qui sont cachés le long du parcours. Il suffit de zoomer dessus pour les récupérer dans ton inventaire ! Quand tu auras tout collecté, tu seras téléporté dans un <u>lieu secret</u> qui te fera participer à un grand <u>tirage au sort</u> 🍀`,
+    description: `Trouve <i>tous</i> les items sportifs qui sont cachés le long du parcours. Il suffit de zoomer dessus pour les récupérer dans ton inventaire ! Quand tu auras tout collecté, tu seras téléporté dans un <i>lieu secret</i> qui te fera participer à un grand <i>tirage au sort</i> 🍀`,
   },
   {
     name: '1b',
     image_url: '/icon/_.png',
     title: 'Codes Cachés',
-    description: `Trouve les <u>codes promos</u> écris dans les différentes scènes. Tu vois un élément écrit quelque part ? Écris-le dans ton app’ Betclic, il renferme peut-être des Freebets 📲`,
+    description: `Trouve les <i>codes promos</i> écris dans les différentes scènes. Tu vois un élément écrit quelque part ? Écris-le dans ton app’ Betclic, il renferme peut-être des Freebets 📲`,
   },
   {
     name: '1c',
     image_url: '/icon/!!.png',
     title: 'Jeux exclusifs',
-    description: `Enfin, RDV sur les réseaux sociaux de Betclic toute la journée pour avoir des indices et jouer à des <u>jeux exclusifs</u> 🎁 <br>
+    description: `Enfin, RDV sur les réseaux sociaux de Betclic toute la journée pour avoir des indices et jouer à des <i>jeux exclusifs</i> 🎁 <br>
       <a target="_blank" href="https://www.instagram.com/betclicfrance/ "><img src="logo/instagram.png"/></a>
       <a target="_blank" href="https://www.tiktok.com/@betclicfrance "><img src="logo/tiktok.png"/></a>
       <a target="_blank" href="https://x.com/Betclic"><img src="logo/x.png"/></a>`,
@@ -86,7 +86,7 @@ const carouselItems = [
   {
     name: '3',
     title: 'Bonne chance 💪',
-    description: 'Tu as toutes les infos bg : tu peux désormais <u>zoomer</u> dans l’app’ Betclic du téléphone et débuter ta course.',
+    description: 'Tu as toutes les infos bg : tu peux désormais <i>zoomer</i> dans l’app’ Betclic du téléphone et débuter ta course.',
   },
 ]
 
@@ -159,9 +159,10 @@ onBeforeUnmount(() => {
   .vsk-regle--description {
     a {
       color: $colorGrey !important;
+      font-weight: 700;
     }
 
-    u {
+    i {
       color: $colorGold;
     }
 

@@ -44,17 +44,17 @@ export const dialogs = ref([
   {
     id: '10',
     speech_written: [
-      'Avant de commencer, tu dois certifier avoir plus de <u>18 ans</u> pour participer à l’expérience ✅<br>📎 Toutes les infos du jeu sont sur notre <a href="https://www.google.com">règlement</a>',
-      '🤑 Cette course cache énoooormément de Freebets*… Tu veux en gagner ? <u>3 solutions</u> s’offrent à toi',
-      '1. Trouve <u>tous</u> les items sportifs qui sont cachés le long du parcours. Il suffit de zoomer dessus pour les récupérer dans ton inventaire !',
-      '1. Quand tu auras tout collecté, tu seras téléporté dans un <u>lieu secret</u> qui te fera participer à un grand <u>tirage au sort</u> 🍀',
-      '2. Trouve les <u>codes promos</u> écris dans les différentes scènes. Tu vois un élément écrit quelque part ? Écris-le dans ton app’ Betclic, il renferme peut-être des Freebets 📲',
-      '3. Enfin, RDV sur les réseaux sociaux de Betclic toute la journée pour avoir des indices et jouer à des <u>jeux exclusifs</u> 🎁',
-      `Avant de partir… Tu dois être abonné aux <u>réseaux sociaux</u> suivants de Betclic pour pouvoir remporter des Freebets* <br>
+      'Avant de commencer, tu dois certifier avoir plus de <i>18 ans</i> pour participer à l’expérience ✅<br>📎 Toutes les infos du jeu sont sur notre <a href="https://www.google.com">règlement</a>',
+      '🤑 Cette course cache énoooormément de Freebets*… Tu veux en gagner ? <i>3 solutions</i> s’offrent à toi',
+      '1. Trouve <i>tous</i> les items sportifs qui sont cachés le long du parcours. Il suffit de zoomer dessus pour les récupérer dans ton inventaire !',
+      '1. Quand tu auras tout collecté, tu seras téléporté dans un <i>lieu secret</i> qui te fera participer à un grand <i>tirage au sort</i> 🍀',
+      '2. Trouve les <i>codes promos</i> écris dans les différentes scènes. Tu vois un élément écrit quelque part ? Écris-le dans ton app’ Betclic, il renferme peut-être des Freebets 📲',
+      '3. Enfin, RDV sur les réseaux sociaux de Betclic toute la journée pour avoir des indices et jouer à des <i>jeux exclusifs</i> 🎁',
+      `Avant de partir… Tu dois être abonné aux <i>réseaux sociaux</i> suivants de Betclic pour pouvoir remporter des Freebets* <br>
       <a target="_blank" href="https://www.instagram.com/betclicfrance/ "><img src="logo/instagram.png"/></a>
       <a target="_blank" href="https://www.tiktok.com/@betclicfrance "><img src="logo/tiktok.png"/></a>
       <a target="_blank" href="https://x.com/Betclic"><img src="logo/x.png"/></a>`,
-      'Tu as toutes les infos bg : tu peux désormais <u>zoomer</u> dans l’app’ Betclic du téléphone et débuter ta course. <br><br> Bonne chance 💪',
+      'Tu as toutes les infos bg : tu peux désormais <i>zoomer</i> dans l’app’ Betclic du téléphone et débuter ta course. <br><br> Bonne chance 💪',
     ],
     item_provided: '',
     answers: [],
