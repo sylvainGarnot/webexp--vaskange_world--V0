@@ -1,5 +1,5 @@
 import { currentCharacter, characters_found, characters } from './state';
-import { charactersFoundId, hasCurrentCharacterItemToGive, isCurrentCharacterItemToGiveGiven } from './getter'
+import { charactersFoundNonHiddenId, hasCurrentCharacterItemToGive, isCurrentCharacterItemToGiveGiven } from './getter'
 import type { currentCharacterInterface, characterFoundInterface, characterInterface } from './interface';
 
 import { currentBookmark, zoomIn} from '../bookmark/state';
@@ -129,9 +129,10 @@ export function onCharacterFound(inputCharacter: characterInterface, inputBookma
   }
 
   // BUG non résolu LOAD COOKIE avec des personnages cachés
-  if (modePost && !characterFound.is_hidden) {
+  // use charactersFoundNonHiddenId
+  if (modePost) {
     // Request POST /character_found/ (id character & id player)
     // POST BROWSER COOKIES
-    postBrowserCookie('characters_found', charactersFoundId.value as string[])
+    postBrowserCookie('characters_found', charactersFoundNonHiddenId.value as string[])
   }
 };

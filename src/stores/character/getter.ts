@@ -15,6 +15,10 @@ export const charactersFoundId = computed(() => {
   return characters_found.value.map(c => c.id) as string[];
 })
 
+export const charactersFoundNonHiddenId = computed(() => {
+  return characters_found.value.filter(c => !c.is_hidden).map(c => c.id) as string[];
+})
+
 export const characters_hidden = computed(() => {
   const result = [] as characterInterface[]
   for (let index = 0; index < characters.value.length; index++) {
