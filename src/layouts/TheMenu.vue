@@ -5,7 +5,7 @@
         <Regle />
       </v-col>
       <v-col cols="auto" class="pl-2 pl-md-5">
-        <Map v-if="!isWaitingMounted" />
+        <!-- <Map v-if="!isWaitingMounted" /> -->
       </v-col>
       <v-col cols="auto" class="pl-2 pl-md-5">
         <SettingsFullScreen />
