@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <div v-if="loading" class="vsk-load-user-data--progression-overlay">
+    <div v-if="isLoading" class="vsk-load-user-data--progression-overlay">
       <div class="vsk-load-user-data--progression-container">
         <v-row no-gutters class="vsk-load-user-data--progression">
           <v-col cols="12" align="center">
@@ -40,13 +40,13 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
 import VskCard from '@/layouts/VskCard.vue'
 import { setLocationFoundFromCookies, setDefaultLocationFound } from '@/stores/location/action';
 import { setCharacterFoundFromCookies } from '@/stores/character/action';
 import { setItemAcquiredFromCookies } from '@/stores/item/action';
-import { deleteBrowserCookies, setIsSecretEndSendedFromCookies } from '@/stores/setting/action';
+import { deleteBrowserCookies, setIsLoading, setIsSecretEndSendedFromCookies } from '@/stores/setting/action';
 import { playMusic } from '@/stores/music/action';
+import { isLoading } from "@/stores/setting/state";
 
 const emit = defineEmits(['update:isActive'])
 
@@ -54,11 +54,9 @@ const props = defineProps({
   isActive: Boolean,
 })
 
-const loading = ref(false);
-
 
 function handleReprendre() {
-  loading.value = true
+  setIsLoading(true)
 
   console.log('BUG handleReprendre 01') // TEST
   setIsSecretEndSendedFromCookies()
@@ -77,7 +75,7 @@ function handleReprendre() {
       setTimeout(() => {
         console.log('BUG handleReprendre 07') // TEST
         setItemAcquiredFromCookies()
-        loading.value = false
+        setIsLoading(false)
         console.log('BUG handleReprendre 08') // TEST
       }, 750); // TEST
 

@@ -1,4 +1,4 @@
-import { cookies, cookiesKey, isFullscreen, isSecretEndSended } from './state';
+import { cookies, cookiesKey, isFullscreen, isLoading, isSecretEndSended } from './state';
 import type { cookieInterface } from './interface';
 
 // PRIVATE
@@ -31,6 +31,10 @@ export function toggleFullscreen() {
     document.documentElement.requestFullscreen();
   }
 };
+
+export function setIsLoading(input: boolean) {
+  isLoading.value = input as boolean
+}
 
 
 export function setIsSecretEndSended(input: boolean, modePost:boolean=true) {

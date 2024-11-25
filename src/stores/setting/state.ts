@@ -13,3 +13,5 @@ export const cookiesKey = ref([
 ] as string[])
 
 export const isSecretEndSended = ref(false)
+
+export const isLoading = ref(false)
