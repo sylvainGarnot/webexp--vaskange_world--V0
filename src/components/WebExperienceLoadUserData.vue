@@ -75,11 +75,15 @@ function handleReprendre() {
       setTimeout(() => {
         console.log('BUG handleReprendre 07') // TEST
         setItemAcquiredFromCookies()
-        setIsLoading(false)
-        console.log('BUG handleReprendre 08') // TEST
-      }, 750); // TEST
 
-    }, 750); // TEST
+        setTimeout(() => {
+          console.log('BUG handleReprendre 08') // TEST
+          setIsLoading(false)
+        }, 500) // TEST
+
+      }, 1250); // TEST
+
+    }, 1250); // TEST
 
   }, 500); // TEST
   playMusic()
