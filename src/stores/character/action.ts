@@ -92,7 +92,7 @@ export function setCharacterFoundFromCookies() {
       for (let index = 0; index < cookieCharacterFoundIds.length; index++) {
         const character = characters.value.find(l => l.id === cookieCharacterFoundIds[index]) as characterInterface
         if (character) {
-          onCharacterFound(character as characterInterface, {} as bookmarkInterface, true) // TEST
+          onCharacterFound(character as characterInterface, {} as bookmarkInterface, false) // TEST
         }
       }
     }

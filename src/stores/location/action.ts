@@ -54,7 +54,7 @@ export function setLocationFoundFromCookies() {
       for (let index = 0; index < cookieLocationsFoundIds.length; index++) {
         const location = locations.value.find(l => l.id === cookieLocationsFoundIds[index]) as locationInterface
         if (location) {
-          onLocationFound(location as locationInterface, true) // TEST
+          onLocationFound(location as locationInterface, false) // TEST
         }
       }
     }

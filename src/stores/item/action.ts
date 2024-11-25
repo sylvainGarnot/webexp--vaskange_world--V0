@@ -28,7 +28,7 @@ export function setItemAcquiredFromCookies() {
       for (let index = 0; index < cookieItemAcquiredIds.length; index++) {
         const item = items.value.find(i => i.id === cookieItemAcquiredIds[index]) as itemInterface
         if (item) {
-          onItemProvided(item as itemInterface, true) // TEST
+          onItemProvided(item as itemInterface, false) // TEST
         }
       }
     }
