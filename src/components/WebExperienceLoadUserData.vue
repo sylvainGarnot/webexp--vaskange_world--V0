@@ -60,17 +60,25 @@ const loading = ref(false);
 function handleReprendre() {
   loading.value = true
 
+  console.log('BUG handleReprendre 01') // TEST
   setIsSecretEndSendedFromCookies()
+  console.log('BUG handleReprendre 02') // TEST
 
   setTimeout(() => {
+    console.log('BUG handleReprendre 03') // TEST
     setLocationFoundFromCookies()
+    console.log('BUG handleReprendre 04') // TEST
 
     setTimeout(() => {
+      console.log('BUG handleReprendre 05') // TEST
       setCharacterFoundFromCookies()
+      console.log('BUG handleReprendre 06') // TEST
 
       setTimeout(() => {
+        console.log('BUG handleReprendre 07') // TEST
         setItemAcquiredFromCookies()
         loading.value = false
+        console.log('BUG handleReprendre 08') // TEST
       }, 1750); // TEST
 
     }, 1750); // TEST
