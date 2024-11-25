@@ -128,7 +128,8 @@ export function onCharacterFound(inputCharacter: characterInterface, inputBookma
     setCurrentCharacter(characterFound as characterFoundInterface, inputBookmark as bookmarkInterface);
   }
 
-  if (modePost) {
+  // BUG non résolu LOAD COOKIE avec des personnages cachés
+  if (modePost && !characterFound.is_hidden) {
     // Request POST /character_found/ (id character & id player)
     // POST BROWSER COOKIES
     postBrowserCookie('characters_found', charactersFoundId.value as string[])
