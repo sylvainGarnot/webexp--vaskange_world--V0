@@ -84,15 +84,24 @@ export function emptyCurrentCharacter() {
 }
 
 export function setCharacterFoundFromCookies() {
+  console.log('BUG setCharacterFoundFromCookies 00') // TEST
   const cookieCharacterFound = cookies.value.find(c => c.key === 'characters_found') as cookieInterface
+  console.log('BUG setCharacterFoundFromCookies 01') // TEST
   if (cookieCharacterFound) {
+    console.log('BUG setCharacterFoundFromCookies 02') // TEST
     
     const cookieCharacterFoundIds = cookieCharacterFound.values as string[]
+    console.log('BUG setCharacterFoundFromCookies 03') // TEST
     if (cookieCharacterFoundIds && cookieCharacterFoundIds.length > 0) {
+      console.log('BUG setCharacterFoundFromCookies 04') // TEST
       for (let index = 0; index < cookieCharacterFoundIds.length; index++) {
+        console.log('BUG setCharacterFoundFromCookies 05') // TEST
         const character = characters.value.find(l => l.id === cookieCharacterFoundIds[index]) as characterInterface
+        console.log('BUG setCharacterFoundFromCookies 06') // TEST
         if (character) {
+          console.log('BUG setCharacterFoundFromCookies 07') // TEST
           onCharacterFound(character as characterInterface, {} as bookmarkInterface, false)
+          console.log('BUG setCharacterFoundFromCookies 08') // TEST
         }
       }
     }
@@ -101,6 +110,7 @@ export function setCharacterFoundFromCookies() {
 
 export function onCharacterFound(inputCharacter: characterInterface, inputBookmark: bookmarkInterface, modePost:boolean=true) {
 
+  console.log('BUG onCharacterFound 00') // TEST
   const characterFound = {
     ...inputCharacter,
     found_date: new Date(),
@@ -108,24 +118,36 @@ export function onCharacterFound(inputCharacter: characterInterface, inputBookma
     itemAcquired: false,
   } as characterFoundInterface;
 
+  console.log('BUG onCharacterFound 01') // TEST
   if (!characters_found.value.find(c => c.id === characterFound.id)) {
 
+    console.log('BUG onCharacterFound 02') // TEST
     const characterFoundDialog = dialogs.value.find(d => d.id === characterFound.dialog)
+    console.log('BUG onCharacterFound 03') // TEST
     if (characterFoundDialog && characterFoundDialog.item_provided) {
+      console.log('BUG onCharacterFound 04') // TEST
       characterFound.itemToAcquired = true
 
+      console.log('BUG onCharacterFound 05') // TEST
       const itemAcquired = items_acquired.value.find(i => i.id === characterFoundDialog.item_provided)
+      console.log('BUG onCharacterFound 06') // TEST
       if (itemAcquired) {
+        console.log('BUG onCharacterFound 07') // TEST
         characterFound.itemAcquired = true
+        console.log('BUG onCharacterFound 08') // TEST
       }
     }
 
+    console.log('BUG onCharacterFound 09') // TEST
     addCharacterFound(characterFound as characterFoundInterface);
+    console.log('BUG onCharacterFound 10') // TEST
   }
 
   if (inputBookmark && inputBookmark.name) {
+    console.log('BUG onCharacterFound 11') // TEST
     // console.log('onCharacterFound setCurrentCharacter', inputBookmark) // TEST
     setCurrentCharacter(characterFound as characterFoundInterface, inputBookmark as bookmarkInterface);
+    console.log('BUG onCharacterFound 12') // TEST
   }
 
   // BUG non résolu LOAD COOKIE avec des personnages cachés
@@ -133,9 +155,12 @@ export function onCharacterFound(inputCharacter: characterInterface, inputBookma
   // BUG lorsqu'on recharge plusieurs fois
   // tentative d'utilisation uniquement de personnage avec item
   // use charactersFoundWithItemId
+  console.log('BUG onCharacterFound 13') // TEST
   if (modePost) {
+    console.log('BUG onCharacterFound 14') // TEST
     // Request POST /character_found/ (id character & id player)
     // POST BROWSER COOKIES
     postBrowserCookie('characters_found', charactersFoundWithItemId.value as string[])
+    console.log('BUG onCharacterFound 15') // TEST
   }
 };
