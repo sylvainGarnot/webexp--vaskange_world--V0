@@ -45,6 +45,7 @@ import type { characterFoundInterface, characterInterface } from '@/stores/chara
 
 import { useItemStore } from "@/stores/item"
 import type { itemAcquiredInterface, itemInterface } from '@/stores/item/interface';
+import { isLoading } from '@/stores/setting/state';
 
 const locationStore = useLocationStore()
 const { locations_found, locations, isTheHiddenPlaceFound } = storeToRefs(locationStore)
@@ -91,16 +92,16 @@ const switchValues = ref([
 
 // WATCH
 watch(locations_found.value, () => {
-  newElement.value = newElement.value + 1
+  if (!isLoading) newElement.value = newElement.value + 1
 }, { deep: false })
 
 watch(items_acquired.value, () => {
-  newElement.value = newElement.value + 1
+  if (!isLoading) newElement.value = newElement.value + 1
 }, { deep: false })
 
 watch(characters_found.value, () => {
   if (characters_found_sorted_by_date?.value[0]?.is_hidden) {
-    newElement.value = newElement.value + 1
+    if (!isLoading) newElement.value = newElement.value + 1
   }
 }, { deep: false })
 

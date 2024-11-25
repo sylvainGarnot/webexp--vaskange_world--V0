@@ -5,7 +5,8 @@
         <Regle />
       </v-col>
       <v-col cols="auto" class="pl-2 pl-md-5">
-        <Map v-if="!isLoading" />
+        <!-- <Map v-if="!isLoading" /> -->
+        <Map />
       </v-col>
       <v-col cols="auto" class="pl-2 pl-md-5">
         <SettingsFullScreen />
@@ -30,7 +31,7 @@ import Map from "@/components/Map.vue";
 import Regle from "@/components/Regle.vue";
 
 // Bizarrement, bug de la Map qui faisait freeze lors du chargement des cookies
-import { isLoading } from '@/stores/setting/state';
+// import { isLoading } from '@/stores/setting/state';
 
 
 </script>
