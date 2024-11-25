@@ -92,16 +92,16 @@ const switchValues = ref([
 
 // WATCH
 watch(locations_found.value, () => {
-  if (!isLoading) newElement.value = newElement.value + 1
+  if (!isLoading.value) newElement.value = newElement.value + 1
 }, { deep: false })
 
 watch(items_acquired.value, () => {
-  if (!isLoading) newElement.value = newElement.value + 1
+  if (!isLoading.value) newElement.value = newElement.value + 1
 }, { deep: false })
 
 watch(characters_found.value, () => {
   if (characters_found_sorted_by_date?.value[0]?.is_hidden) {
-    if (!isLoading) newElement.value = newElement.value + 1
+    if (!isLoading.value) newElement.value = newElement.value + 1
   }
 }, { deep: false })
 
