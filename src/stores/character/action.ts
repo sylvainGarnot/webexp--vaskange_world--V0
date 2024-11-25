@@ -17,6 +17,7 @@ import { postBrowserCookie } from '../setting/action'
 import type { cookieInterface } from '../setting/interface'
 
 import { locations_found } from '../location/state'
+// import { setItemAcquiredFromCookies } from '../item/action';
 
 
 // PRIVATE
@@ -101,11 +102,15 @@ export function setCharacterFoundFromCookies() {
         if (character) {
           console.log('BUG setCharacterFoundFromCookies 07') // TEST
           onCharacterFound(character as characterInterface, {} as bookmarkInterface, false)
-          console.log('BUG setCharacterFoundFromCookies 08') // TEST
+          console.log('BUG setCharacterFoundFromCookies 07b') // TEST
         }
       }
+      // console.log('BUG setCharacterFoundFromCookies 08') // TEST
+      // setItemAcquiredFromCookies()
+      // console.log('BUG setCharacterFoundFromCookies 09') // TEST
     }
   }
+  console.log('BUG setCharacterFoundFromCookies 999') // TEST
 }
 
 export function onCharacterFound(inputCharacter: characterInterface, inputBookmark: bookmarkInterface, modePost:boolean=true) {
@@ -163,4 +168,5 @@ export function onCharacterFound(inputCharacter: characterInterface, inputBookma
     postBrowserCookie('characters_found', charactersFoundWithItemId.value as string[])
     console.log('BUG onCharacterFound 15') // TEST
   }
+  console.log('BUG onCharacterFound 999') // TEST
 };

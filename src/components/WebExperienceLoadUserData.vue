@@ -64,24 +64,24 @@ function handleReprendre() {
   setIsSecretEndSendedFromCookies()
   console.log('BUG handleReprendre 02') // TEST
 
-  setTimeout(function () {
+  setTimeout(() => {
     console.log('BUG handleReprendre 03') // TEST
     setLocationFoundFromCookies()
     console.log('BUG handleReprendre 04') // TEST
 
-    setTimeout(function () {
+    setTimeout(() => {
       console.log('BUG handleReprendre 05') // TEST
       setCharacterFoundFromCookies()
-      console.log('BUG handleReprendre 06') // TEST
+      console.log('BUG handleReprendre 999') // TEST
 
-      setTimeout(function () {
+      setTimeout(() => {
         console.log('BUG handleReprendre 07') // TEST
         setItemAcquiredFromCookies()
         loading.value = false
         console.log('BUG handleReprendre 08') // TEST
-      }, 1750); // TEST
+      }, 750); // TEST
 
-    }, 1750); // TEST
+    }, 750); // TEST
 
   }, 500); // TEST
   playMusic()

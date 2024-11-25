@@ -5,7 +5,7 @@
         <Regle />
       </v-col>
       <v-col cols="auto" class="pl-2 pl-md-5">
-        <!-- <Map /> -->
+        <Map v-if="!isWaitingMounted" />
       </v-col>
       <v-col cols="auto" class="pl-2 pl-md-5">
         <SettingsFullScreen />
@@ -21,11 +21,23 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue';
+
 import SettingsMusicVolume from "@/components/SettingsMusicVolume.vue";
 import SettingsMusicToggle from "@/components/SettingsMusicToggle.vue";
 import SettingsFullScreen from "@/components/SettingsFullScreen.vue";
 import Map from "@/components/Map.vue";
 import Regle from "@/components/Regle.vue";
+
+// Bizarrement, règle le bug de la Map qui faisait freeze lors du chargement des cookies
+let isWaitingMounted = ref(false as boolean);
+
+// onMounted(() => {
+//   setTimeout(() => {
+//     isWaitingMounted.value = false
+//   }, 6000);
+// });
+
 </script>
 
 <style lang="scss" scoped>

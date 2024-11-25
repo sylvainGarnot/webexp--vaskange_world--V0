@@ -37,11 +37,12 @@ export function setItemAcquiredFromCookies() {
         if (item) {
           console.log('BUG setItemAcquiredFromCookies 07') // TEST
           onItemProvided(item as itemInterface, false)
-          console.log('BUG setItemAcquiredFromCookies 08') // TEST
+          console.log('BUG setItemAcquiredFromCookies 07b') // TEST
         }
       }
     }
   }
+  console.log('BUG setItemAcquiredFromCookies 999') // TEST
 }
 
 export function onItemProvided(input: itemInterface, modePost:boolean=true) {
@@ -89,4 +90,5 @@ export function onItemProvided(input: itemInterface, modePost:boolean=true) {
     postBrowserCookie('items_acquired', itemsAcquiredId.value as string[])
     console.log('BUG onItemProvided 16') // TEST
   }
+  console.log('BUG onItemProvided 999') // TEST
 };
