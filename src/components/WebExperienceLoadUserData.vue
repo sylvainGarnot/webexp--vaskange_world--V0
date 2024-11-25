@@ -79,11 +79,11 @@ function handleReprendre() {
         setTimeout(() => {
           console.log('BUG handleReprendre 08') // TEST
           setIsLoading(false)
-        }, 500) // TEST
+        }, 50) // TEST
 
-      }, 1250); // TEST
+      }, 2000); // TEST
 
-    }, 1250); // TEST
+    }, 2000); // TEST
 
   }, 500); // TEST
   playMusic()
