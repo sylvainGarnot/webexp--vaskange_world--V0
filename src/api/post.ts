@@ -30,3 +30,17 @@ export function apiPostVisit() {
   
   */
 }
+
+export function apiPostSecretEnd(input: string) {
+  console.log('TEST apiPostSecretEnd')
+
+  axios
+    .post('https://joyful-bee-2518d744f7.strapiapp.com/api/secret-ends', {
+      "data": {
+        identifiant: input
+      }
+    })
+    .then(response => {
+      console.log(response);
+    });
+}

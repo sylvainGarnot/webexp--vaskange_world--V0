@@ -45,7 +45,7 @@ import VskCard from '@/layouts/VskCard.vue'
 import { setLocationFoundFromCookies, setDefaultLocationFound } from '@/stores/location/action';
 import { setCharacterFoundFromCookies } from '@/stores/character/action';
 import { setItemAcquiredFromCookies } from '@/stores/item/action';
-import { deleteBrowserCookies } from '@/stores/setting/action';
+import { deleteBrowserCookies, setIsSecretEndSendedFromCookies } from '@/stores/setting/action';
 import { playMusic } from '@/stores/music/action';
 
 const emit = defineEmits(['update:isActive'])
@@ -60,6 +60,7 @@ const loading = ref(false);
 function handleReprendre() {
   loading.value = true
 
+  setIsSecretEndSendedFromCookies()
   setLocationFoundFromCookies()
 
   setTimeout(() => {

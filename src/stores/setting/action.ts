@@ -1,4 +1,4 @@
-import { cookies, cookiesKey, isFullscreen } from './state';
+import { cookies, cookiesKey, isFullscreen, isSecretEndSended } from './state';
 import type { cookieInterface } from './interface';
 
 // PRIVATE
@@ -31,6 +31,26 @@ export function toggleFullscreen() {
     document.documentElement.requestFullscreen();
   }
 };
+
+
+export function setIsSecretEndSended(input: boolean) {
+  isSecretEndSended.value = input as boolean;
+  // if (input) {
+  //   postBrowserCookie('is_secret_end_sended', ['1'] as string[])
+  // } else {
+  //   postBrowserCookie('is_secret_end_sended', ['0'] as string[])
+  // }
+}
+
+export function setIsSecretEndSendedFromCookies() {
+  const cookieIsSecretEndSended = cookies.value.find(c => c.key === 'is_secret_end_sended') as cookieInterface
+  if (cookieIsSecretEndSended) {
+    const cookieIsSecretEndSendedIds = cookieIsSecretEndSended.values as string[]
+    if (cookieIsSecretEndSendedIds && cookieIsSecretEndSendedIds.length > 0 && cookieIsSecretEndSendedIds.includes('1')) {
+      setIsSecretEndSended(true)
+    }
+  }
+}
 
 export function getBrowserCookies() {
   let result = [] as cookieInterface[]

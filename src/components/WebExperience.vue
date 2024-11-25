@@ -17,7 +17,11 @@
       <WebExperienceCharacterDialogGift v-if="isDialogActive && currentDialog?.type === 'gift'" />
     </TransitionGroup>
 
-    <TransitionGroup name="fade-top" tag="div">
+    <Transition>
+      <WebExperienceCharacterDialogSecretEnd v-if="isDialogActive && currentDialog?.type === 'secret-end'" />
+    </Transition>
+
+    <TransitionGroup>
       <WebExperienceLoadUserData v-model:isActive="isLoadUserDataDialogActive" key="0" />
     </TransitionGroup>
 
@@ -32,6 +36,7 @@ import WebExperienceCharacterCall from "@/components/WebExperienceCharacterCall.
 import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
 import WebExperienceCharacterDialogGift from "@/components/WebExperienceCharacterDialogGift.vue";
 import WebExperienceAlertLocationEndReach from "@/components/WebExperienceAlertLocationEndReach.vue";
+import WebExperienceCharacterDialogSecretEnd from "@/components/WebExperienceCharacterDialogSecretEnd.vue";
 import WebExperienceLoadUserData from "@/components/WebExperienceLoadUserData.vue";
 
 import { useApi } from "./WebExperienceApi.js";

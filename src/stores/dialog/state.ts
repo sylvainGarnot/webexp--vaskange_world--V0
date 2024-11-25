@@ -493,7 +493,7 @@ export const dialogs = ref([
     ],
     item_provided: '',
     answers: [],
-    type: 'default',
+    type: 'secret-end',
     openOnZoom: false,
     isLarge: false,
   },

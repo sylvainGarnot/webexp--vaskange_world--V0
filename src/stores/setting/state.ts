@@ -8,5 +8,8 @@ export const cookies = ref([] as cookieInterface[])
 export const cookiesKey = ref([
     'locations_found',
     'characters_found',
-    'items_acquired'
+    'items_acquired',
+    'is_secret_end_sended'
 ] as string[])
+
+export const isSecretEndSended = ref(false)

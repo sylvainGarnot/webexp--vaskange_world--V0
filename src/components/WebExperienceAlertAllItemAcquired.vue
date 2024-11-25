@@ -8,10 +8,10 @@
             <h3>Félicitations !</h3>
           </v-col>
           <v-col cols="12" align="center">
-            <p>Vous avez trouvé tout les Objets de ce jeu</p>
-            <p>Vous pouvez maintenant aller dans la zone final</p>
-            <p>en cliquant sur le lien ci-dessous</p>
-            <p>Des récompenses vous y attendent</p>
+            <p>T’es un crack !</p>
+            <p>Tu as trouvé tous les objets de la Course aux Freebets.</p>
+            <p>Tu peux dès maintenant aller dans la scène finale pour la remise des prix ! </p>
+            <p>Clique sur le lien ci-dessous</p>
           </v-col>
         </v-row>
 
