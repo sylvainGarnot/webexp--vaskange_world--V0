@@ -71,11 +71,11 @@ function handleReprendre() {
       setTimeout(() => {
         setItemAcquiredFromCookies()
         loading.value = false
-      }, 800); // TEST
+      }, 1750); // TEST
 
-    }, 800); // TEST
+    }, 1750); // TEST
 
-  }, 800); // TEST
+  }, 500); // TEST
   playMusic()
   emit('update:isActive', false)
 }
