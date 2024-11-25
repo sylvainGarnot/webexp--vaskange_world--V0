@@ -69,9 +69,9 @@ function handleReprendre() {
     setTimeout(() => {
       setItemAcquiredFromCookies()
       loading.value = false
-    }, 125); // TEST
+    }, 1250); // TEST
 
-  }, 125); // TEST
+  }, 1250); // TEST
   playMusic()
   emit('update:isActive', false)
 }
