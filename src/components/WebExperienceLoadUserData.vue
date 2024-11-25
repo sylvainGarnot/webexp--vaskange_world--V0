@@ -64,17 +64,17 @@ function handleReprendre() {
   setIsSecretEndSendedFromCookies()
   console.log('BUG handleReprendre 02') // TEST
 
-  setTimeout(() => {
+  setTimeout(function () {
     console.log('BUG handleReprendre 03') // TEST
     setLocationFoundFromCookies()
     console.log('BUG handleReprendre 04') // TEST
 
-    setTimeout(() => {
+    setTimeout(function () {
       console.log('BUG handleReprendre 05') // TEST
       setCharacterFoundFromCookies()
       console.log('BUG handleReprendre 06') // TEST
 
-      setTimeout(() => {
+      setTimeout(function () {
         console.log('BUG handleReprendre 07') // TEST
         setItemAcquiredFromCookies()
         loading.value = false
