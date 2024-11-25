@@ -27,6 +27,17 @@ body {
     opacity: 0;
 }
 
+.v-btn--transparent {
+    background: transparent !important;
+    box-shadow: none !important;
+    height: auto !important;
+    img {
+        margin: 0 20px;
+        width: 6.5vh;
+    }
+}
+
+
 .btn-click-animation {
     overflow: hidden;
 

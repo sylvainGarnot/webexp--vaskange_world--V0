@@ -10,18 +10,20 @@
         <div v-if="isLarge">
           <v-row no-gutters class="vsk-dialog--npc-next-icon--large-container">
             <v-col cols="auto">
-              <v-btn>
+              <v-btn class="v-btn--transparent">
                 <img src="/icon/fleche-left.png" @click="handlePreviousDialog()" />
               </v-btn>
             </v-col>
             <v-col cols="auto">
-              <v-btn>
+              <v-btn class="v-btn--transparent">
                 <img src="/icon/fleche-right.png" @click="handleNextDialog()">
               </v-btn>
             </v-col>
           </v-row>
         </div>
-        <img v-else class="vsk-dialog--npc-next-icon" src="/icon/fleche.png" @click="handleNextDialog()" />
+        <v-btn v-else class="v-btn--transparent">
+          <img class="vsk-dialog--npc-next-icon" src="/icon/fleche.png" @click="handleNextDialog()" />
+        </v-btn>
 
         <div v-if="isLarge" class="vsk-dialog--count">
           <span>{{ dialogStepNumber + 1 }} / {{ currentDialog?.speech_written!.length }}</span>
@@ -249,17 +251,6 @@ function handleKeydown(event: any) {
         left: 50%;
         bottom: -4.2vh;
         transform: translateX(-50%);
-
-        .v-btn {
-          background: transparent;
-          box-shadow: none;
-          height: auto;
-        }
-
-        img {
-          margin: 0 20px;
-          width: 6.5vh;
-        }
       }
     }
 
