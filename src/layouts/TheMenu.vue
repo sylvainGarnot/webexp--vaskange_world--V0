@@ -5,7 +5,7 @@
         <Regle />
       </v-col>
       <v-col cols="auto" class="pl-2 pl-md-5">
-        <Map />
+        <!-- <Map /> -->
       </v-col>
       <v-col cols="auto" class="pl-2 pl-md-5">
         <SettingsFullScreen />
