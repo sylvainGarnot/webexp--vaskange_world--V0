@@ -66,16 +66,17 @@ function handleReprendre() {
     setLocationFoundFromCookies()
 
     setTimeout(() => {
-      setCharacterFoundFromCookies()
+      setItemAcquiredFromCookies()
+      loading.value = false
 
-      setTimeout(() => {
-        setItemAcquiredFromCookies()
-        loading.value = false
-      }, 1500); // TEST
+      // setTimeout(() => {
+      //   setCharacterFoundFromCookies()
+      //   loading.value = false
+      // }, 1500); // TEST
 
-    }, 1500); // TEST
+    }, 250); // TEST
 
-  }, 1500); // TEST
+  }, 250); // TEST
   playMusic()
   emit('update:isActive', false)
 }
