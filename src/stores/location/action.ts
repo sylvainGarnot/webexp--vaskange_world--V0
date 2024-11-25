@@ -54,7 +54,7 @@ export function setLocationFoundFromCookies() {
       for (let index = 0; index < cookieLocationsFoundIds.length; index++) {
         const location = locations.value.find(l => l.id === cookieLocationsFoundIds[index]) as locationInterface
         if (location) {
-          onLocationFound(location as locationInterface)
+          onLocationFound(location as locationInterface, true) // TEST
         }
       }
     }
@@ -89,7 +89,7 @@ export function onLocationEndReach(inputBookmarks: bookmarkInterface[]) {
   }
 }
 
-export function onLocationFound(input: locationInterface) {
+export function onLocationFound(input: locationInterface, modePost:boolean=true) {
   
   const locationFound = {
     ...input,
@@ -125,7 +125,9 @@ export function onLocationFound(input: locationInterface) {
 
   setCurrentLocation(locationFound as locationFoundInterface);
 
-  // Request POST /location_found/ (id location & id player)
-  // POST BROWSER COOKIES
-  postBrowserCookie('locations_found', locationsFoundId.value as string[])
+  if (modePost) {
+    // Request POST /location_found/ (id location & id player)
+    // POST BROWSER COOKIES
+    postBrowserCookie('locations_found', locationsFoundId.value as string[])
+  }
 };

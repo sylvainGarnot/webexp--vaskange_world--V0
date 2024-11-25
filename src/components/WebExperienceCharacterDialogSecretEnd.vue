@@ -114,7 +114,6 @@ function apiPostSecretEnd(input: string) {
         identifiant: input
       }
     }).then(response => {
-      postBrowserCookie('is_secret_end_sended', ['1'] as string[])
       setIsSecretEndSended(true)
 
       console.log(response); // TEST

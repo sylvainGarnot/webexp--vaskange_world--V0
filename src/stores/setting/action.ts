@@ -33,13 +33,15 @@ export function toggleFullscreen() {
 };
 
 
-export function setIsSecretEndSended(input: boolean) {
+export function setIsSecretEndSended(input: boolean, modePost:boolean=true) {
   isSecretEndSended.value = input as boolean;
-  // if (input) {
-  //   postBrowserCookie('is_secret_end_sended', ['1'] as string[])
-  // } else {
-  //   postBrowserCookie('is_secret_end_sended', ['0'] as string[])
-  // }
+  if (modePost) {
+    if (input) {
+      postBrowserCookie('is_secret_end_sended', ['1'] as string[])
+    } else {
+      postBrowserCookie('is_secret_end_sended', ['0'] as string[])
+    }
+  }
 }
 
 export function setIsSecretEndSendedFromCookies() {
@@ -47,7 +49,7 @@ export function setIsSecretEndSendedFromCookies() {
   if (cookieIsSecretEndSended) {
     const cookieIsSecretEndSendedIds = cookieIsSecretEndSended.values as string[]
     if (cookieIsSecretEndSendedIds && cookieIsSecretEndSendedIds.length > 0 && cookieIsSecretEndSendedIds.includes('1')) {
-      setIsSecretEndSended(true)
+      setIsSecretEndSended(true, false)
     }
   }
 }

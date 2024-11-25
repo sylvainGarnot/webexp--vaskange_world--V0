@@ -28,14 +28,14 @@ export function setItemAcquiredFromCookies() {
       for (let index = 0; index < cookieItemAcquiredIds.length; index++) {
         const item = items.value.find(i => i.id === cookieItemAcquiredIds[index]) as itemInterface
         if (item) {
-          onItemProvided(item as itemInterface)
+          onItemProvided(item as itemInterface, true) // TEST
         }
       }
     }
   }
 }
 
-export function onItemProvided(input: itemInterface) {
+export function onItemProvided(input: itemInterface, modePost:boolean=true) {
   if (!items_acquired.value.find(i => i.id === input.id)) {
     const newItemAcquired = { ...input, acquired_date: new Date } as itemAcquiredInterface;
 
@@ -59,7 +59,9 @@ export function onItemProvided(input: itemInterface) {
     addItemAcquired(newItemAcquired as itemAcquiredInterface)
   }
 
-  // Request POST /items_acquired/ (id item & id player)
-  // POST BROWSER COOKIES
-  postBrowserCookie('items_acquired', itemsAcquiredId.value as string[])
+  if (modePost) {
+    // Request POST /items_acquired/ (id item & id player)
+    // POST BROWSER COOKIES
+    postBrowserCookie('items_acquired', itemsAcquiredId.value as string[])
+  }
 };

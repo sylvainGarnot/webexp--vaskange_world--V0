@@ -92,14 +92,14 @@ export function setCharacterFoundFromCookies() {
       for (let index = 0; index < cookieCharacterFoundIds.length; index++) {
         const character = characters.value.find(l => l.id === cookieCharacterFoundIds[index]) as characterInterface
         if (character) {
-          onCharacterFound(character as characterInterface, {} as bookmarkInterface)
+          onCharacterFound(character as characterInterface, {} as bookmarkInterface, true) // TEST
         }
       }
     }
   }
 }
 
-export function onCharacterFound(inputCharacter: characterInterface, inputBookmark: bookmarkInterface) {
+export function onCharacterFound(inputCharacter: characterInterface, inputBookmark: bookmarkInterface, modePost:boolean=true) {
 
   const characterFound = {
     ...inputCharacter,
@@ -128,7 +128,9 @@ export function onCharacterFound(inputCharacter: characterInterface, inputBookma
     setCurrentCharacter(characterFound as characterFoundInterface, inputBookmark as bookmarkInterface);
   }
 
-  // Request POST /character_found/ (id character & id player)
-  // POST BROWSER COOKIES
-  postBrowserCookie('characters_found', charactersFoundId.value as string[])
+  if (modePost) {
+    // Request POST /character_found/ (id character & id player)
+    // POST BROWSER COOKIES
+    postBrowserCookie('characters_found', charactersFoundId.value as string[])
+  }
 };
