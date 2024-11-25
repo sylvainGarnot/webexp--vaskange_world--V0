@@ -61,17 +61,21 @@ function handleReprendre() {
   loading.value = true
 
   setIsSecretEndSendedFromCookies()
-  setLocationFoundFromCookies()
 
   setTimeout(() => {
-    setCharacterFoundFromCookies()
+    setLocationFoundFromCookies()
 
     setTimeout(() => {
-      setItemAcquiredFromCookies()
-      loading.value = false
-    }, 2250); // TEST
+      setCharacterFoundFromCookies()
 
-  }, 2250); // TEST
+      setTimeout(() => {
+        setItemAcquiredFromCookies()
+        loading.value = false
+      }, 1500); // TEST
+
+    }, 1500); // TEST
+
+  }, 1500); // TEST
   playMusic()
   emit('update:isActive', false)
 }
