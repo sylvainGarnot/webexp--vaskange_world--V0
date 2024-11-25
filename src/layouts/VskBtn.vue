@@ -36,6 +36,8 @@ const classes = computed(() => {
 
 .vsk-btn--container {
   position: relative;
+  max-width: 65px;
+  max-height: 65px;
 
   .vsk-btn {
     width: 5.8vh;
