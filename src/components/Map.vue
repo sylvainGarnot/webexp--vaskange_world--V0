@@ -118,47 +118,50 @@ watch(characters_found.value, () => {
 const locationsSorted = computed(() => {
   const result = [] as VskThumbnailSimpleInterface[]
 
-  for (const location of locations.value as locationInterface[]) {
-    const locationFound = locations_found.value.find(l => l.id === location.id) as locationFoundInterface
-    if (locationFound as locationFoundInterface) {
+  if (!isLoading.value) {
 
-      const images_url = [] as string[]
-      if (locationFound.itemsToAcquired.length > 0) {
+    for (const location of locations.value as locationInterface[]) {
+      const locationFound = locations_found.value.find(l => l.id === location.id) as locationFoundInterface
+      if (locationFound as locationFoundInterface) {
 
-        for (let j = 0; j < locationFound.itemsToAcquired.length; j++) {
-          const itemId = locationFound.itemsToAcquired[j] as string
+        const images_url = [] as string[]
+        if (locationFound.itemsToAcquired.length > 0) {
 
-          if (locationFound.itemsAcquired.includes(itemId)) {
-            const itemAcquired = items_acquired.value.find(i => i.id === itemId) as itemAcquiredInterface
-            images_url.push(itemAcquired?.image_url as string)
-          } else {
-            const itemToAcquired = items.value.find(i => i.id === itemId) as itemInterface
-            images_url.push(itemToAcquired?.image_url_unfound as string)
+          for (let j = 0; j < locationFound.itemsToAcquired.length; j++) {
+            const itemId = locationFound.itemsToAcquired[j] as string
+
+            if (locationFound.itemsAcquired.includes(itemId)) {
+              const itemAcquired = items_acquired.value.find(i => i.id === itemId) as itemAcquiredInterface
+              images_url.push(itemAcquired?.image_url as string)
+            } else {
+              const itemToAcquired = items.value.find(i => i.id === itemId) as itemInterface
+              images_url.push(itemToAcquired?.image_url_unfound as string)
+            }
           }
         }
-      }
 
-      result.push({
-        id: locationFound.id,
-        title: locationFound.label,
-        description: locationFound?.itemsToAcquired.length > 0 ? `objets trouvés ${locationFound?.itemsAcquired.length} / ${locationFound?.itemsToAcquired.length}` : '',
-        link: locationFound.name,
-        background_url: locationFound.image_url,
-        images_url,
-        date: locationFound.found_date,
-        completed: locationFound?.itemsToAcquired.length > 0 && locationFound?.itemsToAcquired.length === locationFound?.itemsAcquired.length ? true : false,
-      } as VskThumbnailSimpleInterface)
-    } else {
-      result.push({
-        id: location.id,
-        title: 'À découvrir...',
-        description: '',
-        link: '',
-        background_url: location.image_url_unfound,
-        images_url: [],
-        date: new Date(),
-        completed: false,
-      } as VskThumbnailSimpleInterface)
+        result.push({
+          id: locationFound.id,
+          title: locationFound.label,
+          description: locationFound?.itemsToAcquired.length > 0 ? `objets trouvés ${locationFound?.itemsAcquired.length} / ${locationFound?.itemsToAcquired.length}` : '',
+          link: locationFound.name,
+          background_url: locationFound.image_url,
+          images_url,
+          date: locationFound.found_date,
+          completed: locationFound?.itemsToAcquired.length > 0 && locationFound?.itemsToAcquired.length === locationFound?.itemsAcquired.length ? true : false,
+        } as VskThumbnailSimpleInterface)
+      } else {
+        result.push({
+          id: location.id,
+          title: 'À découvrir...',
+          description: '',
+          link: '',
+          background_url: location.image_url_unfound,
+          images_url: [],
+          date: new Date(),
+          completed: false,
+        } as VskThumbnailSimpleInterface)
+      }
     }
   }
   // if (switchValueNameSelected.value === 'défaut') {
@@ -179,30 +182,33 @@ const locationsSorted = computed(() => {
 const characters_hidden_sorted = computed(() => {
   const result = [] as VskThumbnailSimpleInterface[]
 
-  for (const characterHidden of characters_hidden.value as characterInterface[]) {
-    const characterHiddenFound = characters_hidden_found.value.find(c => c.id === characterHidden.id) as characterFoundInterface
-    if (characterHiddenFound as characterFoundInterface) {
-      result.push({
-        id: characterHiddenFound.id,
-        title: characterHiddenFound.label,
-        description: characterHiddenFound?.itemToAcquired ? `objet donné ${characterHiddenFound?.itemAcquired ? '1' : '0'} / 1` : '',
-        link: characterHiddenFound.name,
-        background_url: characterHiddenFound.image_url,
-        images_url: [],
-        date: characterHiddenFound.found_date,
-        completed: false,
-      } as VskThumbnailSimpleInterface)
-    } else {
-      result.push({
-        id: characterHidden.id,
-        title: 'À découvrir...',
-        description: '',
-        link: '',
-        background_url: characterHidden.image_url_unfound,
-        images_url: [],
-        date: new Date(),
-        completed: false,
-      } as VskThumbnailSimpleInterface)
+  if (!isLoading.value) {
+
+    for (const characterHidden of characters_hidden.value as characterInterface[]) {
+      const characterHiddenFound = characters_hidden_found.value.find(c => c.id === characterHidden.id) as characterFoundInterface
+      if (characterHiddenFound as characterFoundInterface) {
+        result.push({
+          id: characterHiddenFound.id,
+          title: characterHiddenFound.label,
+          description: characterHiddenFound?.itemToAcquired ? `objet donné ${characterHiddenFound?.itemAcquired ? '1' : '0'} / 1` : '',
+          link: characterHiddenFound.name,
+          background_url: characterHiddenFound.image_url,
+          images_url: [],
+          date: characterHiddenFound.found_date,
+          completed: false,
+        } as VskThumbnailSimpleInterface)
+      } else {
+        result.push({
+          id: characterHidden.id,
+          title: 'À découvrir...',
+          description: '',
+          link: '',
+          background_url: characterHidden.image_url_unfound,
+          images_url: [],
+          date: new Date(),
+          completed: false,
+        } as VskThumbnailSimpleInterface)
+      }
     }
   }
 
