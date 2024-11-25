@@ -7,8 +7,25 @@
         <p class="vsk-dialog--npc-dialog" v-html="currentDialog?.speech_written[dialogStepNumber]">
         </p>
 
-        <img v-if="isHandleNextDialogActive" class="vsk-dialog--npc-next-icon btn-click-animation"
-          src="/icon/fleche.png" @click="handleNextDialog()" />
+        <div v-if="isLarge">
+          <v-row no-gutters class="vsk-dialog--npc-next-icon--large-container">
+            <v-col cols="auto">
+              <v-btn>
+                <img src="/icon/fleche-left.png" @click="handlePreviousDialog()" />
+              </v-btn>
+            </v-col>
+            <v-col cols="auto">
+              <v-btn>
+                <img src="/icon/fleche-right.png" @click="handleNextDialog()">
+              </v-btn>
+            </v-col>
+          </v-row>
+        </div>
+        <img v-else class="vsk-dialog--npc-next-icon" src="/icon/fleche.png" @click="handleNextDialog()" />
+
+        <div v-if="isLarge" class="vsk-dialog--count">
+          <span>{{ dialogStepNumber + 1 }} / {{ currentDialog?.speech_written!.length }}</span>
+        </div>
 
         <!-- <TransitionGroup name="fade-top" tag="div">
         <WebExperienceCharacterDialogAnswer v-if="isAnswersActive" @repeat="handleNextDialog()" @leave="handleLeave()"
@@ -51,7 +68,7 @@ const { items, items_acquired } = storeToRefs(itemStore);
 // DATA
 const dialogStepNumber = ref(0);
 const isHandleNextDialogActive = ref(true)
-const timingBetweenStep = 500
+const timingBetweenStep = 750
 
 
 // COMPUTED
@@ -120,17 +137,26 @@ function handleLeave() {
 //   }
 // }
 
-function handleNextDialog() {
-  handleIsHandleNextDialogActive()
+function handlePreviousDialog() {
+  if (dialogStepNumber.value > 0) {
+    dialogStepNumber.value--
+  }
   playSound('son_bouton_1')
-  if (currentDialog.value) {
-    if (!isLastStepReach.value) {
-      dialogStepNumber.value++
-    } else {
-      // dialogStepNumber.value = 
-      handleLeave()
+}
+
+function handleNextDialog() {
+  if (isHandleNextDialogActive.value) {
+    handleIsHandleNextDialogActive()
+    if (currentDialog.value) {
+      if (!isLastStepReach.value) {
+        dialogStepNumber.value++
+      } else {
+        // dialogStepNumber.value = 
+        handleLeave()
+      }
     }
   }
+  playSound('son_bouton_1')
 }
 
 function handleIsHandleNextDialogActive() {
@@ -216,10 +242,35 @@ function handleKeydown(event: any) {
         cursor: pointer;
         animation: bounce 2s ease infinite;
         width: 6.5vh;
-
-        cursor: pointer;
-        transition: background-color 250ms ease-in;
       }
+
+      .vsk-dialog--npc-next-icon--large-container {
+        position: absolute;
+        left: 50%;
+        bottom: -4.2vh;
+        transform: translateX(-50%);
+
+        .v-btn {
+          background: transparent;
+          box-shadow: none;
+          height: auto;
+        }
+
+        img {
+          margin: 0 20px;
+          width: 6.5vh;
+        }
+      }
+    }
+
+    .vsk-dialog--count {
+      position: absolute;
+      right: 10%;
+      bottom: 0;
+
+      color: $colorWhite;
+      font-size: 3.2vh;
+      text-shadow: $shadow;
     }
   }
 
