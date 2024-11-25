@@ -131,14 +131,15 @@ onMounted(() => {
     EndlessPaper.addShapeEventListener("touchend", handleShapeClick);
     EndlessPaper.setShapes(shapes);
 
-    getBrowserCookies()
-    if (cookies.value && cookies.value.length > 0 && isCookiesEnough.value
-    ) {
-      isLoadUserDataDialogActive.value = true
-    } else {
-      setDefaultLocationFound();
-      apiPostVisit()
-    }
+    // disable BUGGY
+    // getBrowserCookies()
+    // if (cookies.value && cookies.value.length > 0 && isCookiesEnough.value
+    // ) {
+    //   isLoadUserDataDialogActive.value = true
+    // } else {
+    setDefaultLocationFound();
+    apiPostVisit()
+    // }
 
 
     setTimeout(() => {
