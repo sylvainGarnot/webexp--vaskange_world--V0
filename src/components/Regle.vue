@@ -51,7 +51,8 @@ const carouselItems = [
     name: '1',
     image_url: '/icon/freebet_dessin.png',
     title: 'Freebets',
-    description: `🤑 Cette course cache énoooormément de Freebets*… Tu veux en gagner? <i>3 solutions</i> s’offrent à toi :`,
+    description: `🤑 Cette course cache énoooormément de Freebets*… Tu veux en gagner? <i>3 solutions</i> s’offrent à toi :
+      <br>*<span>Crédits de jeu non retirables</span>`,
   },
   {
     name: '1a',
@@ -63,7 +64,8 @@ const carouselItems = [
     name: '1b',
     image_url: '/icon/_.png',
     title: 'Codes Cachés',
-    description: `Trouve les <i>codes promos</i> écris dans les différentes scènes. Tu vois un élément écrit quelque part ? Écris-le dans ton app’ Betclic, il renferme peut-être des Freebets 📲`,
+    description: `Trouve les <i>codes promos</i> écris dans les différentes scènes. Tu vois un élément écrit quelque part ? Écris-le dans ton app’ Betclic, il renferme peut-être des Freebets* 📲
+      <br>*<span>Crédits de jeu non retirables</span>`,
   },
   {
     name: '1c',
@@ -78,7 +80,8 @@ const carouselItems = [
     name: '2',
     image_url: '/images/guide/guide-final.png',
     title: 'Abonnes-toi !',
-    description: `Avant de partir… Tu dois être abonné aux réseaux sociaux suivants de Betclic pour pouvoir remporter des Freebets* <br>
+    description: `Avant de partir… Tu dois être abonné aux réseaux sociaux suivants de Betclic pour pouvoir remporter des Freebets*
+      <br>*<span>Crédits de jeu non retirables</span><br>
       <a target="_blank" href="https://www.instagram.com/betclicfrance/ "><img src="logo/instagram.png"/></a>
       <a target="_blank" href="https://www.tiktok.com/@betclicfrance "><img src="logo/tiktok.png"/></a>
       <a target="_blank" href="https://x.com/Betclic"><img src="logo/x.png"/></a>`,
@@ -164,6 +167,10 @@ onBeforeUnmount(() => {
 
     i {
       color: $colorGold;
+    }
+
+    span {
+      font-size: 1.4vh;
     }
 
     img {

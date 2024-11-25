@@ -254,6 +254,10 @@ function handleKeydown(event: any) {
     color: $colorGold;
   }
 
+  span {
+    font-size: 1.4vh;
+  }
+
   img {
     max-width: 75px;
     width: 6.5vh;
