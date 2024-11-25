@@ -3,7 +3,7 @@ import { readonly } from 'vue';
 
 
 import { currentCharacter, characters_found, characters } from './state';
-import { charactersName, characters_hidden, characters_hidden_found, charactersFoundId, charactersFoundNonHiddenId, characters_found_sorted_by_date, currentCharacterDialog, hasCurrentCharacterItemToGive, isCurrentCharacterItemToGiveGiven } from './getter';
+import { charactersName, characters_hidden, characters_hidden_found, charactersFoundId, charactersFoundNonHiddenId, charactersFoundWithItemId, characters_found_sorted_by_date, currentCharacterDialog, hasCurrentCharacterItemToGive, isCurrentCharacterItemToGiveGiven } from './getter';
 import { emptyCurrentCharacter, onCharacterFound, setCharacterFoundFromCookies} from './action';
 
 
@@ -22,7 +22,8 @@ export const useCharacterStore = defineStore("Character", () => {
     currentCharacterDialog: readonly(currentCharacterDialog),
     hasCurrentCharacterItemToGive: readonly(hasCurrentCharacterItemToGive),
     isCurrentCharacterItemToGiveGiven: readonly(isCurrentCharacterItemToGiveGiven),
-    charactersFoundNonHiddenId: readonly(charactersFoundNonHiddenId),
+    // charactersFoundNonHiddenId: readonly(charactersFoundNonHiddenId),
+    charactersFoundWithItemId: readonly(charactersFoundWithItemId),
 
     onCharacterFound,
     emptyCurrentCharacter,

@@ -19,6 +19,17 @@ export const charactersFoundNonHiddenId = computed(() => {
   return characters_found.value.filter(c => !c.is_hidden).map(c => c.id) as string[];
 })
 
+export const charactersFoundWithItemId = computed(() => {
+  const result = [] as string[]
+  for (let index = 0; index < characters_found.value.length; index++) {
+    const dialog = dialogs.value.find(d => d.id === characters_found.value[index].dialog)
+    if (dialog?.type && dialog.type.includes('gift')) {
+      result.push(characters_found.value[index].id as string)
+    }
+  }
+  return result as string[]
+})
+
 export const characters_hidden = computed(() => {
   const result = [] as characterInterface[]
   for (let index = 0; index < characters.value.length; index++) {
