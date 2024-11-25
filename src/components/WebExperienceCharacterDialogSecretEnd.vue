@@ -4,9 +4,34 @@
       <template v-slot:content>
         <div class="vsk-character-dialog-secret-end px-6">
 
+          <!-- ITEMS RÉCUPÉRÉS && FORMULAIRE ENVOYÉ -->
+          <v-row v-if="isSecretEndSended && isAllItemsAcquired" no-gutters
+            class="vsk-character-dialog-secret-end--description">
+            <v-col cols="12" align="center" class="mt-5">
+              <h3>📅 Tirage au sort vendredi 29 novembre 2024 à midi</h3>
+            </v-col>
+            <v-col cols="12" align="center" class="mt-5">
+              <p> Annonce des gagnants sur X (<a target="_blank" href="https://x.com/Betclic">https://x.com/Betclic</a>)
+                et Instagram
+                (<a target="_blank"
+                  href="https://www.instagram.com/betclicfrance/">https://www.instagram.com/betclicfrance/</a>). Tous
+                les
+                gagnants seront crédités le vendredi 29 novembre 2024 !</p>
+            </v-col>
+            <v-col cols="12" align="center" class="mt-5">
+              <p>📎 Règlement disponible <a target="_blank" href="google.com">ici</a></p>
+            </v-col>
+            <v-col cols="12" align="center" class="mt-5">
+              <p>🔄 Tu peux refaire la Course aux Freebets si tu le
+                souhaites : il reste peut-être des codes promos que tu n’as pas encore trouvé ! RDV dans ton
+                inventaire
+                pour retourner dans la scène de ton choix
+              </p>
+            </v-col>
+          </v-row>
+
           <!-- ITEMS NON RÉCUPÉRÉS -->
-          <!-- <v-row v-if="!isAllItemsAcquired" no-gutters class="vsk-character-dialog-secret-end--description"> -->
-          <v-row v-if="false" no-gutters class="vsk-character-dialog-secret-end--description">
+          <v-row v-else-if="!isAllItemsAcquired" no-gutters class="vsk-character-dialog-secret-end--description">
             <v-col cols="12" align="center">
               <p>Vous n'avez pas encore trouvé tout les objets</p>
             </v-col>
@@ -48,21 +73,6 @@
               <p>300x20€ de Freebets</p>
             </v-col>
           </v-row>
-
-          <!-- ITEMS RÉCUPÉRÉS && FORMULAIRE ENVOYÉ -->
-          <v-row v-else no-gutters class="vsk-character-dialog-secret-end--description">
-            <!-- <v-col cols=" 12" align="center" class="mt-5">
-              <p>📅 Tirage au sort vendredi 29 novembre 2024 à midi. Annonce des gagnants sur X
-                (<a>https://x.com/Betclic</a>) et Instagram (<a>https://www.instagram.com/betclicfrance/</a>). Tous les
-                gagnants seront crédités le vendredi 29 novembre 2024 !</p>
-            </v-col>
-            <v-col cols=" 12" align="center" class="mt-5">
-              <p>📎 Règlement disponible ici : lien règlement 🔄 Tu peux refaire la Course aux Freebets si tu le
-                souhaites : il reste peut-être des codes promos que tu n’as pas encore trouvé ! RDV dans ton inventaire
-                pour retourner dans la scène de ton choix
-              </p>
-            </v-col> -->
-          </v-row>
         </div>
       </template>
     </VskCard>
@@ -70,13 +80,14 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from "vue";
+import { onMounted, onUpdated, onBeforeUnmount, ref } from "vue";
 import VskCard from '@/layouts/VskCard.vue'
 import { playSound } from "@/stores/music/action";
 import { isAllItemsAcquired } from "@/stores/item/getter"; // ATTENTION
 import axios from 'axios';
 import { postBrowserCookie, setIsSecretEndSended } from "@/stores/setting/action";
 import { isSecretEndSended } from "@/stores/setting/state";
+import { setIsDialogMentionLegalActive } from "@/stores/dialog/action";
 
 const isActive = ref(true);
 const loading = ref(false);
@@ -113,6 +124,19 @@ function apiPostSecretEnd(input: string) {
       loading.value = false
     });
 }
+
+
+// LIFE CYCLE
+onMounted(() => {
+  setIsDialogMentionLegalActive(isActive.value)
+});
+onUpdated(() => {
+  setIsDialogMentionLegalActive(isActive.value)
+});
+
+onBeforeUnmount(() => {
+  setIsDialogMentionLegalActive(false)
+})
 </script>
 
 <style lang="scss" scoped>
@@ -127,6 +151,10 @@ function apiPostSecretEnd(input: string) {
     .vsk-character-dialog-secret-end--attention {
       color: $colorGrey;
       font-size: 1.6vh;
+    }
+
+    a {
+      color: $colorGrey;
     }
   }
 }

@@ -45,7 +45,7 @@ const carouselItems = [
     name: '0',
     image_url: '/icon/freebet_dessin.png',
     title: 'Règles',
-    description: 'Avant de commencer, tu dois certifier avoir plus de <u>18 ans</u> pour participer à l’expérience ✅<br><br>📎 Toutes les infos du jeu sont sur notre <a href="https://www.google.com">règlement</a>',
+    description: 'Avant de commencer, tu dois certifier avoir plus de <u>18 ans</u> pour participer à l’expérience ✅<br><br>📎 Toutes les infos du jeu sont sur notre <a target="_blank" href="https://www.google.com">règlement</a>',
   },
   {
     name: '1',
