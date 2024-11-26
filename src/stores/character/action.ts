@@ -68,7 +68,7 @@ export function setCurrentCharacter(inputCharacterFound: characterFoundInterface
 
   if (inputBookmark.zoomFactor < 13.5 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.75 && currentDialog.value?.type === 'gift' && currentDialog.value?.openOnZoom && zoomIn.value && hasCurrentCharacterItemToGive.value && !isCurrentCharacterItemToGiveGiven.value) {
     setIsDialogActive(true);
-  } else if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.25 && currentDialog.value?.type.includes('force') && !isDialogRegleRead.value && currentDialog.value?.openOnZoom && zoomIn.value && locations_found.value.length <= 3 && items_acquired.value.length === 0) {
+  } else if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.25 && currentDialog.value?.type.includes('force') && !isDialogRegleRead.value && currentDialog.value?.openOnZoom && zoomIn.value && locations_found.value.length < 3 && items_acquired.value.length === 0) {
     setIsDialogActive(true);
     // if (currentDialog.value?.type.includes('mention-legal')) {
     //   setIsDialogMentionLegalActive(true)
