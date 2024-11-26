@@ -6,24 +6,24 @@
     </div>
 
     <!-- CHARACTER CALL -->
-    <div class="vsk-character-call-container" @click="handleClick"
+    <div class="vsk-character-call-container" id="vsk-character-call-container" @click="handleClick"
       :style="`top: ${characterCallTop}px; left: ${characterCallLeft}px; width: ${characterCallWidth}px; height: ${characterCallHeight}px; border-width: ${characterCallWidth * 0.02}px`">
 
-      <div class="vsk-character-call-arrow-container"
+      <div class="vsk-character-call vsk-character-call-arrow-container"
         :style="`width: ${(characterCallWidth * 0.2 + 6) * 2}px; height: ${characterCallWidth * 0.4 + 6}px;`">
-        <div class="vsk-character-call-arrow-border"
+        <div class="vsk-character-call vsk-character-call-arrow-border"
           :style="`border-left: ${characterCallWidth * 0.2 + 6}px solid transparent; border-right: ${characterCallWidth * 0.2 + 6}px solid transparent; border-top: ${characterCallWidth * 0.4 + 6}px solid black;`">
         </div>
-        <div class="vsk-character-call-arrow"
+        <div class="vsk-character-call vsk-character-call-arrow"
           :style="`border-left: ${characterCallWidth * 0.2}px solid transparent; border-right: ${characterCallWidth * 0.2}px solid transparent; border-top: ${characterCallWidth * 0.4}px solid white; top: -${characterCallWidth * 0.008}px`">
         </div>
       </div>
 
-      <div class="vsk-character-call-content" v-if="hasCurrentCharacterItemToGive">
+      <div class="vsk-character-call vsk-character-call-content" v-if="hasCurrentCharacterItemToGive">
         <p :style="`line-height: ${characterCallHeight}px; font-size: ${characterCallHeight * 0.45}px;`">
           !!!</p>
       </div>
-      <div class="vsk-character-call-content" v-else>
+      <div class="vsk-character-call vsk-character-call-content" v-else>
         <p
           :style="`line-height: ${characterCallHeight}px; font-size: ${characterCallHeight * 0.45}px; padding-right: ${characterCallHeight * 0.2}px;`">
           Hey
@@ -36,7 +36,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { storeToRefs } from 'pinia'
 
 import { useCharacterStore } from "@/stores/character";
@@ -63,6 +63,13 @@ const characterCallHeight = computed(() => {
 })
 
 
+// BUG SCROLL
+// onMounted(() => {
+//   document.querySelector('vsk-character-call')?.addEventListener("scroll", function (event) {
+//     event.preventDefault()
+//   });
+// })
+
 function handleClick() {
   setIsDialogActive(true)
   if (!hasCurrentCharacterItemToGive.value) {
@@ -82,6 +89,12 @@ function handleClick() {
   border: solid 4px cyan;
   display: none; // TEST
 }
+
+// BUG SCROLL
+// .vsk-character-call {
+//   overflow: 'hidden';
+//   height: '100%';
+// }
 
 .vsk-character-call-container,
 .vsk-character-call-arrow-container,
