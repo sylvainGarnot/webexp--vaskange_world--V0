@@ -16,12 +16,23 @@ import type { bookmarkInterface } from '../bookmark/interface';
 import { postBrowserCookie } from '../setting/action';
 import { cookies } from '../setting/state';
 import type { cookieInterface } from '../setting/interface';
+import { apiPostAvancementUser } from '@/api/post';
 
 
 // PRIVATE
 function addLocationFound(input: locationFoundInterface) {
   // console.log('TEST - addLocationFound', input.name); // TEST
   locations_found.value.push(input as locationFoundInterface);
+
+  // Request POST /location_found/ (id location & id player)
+  // ne marchera pas avec le systeme de récupération de cookies
+  if (input.name === 'football') {
+    apiPostAvancementUser('premier-lieu')
+  } else if (input.name === 'montagne') {
+    apiPostAvancementUser('dernier-lieu')
+  } else if (input.name === 'secret_end') {
+    apiPostAvancementUser('secret-end')
+  }
 }
 
 
@@ -126,7 +137,6 @@ export function onLocationFound(input: locationInterface, modePost:boolean=true)
   setCurrentLocation(locationFound as locationFoundInterface);
 
   if (modePost) {
-    // Request POST /location_found/ (id location & id player)
     // POST BROWSER COOKIES
     // postBrowserCookie('locations_found', locationsFoundId.value as string[])
   }
