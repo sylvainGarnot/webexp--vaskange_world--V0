@@ -44,34 +44,34 @@ const isActive = ref(false);
 const carouselItems = [
   {
     name: '0',
-    image_url: '/logo/JMDF.png',
+    image_url: '/images/regle/JMDF.png',
     image_horizontal: true,
     title: 'Règles',
     description: 'Avant de commencer, tu dois certifier avoir plus de <i>18 ans</i> pour participer à l’expérience ✅<br><br>📎 Toutes les infos du jeu sont sur notre <a target="_blank" href="https://bit.ly/499OnyF">règlement</a>',
   },
   {
     name: '1',
-    image_url: '/icon/freebet_dessin.png',
+    image_url: '/images/regle/freebet_dessin.png',
     title: 'Freebets',
     description: `🤑 Cette course cache énoooormément de Freebets*… Tu veux en gagner? <i>3 solutions</i> s’offrent à toi :
       <br>*<span>Crédits de jeu non retirables</span>`,
   },
   {
     name: '1a',
-    image_url: '/icon/football_ballon.png',
+    image_url: '/images/regle/football_ballon.png',
     title: 'Lieux Secrets',
     description: `Trouve <i>tous</i> les items sportifs qui sont cachés le long du parcours. Il suffit de zoomer dessus pour les récupérer dans ton inventaire ! Quand tu auras tout collecté, tu seras téléporté dans un <i>lieu secret</i> qui te fera participer à un grand <i>tirage au sort</i> 🍀`,
   },
   {
     name: '1b',
-    image_url: '/icon/_.png',
+    image_url: '/images/regle/_.png',
     title: 'Codes Cachés',
     description: `Trouve les <i>codes promos</i> écris dans les différentes scènes. Tu vois un élément écrit quelque part ? Écris-le dans ton app’ Betclic, il renferme peut-être des Freebets* 📲
       <br>*<span>Crédits de jeu non retirables</span>`,
   },
   {
     name: '1c',
-    image_url: '/icon/!!.png',
+    image_url: '/images/regle/!!.png',
     title: 'Jeux exclusifs',
     description: `Enfin, RDV sur les réseaux sociaux de Betclic toute la journée pour avoir des indices et jouer à des <i>jeux exclusifs</i> 🎁 <br>
       <a target="_blank" href="https://www.instagram.com/betclicfrance/ "><img src="logo/instagram.png"/></a>
@@ -80,7 +80,7 @@ const carouselItems = [
   },
   {
     name: '2',
-    image_url: '/images/guide/guide-final.png',
+    image_url: '/images/regle/abonnez_vous.png',
     title: 'Abonnes-toi !',
     description: `Avant de partir… Tu dois être abonné aux réseaux sociaux suivants de Betclic pour pouvoir remporter des Freebets*
       <br>*<span>Crédits de jeu non retirables</span><br>
