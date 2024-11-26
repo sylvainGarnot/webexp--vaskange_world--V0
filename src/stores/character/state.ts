@@ -369,7 +369,7 @@ export const characters = ref([
   // CYCLISME - PERSO
   {
     id: '70',
-    name: 'cyclisme_ perso',
+    name: 'cyclisme_perso',
     label: '',
     label_dialog: '',
     dialog: '70',
