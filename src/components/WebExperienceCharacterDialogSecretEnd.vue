@@ -125,7 +125,9 @@ function apiPostSecretEnd(input: string) {
     }).catch(error => {
       console.log(error); // TEST
     }).finally(() => {
-      loading.value = false
+      setTimeout(() => {
+        loading.value = false
+      }, 800);
     });
 }
 
