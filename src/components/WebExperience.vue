@@ -1,6 +1,15 @@
 <template>
   <div class="container">
-    <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="3KQQ80j"></div>
+
+    <!-- SERVEUR ENDLESS -->
+    <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="3KQQ80j"
+      data-webxp-show-travel-buttons="false" data-webxp-show-navbar="false" data-webxp-show-navinstructions="false">
+    </div> -->
+
+    <!-- SERVEUR AMAZON -->
+    <div class="ep-webxp" data-webxp-url="https://xp.endlesspaper.app/betclic/?id=3KQQ80j"
+      data-webxp-show-travel-buttons="false" data-webxp-show-navbar="false" data-webxp-show-navinstructions="false">
+    </div>
 
     <WebExperienceCharacterCall v-if="currentDialog && isCallDialogActive && !isDialogActive" />
     <WebExperienceAlertLocationEndReach v-if="isLocationEndReach" />
