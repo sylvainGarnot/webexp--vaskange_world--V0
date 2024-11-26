@@ -9,21 +9,25 @@
 
         <div v-if="isLarge">
           <v-row no-gutters class="vsk-dialog--npc-next-icon--large-container">
-            <v-col cols="auto">
+            <v-col cols="6" align="center">
               <v-btn class="v-btn--transparent">
                 <img src="/icon/fleche-left.png" @click="handlePreviousDialog()" />
               </v-btn>
             </v-col>
-            <v-col cols="auto">
+            <v-col cols="6" align="center">
               <v-btn class="v-btn--transparent">
                 <img src="/icon/fleche-right.png" @click="handleNextDialog()">
               </v-btn>
             </v-col>
           </v-row>
         </div>
-        <v-btn v-else class="v-btn--transparent">
-          <img class="vsk-dialog--npc-next-icon" src="/icon/fleche.png" @click="handleNextDialog()" />
-        </v-btn>
+        <v-row v-else class="vsk-dialog--npc-next-icon--container">
+          <v-col cols="12" align="center">
+            <v-btn class="v-btn--transparent">
+              <img src="/icon/fleche.png" @click="handleNextDialog()" />
+            </v-btn>
+          </v-col>
+        </v-row>
 
         <div v-if="isLarge" class="vsk-dialog--count">
           <span>{{ dialogStepNumber + 1 }} / {{ currentDialog?.speech_written!.length }}</span>
@@ -237,16 +241,15 @@ function handleKeydown(event: any) {
         font-size: 2.85vh;
       }
 
-      img.vsk-dialog--npc-next-icon {
-        position: absolute;
-        left: 50%;
-        bottom: -4.2vh;
-        cursor: pointer;
-        animation: bounce 2s ease infinite;
-        width: 6.5vh;
+      .vsk-dialog--npc-next-icon--container {
+        img {
+          animation: bounceV 2s ease infinite;
+        }
       }
 
-      .vsk-dialog--npc-next-icon--large-container {
+      .vsk-dialog--npc-next-icon--large-container,
+      .vsk-dialog--npc-next-icon--container {
+
         position: absolute;
         left: 50%;
         bottom: -4.2vh;
@@ -256,8 +259,8 @@ function handleKeydown(event: any) {
 
     .vsk-dialog--count {
       position: absolute;
-      right: 10%;
-      bottom: 0;
+      right: 5%;
+      bottom: 5%;
 
       color: $colorWhite;
       font-size: 3.2vh;
