@@ -10,11 +10,21 @@ import { cookies } from '../setting/state'
 import { postBrowserCookie } from '../setting/action'
 import type { cookieInterface } from '../setting/interface'
 
+import { apiPostAvancementUser } from '@/api/post';
+
 
 // PRIVATE
 function addItemAcquired(input: itemAcquiredInterface) {
   // console.log('TEST - addItemAcquired', input.name); // TEST
   items_acquired.value.push(input as itemAcquiredInterface);
+
+  // Request POST /items_acquired/ (id item & id player)
+  // ne marchera pas avec le systeme de récupération de cookies
+  if (items_acquired.value.length === 1) {
+    apiPostAvancementUser('premier-item')
+  } else if (items_acquired.value.length === items.value.length) {
+    apiPostAvancementUser('dernier-item')
+  }
 };
 
 
@@ -85,7 +95,6 @@ export function onItemProvided(input: itemInterface, modePost:boolean=true) {
 
   if (modePost) {
     // console.log('BUG onItemProvided 15') // TEST
-    // Request POST /items_acquired/ (id item & id player)
     // POST BROWSER COOKIES
     // postBrowserCookie('items_acquired', itemsAcquiredId.value as string[])
     // console.log('BUG onItemProvided 16') // TEST
