@@ -10,7 +10,8 @@
           <!-- ILLUSTRATION -->
           <v-row no-gutters class="vsk-regle--illustration">
             <div class="vsk-regle--illustration-container">
-              <img v-if="carouselItem.image_url" loading="lazy" :src="carouselItem.image_url" />
+              <img v-if="carouselItem.image_url" loading="lazy" :src="carouselItem.image_url"
+                :class="carouselItem.image_horizontal ? 'horizontal' : ''" />
             </div>
           </v-row>
 
@@ -43,7 +44,8 @@ const isActive = ref(false);
 const carouselItems = [
   {
     name: '0',
-    image_url: '/icon/freebet_dessin.png',
+    image_url: '/logo/JMDF.png',
+    image_horizontal: true,
     title: 'Règles',
     description: 'Avant de commencer, tu dois certifier avoir plus de <i>18 ans</i> pour participer à l’expérience ✅<br><br>📎 Toutes les infos du jeu sont sur notre <a target="_blank" href="https://bit.ly/499OnyF">règlement</a>',
   },
@@ -128,11 +130,15 @@ onBeforeUnmount(() => {
         width: auto;
         height: 100%;
         border: 0 solid;
-        border-radius: 50%;
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+
+        &.horizontal {
+          width: 100%;
+          height: auto;
+        }
       }
     }
   }
