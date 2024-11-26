@@ -13,13 +13,23 @@ export const volumeMusic = ref(1 as number);
 
 export const sounds = ref([
   {
-    id: 'son_bouton_1',
-    file: '/music/SD_Bouton_1.mp3',
+    id: 'son_bouton_click',
+    file: '/music/SD_Bouton_1_Click.mp3',
     audio: new Audio,
   },
   {
-    id: 'son_bouton_2',
-    file: '/music/SD_Bouton_2.mp3',
+    id: 'son_bouton_item',
+    file: '/music/SD_Bouton_2_Objet.mp3',
+    audio: new Audio,
+  },
+  {
+    id: 'son_bouton_ihm',
+    file: '/music/SD_Bouton_3_Inventaire.mp3',
+    audio: new Audio,
+  },
+  {
+    id: 'son_bouton_teleportation',
+    file: '/music/SD_Bouton_4_Teleportation.mp3',
     audio: new Audio,
   },
 ] as musicInterface[])
@@ -36,7 +46,7 @@ export const musics = ref([
     // file: '/music/free/trésor 💰.aac',
   {
     id: 'music_tempo',
-    file: '/music/JMDF_Musique_V1.mp3',
+    file: '/music/JMDF_Musique_Master.mp3',
     audio: new Audio,
   },
   {

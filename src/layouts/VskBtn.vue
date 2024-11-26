@@ -1,6 +1,6 @@
 <template>
   <div class="vsk-btn--container">
-    <button class="vsk-btn" :class="classes" :style="style" @click="playSound('son_bouton_1')">
+    <button class="vsk-btn" :class="classes" :style="style" @click="playSound('son_bouton_ihm')">
       <div v-if="disable" class="vsk-btn--disable-background"></div>
       <img loading="lazy" class="icon" :src="image" />
     </button>

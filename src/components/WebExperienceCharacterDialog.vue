@@ -143,7 +143,7 @@ function handlePreviousDialog() {
   if (dialogStepNumber.value > 0) {
     dialogStepNumber.value--
   }
-  playSound('son_bouton_1')
+  playSound('son_bouton_click')
 }
 
 function handleNextDialog() {
@@ -158,7 +158,7 @@ function handleNextDialog() {
       }
     }
   }
-  playSound('son_bouton_1')
+  playSound('son_bouton_click')
 }
 
 function handleIsHandleNextDialogActive() {

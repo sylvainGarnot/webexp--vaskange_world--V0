@@ -72,7 +72,7 @@ function onClose() {
 }
 
 onMounted(() => {
-  playSound('son_bouton_2')
+  playSound('son_bouton_item')
 })
 </script>
 

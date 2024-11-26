@@ -66,7 +66,7 @@ const characterCallHeight = computed(() => {
 function handleClick() {
   setIsDialogActive(true)
   if (!hasCurrentCharacterItemToGive.value) {
-    playSound('son_bouton_1')
+    playSound('son_bouton_click')
   }
 }
 

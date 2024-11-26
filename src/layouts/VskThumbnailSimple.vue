@@ -34,7 +34,7 @@ const props = defineProps({
 })
 
 function onClick() {
-  playSound('son_bouton_1')
+  playSound('son_bouton_teleportation')
   if (props.link) {
     if (route.query.location === props.link) {
       router.push({ name: 'home' });

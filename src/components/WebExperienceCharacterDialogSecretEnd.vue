@@ -103,7 +103,7 @@ const rules = ref([
 ])
 
 onMounted(() => {
-  playSound('son_bouton_1')
+  playSound('son_bouton_ihm')
 })
 
 function apiPostSecretEnd(input: string) {
