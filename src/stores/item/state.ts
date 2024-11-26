@@ -18,7 +18,7 @@ export const items = ref([
   {
     id: '21',
     name: 'Crampons de Football',
-    description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets* 😍<br><br>*<span>Crédits de jeu non retirables</span>',
+    description: 'Il a été ajouté à ton inventaire, que tu peux retrouver en cliquant sur l’icône « Carte » en bas de ton écran ! Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets* 😍<br><br>*<span>Crédits de jeu non retirables</span>',
     image_url: '/images/item/color/football_crampon.png',
     image_url_unfound: '/images/item/black/football_crampon.png'
   },
@@ -26,15 +26,15 @@ export const items = ref([
   {
     id: '22',
     name: "Maillot de l'Équipe de France",
-    description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets* 😍<br><br>*<span>Crédits de jeu non retirables</span>',
+    description: 'Il a été ajouté à ton inventaire, que tu peux retrouver en cliquant sur l’icône « Carte » en bas de ton écran ! Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets* 😍<br><br>*<span>Crédits de jeu non retirables</span>',
     image_url: '/images/item/color/football_maillot.png',
     image_url_unfound: '/images/item/black/football_maillot.png'
   },
   // FOOTBALL - MAILLOT
   {
     id: '23',
-    name: 'Barssard de capitaine',
-    description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets* 😍<br><br>*<span>Crédits de jeu non retirables</span>',
+    name: 'Brassard de capitaine',
+    description: 'Il a été ajouté à ton inventaire, que tu peux retrouver en cliquant sur l’icône « Carte » en bas de ton écran ! Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets* 😍<br><br>*<span>Crédits de jeu non retirables</span>',
     image_url: '/images/item/color/football_captain.png',
     image_url_unfound: '/images/item/black/football_captain.png'
   },
