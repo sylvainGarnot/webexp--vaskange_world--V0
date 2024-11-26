@@ -19,7 +19,7 @@
                 gagnants seront crédités le vendredi 29 novembre 2024 !</p>
             </v-col>
             <v-col cols="12" align="center" class="mt-5">
-              <p>📎 Règlement disponible <a target="_blank" href="google.com">ici</a></p>
+              <p>📎 Règlement disponible <a target="_blank" href="https://bit.ly/499OnyF">ici</a></p>
             </v-col>
             <v-col cols="12" align="center" class="mt-5">
               <p>🔄 Tu peux refaire la Course aux Freebets si tu le
