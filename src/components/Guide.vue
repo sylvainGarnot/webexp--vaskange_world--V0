@@ -57,8 +57,8 @@ const carouselItems = [
   },
   {
     name: 'personnage',
-    title: 'Récolte les objets cachés',
-    description: 'Rendez vous sur la <i>ligne de départ</i> pour connaitre les règles',
+    title: "Commence l'aventure",
+    description: 'Rendez vous sur la <i>ligne de départ</i> pour découvrir les différentes façons de gagner des <i>Freebets*</i><br>*<span>Crédits de jeu non retirables</span>',
     video_url: '/images/guide/OBJETS.mp4',
   },
   {
@@ -143,6 +143,10 @@ watch(locations_found.value, (value) => {
   .vsk-guide--description {
     i {
       color: $colorGold;
+    }
+
+    span {
+      font-size: 1.4vh;
     }
   }
 }
