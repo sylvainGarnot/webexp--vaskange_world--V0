@@ -37,12 +37,12 @@
 
   // FORMAT IMAGE
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
-  height: 15%;
   width: 100%;
 
   .vsk-mention-legal--container {
+
     img {
       width: 100%;
 

@@ -2,8 +2,7 @@
   <div id="vsk-dialog" class="vsk-dialog--overlay" :class="classes" v-if="isActive">
 
     <!-- ILLUSTRATION -->
-    <v-row v-if="isLarge && currentDialog!.speech_illustrations_url[dialogStepNumber]" no-gutters
-      class="vsk-dialog--illustration">
+    <v-row v-if="isLarge" no-gutters class="vsk-dialog--illustration">
       <div class="vsk-dialog--illustration-container">
         <img loading="lazy" :src="currentDialog.speech_illustrations_url[dialogStepNumber]" />
       </div>
@@ -210,42 +209,56 @@ function handleKeydown(event: any) {
 
 
 // ILLUSTRATION
-.vsk-dialog--illustration {
-  position: relative;
-  top: 57.5% - 35%;
-  height: 35%;
+.large {
+  .vsk-dialog--illustration {
+    position: fixed;
+    inset: 0;
+    top: 37.5% - 35%;
+    height: 35%;
 
-  @media (max-width: 599px) {
-    top: 46.5% - 21.5%;
-    height: 21.5%;
-  }
+    @media (max-width: 599px) {
+      top: 30% - 21.5%;
+      height: 21.5%;
+    }
 
-  .vsk-dialog--illustration-container {
-    height: 100%;
-
-    img {
-      border-radius: 3.5vh;
-      padding: $radiusValue*2;
-      width: auto;
+    .vsk-dialog--illustration-container {
       height: 100%;
-      border: 0 solid;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
+
+      img {
+        border-radius: 3.5vh;
+        padding: $radiusValue*2;
+        width: auto;
+        height: 100%;
+        border: 0 solid;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        filter: drop-shadow(5px 10px 3px $colorBlackLight);
+      }
     }
   }
 }
 
 // BULLE DIALOGUE
+.large {
+  .vsk-dialog--container {
+    top: 37.5vh; // bottom: 15vh;
+
+    @media (max-width: 599px) {
+      top: 30vh; // bottom: 18.5vh;
+    }
+  }
+}
+
 .vsk-dialog--container {
   position: absolute;
   left: 0;
-  top: 57.5vh; // bottom: 15vh;
+  bottom: 22.5vh; // bottom: 15vh;
   width: 100%;
 
   @media (max-width: 599px) {
-    top: 46.5vh; // bottom: 18.5vh;
+    bottom: 22.5vh; // bottom: 18.5vh;
   }
 
   .vsk-dialog--npc {
