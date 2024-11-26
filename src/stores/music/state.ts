@@ -35,29 +35,68 @@ export const sounds = ref([
 ] as musicInterface[])
 
 export const musics = ref([
-
-    // TEST
-    // file: '/music/free/coccibar 🐞.aac',
-    // file: '/music/free/fin quest 1 🔥.aac',
-    // file: '/music/free/matrix 📺.aac',
-    // file: '/music/free/star night club ⭐️.aac',
-    // file: '/music/free/support city 🛖.aac',
-    // file: '/music/free/temple 🏯.aac',
-    // file: '/music/free/trésor 💰.aac',
   {
     id: 'music_tempo',
-    file: '/music/JMDF_Musique_Master.mp3',
-    audio: new Audio,
-  },
-  {
-    id: '0',
-    file: '/music/SD_Ambiance_Test_1.mp3',
-    // file: '/music/free/trésor 💰.aac', // TEST
+    file: '/music/MUSIC.mp3',
     audio: new Audio,
   },
   {
     id: '1',
-    file: '/music/SD_Ambiance_Test_2.mp3',
+    file: '/music/SD_Ambiance_1_Rue.mp3',
+    // file: '/music/free/temple 🏯.aac', // TEST
+    audio: new Audio,
+  },
+  {
+    id: '2',
+    file: '/music/SD_Ambiance_2_Foot.mp3',
+    // file: '/music/free/temple 🏯.aac', // TEST
+    audio: new Audio,
+  },
+  {
+    id: '3',
+    file: '/music/SD_Ambiance_3_Baseball.mp3',
+    // file: '/music/free/temple 🏯.aac', // TEST
+    audio: new Audio,
+  },
+  {
+    id: '4',
+    file: '/music/SD_Ambiance_4_Basket.mp3',
+    // file: '/music/free/temple 🏯.aac', // TEST
+    audio: new Audio,
+  },
+  {
+    id: '5',
+    file: '/music/SD_Ambiance_5_Tennis.mp3',
+    // file: '/music/free/temple 🏯.aac', // TEST
+    audio: new Audio,
+  },
+  {
+    id: '6',
+    file: '/music/SD_Ambiance_6_Boxe.mp3',
+    // file: '/music/free/temple 🏯.aac', // TEST
+    audio: new Audio,
+  },
+  {
+    id: '7',
+    file: '/music/SD_Ambiance_7_Cyclisme.mp3',
+    // file: '/music/free/temple 🏯.aac', // TEST
+    audio: new Audio,
+  },
+  {
+    id: '8',
+    file: '/music/SD_Ambiance_8_Rugby.mp3',
+    // file: '/music/free/temple 🏯.aac', // TEST
+    audio: new Audio,
+  },
+  {
+    id: '9',
+    file: '/music/SD_Ambiance_9_Hockey.mp3',
+    // file: '/music/free/temple 🏯.aac', // TEST
+    audio: new Audio,
+  },
+  {
+    id: '10',
+    file: '/music/SD_Ambiance_10_Montagne.mp3',
     // file: '/music/free/temple 🏯.aac', // TEST
     audio: new Audio,
   },
