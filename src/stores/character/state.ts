@@ -663,7 +663,7 @@ export const characters = ref([
     name: 'secret_end_perso',
     label: 'Code promo Scène finale',
     label_dialog: '',
-    dialog: '',
+    dialog: '990',
     location: '99',
     is_hidden: true,
     image_url: '/images/character/color/secreteaster.jpg',

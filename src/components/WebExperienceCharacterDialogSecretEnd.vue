@@ -2,32 +2,36 @@
   <div>
     <VskCard v-model:isActive="isActive" has-close-footer>
       <template v-slot:content>
-        <div class="vsk-character-dialog-secret-end px-6">
+        <div class="vsk-character-dialog-secret-end px-1">
 
           <!-- ITEMS RÉCUPÉRÉS && FORMULAIRE ENVOYÉ -->
           <v-row v-if="isSecretEndSended && isAllItemsAcquired" no-gutters
             class="vsk-character-dialog-secret-end--description">
-            <v-col cols="12" align="center" class="mt-5">
+            <v-col cols="12" align="center">
               <h3>📅 Tirage au sort vendredi 29 novembre 2024 à midi</h3>
             </v-col>
-            <v-col cols="12" align="center" class="mt-5">
-              <p> Annonce des gagnants sur X (<a target="_blank" href="https://x.com/Betclic">https://x.com/Betclic</a>)
+            <v-col cols="12" align="center" class="mt-4">
+              <p> Annonce des gagnants sur <a target="_blank" href="https://x.com/Betclic">X</a>
                 et Instagram
-                (<a target="_blank"
-                  href="https://www.instagram.com/betclicfrance/">https://www.instagram.com/betclicfrance/</a>). Tous
-                les
-                gagnants seront crédités le vendredi 29 novembre 2024 !</p>
+                <a target="_blank" href="https://www.instagram.com/betclicfrance/">Instagram</a>. Tous
+                les gagnants seront crédités le vendredi 29 novembre 2024 !
+              </p>
             </v-col>
-            <v-col cols="12" align="center" class="mt-5">
+            <v-col cols="12" align="center" class="mt-4">
               <p>📎 Règlement disponible <a target="_blank" href="https://bit.ly/499OnyF">ici</a></p>
             </v-col>
-            <v-col cols="12" align="center" class="mt-5">
-              <p>🔄 Tu peux refaire la Course aux Freebets* si tu le
-                souhaites : il reste peut-être des codes promos que tu n’as pas encore trouvé ! RDV dans ton
-                inventaire
-                pour retourner dans la scène de ton choix
+            <v-col cols="12" align="center" class="mt-4">
+              <p>🔄 Tu peux refaire la Course aux Freebets* si tu le souhaites… il reste peut-être des codes promos que
+                tu n’as pas trouvé ! Tu as juste à dézoomer quelques secondes pour revenir au début de l’expérience 😉
               </p>
               <p>*<span>Crédits de jeu non retirables</span></p>
+            </v-col>
+            <v-col cols="12" align="center" class="mt-2">
+              <p>
+                <a target="_blank" href="https://www.instagram.com/betclicfrance/ "><img
+                    src="/logo/instagram.png" /></a>
+                <a target="_blank" href="https://x.com/Betclic"><img src="/logo/x.png" /></a>
+              </p>
             </v-col>
           </v-row>
 
@@ -51,15 +55,14 @@
             </v-col>
             <v-col cols="12" class="mt-5 px-12" align="center">
               <v-form @submit.prevent="apiPostSecretEnd(identifiantBetclic)">
-                <v-text-field label="Identifiant Betclic" :loading="loading" required clearable
-                  append-inner-icon="mdi-send" v-model="identifiantBetclic" :rules="rules"
-                  @click:append-inner="tryValidate = true">
+                <v-text-field label="Pseudo Betclic" :loading="loading" required clearable append-inner-icon="mdi-send"
+                  v-model="identifiantBetclic" :rules="rules" @click:append-inner="tryValidate = true">
                 </v-text-field>
                 <Transition>
                   <div v-if="tryValidate" class="vsk-character-dialog-secret-end--attention">
-                    <p>Vérifiez bien votre identifiant, vous devrez entièrement recommencer l'expérience si vous vous
-                      êtes
-                      trompé !</p>
+                    <p>Vérifie bien ton pseudo Betclic, s’il y a une erreur tu ne pourras pas le modifier ! Et assure
+                      toi de bien suivre Betclic sur les différents réseaux pour avoir une chance d’être tiré au sort !
+                    </p>
                     <v-btn class="mt-2" block type="submit">VALIDER</v-btn>
                   </div>
                 </Transition>
@@ -69,9 +72,9 @@
               <p>🎁 À gagner :</p>
             </v-col>
             <v-col cols=" 12" align="center" class="mt-5">
-              <p>100x50€ de Freebets*</p>
-              <p>200x30€ de Freebets*</p>
-              <p>300x20€ de Freebets*</p>
+              <p>100 x 50€ de Freebets*</p>
+              <p>200 x 30€ de Freebets*</p>
+              <p>300 x 20€ de Freebets*</p>
               <p>*<span>Crédits de jeu non retirables</span></p>
             </v-col>
           </v-row>
@@ -160,6 +163,12 @@ onBeforeUnmount(() => {
 
     span {
       font-size: 1.4vh;
+    }
+
+    img {
+      max-width: 100px;
+      width: 7.5vh;
+      margin: 0px 10px;
     }
   }
 }

@@ -530,5 +530,16 @@ export const dialogs = ref([
 
 
   // ##### SECRET END -99- #####
+  // SECRET END - PERSO
+  {
+    id: '990',
+    speech_written: [],
+    speech_illustrations_url: [],
+    item_provided: '',
+    answers: [],
+    type: 'secret-end',
+    openOnZoom: false,
+    isLarge: false,
+  },
 
 ] as dialogInterface[]);
