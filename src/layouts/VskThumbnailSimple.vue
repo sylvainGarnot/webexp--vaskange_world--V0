@@ -10,7 +10,12 @@
       </v-col>
     </v-row>
 
-    <div class="vsk-thumbnail--title"><span>{{ title }}</span></div>
+    <v-row no-gutters>
+      <v-col :cols="12" class="vsk-thumbnail--title">
+        <p>{{ title }}</p>
+      </v-col>
+    </v-row>
+
     <span v-if="description" class="vsk-thumbnail--description">{{ description }}</span>
 
     <v-icon v-if="completed" class="vsk-thumbnail--badge" size="large">mdi-star</v-icon>
@@ -109,7 +114,7 @@ function onClick() {
 .vsk-thumbnail.active {
   .vsk-thumbnail--title {
     color: $colorWhite;
-    font-size: 2.5vh;
+    font-size: 2.4vh;
     font-weight: 700;
     text-shadow: $shadow;
     white-space: nowrap;

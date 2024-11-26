@@ -88,17 +88,17 @@ export const characters = ref([
     image_url_unfound: '/images/character/black&white&blur/footballeaster.jpg',
   },
   // FOOTBALL - EASTER 2
-  // {
-  //   id: '29b',
-  //   name: 'football_easter2',
-  //   label: '2éme Code promo football',
-  //   label_dialog: '',
-  //   dialog: '',
-  //   location: '2',
-  //   is_hidden: true,
-  //   image_url: '/images/character/color/footballeaster2.jpg',
-  //   image_url_unfound: '/images/character/black&white&blur/footballeaster2.jpg',
-  // },
+  {
+    id: '29b',
+    name: 'football_easter2',
+    label: '2éme Code promo football',
+    label_dialog: '',
+    dialog: '',
+    location: '2',
+    is_hidden: true,
+    image_url: '/images/character/color/footballeaster2.jpg',
+    image_url_unfound: '/images/character/black&white&blur/footballeaster2.jpg',
+  },
 
 
   // ##### BASEBALL -3- #####
@@ -163,17 +163,17 @@ export const characters = ref([
     image_url_unfound: '/images/character/black&white&blur/baseballeaster.jpg',
   },
   // BASEBALL - EASTER 2
-  // {
-  //   id: '39b',
-  //   name: 'baseball_easter',
-  //   label: '2éme Code promo Baseball',
-  //   label_dialog: '',
-  //   dialog: '',
-  //   location: '3',
-  //   is_hidden: true,
-  //   image_url: '/images/character/color/baseballeaster2.jpg',
-  //   image_url_unfound: '/images/character/black&white&blur/baseballeaster2.jpg',
-  // },
+  {
+    id: '39b',
+    name: 'baseball_easter2',
+    label: '2éme Code promo Baseball',
+    label_dialog: '',
+    dialog: '',
+    location: '3',
+    is_hidden: true,
+    image_url: '/images/character/color/baseballeaster2.jpg',
+    image_url_unfound: '/images/character/black&white&blur/baseballeaster2.jpg',
+  },
 
   
   // ##### BASKET -4- #####
@@ -415,29 +415,29 @@ export const characters = ref([
     image_url_unfound: '',
   },
   // CYCLISME - EASTER
-  // {
-  //   id: '79',
-  //   name: 'cyclisme_easter',
-  //   label: 'Code promo Cyclisme',
-  //   label_dialog: '',
-  //   dialog: '',
-  //   location: '7',
-  //   is_hidden: true,
-  //   image_url: '/images/character/color/cyclismeeaster.jpg',
-  //   image_url_unfound: '/images/character/black&white&blur/cyclismeeaster.jpg',
-  // },
+  {
+    id: '79',
+    name: 'cyclisme_easter',
+    label: 'Code promo Cyclisme',
+    label_dialog: '',
+    dialog: '',
+    location: '7',
+    is_hidden: true,
+    image_url: '/images/character/color/cyclismeeaster.jpg',
+    image_url_unfound: '/images/character/black&white&blur/cyclismeeaster.jpg',
+  },
   // CYCLISME - EASTER 2
-  // {
-  //   id: '79b',
-  //   name: 'cyclisme_easter',
-  //   label: '2éme Code promo Cyclisme',
-  //   label_dialog: '',
-  //   dialog: '',
-  //   location: '7',
-  //   is_hidden: true,
-  //   image_url: '/images/character/color/cyclismeeaster2.jpg',
-  //   image_url_unfound: '/images/character/black&white&blur/cyclismeeaster2.jpg',
-  // },
+  {
+    id: '79b',
+    name: 'cyclisme_easter2',
+    label: '2éme Code promo Cyclisme',
+    label_dialog: '',
+    dialog: '',
+    location: '7',
+    is_hidden: true,
+    image_url: '/images/character/color/cyclismeeaster2.jpg',
+    image_url_unfound: '/images/character/black&white&blur/cyclismeeaster2.jpg',
+  },
 
 
   // ##### HOCKEY -8- #####
@@ -490,29 +490,29 @@ export const characters = ref([
     image_url_unfound: '',
   },
   // HOCKEY - EASTER
-  // {
-  //   id: '89',
-  //   name: 'hockey_easter',
-  //   label: 'Code promo Hockey',
-  //   label_dialog: '',
-  //   dialog: '',
-  //   location: '8',
-  //   is_hidden: true,
-  //   image_url: '/images/character/color/hockeyeaster.jpg',
-  //   image_url_unfound: '/images/character/black&white&blur/hockeyeaster.jpg',
-  // },
+  {
+    id: '89',
+    name: 'hockey_easter',
+    label: 'Code promo Hockey',
+    label_dialog: '',
+    dialog: '',
+    location: '8',
+    is_hidden: true,
+    image_url: '/images/character/color/hockeyeaster.jpg',
+    image_url_unfound: '/images/character/black&white&blur/hockeyeaster.jpg',
+  },
   // HOCKEY - EASTER 2
-  // {
-  //   id: '89b',
-  //   name: 'hockey_easter',
-  //   label: '2éme Code promo Hockey',
-  //   label_dialog: '',
-  //   dialog: '',
-  //   location: '8',
-  //   is_hidden: true,
-  //   image_url: '/images/character/color/hockeyeaster2.jpg',
-  //   image_url_unfound: '/images/character/black&white&blur/hockeyeaster2.jpg',
-  // },
+  {
+    id: '89b',
+    name: 'hockey_easter2',
+    label: '2éme Code promo Hockey',
+    label_dialog: '',
+    dialog: '',
+    location: '8',
+    is_hidden: true,
+    image_url: '/images/character/color/hockeyeaster2.jpg',
+    image_url_unfound: '/images/character/black&white&blur/hockeyeaster2.jpg',
+  },
 
   
   // ##### RUGBY -9- #####
