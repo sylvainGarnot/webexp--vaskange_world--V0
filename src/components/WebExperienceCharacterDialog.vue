@@ -291,7 +291,7 @@ function handleKeydown(event: any) {
       text-align: center;
 
       color: $colorWhite;
-      font-size: 2.85vh;
+      font-size: 2.5vh;
     }
 
     .vsk-dialog--npc-next-icon--container {
@@ -316,7 +316,8 @@ function handleKeydown(event: any) {
     bottom: 5%;
 
     color: $colorWhite;
-    font-size: 3.2vh;
+    font-size: 2.8vh;
+    font-weight: 700;
     text-shadow: $shadow;
   }
 }

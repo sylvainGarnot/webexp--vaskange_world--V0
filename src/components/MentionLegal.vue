@@ -41,17 +41,16 @@
   left: 0;
   width: 100%;
 
+  @media (min-width: 1280px) {
+    max-width: 1920px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .vsk-mention-legal--container {
 
     img {
       width: 100%;
-
-      @media (min-width: 1280px) {
-        max-width: 1920px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-      }
     }
   }
 
