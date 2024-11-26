@@ -23,8 +23,8 @@
               <v-divider :thickness="1" class="border-opacity-50 mt-3" color="grey"></v-divider>
             </v-card-text>
 
-            <v-card-text class="web-experience-character-dialog-gift-item-description mt-1">
-              {{ itemProvidedByCurrentDialog?.description }}
+            <v-card-text class="web-experience-character-dialog-gift-item-description mt-1"
+              v-html="itemProvidedByCurrentDialog?.description">
             </v-card-text>
           </v-col>
         </v-row>
@@ -104,8 +104,13 @@ onMounted(() => {
 
 .web-experience-character-dialog-gift-item-description {
   color: $colorWhite;
-  font-size: 1.6vh;
   font-weight: 300;
   line-height: 1;
+
+  font-size: 1.6vh;
+
+  span {
+    font-size: 1.1vh !important; // NOT WORKING
+  }
 }
 </style>

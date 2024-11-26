@@ -9,13 +9,14 @@
           </v-col>
           <v-col cols="12" align="center">
             <p>T’es un crack !</p>
-            <p>Tu as trouvé tous les objets de la Course aux Freebets.</p>
+            <p>Tu as trouvé tous les objets de la Course aux Freebets*</p>
             <p>Tu peux dès maintenant aller dans la scène finale pour la remise des prix ! </p>
             <p>Clique sur le lien ci-dessous</p>
+            <p>*<span>Crédits de jeu non retirables</span></p>
           </v-col>
         </v-row>
 
-        <v-row no-gutters class="links mt-12 mx-12">
+        <v-row no-gutters class="links mt-4 mx-md-12">
           <VskThumbnailSimple :title="theHiddenPlace?.label" :background-url="`${theHiddenPlace?.image_url}`"
             :link="theHiddenPlace?.name" @router-push="$emit('update:isActive', false)" />
         </v-row>
@@ -58,6 +59,10 @@ const { theHiddenPlace } = storeToRefs(locationStore);
 
   p {
     font-size: 2.1vh;
+  }
+
+  span {
+    font-size: 1.4vh;
   }
 }
 </style>

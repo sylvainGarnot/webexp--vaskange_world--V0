@@ -22,11 +22,12 @@
               <p>📎 Règlement disponible <a target="_blank" href="https://bit.ly/499OnyF">ici</a></p>
             </v-col>
             <v-col cols="12" align="center" class="mt-5">
-              <p>🔄 Tu peux refaire la Course aux Freebets si tu le
+              <p>🔄 Tu peux refaire la Course aux Freebets* si tu le
                 souhaites : il reste peut-être des codes promos que tu n’as pas encore trouvé ! RDV dans ton
                 inventaire
                 pour retourner dans la scène de ton choix
               </p>
+              <p>*<span>Crédits de jeu non retirables</span></p>
             </v-col>
           </v-row>
 
@@ -45,7 +46,7 @@
             <v-col cols="12" align="center">
               <p>🔥 Félicitations, tu as trouvé tous les items de
                 La Course aux
-                Freebets ! Rentre ton pseudo Betclic
+                Freebets* ! Rentre ton pseudo Betclic
                 pour participer au grand tirage au sort :</p>
             </v-col>
             <v-col cols="12" class="mt-5 px-12" align="center">
@@ -68,9 +69,10 @@
               <p>🎁 À gagner :</p>
             </v-col>
             <v-col cols=" 12" align="center" class="mt-5">
-              <p>100x50€ de Freebets</p>
-              <p>200x30€ de Freebets</p>
-              <p>300x20€ de Freebets</p>
+              <p>100x50€ de Freebets*</p>
+              <p>200x30€ de Freebets*</p>
+              <p>300x20€ de Freebets*</p>
+              <p>*<span>Crédits de jeu non retirables</span></p>
             </v-col>
           </v-row>
         </div>
@@ -154,6 +156,10 @@ onBeforeUnmount(() => {
 
     a {
       color: $colorGrey;
+    }
+
+    span {
+      font-size: 1.4vh;
     }
   }
 }
