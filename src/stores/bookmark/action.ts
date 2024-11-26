@@ -100,7 +100,7 @@ export function updateBookmarkHasCharacter(inputBookmarks: bookmarkInterface[]) 
   // TEST
   // const test = inputBookmarks.find(b => b.name === "jump-q1") as bookmarkInterface; // TEST
   // console.log('TEST Bookmark Character bookmarks v/s/z', test?.intersectionInfo?.visibleBookmarkRatio, test?.intersectionInfo?.screenAreaToBookmarkRatio, test?.zoomFactor);
-  console.log('TEST Bookmark Character', inputBookmarks); // TEST
+  // console.log('TEST Bookmark Character', inputBookmarks); // TEST
   
   // STEP-B) SET CLOSEST NEARBY BOOKMARKS CHARACTER
   let nearByBookmarksCharacter = [] as bookmarkInterface[];
