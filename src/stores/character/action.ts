@@ -1,5 +1,5 @@
 import { currentCharacter, characters_found, characters } from './state';
-import { charactersFoundWithItemId, hasCurrentCharacterItemToGive, isCurrentCharacterItemToGiveGiven } from './getter'
+import { charactersFoundWithItemId, hasCurrentCharacterItemToGive, isCurrentCharacterItemToGiveGiven, characters_hidden, characters_hidden_found } from './getter'
 import type { currentCharacterInterface, characterFoundInterface, characterInterface } from './interface';
 
 import { currentBookmark, zoomIn} from '../bookmark/state';
@@ -19,13 +19,25 @@ import type { cookieInterface } from '../setting/interface'
 import { locations_found } from '../location/state'
 // import { setItemAcquiredFromCookies } from '../item/action';
 
+import { apiPostAvancementUser } from '@/api/post';
+
 
 // PRIVATE
 function addCharacterFound(input: characterFoundInterface) {
   // console.log('TEST - addCharacterFound', input.name); // TEST
   // characters_found.value.push(input as characterFoundInterface);
   characters_found.value.unshift(input as characterFoundInterface);
-  // characters_found.value = [...characters_found.value, input] 
+  // characters_found.value = [...characters_found.value, input]
+
+  // Request POST /character_found/ (id character & id player)
+  // ne marchera pas avec le systeme de récupération de cookies
+  if (input.is_hidden) {
+    if (characters_hidden_found.value.length === 1) {
+      apiPostAvancementUser('premier-easter')
+    } else if (characters_hidden_found.value.length === characters_hidden.value.length) {
+      apiPostAvancementUser('dernier-easter')
+    }
+  }
 };
 
 
@@ -163,7 +175,6 @@ export function onCharacterFound(inputCharacter: characterInterface, inputBookma
   // console.log('BUG onCharacterFound 13') // TEST
   if (modePost) {
     // console.log('BUG onCharacterFound 14') // TEST
-    // Request POST /character_found/ (id character & id player)
     // POST BROWSER COOKIES
     // postBrowserCookie('characters_found', charactersFoundWithItemId.value as string[])
     // console.log('BUG onCharacterFound 15') // TEST
