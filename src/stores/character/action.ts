@@ -165,7 +165,7 @@ export function onCharacterFound(inputCharacter: characterInterface, inputBookma
     // console.log('BUG onCharacterFound 14') // TEST
     // Request POST /character_found/ (id character & id player)
     // POST BROWSER COOKIES
-    postBrowserCookie('characters_found', charactersFoundWithItemId.value as string[])
+    // postBrowserCookie('characters_found', charactersFoundWithItemId.value as string[])
     // console.log('BUG onCharacterFound 15') // TEST
   }
   // console.log('BUG onCharacterFound 999') // TEST

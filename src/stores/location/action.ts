@@ -128,6 +128,6 @@ export function onLocationFound(input: locationInterface, modePost:boolean=true)
   if (modePost) {
     // Request POST /location_found/ (id location & id player)
     // POST BROWSER COOKIES
-    postBrowserCookie('locations_found', locationsFoundId.value as string[])
+    // postBrowserCookie('locations_found', locationsFoundId.value as string[])
   }
 };

@@ -87,7 +87,7 @@ export function onItemProvided(input: itemInterface, modePost:boolean=true) {
     // console.log('BUG onItemProvided 15') // TEST
     // Request POST /items_acquired/ (id item & id player)
     // POST BROWSER COOKIES
-    postBrowserCookie('items_acquired', itemsAcquiredId.value as string[])
+    // postBrowserCookie('items_acquired', itemsAcquiredId.value as string[])
     // console.log('BUG onItemProvided 16') // TEST
   }
   // console.log('BUG onItemProvided 999') // TEST
