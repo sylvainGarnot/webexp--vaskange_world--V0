@@ -100,7 +100,7 @@ export function updateBookmarkHasCharacter(inputBookmarks: bookmarkInterface[]) 
   // TEST
   // const test = inputBookmarks.find(b => b.name === "jump-q1") as bookmarkInterface; // TEST
   // console.log('TEST Bookmark Character bookmarks v/s/z', test?.intersectionInfo?.visibleBookmarkRatio, test?.intersectionInfo?.screenAreaToBookmarkRatio, test?.zoomFactor);
-  // console.log('TEST Bookmark Character', inputBookmarks); // TEST
+  console.log('TEST Bookmark Character', inputBookmarks); // TEST
   
   // STEP-B) SET CLOSEST NEARBY BOOKMARKS CHARACTER
   let nearByBookmarksCharacter = [] as bookmarkInterface[];
@@ -108,7 +108,7 @@ export function updateBookmarkHasCharacter(inputBookmarks: bookmarkInterface[]) 
     if (
       inputBookmarks[index]?.intersectionInfo?.visibleBookmarkRatio >= 0.15 &&
       inputBookmarks[index]?.zoomFactor >= 0.5 &&
-      inputBookmarks[index]?.zoomFactor <= 14
+      inputBookmarks[index]?.zoomFactor <= 14.5 // le max de détection semble être vers les 17.5
     ) {
       nearByBookmarksCharacter.push(inputBookmarks[index] as bookmarkInterface);
     }

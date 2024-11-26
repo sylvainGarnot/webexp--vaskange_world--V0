@@ -112,7 +112,7 @@ onMounted(() => {
       {
         name: charactersName.value,
         visibleBookmarkRatio: '>= 0.05',
-        zoomFactor: '<= 20',
+        zoomFactor: '<= 25', // le max de détection semble être vers les 17.5
       },
       updateBookmarkHasCharacter
     );
