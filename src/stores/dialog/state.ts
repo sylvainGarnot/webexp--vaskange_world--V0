@@ -45,16 +45,26 @@ export const dialogs = ref([
     id: '10',
     speech_written: [
       'Avant de commencer, tu dois certifier avoir plus de <i>18 ans</i> pour participer à l’expérience ✅<br>📎 Toutes les infos du jeu sont sur notre <a href="https://bit.ly/499OnyF">règlement</a>',
-      '🤑 Cette course cache énoooormément de Freebets*… Tu veux en gagner ? <i>3 solutions</i> s’offrent à toi <br>*<span>Crédits de jeu non retirables</span>',
-      '1. Trouve <i>tous</i> les items sportifs qui sont cachés le long du parcours. Il suffit de zoomer dessus pour les récupérer dans ton inventaire !',
-      '1. Quand tu auras tout collecté, tu seras téléporté dans un <i>lieu secret</i> qui te fera participer à un grand <i>tirage au sort</i> 🍀',
-      '2. Trouve les <i>codes promos</i> écris dans les différentes scènes. Tu vois un élément écrit quelque part ? Écris-le dans ton app’ Betclic, il renferme peut-être des Freebets* 📲 <br>*<span>Crédits de jeu non retirables</span>',
+      '🤑 Cette course cache énoooormément de <i>Freebets*</i>*… Tu veux en gagner ? <i>3 solutions</i> s’offrent à toi <br>*<span>Crédits de jeu non retirables</span>',
+      '1. Trouve <i>tous</i> les items sportifs qui sont cachés le long du parcours. Il suffit de zoomer dessus pour les récupérer dans ton <i>inventaire</i> 🗺️',
+      '1. Quand tu auras tout collecté, tu seras téléporté dans un <i>lieu secret</i> où 600 joueurs remporteront des <i>Freebets*</i> <br>*<span>Crédits de jeu non retirables</span>',
+      '2. Trouve les <i>codes promos</i> écris dans les différentes scènes. Tu vois un élément écrit quelque part ? Entre-le dans l’espace « Code promo » de ton app’ Betclic pour tenter de remporter des <i>Freebets*</i> ! <br>*<span>Crédits de jeu non retirables</span>',
       '3. Enfin, RDV sur les réseaux sociaux de Betclic toute la journée pour avoir des indices et jouer à des <i>jeux exclusifs</i> 🎁',
-      `Avant de partir… Tu dois être abonné aux <i>réseaux sociaux</i> suivants de Betclic pour pouvoir remporter des Freebets* <br>*<span>Crédits de jeu non retirables</span><br>
+      `Avant de partir… Tu dois être abonné aux <i>réseaux sociaux</i> suivants de Betclic pour pouvoir remporter des <i>Freebets*</i> <br>*<span>Crédits de jeu non retirables</span><br>
       <a target="_blank" href="https://www.instagram.com/betclicfrance/ "><img src="logo/instagram.png"/></a>
       <a target="_blank" href="https://www.tiktok.com/@betclicfrance "><img src="logo/tiktok.png"/></a>
       <a target="_blank" href="https://x.com/Betclic"><img src="logo/x.png"/></a>`,
       'Tu as toutes les infos bg : tu peux désormais <i>zoomer</i> dans l’app’ Betclic du téléphone et débuter ta course. <br><br> Bonne chance 💪',
+    ],
+    speech_illustrations_url: [
+      '/images/regle/JMDF.png',
+      '/images/regle/freebet_dessin.png',
+      '/images/regle/crampon.png',
+      '/images/regle/smiley.png',
+      '/images/regle/betclic_texte.png',
+      '/images/regle/!!.png',
+      '/images/regle/abonnez_vous.png',
+      '/images/regle/abonnez_vous.png',
     ],
     item_provided: '',
     answers: [],
@@ -71,6 +81,7 @@ export const dialogs = ref([
     speech_written: [
       'Suis la trajectoire du ballon pour tenter de trouver un code promo !'
     ],
+    speech_illustrations_url: [],
     item_provided: '',
     answers: [],
     type: 'default',
@@ -81,6 +92,7 @@ export const dialogs = ref([
   {
     id: '21',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '21',
     answers: [],
     type: 'gift',
@@ -91,6 +103,7 @@ export const dialogs = ref([
   {
     id: '22',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '22',
     answers: [],
     type: 'gift',
@@ -101,6 +114,7 @@ export const dialogs = ref([
   {
     id: '23',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '23',
     answers: [],
     type: 'gift',
@@ -117,6 +131,7 @@ export const dialogs = ref([
       'Oh j’ai jamais frappé une balle aussi fort,',
       'je pense qu’on la retrouvera jamais...'
     ],
+    speech_illustrations_url: [],
     item_provided: '',
     answers: [],
     type: 'default',
@@ -127,6 +142,7 @@ export const dialogs = ref([
   {
     id: '31',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '31',
     answers: [],
     type: 'gift',
@@ -137,6 +153,7 @@ export const dialogs = ref([
   {
     id: '32',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '32',
     answers: [],
     type: 'gift',
@@ -147,6 +164,7 @@ export const dialogs = ref([
   {
     id: '33',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '33',
     answers: [],
     type: 'gift',
@@ -162,6 +180,7 @@ export const dialogs = ref([
     speech_written: [
       'J’suis capable de shooter d’aussi loin que Steph Curry !'
     ],
+    speech_illustrations_url: [],
     item_provided: '',
     answers: [],
     type: 'default',
@@ -172,6 +191,7 @@ export const dialogs = ref([
   {
     id: '41',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '41',
     answers: [],
     type: 'gift',
@@ -182,6 +202,7 @@ export const dialogs = ref([
   {
     id: '42',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '42',
     answers: [],
     type: 'gift',
@@ -192,6 +213,7 @@ export const dialogs = ref([
   {
     id: '43',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '43',
     answers: [],
     type: 'gift',
@@ -207,6 +229,7 @@ export const dialogs = ref([
     speech_written: [
       'Merci pour tout Isner… mais je sers clairement plus fort que toi !'
     ],
+    speech_illustrations_url: [],
     item_provided: '',
     answers: [],
     type: 'default',
@@ -217,6 +240,7 @@ export const dialogs = ref([
   {
     id: '51',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '51',
     answers: [],
     type: 'gift',
@@ -227,6 +251,7 @@ export const dialogs = ref([
   {
     id: '52',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '52',
     answers: [],
     type: 'gift',
@@ -237,6 +262,7 @@ export const dialogs = ref([
   {
     id: '53',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '53',
     answers: [],
     type: 'gift',
@@ -253,6 +279,7 @@ export const dialogs = ref([
       'Des grands kicks comme Jon Jones !',
       'Je pense qu’on ne retrouvera jamais le bout d’arbre explosé…'
     ],
+    speech_illustrations_url: [],
     item_provided: '',
     answers: [],
     type: 'default',
@@ -263,6 +290,7 @@ export const dialogs = ref([
   {
     id: '61',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '61',
     answers: [],
     type: 'gift',
@@ -273,6 +301,7 @@ export const dialogs = ref([
   {
     id: '62',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '62',
     answers: [],
     type: 'gift',
@@ -283,6 +312,7 @@ export const dialogs = ref([
   {
     id: '63',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '63',
     answers: [],
     type: 'gift',
@@ -299,6 +329,7 @@ export const dialogs = ref([
       'Encore quelques kilomètres avant de voir le bout, il faut s’accrocher...',
       'il reste encore plein de Freebets à trouver !'
     ],
+    speech_illustrations_url: [],
     item_provided: '',
     answers: [],
     type: 'default',
@@ -309,6 +340,7 @@ export const dialogs = ref([
   {
     id: '71',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '71',
     answers: [],
     type: 'gift',
@@ -319,6 +351,7 @@ export const dialogs = ref([
   {
     id: '72',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '72',
     answers: [],
     type: 'gift',
@@ -329,6 +362,7 @@ export const dialogs = ref([
   {
     id: '73',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '73',
     answers: [],
     type: 'gift',
@@ -344,6 +378,7 @@ export const dialogs = ref([
     speech_written: [
       'Avec mon palet préféré, aucune chance que je rate le but !'
     ],
+    speech_illustrations_url: [],
     item_provided: '',
     answers: [],
     type: 'default',
@@ -354,6 +389,7 @@ export const dialogs = ref([
   {
     id: '81',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '81',
     answers: [],
     type: 'gift',
@@ -364,6 +400,7 @@ export const dialogs = ref([
   {
     id: '82',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '82',
     answers: [],
     type: 'gift',
@@ -374,6 +411,7 @@ export const dialogs = ref([
   {
     id: '83',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '83',
     answers: [],
     type: 'gift',
@@ -389,6 +427,7 @@ export const dialogs = ref([
     speech_written: [
       'J’ai jamais vu autant de vent... Je sais même pas où va finir le ballon'
     ],
+    speech_illustrations_url: [],
     item_provided: '',
     answers: [],
     type: 'default',
@@ -399,6 +438,7 @@ export const dialogs = ref([
   {
     id: '91',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '91',
     answers: [],
     type: 'gift',
@@ -409,6 +449,7 @@ export const dialogs = ref([
   {
     id: '92',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '92',
     answers: [],
     type: 'gift',
@@ -419,6 +460,7 @@ export const dialogs = ref([
   {
     id: '93',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '93',
     answers: [],
     type: 'gift',
@@ -432,6 +474,7 @@ export const dialogs = ref([
   {
     id: '101',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '101',
     answers: [],
     type: 'gift',
@@ -442,6 +485,7 @@ export const dialogs = ref([
   {
     id: '102',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '102',
     answers: [],
     type: 'gift',
@@ -452,6 +496,7 @@ export const dialogs = ref([
   {
     id: '103',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '103',
     answers: [],
     type: 'gift',
@@ -462,6 +507,7 @@ export const dialogs = ref([
   {
     id: '104',
     speech_written: speech_item_found,
+    speech_illustrations_url: [],
     item_provided: '104',
     answers: [],
     type: 'gift',
@@ -474,6 +520,7 @@ export const dialogs = ref([
     speech_written: [
       'GWAHAH GWAHAH'
     ],
+    speech_illustrations_url: [],
     item_provided: '',
     answers: [],
     type: 'default',
@@ -491,6 +538,7 @@ export const dialogs = ref([
       'HELLO : FIN DU JEU 1',
       'HELLO : FIN DU JEU 2',
     ],
+    speech_illustrations_url: [],
     item_provided: '',
     answers: [],
     type: 'secret-end',

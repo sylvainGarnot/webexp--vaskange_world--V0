@@ -1,6 +1,7 @@
 export interface dialogInterface {
   id: string,
   speech_written: string[],
+  speech_illustrations_url: string[],
   item_provided: string,
   answers: string[],
   type: string,

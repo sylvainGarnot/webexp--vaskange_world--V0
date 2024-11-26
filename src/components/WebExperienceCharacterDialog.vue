@@ -1,5 +1,14 @@
 <template>
   <div id="vsk-dialog" class="vsk-dialog--overlay" :class="classes" v-if="isActive">
+
+    <!-- ILLUSTRATION -->
+    <v-row v-if="isLarge && currentDialog!.speech_illustrations_url[dialogStepNumber]" no-gutters
+      class="vsk-dialog--illustration">
+      <div class="vsk-dialog--illustration-container">
+        <img loading="lazy" :src="currentDialog.speech_illustrations_url[dialogStepNumber]" />
+      </div>
+    </v-row>
+
     <div class="vsk-dialog--container">
       <div class="vsk-dialog--npc">
         <span v-if="currentCharacter.label_dialog" class="vsk-dialog--npc-author">{{ currentCharacter!.label_dialog
@@ -7,6 +16,7 @@
         <p class="vsk-dialog--npc-dialog" v-html="currentDialog?.speech_written[dialogStepNumber]">
         </p>
 
+        <!-- LARGE MODE -->
         <div v-if="isLarge">
           <v-row no-gutters class="vsk-dialog--npc-next-icon--large-container">
             <v-col cols="6" align="center">
@@ -21,6 +31,8 @@
             </v-col>
           </v-row>
         </div>
+
+        <!-- DEFAULT MODE -->
         <v-row v-else class="vsk-dialog--npc-next-icon--container">
           <v-col cols="12" align="center">
             <v-btn class="v-btn--transparent">
@@ -196,77 +208,107 @@ function handleKeydown(event: any) {
 <style lang="scss" scoped>
 @import '@/assets/styles/_global_variable.scss';
 
-.vsk-dialog--overlay {
 
-  .vsk-dialog--container {
-    position: absolute;
-    left: 0;
-    bottom: 22vh;
-    width: 100%;
+// ILLUSTRATION
+.vsk-dialog--illustration {
+  position: relative;
+  top: 57.5% - 35%;
+  height: 35%;
 
-    @media (max-width: 599px) {
-      bottom: 32vh;
-    }
+  @media (max-width: 599px) {
+    top: 46.5% - 21.5%;
+    height: 21.5%;
+  }
 
-    .vsk-dialog--npc {
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
+  .vsk-dialog--illustration-container {
+    height: 100%;
 
-      width: 96vw;
-      max-width: 780px;
-      height: 18vh;
-      border-radius: 18vh;
-      background-color: $colorBlackLight;
-
-      .vsk-dialog--npc-author {
-        position: absolute;
-        left: 21%;
-        transform: translate(-50%, -50%);
-
-        color: $colorWhite;
-        font-size: 3.2vh;
-        text-shadow: $shadow;
-      }
-
-      .vsk-dialog--npc-dialog {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        width: 80%;
-        text-align: center;
-
-        color: $colorWhite;
-        font-size: 2.85vh;
-      }
-
-      .vsk-dialog--npc-next-icon--container {
-        img {
-          animation: bounceV 2s ease infinite;
-        }
-      }
-
-      .vsk-dialog--npc-next-icon--large-container,
-      .vsk-dialog--npc-next-icon--container {
-
-        position: absolute;
-        left: 50%;
-        bottom: -4.2vh;
-        transform: translateX(-50%);
-      }
-    }
-
-    .vsk-dialog--count {
+    img {
+      border-radius: 3.5vh;
+      padding: $radiusValue*2;
+      width: auto;
+      height: 100%;
+      border: 0 solid;
       position: absolute;
-      right: 5%;
-      bottom: 5%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+// BULLE DIALOGUE
+.vsk-dialog--container {
+  position: absolute;
+  left: 0;
+  top: 57.5vh; // bottom: 15vh;
+  width: 100%;
+
+  @media (max-width: 599px) {
+    top: 46.5vh; // bottom: 18.5vh;
+  }
+
+  .vsk-dialog--npc {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 96vw;
+    max-width: 780px;
+    height: 18vh;
+    border-radius: 18vh;
+    background-color: $colorBlackLight;
+
+    .vsk-dialog--npc-author {
+      position: absolute;
+      left: 21%;
+      transform: translate(-50%, -50%);
 
       color: $colorWhite;
       font-size: 3.2vh;
       text-shadow: $shadow;
     }
+
+    .vsk-dialog--npc-dialog {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      text-align: center;
+
+      color: $colorWhite;
+      font-size: 2.85vh;
+    }
+
+    .vsk-dialog--npc-next-icon--container {
+      img {
+        animation: bounceV 2s ease infinite;
+      }
+    }
+
+    .vsk-dialog--npc-next-icon--large-container,
+    .vsk-dialog--npc-next-icon--container {
+
+      position: absolute;
+      left: 50%;
+      bottom: -4.2vh;
+      transform: translateX(-50%);
+    }
   }
+
+  .vsk-dialog--count {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+
+    color: $colorWhite;
+    font-size: 3.2vh;
+    text-shadow: $shadow;
+  }
+}
+
+.vsk-dialog--overlay {
 
   &.overlay--active {
     position: fixed;
