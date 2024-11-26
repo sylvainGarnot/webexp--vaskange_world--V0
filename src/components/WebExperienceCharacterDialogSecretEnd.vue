@@ -120,9 +120,9 @@ function apiPostSecretEnd(input: string) {
     }).then(response => {
       setIsSecretEndSended(true)
 
-      console.log(response); // TEST
+      // console.log(response); // TEST
     }).catch(error => {
-      console.log(error); // TEST
+      // console.log(error); // TEST
     }).finally(() => {
       setTimeout(() => {
         loading.value = false

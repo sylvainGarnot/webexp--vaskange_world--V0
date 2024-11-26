@@ -16,7 +16,7 @@ import type { characterInterface, characterFoundInterface } from '../character/i
 
 // EXPORT
 export function setCurrentBookmark(input: bookmarkInterface) {
-  console.log('TEST setCurrentBookmark', input.name); // TEST
+  // console.log('TEST setCurrentBookmark', input.name); // TEST
   currentBookmark.value = input as bookmarkInterface;
 };
 

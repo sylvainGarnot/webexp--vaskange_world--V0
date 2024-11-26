@@ -168,7 +168,7 @@ function teleportTo(input: string) {
       setCurrentLocation(locationFound as locationFoundInterface);
       emptyCurrentCharacter();
     } else {
-      console.log('Location not found yet')
+      // console.log('Location not found yet')
     }
   } else if (charactersName.value.includes(input)) {
     const characterFound = characters_found.value.find(l => l.name === input) as characterFoundInterface;
@@ -179,13 +179,13 @@ function teleportTo(input: string) {
         setCurrentLocation(characterFoundLocation as locationFoundInterface);
       }
     } else {
-      console.log('Character not found yet')
+      // console.log('Character not found yet')
     }
   }
 }
 
 function handleShapeClick(shape: any) {
-  console.log('TEST shape', shape);
+  // console.log('TEST shape', shape);
   setIsDialogActive(true);
 }
 

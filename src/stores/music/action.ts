@@ -206,7 +206,7 @@ export function pauseMusic() {
 
 export async function changeMusicByLocation(fadeDuration: number = 5000) {
 
-  console.log('TEST - changeMusicByLocation'); // TEST
+  // console.log('TEST - changeMusicByLocation'); // TEST
 
   // MODE : une seule musique tout les 3 lieux
   if (!music.value.id || music.value.id !== currentLocation?.value?.musics[0]) {

@@ -20,16 +20,16 @@ import type { cookieInterface } from '../setting/interface';
 
 // PRIVATE
 function addLocationFound(input: locationFoundInterface) {
-  console.log('TEST - addLocationFound', input.name); // TEST
+  // console.log('TEST - addLocationFound', input.name); // TEST
   locations_found.value.push(input as locationFoundInterface);
 }
 
 
 // EXPORT - SETTER
 export function setCurrentLocation(input: locationFoundInterface) {
-  console.log('TEST - TRY setCurrentLocation', input.name, isLocationIsChanging.value); // TEST
+  // console.log('TEST - TRY setCurrentLocation', input.name, isLocationIsChanging.value); // TEST
   if (!isLocationIsChanging.value && input.name !== currentLocation.value.name) {
-    console.log('TEST - setCurrentLocation', input.name, isLocationIsChanging.value); // TEST
+    // console.log('TEST - setCurrentLocation', input.name, isLocationIsChanging.value); // TEST
     isLocationIsChanging.value = true;
     currentLocation.value = input as locationFoundInterface;
 
@@ -62,14 +62,14 @@ export function setLocationFoundFromCookies() {
 }
 
 export function setIsLocationEndReach(input: boolean) {
-  console.log('TEST setIsLocationEndReach', input) // TEST
+  // console.log('TEST setIsLocationEndReach', input) // TEST
   isLocationEndReach.value = input;
 }
 
 
 // EXPORT - EVENTS
 export function onLocationEndReach(inputBookmarks: bookmarkInterface[]) {
-  console.log('TEST onLocationEndReach'); // TEST
+  // console.log('TEST onLocationEndReach'); // TEST
 
   inputBookmarks = inputBookmarks.sort((a, b) => b.zoomFactor - a.zoomFactor);
   const closestInputBookmark = inputBookmarks[0] as bookmarkInterface;

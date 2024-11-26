@@ -58,26 +58,26 @@ const props = defineProps({
 function handleReprendre() {
   setIsLoading(true)
 
-  console.log('BUG handleReprendre 01') // TEST
+  // console.log('BUG handleReprendre 01') // TEST
   setIsSecretEndSendedFromCookies()
-  console.log('BUG handleReprendre 02') // TEST
+  // console.log('BUG handleReprendre 02') // TEST
 
   setTimeout(() => {
-    console.log('BUG handleReprendre 03') // TEST
+    // console.log('BUG handleReprendre 03') // TEST
     setLocationFoundFromCookies()
-    console.log('BUG handleReprendre 04') // TEST
+    // console.log('BUG handleReprendre 04') // TEST
 
     setTimeout(() => {
-      console.log('BUG handleReprendre 05') // TEST
+      // console.log('BUG handleReprendre 05') // TEST
       setCharacterFoundFromCookies()
-      console.log('BUG handleReprendre 999') // TEST
+      // console.log('BUG handleReprendre 999') // TEST
 
       setTimeout(() => {
-        console.log('BUG handleReprendre 07') // TEST
+        // console.log('BUG handleReprendre 07') // TEST
         setItemAcquiredFromCookies()
 
         setTimeout(() => {
-          console.log('BUG handleReprendre 08') // TEST
+          // console.log('BUG handleReprendre 08') // TEST
           setIsLoading(false)
         }, 50) // TEST
 
