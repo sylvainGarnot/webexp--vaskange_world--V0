@@ -13,6 +13,9 @@
             <div class="vsk-guide--illustration-container" v-if="carouselItem.video_url">
               <video :src="carouselItem.video_url" autoplay loop muted preload="none" playsinline />
             </div>
+            <v-col class="vsk-guide--illustration-container" align="center" v-else-if="carouselItem.image_url">
+              <img loading="lazy" :src="carouselItem.image_url" />
+            </v-col>
           </v-row>
 
           <!-- TITLE -->
@@ -53,19 +56,19 @@ const carouselItems = [
     name: 'lieu',
     title: 'Zoomer pour explorer',
     description: 'Explore en <i>zoomant</i> 👌 et découvre de nouveaux <i>lieux</i> !',
-    video_url: '/images/guide/ZOOM_HAND.mp4',
+    video_url: '/guide/ZOOM_HAND.mp4',
   },
   {
     name: 'personnage',
     title: "Commence l'aventure",
     description: 'Rendez vous sur la <i>ligne de départ</i> pour découvrir les différentes façons de gagner des <i>Freebets*</i><br>*<span>Crédits de jeu non retirables</span>',
-    video_url: '/images/guide/OBJETS.mp4',
+    image_url: '/guide/start.png',
   },
   {
     name: 'ihm',
     title: 'Déplace toi grâce à la carte',
     description: 'La <i>carte</i> te permet de te <i>téléporter</i> sur les lieux déjà découverts ! 🗺️',
-    video_url: '/images/guide/MENU.mp4',
+    video_url: '/guide/MENU.mp4',
   },
 ]
 
@@ -115,6 +118,14 @@ watch(locations_found.value, (value) => {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+      }
+
+      img {
+        padding: $radiusValue*2 0;
+        width: auto;
+        height: 100%;
+        object-fit: cover;
+        border-radius: $radiusValue;
       }
     }
   }
