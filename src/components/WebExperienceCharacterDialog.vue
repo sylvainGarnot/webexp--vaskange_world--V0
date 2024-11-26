@@ -2,7 +2,7 @@
   <div id="vsk-dialog" class="vsk-dialog--overlay" :class="classes" v-if="isActive">
 
     <!-- ILLUSTRATION -->
-    <v-row v-if="isLarge" no-gutters class="vsk-dialog--illustration">
+    <v-row v-if="isLarge && currentDialog!.speech_illustrations_url" no-gutters class="vsk-dialog--illustration">
       <div class="vsk-dialog--illustration-container">
         <img loading="lazy" :src="currentDialog.speech_illustrations_url[dialogStepNumber]" />
       </div>
