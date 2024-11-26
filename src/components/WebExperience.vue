@@ -94,7 +94,7 @@ onMounted(() => {
 
     EndlessPaper.showNavBar(false);
     EndlessPaper.showTravelButtons(false);
-    EndlessPaper.setLogoPosition("topleft")
+    EndlessPaper.setLogoPosition("bottomleft")
     EndlessPaper.showNavInstructions(false)
 
     // BOOKMARK LOCATION
