@@ -9,7 +9,7 @@ export const soundsCache = ref([] as musicInterface[]);
 
 export const modeTempo = ref(true as boolean);
 export const isMusicPlaying = ref(false as boolean);
-export const volumeMusic = ref(0.5 as number);
+export const volumeMusic = ref(1 as number);
 
 export const sounds = ref([
   {
