@@ -11,8 +11,7 @@
               <h3>📅 Tirage au sort vendredi 29 novembre 2024 à midi</h3>
             </v-col>
             <v-col cols="12" align="center" class="mt-4">
-              <p> Annonce des gagnants sur <a target="_blank" href="https://x.com/Betclic">X</a>
-                et Instagram
+              <p> Annonce des gagnants sur <a target="_blank" href="https://x.com/Betclic">X</a> et
                 <a target="_blank" href="https://www.instagram.com/betclicfrance/">Instagram</a>. Tous
                 les gagnants seront crédités le vendredi 29 novembre 2024 !
               </p>
@@ -108,7 +107,7 @@ const rules = ref([
 ])
 
 onMounted(() => {
-  playSound('son_bouton_ihm')
+  playSound('son_bouton_click')
 })
 
 function apiPostSecretEnd(input: string) {
