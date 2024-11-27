@@ -59,16 +59,16 @@ const carouselItems = [
     video_url: '/images/guide/ZOOM_HAND.mp4',
   },
   {
+    name: 'ihm',
+    title: 'Utilise la carte',
+    description: 'La <i>carte</i> te permet de te <i>téléporter</i> sur les lieux déjà découverts ! 🗺️',
+    video_url: '/images/guide/MENU.mp4',
+  },
+  {
     name: 'personnage',
     title: "Commence l'aventure",
     description: 'Rendez vous sur la <i>ligne de départ</i> pour découvrir les différentes façons de gagner des <i>Freebets*</i><br>*<span>Crédits de jeu non retirables</span>',
     image_url: '/images/guide/start.png',
-  },
-  {
-    name: 'ihm',
-    title: 'Déplace toi grâce à la carte',
-    description: 'La <i>carte</i> te permet de te <i>téléporter</i> sur les lieux déjà découverts ! 🗺️',
-    video_url: '/images/guide/MENU.mp4',
   },
 ]
 
