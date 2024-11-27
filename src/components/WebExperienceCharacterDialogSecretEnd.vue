@@ -21,7 +21,7 @@
             </v-col>
             <v-col cols="12" align="center" class="mt-4">
               <p>🔄 Tu peux refaire la Course aux Freebets* si tu le souhaites… il reste peut-être des codes promos que
-                tu n’as pas trouvé ! Tu as juste à dézoomer quelques secondes pour revenir au début de l’expérience 😉
+                tu n’as pas trouvés ! Tu as juste à dézoomer quelques secondes pour revenir au début de l’expérience 😉
               </p>
               <p>*<span>Crédits de jeu non retirables</span></p>
             </v-col>
