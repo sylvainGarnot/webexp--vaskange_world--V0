@@ -91,7 +91,7 @@ export const characters = ref([
   {
     id: '29b',
     name: 'football_easter2',
-    label: '2éme Code promo football',
+    label: '2ème Code promo football',
     label_dialog: '',
     dialog: '',
     location: '2',
@@ -166,7 +166,7 @@ export const characters = ref([
   {
     id: '39b',
     name: 'baseball_easter2',
-    label: '2éme Code promo Baseball',
+    label: '2ème Code promo Baseball',
     label_dialog: '',
     dialog: '',
     location: '3',
@@ -430,7 +430,7 @@ export const characters = ref([
   {
     id: '79b',
     name: 'cyclisme_easter2',
-    label: '2éme Code promo Cyclisme',
+    label: '2ème Code promo Cyclisme',
     label_dialog: '',
     dialog: '',
     location: '7',
@@ -505,7 +505,7 @@ export const characters = ref([
   {
     id: '89b',
     name: 'hockey_easter2',
-    label: '2éme Code promo Hockey',
+    label: '2ème Code promo Hockey',
     label_dialog: '',
     dialog: '',
     location: '8',

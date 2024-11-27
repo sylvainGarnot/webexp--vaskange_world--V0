@@ -233,7 +233,7 @@ export const items = ref([
   // MONTAGNE - OXYGENE
   {
     id: '101',
-    name: "Bouteille d'oxygene",
+    name: "Bouteille d'oxygène",
     description: 'Il a été ajouté à ton inventaire. Trouve tous les objets cachés pour découvrir un lieu secret rempli de Freebets* 😍<br><br>*<span>Crédits de jeu non retirables</span>',
     image_url: '/images/item/color/montagne_oxygene.png',
     image_url_unfound: '/images/item/black/montagne_oxygene.png'
