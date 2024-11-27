@@ -44,7 +44,7 @@ export const dialogs = ref([
   {
     id: '10',
     speech_written: [
-      'Avant de commencer, tu dois certifier avoir plus de <i>18 ans</i> pour participer à l’expérience ✅<br>📎 Toutes les infos du jeu sont sur notre <a href="https://bit.ly/499OnyF">règlement</a>',
+      'Avant de commencer, tu dois certifier avoir plus de <i>18 ans</i> pour participer à l’expérience ✅<br>📎 Toutes les infos du jeu sont sur notre <a target="_blank" href="https://bit.ly/499OnyF">règlement</a>',
       '🤑 Cette course cache énoooormément de <i>Freebets*</i>… Tu veux en gagner ? <i>3 solutions</i> s’offrent à toi <br>*<span>Crédits de jeu non retirables</span>',
       '<strong>1.</strong> Trouve <i>tous</i> les items sportifs qui sont cachés le long du parcours. Il suffit de zoomer dessus pour les récupérer dans ton <i>inventaire</i> 🗺️',
       '<strong>1.</strong> Quand tu auras tout collecté, tu seras téléporté dans un <i>lieu secret</i> où 600 joueurs remporteront des <i>Freebets*</i> <br>*<span>Crédits de jeu non retirables</span>',
