@@ -9,9 +9,9 @@
             <h3>Attention !</h3>
           </v-col>
           <v-col cols="12" align="center">
-            <p>Vous êtes arrivé à la fin de la gallerie</p>
-            <p>Il n'y a rien plus loin...</p>
-            <p>Ne vous perdez pas</p>
+            <p>Tu vas où ? Reste-làààà</p>
+            <br>
+            <p>Il n'y à rien à chercher ici... tu peux zoomer pour aller chercher les items et les codes cachés !</p>
           </v-col>
         </v-row>
 
