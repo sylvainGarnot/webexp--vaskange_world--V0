@@ -415,17 +415,17 @@ export const characters = ref([
     image_url_unfound: '',
   },
   // CYCLISME - EASTER
-  {
-    id: '79',
-    name: 'cyclisme_easter',
-    label: 'Code promo Cyclisme',
-    label_dialog: '',
-    dialog: '',
-    location: '7',
-    is_hidden: true,
-    image_url: '/images/character/color/cyclismeeaster.jpg',
-    image_url_unfound: '/images/character/black&white&blur/cyclismeeaster.jpg',
-  },
+  // {
+  //   id: '79',
+  //   name: 'cyclisme_easter',
+  //   label: 'Code promo Cyclisme',
+  //   label_dialog: '',
+  //   dialog: '',
+  //   location: '7',
+  //   is_hidden: true,
+  //   image_url: '/images/character/color/cyclismeeaster.jpg',
+  //   image_url_unfound: '/images/character/black&white&blur/cyclismeeaster.jpg',
+  // },
   // CYCLISME - EASTER 2
   {
     id: '79b',
