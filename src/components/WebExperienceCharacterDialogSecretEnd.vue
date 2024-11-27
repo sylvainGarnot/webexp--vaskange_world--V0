@@ -37,10 +37,10 @@
           <!-- ITEMS NON RÉCUPÉRÉS -->
           <v-row v-else-if="!isAllItemsAcquired" no-gutters class="vsk-character-dialog-secret-end--description">
             <v-col cols="12" align="center">
-              <p>Vous n'avez pas encore trouvé tout les objets</p>
+              <p>Tu n'as pas encore trouvé tous les objets...</p>
             </v-col>
             <v-col cols="12" align="center" class="mt-2">
-              <p>cherchez mieux !</p>
+              <p>Retourne parcourir le monde pour collecter les items !</p>
             </v-col>
           </v-row>
 
