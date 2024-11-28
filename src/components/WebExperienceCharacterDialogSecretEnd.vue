@@ -125,7 +125,8 @@ function apiPostSecretEnd(input: string) {
       // console.log(response); // TEST
     }).catch(error => {
       // console.log(error); // TEST
-      alert(`Vraiment désolé ${input}, un problème inconnu vient d'arriver et nous n'avons pas pu récupérer ton pseudo, screen cette page d'erreur et fait nous un post sur X.`);
+      setIsSecretEndSended(true) // pour ne pas frustrer les personnes pour qui ça n'a pas marché
+      // alert(`Vraiment désolé ${input}, un problème inconnu vient d'arriver et nous n'avons pas pu récupérer ton pseudo, screen cette page d'erreur et fait nous un post sur X.`);
     }).finally(() => {
       setTimeout(() => {
         loading.value = false
