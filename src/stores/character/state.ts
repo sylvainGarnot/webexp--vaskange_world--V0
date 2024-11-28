@@ -174,6 +174,18 @@ export const characters = ref([
     image_url: '/images/character/color/baseballeaster2.jpg',
     image_url_unfound: '/images/character/black&white&blur/baseballeaster2.jpg',
   },
+  // BASEBALL - EASTER 3 OGARNO
+  {
+    id: '39c',
+    name: 'baseball_easter_ogarno',
+    label: 'Code promo Ogarno',
+    label_dialog: '',
+    dialog: '',
+    location: '3',
+    is_hidden: true,
+    image_url: '/images/character/color/ogarno.png',
+    image_url_unfound: '/images/character/black&white&blur/ogarno.png',
+  },
 
   
   // ##### BASKET -4- #####

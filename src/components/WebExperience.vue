@@ -59,6 +59,8 @@ import type { locationFoundInterface, locationInterface } from "@/stores/locatio
 import type { characterFoundInterface } from "@/stores/character/interface.js";
 import { apiPostAvancementUser } from "@/api/post";
 
+import { bookmarks } from "@/bookmarks.js";
+
 
 const route = useRoute();
 const { EndlessPaper } = useApi();
@@ -102,6 +104,8 @@ onMounted(() => {
     EndlessPaper.showTravelButtons(false);
     EndlessPaper.setLogoPosition("bottomleft")
     EndlessPaper.showNavInstructions(false)
+
+    EndlessPaper.setBookmarks(bookmarks)
 
     // BOOKMARK LOCATION
     EndlessPaper.onBookmarkNearby(
@@ -147,6 +151,11 @@ onMounted(() => {
     apiPostAvancementUser('visite')
     newDateVisite()
     // }
+
+    // CREATE NEW BOOKARK
+    // setTimeout(() => {
+    //   console.log('TEST printViewportAsBookmark 2', EndlessPaper.getViewportAnchor())
+    // }, 20000);
 
 
     setTimeout(() => {
