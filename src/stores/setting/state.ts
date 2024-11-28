@@ -15,3 +15,5 @@ export const cookiesKey = ref([
 export const isSecretEndSended = ref(false)
 
 export const isLoading = ref(false)
+
+export const dateVisite = ref(new Date())

@@ -1,4 +1,4 @@
-import { cookies, cookiesKey, isFullscreen, isLoading, isSecretEndSended } from './state';
+import { cookies, cookiesKey, dateVisite, isFullscreen, isLoading, isSecretEndSended } from './state';
 import type { cookieInterface } from './interface';
 
 // PRIVATE
@@ -20,6 +20,10 @@ function setCookie(key: string, values: string[]) {
 
 
 // EXPORT
+export function newDateVisite() {
+  dateVisite.value = new Date()
+}
+
 export function setIsFullscreen(input: boolean) {
   isFullscreen.value = input as boolean;
 }

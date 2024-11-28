@@ -80,7 +80,7 @@ const { setIsDialogActive } = dialogStore;
 
 const settingStore = useSettingStore();
 const { cookies, isCookiesEnough } = storeToRefs(settingStore)
-const { getBrowserCookies } = settingStore;
+const { getBrowserCookies, newDateVisite } = settingStore;
 
 const isLoadUserDataDialogActive = ref(false);
 
@@ -145,6 +145,7 @@ onMounted(() => {
     // } else {
     setDefaultLocationFound();
     apiPostAvancementUser('visite')
+    newDateVisite()
     // }
 
 

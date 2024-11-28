@@ -90,7 +90,7 @@ import { playSound } from "@/stores/music/action";
 import { isAllItemsAcquired } from "@/stores/item/getter"; // ATTENTION
 import axios from 'axios';
 import { postBrowserCookie, setIsSecretEndSended } from "@/stores/setting/action";
-import { isSecretEndSended } from "@/stores/setting/state";
+import { dateVisite, isSecretEndSended } from "@/stores/setting/state";
 import { setIsDialogMentionLegalActive } from "@/stores/dialog/action";
 
 const isActive = ref(true);
@@ -115,7 +115,9 @@ function apiPostSecretEnd(input: string) {
   axios
     .post('https://joyful-bee-2518d744f7.strapiapp.com/api/secret-ends', {
       "data": {
-        identifiant: input
+        identifiant: input,
+        date: new Date(),
+        datevisite: dateVisite.value
       }
     }).then(response => {
       setIsSecretEndSended(true)
