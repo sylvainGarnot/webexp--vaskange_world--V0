@@ -113,7 +113,7 @@ onMounted(() => {
 function apiPostSecretEnd(input: string) {
   loading.value = true
   axios
-    .post('https://testradiant-apparel-aad8de283e.strapiapp.com/api/secret-ends', {
+    .post('https://radiant-apparel-aad8de283e.strapiapp.com/api/secret-ends', {
       "data": {
         identifiant: input,
         date: new Date(),
