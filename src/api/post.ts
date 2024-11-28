@@ -4,7 +4,7 @@ import { dateVisite } from '@/stores/setting/state';
 
 export function apiPostAvancementUser(type: string) {
   axios
-    .post('https://joyful-bee-2518d744f7.strapiapp.com/api/avancement-users', {
+    .post('https://radiant-apparel-aad8de283e.strapiapp.com/api/avancement-users', {
       "data": {
         type,
         date: new Date(),
