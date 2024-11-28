@@ -62,7 +62,7 @@ const carouselItems = [
   {
     name: '1a',
     image_url: '/images/regle/crampon.png',
-    title: 'Lieux Secrets',
+    title: 'Trouve les items',
     description: `Trouve <i>tous</i> les items sportifs qui sont cachés le long du parcours. Il suffit de zoomer dessus pour les récupérer dans ton <i>inventaire</i> 🗺️ ! Quand tu auras tout collecté, tu seras téléporté dans un <i>lieu secret</i> où 600 joueurs remporteront des <i>Freebets*</i> <br>*<span>Crédits de jeu non retirables</span>`,
   },
   {
@@ -83,7 +83,7 @@ const carouselItems = [
   {
     name: '2',
     image_url: '/images/regle/abonnez_vous.png',
-    title: 'Abonnes-toi !',
+    title: 'Abonne-toi !',
     description: `Avant de partir… Tu dois être abonné aux <i>réseaux sociaux</i> suivants de Betclic pour pouvoir remporter des <i>Freebets*</i> *<span>Crédits de jeu non retirables</span><br>
       <a target="_blank" href="https://www.instagram.com/betclicfrance/ "><img src="logo/instagram.png"/></a>
       <a target="_blank" href="https://www.tiktok.com/@betclicfrance "><img src="logo/tiktok.png"/></a>
