@@ -13,7 +13,7 @@
             </div>
           </div>
 
-          <v-icon class="vsk-card-close btn-click-animation" icon="$close" @click="
+          <v-icon v-if="hasCloseBtn" class="vsk-card-close btn-click-animation" icon="$close" @click="
             close()"></v-icon>
         </v-card>
 
@@ -31,6 +31,10 @@ const props = defineProps({
   isActive: Boolean,
   hasList: Boolean,
   hasCloseFooter: Boolean,
+  hasCloseBtn: {
+    type: Boolean,
+    default: true,
+  }
 })
 
 let closeOccuration = 0
@@ -78,6 +82,10 @@ function close() {
       position: absolute;
       top: -50vh + 15vh;
     }
+
+    // Expérience ended
+    position: absolute;
+    top: -50vh+1.5vh;
 
     .vsk-card-content {
       padding: 0 1vh;
