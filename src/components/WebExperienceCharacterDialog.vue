@@ -3,7 +3,12 @@
 
     <!-- ILLUSTRATION -->
     <v-row v-if="isLarge && currentDialog!.speech_illustrations_url" no-gutters class="vsk-dialog--illustration">
-      <div class="vsk-dialog--illustration-container">
+      <div class="vsk-dialog--illustration-container"
+        v-if="currentDialog.speech_illustrations_url[dialogStepNumber].includes('mp4')">
+        <video :src="currentDialog.speech_illustrations_url[dialogStepNumber]" autoplay loop muted preload="none"
+          playsinline />
+      </div>
+      <div class="vsk-dialog--illustration-container" v-else>
         <img loading="lazy" :src="currentDialog.speech_illustrations_url[dialogStepNumber]" />
       </div>
     </v-row>
@@ -224,6 +229,7 @@ function handleKeydown(event: any) {
     .vsk-dialog--illustration-container {
       height: 100%;
 
+      video,
       img {
         border-radius: 3.5vh;
         padding: $radiusValue*2;

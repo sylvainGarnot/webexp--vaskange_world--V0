@@ -49,7 +49,7 @@ export const dialogs = ref([
       '<strong>1.</strong> Trouve <i>tous</i> les items sportifs qui sont cachés le long du parcours. Il suffit de zoomer dessus pour les récupérer dans ton <i>inventaire</i> 🗺️',
       '<strong>1.</strong> Quand tu auras tout collecté, tu seras téléporté dans un <i>lieu secret</i> où 600 joueurs remporteront des <i>Freebets*</i> <br>*<span>Crédits de jeu non retirables</span>',
       '<strong>2.</strong> Trouve les <i>codes promos</i> écris dans les différentes scènes. Tu vois un élément écrit quelque part ? Entre-le dans l’espace « Code promo » de ton app’ Betclic pour tenter de remporter des <i>Freebets*</i> ! <br>*<span>Crédits de jeu non retirables</span>',
-      '<strong>3.</strong> Enfin, RDV sur les réseaux sociaux de Betclic toute la journée pour avoir des indices et jouer à des <i>jeux exclusifs</i> 🎁',
+      '<strong>3.</strong> Enfin, RDV sur les <i>réseaux sociaux</i> de Betclic toute la journée pour avoir des indices et jouer à des <i>jeux exclusifs</i> 🎁',
       `Avant de partir… Tu dois être abonné aux <i>réseaux sociaux</i> suivants de Betclic pour pouvoir remporter des <i>Freebets*</i> <br>*<span>Crédits de jeu non retirables</span><br>
       <a target="_blank" href="https://www.instagram.com/betclicfrance/ "><img src="logo/instagram.png"/></a>
       <a target="_blank" href="https://www.tiktok.com/@betclicfrance "><img src="logo/tiktok.png"/></a>
@@ -64,7 +64,7 @@ export const dialogs = ref([
       '/images/regle/betclic_texte.png',
       '/images/regle/!!.png',
       '/images/regle/abonnez_vous.png',
-      '/images/regle/abonnez_vous.png',
+      '/images/guide/ZOOM_HAND.mp4',
     ],
     item_provided: '',
     answers: [],

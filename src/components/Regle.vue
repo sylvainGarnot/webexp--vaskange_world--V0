@@ -9,9 +9,12 @@
 
           <!-- ILLUSTRATION -->
           <v-row no-gutters class="vsk-regle--illustration">
-            <div class="vsk-regle--illustration-container">
-              <img v-if="carouselItem.image_url" loading="lazy" :src="carouselItem.image_url"
+            <div class="vsk-regle--illustration-container" v-if="carouselItem.image_url">
+              <img loading="lazy" :src="carouselItem.image_url"
                 :class="carouselItem.image_horizontal ? 'horizontal' : ''" />
+            </div>
+            <div class="vsk-regle--illustration-container" v-else-if="carouselItem.video_url">
+              <video :src="carouselItem.video_url" autoplay loop muted preload="none" playsinline />
             </div>
           </v-row>
 
@@ -53,27 +56,26 @@ const carouselItems = [
     name: '1',
     image_url: '/images/regle/freebet_dessin.png',
     title: 'Freebets',
-    description: `🤑 Cette course cache énoooormément de Freebets*… Tu veux en gagner? <i>3 solutions</i> s’offrent à toi :
+    description: `🤑 Cette course cache énoooormément de <i>Freebets*</i>… Tu veux en gagner? <i>3 solutions</i> s’offrent à toi :
       <br>*<span>Crédits de jeu non retirables</span>`,
   },
   {
     name: '1a',
-    image_url: '/images/regle/football_ballon.png',
+    image_url: '/images/regle/crampon.png',
     title: 'Lieux Secrets',
-    description: `Trouve <i>tous</i> les items sportifs qui sont cachés le long du parcours. Il suffit de zoomer dessus pour les récupérer dans ton inventaire ! Quand tu auras tout collecté, tu seras téléporté dans un <i>lieu secret</i> qui te fera participer à un grand <i>tirage au sort</i> 🍀`,
+    description: `Trouve <i>tous</i> les items sportifs qui sont cachés le long du parcours. Il suffit de zoomer dessus pour les récupérer dans ton <i>inventaire</i> 🗺️ ! Quand tu auras tout collecté, tu seras téléporté dans un <i>lieu secret</i> où 600 joueurs remporteront des <i>Freebets*</i> <br>*<span>Crédits de jeu non retirables</span>`,
   },
   {
     name: '1b',
-    image_url: '/images/regle/_.png',
+    image_url: '/images/regle/betclic_texte.png',
     title: 'Codes Cachés',
-    description: `Trouve les <i>codes promos</i> écris dans les différentes scènes. Tu vois un élément écrit quelque part ? Écris-le dans ton app’ Betclic, il renferme peut-être des Freebets* 📲
-      <br>*<span>Crédits de jeu non retirables</span>`,
+    description: `Trouve les <i>codes promos</i> écris dans les différentes scènes. Tu vois un élément écrit quelque part ? Entre-le dans l’espace « Code promo » de ton app’ Betclic pour tenter de remporter des <i>Freebets*</i> ! <br>*<span>Crédits de jeu non retirables</span>`,
   },
   {
     name: '1c',
     image_url: '/images/regle/!!.png',
     title: 'Jeux exclusifs',
-    description: `Enfin, RDV sur les réseaux sociaux de Betclic toute la journée pour avoir des indices et jouer à des <i>jeux exclusifs</i> 🎁 <br>
+    description: `Enfin, RDV sur les <i>réseaux sociaux</i> de Betclic toute la journée pour avoir des indices et jouer à des <i>jeux exclusifs</i> 🎁 <br>
       <a target="_blank" href="https://www.instagram.com/betclicfrance/ "><img src="logo/instagram.png"/></a>
       <a target="_blank" href="https://www.tiktok.com/@betclicfrance "><img src="logo/tiktok.png"/></a>
       <a target="_blank" href="https://x.com/Betclic"><img src="logo/x.png"/></a>`,
@@ -82,14 +84,14 @@ const carouselItems = [
     name: '2',
     image_url: '/images/regle/abonnez_vous.png',
     title: 'Abonnes-toi !',
-    description: `Avant de partir… Tu dois être abonné aux réseaux sociaux suivants de Betclic pour pouvoir remporter des Freebets*
-      <br>*<span>Crédits de jeu non retirables</span><br>
+    description: `Avant de partir… Tu dois être abonné aux <i>réseaux sociaux</i> suivants de Betclic pour pouvoir remporter des <i>Freebets*</i> *<span>Crédits de jeu non retirables</span><br>
       <a target="_blank" href="https://www.instagram.com/betclicfrance/ "><img src="logo/instagram.png"/></a>
       <a target="_blank" href="https://www.tiktok.com/@betclicfrance "><img src="logo/tiktok.png"/></a>
       <a target="_blank" href="https://x.com/Betclic"><img src="logo/x.png"/></a>`,
   },
   {
     name: '3',
+    video_url: '/images/guide/ZOOM_HAND.mp4',
     title: 'Bonne chance 💪',
     description: 'Tu as toutes les infos bg : tu peux désormais <i>zoomer</i> dans l’app’ Betclic du téléphone et débuter ta course.',
   },
@@ -125,6 +127,7 @@ onBeforeUnmount(() => {
     .vsk-regle--illustration-container {
       height: 100%;
 
+      video,
       img {
         padding: $radiusValue*2 0;
         width: auto;
