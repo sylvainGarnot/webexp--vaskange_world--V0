@@ -1,15 +1,21 @@
 <template>
   <div class="container">
 
-    <!-- SERVEUR ENDLESS -->
-    <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="3KQQ80j"
-      data-webxp-show-travel-buttons="false" data-webxp-show-navbar="false" data-webxp-show-navinstructions="false">
-    </div> -->
+    <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="j8vvd53"></div> vaskange world -->
+    <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="7weeyex"></div> betclic -->
+    <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="jgZZ1y7"></div> betclic -->
+    <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="xOJJZEj"></div> -->
+    <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="3KQQ80j"></div> -->
 
-    <!-- SERVEUR AMAZON -->
-    <div class="ep-webxp" data-webxp-url="https://xp.endlesspaper.app/betclic/?id=3KQQ80j"
+    <!-- SERVEUR ENDLESS -->
+    <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="jgZZ1y7"
       data-webxp-show-travel-buttons="false" data-webxp-show-navbar="false" data-webxp-show-navinstructions="false">
     </div>
+
+    <!-- SERVEUR AMAZON -->
+    <!-- <div class="ep-webxp" data-webxp-url="https://xp.endlesspaper.app/betclic/?id=3KQQ80j"
+      data-webxp-show-travel-buttons="false" data-webxp-show-navbar="false" data-webxp-show-navinstructions="false">
+    </div> -->
 
     <WebExperienceCharacterCall v-if="currentDialog && isCallDialogActive && !isDialogActive" />
     <WebExperienceAlertLocationEndReach v-if="isLocationEndReach" />
