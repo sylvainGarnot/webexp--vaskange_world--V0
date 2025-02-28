@@ -9,16 +9,16 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
 import VskSwitch from '@/layouts/VskSwitchElement.vue'
-import type { VskSwitchInterface } from './VskSwitchInterface';
+import type { VskSwitchElementInterface } from './VskSwitchElementInterface';
 
 const emit = defineEmits(['update:fields'])
 
 const props = defineProps({
-  fields: Array as PropType<VskSwitchInterface[]>,
+  fields: Array as PropType<VskSwitchElementInterface[]>,
 })
 
 function handleSelect(input: string) {
-  const newFields = Array.from(props.fields as VskSwitchInterface[])
+  const newFields = Array.from(props.fields as VskSwitchElementInterface[])
   for (let index = 0; index < newFields.length; index++) {
     if (newFields[index].name === input) {
       newFields[index].selected = true
