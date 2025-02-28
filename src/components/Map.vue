@@ -5,19 +5,19 @@
 
     <VskCardTabs v-model:isActive="isActive" @close="onClose()" hasList :tabs="tabs">
       <template v-slot:lieux>
-        <VskThumbnailSimpleGroup title="Lieux et Objets" description="Retrouve ici tous les lieux et les objets que tu as déjà trouvés. Si tu veux te téléporter dans une scène,
+        <VskThumbnailGroup title="Lieux et Objets" description="Retrouve ici tous les lieux et les objets que tu as déjà trouvés. Si tu veux te téléporter dans une scène,
           tu as simplement à cliquer dessus !" :subtitle="`objets trouvés : ${items_acquired.length}/${items.length}`"
           :elements="locationsSorted" :elements-max-length="locations.length" v-model:switchValues="switchValues"
           @router-push="isActive = false">
-        </VskThumbnailSimpleGroup>
+        </VskThumbnailGroup>
       </template>
       <template v-slot:codes_promos>
-        <VskThumbnailSimpleGroup title="Lieux secrets"
+        <VskThumbnailGroup title="Lieux secrets"
           description="Retrouve les codes promos cachés dans les différents univers sportifs !"
           :subtitle="`${characters_hidden_found.length}/${characters_hidden.length}`"
           :elements="characters_hidden_sorted" :elements-max-length="characters_hidden.length"
           v-model:switchValues="switchValues" @router-push="isActive = false">
-        </VskThumbnailSimpleGroup>
+        </VskThumbnailGroup>
       </template>
     </VskCardTabs>
 
@@ -33,9 +33,9 @@ import { storeToRefs } from 'pinia'
 import WebExperienceAlertAllItemAcquired from "@/components/WebExperienceAlertAllItemAcquired.vue"
 import VskBtn from '@/layouts/VskBtn.vue'
 import VskCardTabs from '@/layouts/VskCardTabs.vue'
-import VskThumbnailSimpleGroup from '@/layouts/VskThumbnailSimpleGroup.vue'
-import type { VskThumbnailSimpleInterface } from '@/layouts/VskThumbnailSimpleInterface';
-import type { VskSwitchInterface } from '@/layouts/VskSwitchInterface';
+import VskThumbnailGroup from '@/layouts/VskThumbnailGroup.vue'
+import type { VskThumbnailElementInterface } from '@/layouts/VskThumbnailElementInterface';
+import type { VskSwitchElementInterface } from '@/layouts/VskSwitchElementInterface';
 
 import { useLocationStore } from "@/stores/location"
 import type { locationInterface, locationFoundInterface } from '@/stores/location/interface';
@@ -85,7 +85,7 @@ const switchValues = ref([
   //   label: 'dernier découvert',
   //   selected: false,
   // },
-] as VskSwitchInterface[]);
+] as VskSwitchElementInterface[]);
 
 // const switchValueNameSelected = ref('date_asc' as string)
 
@@ -116,13 +116,13 @@ watch(characters_found.value, () => {
 
 // COMPUTED
 const locationsSorted = computed(() => {
-  const result = [] as VskThumbnailSimpleInterface[]
+  const result = [] as VskThumbnailElementInterface[]
 
   for (const location of locations.value as locationInterface[]) {
     const locationFound = locations_found.value.find(l => l.id === location.id) as locationFoundInterface
     if (locationFound as locationFoundInterface) {
 
-      const images_url = [] as string[]
+      const illustrations = [] as string[]
       if (locationFound.itemsToAcquired.length > 0) {
 
         for (let j = 0; j < locationFound.itemsToAcquired.length; j++) {
@@ -130,10 +130,10 @@ const locationsSorted = computed(() => {
 
           if (locationFound.itemsAcquired.includes(itemId)) {
             const itemAcquired = items_acquired.value.find(i => i.id === itemId) as itemAcquiredInterface
-            images_url.push(itemAcquired?.image_url as string)
+            illustrations.push(itemAcquired?.image_url as string)
           } else {
             const itemToAcquired = items.value.find(i => i.id === itemId) as itemInterface
-            images_url.push(itemToAcquired?.image_url_unfound as string)
+            illustrations.push(itemToAcquired?.image_url_unfound as string)
           }
         }
       }
@@ -143,22 +143,22 @@ const locationsSorted = computed(() => {
         title: locationFound.label,
         description: locationFound?.itemsToAcquired.length > 0 ? `objets trouvés ${locationFound?.itemsAcquired.length} / ${locationFound?.itemsToAcquired.length}` : '',
         link: locationFound.name,
-        background_url: locationFound.image_url,
-        images_url,
+        background: locationFound.image_url,
+        illustrations,
         date: locationFound.found_date,
         completed: locationFound?.itemsToAcquired.length > 0 && locationFound?.itemsToAcquired.length === locationFound?.itemsAcquired.length ? true : false,
-      } as VskThumbnailSimpleInterface)
+      } as VskThumbnailElementInterface)
     } else {
       result.push({
         id: location.id,
         title: 'À découvrir...',
         description: '',
         link: '',
-        background_url: location.image_url_unfound,
-        images_url: [],
+        background: location.image_url_unfound,
+        illustrations: [],
         date: new Date(),
         completed: false,
-      } as VskThumbnailSimpleInterface)
+      } as VskThumbnailElementInterface)
     }
   }
   // if (switchValueNameSelected.value === 'défaut') {
@@ -177,7 +177,7 @@ const locationsSorted = computed(() => {
 })
 
 const characters_hidden_sorted = computed(() => {
-  const result = [] as VskThumbnailSimpleInterface[]
+  const result = [] as VskThumbnailElementInterface[]
 
   for (const characterHidden of characters_hidden.value as characterInterface[]) {
     const characterHiddenFound = characters_hidden_found.value.find(c => c.id === characterHidden.id) as characterFoundInterface
@@ -187,22 +187,22 @@ const characters_hidden_sorted = computed(() => {
         title: characterHiddenFound.label,
         description: characterHiddenFound?.itemToAcquired ? `objet donné ${characterHiddenFound?.itemAcquired ? '1' : '0'} / 1` : '',
         link: characterHiddenFound.name,
-        background_url: characterHiddenFound.image_url,
-        images_url: [],
+        background: characterHiddenFound.image_url,
+        illustrations: [],
         date: characterHiddenFound.found_date,
         completed: false,
-      } as VskThumbnailSimpleInterface)
+      } as VskThumbnailElementInterface)
     } else {
       result.push({
         id: characterHidden.id,
         title: 'À découvrir...',
         description: '',
         link: '',
-        background_url: characterHidden.image_url_unfound,
-        images_url: [],
+        background: characterHidden.image_url_unfound,
+        illustrations: [],
         date: new Date(),
         completed: false,
-      } as VskThumbnailSimpleInterface)
+      } as VskThumbnailElementInterface)
     }
   }
 

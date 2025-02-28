@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import VskSwitch from '@/layouts/VskSwitch.vue'
+import VskSwitch from '@/layouts/VskSwitchElement.vue'
 import type { VskSwitchInterface } from './VskSwitchInterface';
 
 const emit = defineEmits(['update:fields'])

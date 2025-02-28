@@ -2,7 +2,7 @@
   <div class="vsk-thumbnail-card mt-3">
     <v-row no-gutters class="mt-2">
       <v-col cols="4">
-        <v-img loading="lazy" class="vsk-thumbnail-card-image" :src="imageUrl">
+        <v-img loading="lazy" class="vsk-thumbnail-card-illustration" :src="illustration">
         </v-img>
       </v-col>
       <v-col cols="8">
@@ -21,7 +21,7 @@
 <script lang="ts" setup>
 const props = defineProps({
   title: String,
-  imageUrl: String,
+  illustration: String,
   description: String,
 })
 </script>
@@ -37,7 +37,7 @@ const props = defineProps({
   border: solid 1px $colorGrey;
   overflow: hidden;
 
-  .vsk-thumbnail-card-image {
+  .vsk-thumbnail-card-illustration {
     width: 75%;
     top: 50%;
     left: 50%;

@@ -26,17 +26,23 @@
     <VskSwitchGroup v-if="switchValues && switchValues.length > 0" class="v-row v-row--no-gutters mt-6 px-8"
       :fields="switchValues" @update:fields="(value: string) => emit('switchValues:update', value as string)" />
 
-    <!-- LIST -->
+    <!-- LIST SIMPLE -->
     <v-row no-gutters class="vsk-thumbnail-group-content px-3 pb-3 mt-3">
       <TransitionGroup name="vsk-thumbnail-group-content--animation" class="transition-group-element" tag="div">
-        <VskThumbnailSimple v-for="element in elements" :key="`card-${element.id}`" class="transition-group-element"
-          :title="element.title" :backgroundUrl="`${element.background_url}`" :link="element.link"
-          :description="element.description" @router-push="$emit('router-push')" :imagesUrl="element.images_url"
+        <VskThumbnailElement v-for="element in elements" :key="`card-${element.id}`" class="transition-group-element"
+          :title="element.title" :background="`${element.background}`" :link="element.link"
+          :description="element.description" @router-push="$emit('router-push')" :illustrations="element.illustrations"
           :completed="element.completed" />
       </TransitionGroup>
-      <!-- <VskThumbnailSimple v-if="elements && elements.length < elementsMaxLength" title="À découvrir..."
-        :backgroundUrl="`/images/location/secret_place.png`" :key="elementsMaxLength" /> -->
     </v-row>
+
+    <!-- LIST CARD -->
+    <!-- <v-row no-gutters class="vsk-thumbnail-group-content px-3 pb-3">
+      <TransitionGroup name="vsk-thumbnail-group-content--animation" class="transition-group-element" tag="div">
+        <VskThumbnailElementCard v-for="element in elements" :key="element.id" class="transition-group-element"
+          :title="element.title" :description="element.description" :illustration="`${element.background}`" />
+      </TransitionGroup>
+    </v-row> -->
   </div>
 </template>
 
@@ -44,10 +50,11 @@
 import type { PropType } from 'vue'
 
 import VskSwitchGroup from '@/layouts/VskSwitchGroup.vue'
-import type { VskSwitchInterface } from './VskSwitchInterface';
+import type { VskSwitchElementInterface } from './VskSwitchElementInterface';
 
-import VskThumbnailSimple from '@/layouts/VskThumbnailSimple.vue'
-import type { VskThumbnailSimpleInterface } from './VskThumbnailSimpleInterface';
+import VskThumbnailElement from '@/layouts/VskThumbnailElement.vue'
+// import VskThumbnailElementCard from '@/layouts/VskThumbnailElementCard.vue'
+import type { VskThumbnailElementInterface } from './VskThumbnailElementInterface';
 
 const emit = defineEmits(['switchValues:update', 'router-push'])
 
@@ -55,9 +62,9 @@ const props = defineProps({
   title: String,
   subtitle: String,
   description: String,
-  elements: Array as PropType<VskThumbnailSimpleInterface[]>,
+  switchValues: Array as PropType<VskSwitchElementInterface[]>,
+  elements: Array as PropType<VskThumbnailElementInterface[]>,
   elementsMaxLength: { type: Number, default: 0 },
-  switchValues: Array as PropType<VskSwitchInterface[]>,
 })
 </script>
 

@@ -1,10 +1,10 @@
-export interface VskThumbnailSimpleInterface {
+export interface VskThumbnailElementInterface {
   id: string,
   title: string,
   description: string,
   link: string,
-  background_url: string,
-  images_url: string[],
+  background: string,
+  illustrations: string[],
   date: Date,
   completed: boolean
 }

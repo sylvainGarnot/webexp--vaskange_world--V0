@@ -1,12 +1,12 @@
 <template>
   <div class="vsk-thumbnail mt-3" :class="link ? 'active' : ''" @click="onClick()">
     <div v-if="link" class="vsk-thumbnail--background-layout"></div>
-    <img loading="lazy" class="vsk-thumbnail--background" :class="completed ? 'completed' : ''" :src="backgroundUrl" />
+    <img loading="lazy" class="vsk-thumbnail--background" :class="completed ? 'completed' : ''" :src="background" />
 
-    <v-row v-if="imagesUrl && imagesUrl.length > 0" no-gutters class="vsk-thumbnail--img-container-row">
-      <v-col class="vsk-thumbnail--img-container-col" v-if="imagesUrl && imagesUrl.length > 0"
-        :cols="12 / imagesUrl.length" align="center" v-for="imageUrl in imagesUrl">
-        <div class="vsk-thumbnail--img" :style="`background-image: url(${imageUrl})`"></div>
+    <v-row v-if="illustrations && illustrations.length > 0" no-gutters class="vsk-thumbnail--illustration-container-row">
+      <v-col class="vsk-thumbnail--illustration-container-col" v-if="illustrations && illustrations.length > 0"
+        :cols="12 / illustrations.length" align="center" v-for="illustration in illustrations">
+        <div class="vsk-thumbnail--illustration" :style="`background-image: url(${illustration})`"></div>
       </v-col>
     </v-row>
 
@@ -33,8 +33,8 @@ const props = defineProps({
   title: String,
   description: String,
   link: String,
-  backgroundUrl: String,
-  imagesUrl: Array,
+  background: String,
+  illustrations: Array,
   completed: Boolean,
 })
 
@@ -128,7 +128,7 @@ function onClick() {
     }
   }
 
-  .vsk-thumbnail--img-container-row {
+  .vsk-thumbnail--illustration-container-row {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -136,9 +136,9 @@ function onClick() {
     height: 70%;
     width: 70%;
 
-    .vsk-thumbnail--img-container-col {
+    .vsk-thumbnail--illustration-container-col {
 
-      .vsk-thumbnail--img {
+      .vsk-thumbnail--illustrations {
         height: 100%;
 
         background-position: center;
