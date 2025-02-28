@@ -10,21 +10,7 @@ export const locationEndName = ref('start_phone' as string);
 
 export const locations_found = ref([] as locationFoundInterface[]);
 
-// "EP_WebXP_Start"
 export const locations = ref([
-
-  // START PHONE -0-
-  // {
-  //   id: '0',
-  //   name: 'start_phone',
-  //   label: 'Téléphone',
-  //   message: 'Téléphone',
-  //   image_url: '/images/location/color/poker.jpg',
-  //   image_url_unfound: '/images/location/black&white&blur/poker.jpg',
-  //   upper_location: '',
-  //   is_hidden: false,
-  //   musics: ['0'],
-  // },
 
   // EP_WebXP_Start -1-
   {

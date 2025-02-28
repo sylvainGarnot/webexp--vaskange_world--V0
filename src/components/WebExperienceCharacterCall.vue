@@ -1,29 +1,29 @@
 <template>
   <div>
     <!-- TEST BOOKMARK -->
-    <div class="vsk-character-bookmark-test"
+    <!-- <div class="webexp-character-bookmark-test"
       :style="`top: ${currentCharacter.bookmark?.top}px; left: ${currentCharacter.bookmark?.left}px; width: ${currentCharacter.bookmark?.width}px; height: ${currentCharacter.bookmark?.height}px;`">
-    </div>
+    </div> -->
 
     <!-- CHARACTER CALL -->
-    <div class="vsk-character-call-container" id="vsk-character-call-container" @click="handleClick"
+    <div class="webexp-character-call-container" id="webexp-character-call-container" @click="handleClick"
       :style="`top: ${characterCallTop}px; left: ${characterCallLeft}px; width: ${characterCallWidth}px; height: ${characterCallHeight}px; border-width: ${characterCallWidth * 0.02}px`">
 
-      <div class="vsk-character-call vsk-character-call-arrow-container"
+      <div class="webexp-character-call webexp-character-call-arrow-container"
         :style="`width: ${(characterCallWidth * 0.2 + 6) * 2}px; height: ${characterCallWidth * 0.4 + 6}px;`">
-        <div class="vsk-character-call vsk-character-call-arrow-border"
+        <div class="webexp-character-call webexp-character-call-arrow-border"
           :style="`border-left: ${characterCallWidth * 0.2 + 6}px solid transparent; border-right: ${characterCallWidth * 0.2 + 6}px solid transparent; border-top: ${characterCallWidth * 0.4 + 6}px solid black;`">
         </div>
-        <div class="vsk-character-call vsk-character-call-arrow"
+        <div class="webexp-character-call webexp-character-call-arrow"
           :style="`border-left: ${characterCallWidth * 0.2}px solid transparent; border-right: ${characterCallWidth * 0.2}px solid transparent; border-top: ${characterCallWidth * 0.4}px solid white; top: -${characterCallWidth * 0.008}px`">
         </div>
       </div>
 
-      <div class="vsk-character-call vsk-character-call-content" v-if="hasCurrentCharacterItemToGive">
+      <div class="webexp-character-call webexp-character-call-content" v-if="hasCurrentCharacterItemToGive">
         <p :style="`line-height: ${characterCallHeight}px; font-size: ${characterCallHeight * 0.45}px;`">
           !!!</p>
       </div>
-      <div class="vsk-character-call vsk-character-call-content" v-else>
+      <div class="webexp-character-call webexp-character-call-content" v-else>
         <p
           :style="`line-height: ${characterCallHeight}px; font-size: ${characterCallHeight * 0.45}px; padding-right: ${characterCallHeight * 0.2}px;`">
           Hey
@@ -63,9 +63,9 @@ const characterCallHeight = computed(() => {
 })
 
 
-// BUG SCROLL
+// BUG SCROLL UNFOUND
 // onMounted(() => {
-//   document.querySelector('vsk-character-call')?.addEventListener("scroll", function (event) {
+//   document.querySelector('webexp-character-call')?.addEventListener("scroll", function (event) {
 //     event.preventDefault()
 //   });
 // })
@@ -84,43 +84,44 @@ function handleClick() {
 @import '@/assets/styles/_global_variable.scss';
 
 // TEST
-.vsk-character-bookmark-test {
+.webexp-character-bookmark-test {
   position: absolute;
   border: solid 4px cyan;
-  display: none; // TEST
+  // display: none; // TEST
 }
 
-// BUG SCROLL
-// .vsk-character-call {
+
+// BUG SCROLL UNFOUND
+// .webexp-character-call {
 //   overflow: 'hidden';
 //   height: '100%';
 // }
 
-.vsk-character-call-container,
-.vsk-character-call-arrow-container,
-.vsk-character-call-arrow-border,
-.vsk-character-call-arrow,
-.vsk-character-call-content {
+.webexp-character-call-container,
+.webexp-character-call-arrow-container,
+.webexp-character-call-arrow-border,
+.webexp-character-call-arrow,
+.webexp-character-call-content {
   position: absolute;
   cursor: pointer;
 }
 
-.vsk-character-call-container {
+.webexp-character-call-container {
   border-style: solid;
   border-color: $colorBlack;
   border-radius: 100%;
 
-  .vsk-character-call-arrow-container {
+  .webexp-character-call-arrow-container {
     right: -10%;
     top: 40%;
     transform: rotate(-40deg);
 
-    .vsk-character-call-arrow {
+    .webexp-character-call-arrow {
       left: 6px;
     }
   }
 
-  .vsk-character-call-content {
+  .webexp-character-call-content {
     background-color: $colorWhite;
     border-radius: 100%;
     width: 100%;

@@ -83,10 +83,6 @@ function close() {
       top: -50vh + 15vh;
     }
 
-    // Expérience ended
-    // position: absolute;
-    // top: -50vh+1.5vh;
-
     .vsk-card-content {
       padding: 0 1vh;
 

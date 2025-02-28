@@ -65,7 +65,7 @@ import type { locationFoundInterface, locationInterface } from "@/stores/locatio
 import type { characterFoundInterface } from "@/stores/character/interface.js";
 import { apiPostAvancementUser } from "@/api/post";
 
-import { bookmarks } from "@/bookmarks.js";
+// import { bookmarks } from "@/bookmarks";
 
 
 const route = useRoute();
@@ -111,7 +111,7 @@ onMounted(() => {
     EndlessPaper.setLogoPosition("bottomleft")
     EndlessPaper.showNavInstructions(false)
 
-    EndlessPaper.setBookmarks(bookmarks)
+    // EndlessPaper.setBookmarks(bookmarks)
 
     // BOOKMARK LOCATION
     EndlessPaper.onBookmarkNearby(

@@ -28,7 +28,7 @@ import WebExperienceAlertAllItemAcquired from "@/components/WebExperienceAlertAl
 import VskCard from '@/layouts/VskCard.vue'
 import VskThumbnailTripleGroup from '@/layouts/VskThumbnailTripleGroup.vue'
 import type { VskThumbnailTripleInterface } from '@/layouts/VskThumbnailTripleInterface.ts'
-import type { VskSwitchInterface } from '@/layouts/VskSwitchInterface';
+import type { VskSwitchElementInterface } from '@/layouts/VskSwitchElementInterface';
 
 import { useItemStore } from "@/stores/item"
 import { useLocationStore } from "@/stores/location";
@@ -57,7 +57,7 @@ const switchValues = ref([
   //   label: 'dernier trouvé',
   //   selected: false,
   // },
-] as VskSwitchInterface[]);
+] as VskSwitchElementInterface[]);
 
 // const switchValueNameSelected = ref('date_asc' as string)
 
@@ -86,7 +86,7 @@ const itemsSorted = computed(() => {
       const newTripleItem = {
         id: locationFound.id,
         background_url: locationFound.image_url,
-        images_url: [],
+        illustrations: [],
         date: locationFound.found_date,
         completed: false,
       } as VskThumbnailTripleInterface
@@ -102,10 +102,10 @@ const itemsSorted = computed(() => {
 
         if (locationFound.itemsAcquired.includes(itemId)) {
           const itemAcquired = items_acquired.value.find(i => i.id === itemId)
-          newTripleItem.images_url.push(itemAcquired?.image_url as string)
+          newTripleItem.illustrations.push(itemAcquired?.image_url as string)
         } else {
           const itemToAcquired = items.value.find(i => i.id === itemId)
-          newTripleItem.images_url.push(itemToAcquired?.image_url_unfound as string)
+          newTripleItem.illustrations.push(itemToAcquired?.image_url_unfound as string)
         }
       }
 

@@ -16,14 +16,10 @@
         </v-row>
 
         <v-row no-gutters class="links mt-12 mx-12">
-          <VskThumbnailSimple :title="locationHome?.label" :background-url="`${locationHome?.image_url}`"
+          <VskThumbnailElementSimple :title="locationHome?.label" :background-url="`${locationHome?.image_url}`"
             :link="locationHome?.name"
-            :description="locationHome!.itemsToAcquired.length > 0 ? `objets trouvés ${locationHome?.itemsAcquired.length} / ${locationHome?.itemsToAcquired.length}` : ''"
+            :description="locationHome?.itemsToAcquired.length > 0 ? `objets trouvés ${locationHome?.itemsAcquired.length} / ${locationHome?.itemsToAcquired.length}` : ''"
             @router-push="setIsLocationEndReach(false)" />
-
-          <!-- <VskThumbnailSimple :title="locationEnd?.name" :imageUrl="`${locationEnd?.image_url}`" :link="locationEnd?.name"
-            :description="locationEnd!.itemsToAcquired.length > 0 ? `objets trouvés ${locationEnd?.itemsAcquired.length} / ${locationEnd?.itemsToAcquired.length}` : ''"
-            @router-push="setIsLocationEndReach(false)" /> -->
         </v-row>
       </template>
     </VskCard>
@@ -38,7 +34,7 @@ import { useLocationStore } from "@/stores/location"
 import type { locationFoundInterface } from '@/stores/location/interface';
 
 import VskCard from '@/layouts/VskCard.vue'
-import VskThumbnailSimple from '@/layouts/VskThumbnailSimple.vue'
+import VskThumbnailElementSimple from '@/layouts/VskThumbnailElementSimple.vue'
 
 
 const locationStore = useLocationStore()
@@ -47,12 +43,8 @@ const { setIsLocationEndReach } = locationStore
 const router = useRouter()
 
 const locationHome = computed(() => {
-  return locations_found.value.find(l => l.id === '0') as locationFoundInterface
+  return locations_found.value.find(l => l.name === 'EP_WebXP_Start') as locationFoundInterface
 })
-
-// const locationEnd = computed(() => {
-//   return locations_found.value.find(l => l.id === '9999') as locationFoundInterface
-// })
 </script>
 
 <style lang="scss" scoped>
