@@ -16,7 +16,7 @@
         </v-row>
 
         <v-row no-gutters class="links mt-12 mx-12">
-          <VskThumbnailElementSimple :title="locationHome?.label" :background-url="`${locationHome?.image_url}`"
+          <VskThumbnailElement :title="locationHome?.label" :background-url="`${locationHome?.image_url}`"
             :link="locationHome?.name"
             :description="locationHome?.itemsToAcquired.length > 0 ? `objets trouvés ${locationHome?.itemsAcquired.length} / ${locationHome?.itemsToAcquired.length}` : ''"
             @router-push="setIsLocationEndReach(false)" />
@@ -34,7 +34,7 @@ import { useLocationStore } from "@/stores/location"
 import type { locationFoundInterface } from '@/stores/location/interface';
 
 import VskCard from '@/layouts/VskCard.vue'
-import VskThumbnailElementSimple from '@/layouts/VskThumbnailElementSimple.vue'
+import VskThumbnailElement from '@/layouts/VskThumbnailElement.vue'
 
 
 const locationStore = useLocationStore()
