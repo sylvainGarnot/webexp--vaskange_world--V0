@@ -16,27 +16,6 @@
     <!-- <div class="ep-webxp" data-webxp-url="https://xp.endlesspaper.app/betclic/?id=3KQQ80j"
       data-webxp-show-travel-buttons="false" data-webxp-show-navbar="false" data-webxp-show-navinstructions="false">
     </div> -->
-
-    <WebExperienceCharacterCall v-if="currentDialog && isCallDialogActive && !isDialogActive" />
-    <WebExperienceAlertLocationEndReach v-if="isLocationEndReach" />
-
-    <TransitionGroup name="fade-top" tag="div">
-      <WebExperienceCharacterDialog v-if="isDialogActive && currentDialog?.type.includes('default')"
-        :type="currentDialog?.type" :is-large="currentDialog?.isLarge" />
-    </TransitionGroup>
-
-    <TransitionGroup name="fade-top" tag="div">
-      <WebExperienceCharacterDialogGift v-if="isDialogActive && currentDialog?.type === 'gift'" />
-    </TransitionGroup>
-
-    <Transition>
-      <WebExperienceCharacterDialogSecretEnd v-if="isDialogActive && currentDialog?.type === 'secret-end'" />
-    </Transition>
-
-    <TransitionGroup>
-      <WebExperienceLoadUserData v-model:isActive="isLoadUserDataDialogActive" key="0" />
-    </TransitionGroup>
-
   </div>
 </template>
 
@@ -44,15 +23,7 @@
 import { onMounted, watch, ref } from "vue";
 import { useRoute } from 'vue-router';
 
-import WebExperienceCharacterCall from "@/components/WebExperienceCharacterCall.vue";
-import WebExperienceCharacterDialog from "@/components/WebExperienceCharacterDialog.vue";
-import WebExperienceCharacterDialogGift from "@/components/WebExperienceCharacterDialogGift.vue";
-import WebExperienceAlertLocationEndReach from "@/components/WebExperienceAlertLocationEndReach.vue";
-import WebExperienceCharacterDialogSecretEnd from "@/components/WebExperienceCharacterDialogSecretEnd.vue";
-import WebExperienceLoadUserData from "@/components/WebExperienceLoadUserData.vue";
-
 import { useApi } from "./WebExperienceApi.js";
-import { shapes } from "../assets/constants/shapes";
 
 import { storeToRefs } from 'pinia';
 import { useBookmarkStore } from "@/stores/bookmark";

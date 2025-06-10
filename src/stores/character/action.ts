@@ -6,7 +6,7 @@ import { currentBookmark, zoomIn} from '../bookmark/state';
 import { setCurrentBookmark, setZoomIn } from '../bookmark/action';
 import type { bookmarkInterface } from '../bookmark/interface';
 
-import { dialogs, isDialogRegleRead } from '../dialog/state';
+import { dialogs } from '../dialog/state';
 import { currentDialog } from '../dialog/getter';
 import { setIsDialogActive } from '../dialog/action';
 
