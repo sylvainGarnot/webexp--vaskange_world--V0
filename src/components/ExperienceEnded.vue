@@ -1,6 +1,5 @@
 <template>
   <div>
-    <MentionLegal />
 
     <VskCard :isActive="true" :hasCloseBtn="false">
       <template v-slot:content>
@@ -37,7 +36,6 @@
 </template>
 
 <script lang="ts" setup>
-import MentionLegal from "@/components/MentionLegal.vue"
 import VskCard from '@/layouts/VskCard.vue'
 import { onMounted } from "vue";
 import { apiPostAvancementUser } from "@/api/post";

@@ -8,7 +8,7 @@ import type { bookmarkInterface } from '../bookmark/interface';
 
 import { dialogs, isDialogRegleRead } from '../dialog/state';
 import { currentDialog } from '../dialog/getter';
-import { setIsDialogActive, setIsDialogMentionLegalActive } from '../dialog/action';
+import { setIsDialogActive } from '../dialog/action';
 
 import { items_acquired } from '../item/state';
 
@@ -82,10 +82,6 @@ export function setCurrentCharacter(inputCharacterFound: characterFoundInterface
     setIsDialogActive(true);
   } else if (inputBookmark.zoomFactor < 10 && inputBookmark.intersectionInfo?.visibleBookmarkRatio >= 0.25 && currentDialog.value?.type.includes('force') && !isDialogRegleRead.value && currentDialog.value?.openOnZoom && locations_found.value.length < 3 && items_acquired.value.length === 0) {
     setIsDialogActive(true);
-    // if (currentDialog.value?.type.includes('mention-legal')) {
-    //   setIsDialogMentionLegalActive(true)
-    // }
-  } else {
     setIsDialogActive(false);
   }
 };
