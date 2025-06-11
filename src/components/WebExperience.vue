@@ -1,18 +1,21 @@
 <template>
   <div class="container">
 
-    <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="j8vvd53"></div> vaskange world -->
-    <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="7weeyex"></div> betclic -->
-    <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="jgZZ1y7"></div> betclic -->
+    <!-- vaskange world -->
+    <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="j8vvd53"></div>
+
+    <!-- BETCLIC -->
+    <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="7weeyex"></div> -->
+    <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="jgZZ1y7"></div> -->
     <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="xOJJZEj"></div> -->
     <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="3KQQ80j"></div> -->
 
-    <!-- SERVEUR ENDLESS -->
-    <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="jgZZ1y7"
+    <!-- BETCLIC - SERVEUR ENDLESS -->
+    <!-- <div id="webxp" class="ep-webxp" data-webxp-author="webxp" data-webxp-id="jgZZ1y7"
       data-webxp-show-travel-buttons="false" data-webxp-show-navbar="false" data-webxp-show-navinstructions="false">
-    </div>
+    </div> -->
 
-    <!-- SERVEUR AMAZON -->
+    <!-- BETCLIC - SERVEUR AMAZON -->
     <!-- <div class="ep-webxp" data-webxp-url="https://xp.endlesspaper.app/betclic/?id=3KQQ80j"
       data-webxp-show-travel-buttons="false" data-webxp-show-navbar="false" data-webxp-show-navinstructions="false">
     </div> -->
@@ -20,160 +23,94 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, watch, ref } from "vue";
-import { useRoute } from 'vue-router';
+import { onMounted  } from "vue";
 
 import { useApi } from "./WebExperienceApi.js";
-
-import { storeToRefs } from 'pinia';
-import { useBookmarkStore } from "@/stores/bookmark";
-import { useLocationStore } from "@/stores/location";
-import { useCharacterStore } from "@/stores/character";
-import { useDialogStore } from "@/stores/dialog";
-import { useSettingStore } from "@/stores/setting";
-
-import type { locationFoundInterface, locationInterface } from "@/stores/location/interface.js";
-import type { characterFoundInterface } from "@/stores/character/interface.js";
-import { apiPostAvancementUser } from "@/api/post";
-
-// import { bookmarks } from "@/bookmarks";
-
-
-const route = useRoute();
 const { EndlessPaper } = useApi();
 
+import { useBookmarkStore } from "@/stores/bookmark";
 const bookmarkStore = useBookmarkStore();
 const { updateBookmarkHasLocation, updateBookmarkHasCharacter } = bookmarkStore;
 
+import { useLocationStore } from "@/stores/location";
 const locationStore = useLocationStore();
-const { locations_found, locationsName, theHiddenPlace, locationEndName, isLocationEndReach } = storeToRefs(locationStore);
-const { setCurrentLocation, setDefaultLocationFound, onLocationEndReach } = locationStore;
+// const { locations_found, locationsName, theHiddenPlace, locationEndName, isLocationEndReach } = storeToRefs(locationStore);
+// const { setCurrentLocation, setDefaultLocationFound, onLocationEndReach } = locationStore;
 
-const characterStore = useCharacterStore();
-const { characters_found, charactersName } = storeToRefs(characterStore);
-const { emptyCurrentCharacter } = characterStore;
-
-const dialogStore = useDialogStore();
-const { currentDialog, isDialogActive, isCallDialogActive } = storeToRefs(dialogStore);
-const { setIsDialogActive } = dialogStore;
-
-const settingStore = useSettingStore();
-const { cookies, isCookiesEnough } = storeToRefs(settingStore)
-const { getBrowserCookies, newDateVisite } = settingStore;
-
-const isLoadUserDataDialogActive = ref(false);
-
-
-// WATCHER
-watch(
-  () => route.query.location,
-  async location => {
-    teleportTo(location as string);
-  }
-)
 
 // MOUNTED
 onMounted(() => {
   EndlessPaper.onLoad(function () {
     // console.log("TEST - WebXP LOADED !"); // TEST
 
+
+    // ENDLESSAPER PARAMS
     EndlessPaper.showNavBar(false);
     EndlessPaper.showTravelButtons(false);
     EndlessPaper.setLogoPosition("bottomleft")
     EndlessPaper.showNavInstructions(false)
-
     // EndlessPaper.setBookmarks(bookmarks)
+
 
     // BOOKMARK LOCATION
     EndlessPaper.onBookmarkNearby(
-      {
-        name: locationsName.value,
-        visibleBookmarkRatio: '> 0.005',
-        zoomFactor: '< 12',
-      },
+      // {
+      //   name: null,
+      //   visibleBookmarkRatio: '> 0.005',
+      //   zoomFactor: '< 12',
+      // },
       updateBookmarkHasLocation
     );
 
-    // BOOKMARK CHARACTER
-    EndlessPaper.onBookmarkNearby(
-      {
-        name: charactersName.value,
-        visibleBookmarkRatio: '>= 0.05',
-        zoomFactor: '<= 25', // le max de détection semble être vers les 17.5
-      },
-      updateBookmarkHasCharacter
-    );
 
-    // BOOKMARK END LOCATION
-    EndlessPaper.onBookmarkNearby(
-      {
-        name: [locationEndName.value],
-        zoomFactor: '>= 25',
-      },
-      onLocationEndReach
-    );
+    // BOOKMARK COLLECTIBLE
+    // EndlessPaper.onBookmarkNearby(
+    //   {
+    //     name: '',
+    //     visibleBookmarkRatio: '>= 0.05',
+    //     zoomFactor: '<= 25', // le max de détection semble être vers les 17.5
+    //   },
+    //   updateBookmarkHasCharacter
+    // );
 
-
-    EndlessPaper.addShapeEventListener("click", handleShapeClick);
-    EndlessPaper.addShapeEventListener("touchend", handleShapeClick);
-    EndlessPaper.setShapes(shapes);
-
-    // disable BUGGY
-    // getBrowserCookies()
-    // if (cookies.value && cookies.value.length > 0 && isCookiesEnough.value
-    // ) {
-    //   isLoadUserDataDialogActive.value = true
-    // } else {
-    setDefaultLocationFound();
-    apiPostAvancementUser('visite')
-    newDateVisite()
-    // }
-
-    // CREATE NEW BOOKARK
-    // setTimeout(() => {
-    //   console.log('TEST printViewportAsBookmark 2', EndlessPaper.getViewportAnchor())
-    // }, 20000);
-
-
-    setTimeout(() => {
-      if (route?.query?.location && route?.query?.force) {
-        EndlessPaper.visitBookmark(route?.query?.location as string);
-      } else if (route?.query?.location) {
-        teleportTo(route?.query?.location as string);
-      }
-    }, 250);
   });
 });
 
 
 // METHODS
 function teleportTo(input: string) {
-  if (locationsName.value.includes(input)) {
-    const locationFound = locations_found.value.find(l => l.name === input)
-    if (locationFound || input === theHiddenPlace.value.name) {
+  if (true) {
+  // IF is location bookmark
+  // if input prefix === "l"
+
+    // const locationFound = locations_found.value.find(l => l.name === input)
+    // if (locationFound || input === theHiddenPlace.value.name) {
+    if (true) {
+    // IF location is already found 
       EndlessPaper.visitBookmark(input as string);
-      setCurrentLocation(locationFound as locationFoundInterface);
-      emptyCurrentCharacter();
+      // setCurrentLocation(locationFound as locationFoundInterface);
+      // emptyCurrentCharacter();
     } else {
       // console.log('Location not found yet')
     }
-  } else if (charactersName.value.includes(input)) {
-    const characterFound = characters_found.value.find(l => l.name === input) as characterFoundInterface;
-    if (characterFound) {
+  } else {
+  // ELSE IF is collectible bookmark
+  // if input prefix === "l"
+    
+    // const characterFound = characters_found.value.find(l => l.name === input) as characterFoundInterface;
+    // if (characterFound) {
+    if (true) {
+    // IF collectible is already found 
       EndlessPaper.visitBookmark(input as string);
-      const characterFoundLocation = locations_found.value.find(l => l.id === characterFound.location) as locationFoundInterface;
-      if (characterFoundLocation) {
-        setCurrentLocation(characterFoundLocation as locationFoundInterface);
-      }
+
+      // const characterFoundLocation = locations_found.value.find(l => l.id === characterFound.location) as locationFoundInterface;
+      // if (characterFoundLocation) {
+        // setCurrentLocation(characterFoundLocation as locationFoundInterface);
+      // }
     } else {
       // console.log('Character not found yet')
     }
   }
-}
-
-function handleShapeClick(shape: any) {
-  // console.log('TEST shape', shape);
-  setIsDialogActive(true);
 }
 
 </script>
