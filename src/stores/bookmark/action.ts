@@ -13,7 +13,7 @@ import type { locationInterface, locationFoundInterface } from '../location/inte
 
 
 // PRIVATE
-
+let isRequestResponsePending = false as boolean;
 
 
 // EXPORT
@@ -74,10 +74,12 @@ export function updateBookmarkHasLocation(inputBookmarks: bookmarkInterface[]) {
         const locationFound = locations_found.value.find(l => l.name === closestInnerBookmarkLocation.name) as locationFoundInterface
         if (locationFound) {
           setCurrentLocation(locationFound as locationFoundInterface);
-        } else {
+        } else if (!isRequestResponsePending) {
 
           // GET LOCATION BY NAME
           console.log('GET LOCATION BY NAME') // TEST
+          
+          isRequestResponsePending = true;
           axios.get(`https://peaceful-symphony-bc24703d57.strapiapp.com/api/locations?filters[name][$eq]=${closestInnerBookmarkLocation.name}&populate=upper_location`)
             .then(response => {
               const res = response.data.data[0];
@@ -92,8 +94,12 @@ export function updateBookmarkHasLocation(inputBookmarks: bookmarkInterface[]) {
                 onLocationFound(newLocation as locationInterface);
               }
               console.log('apiGetLocationByName, SUCCESS', newLocation); // TEST
-            }).catch(error => {
+            })
+            .catch(error => {
               console.log('apiPostAvancementUser, ERROR', error); // TEST
+            })
+            .finally(() => {
+              isRequestResponsePending = false;
             });
 
           // const newLocation = locations.value.find(l => l.name === closestInnerBookmarkLocation.name) as locationInterface
