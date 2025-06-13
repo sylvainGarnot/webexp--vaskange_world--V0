@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form @submit.stop.prevent="handleSubmit">
+    <form @submit.stop.prevent="login">
       <div>
         <label>
           Email
@@ -21,10 +21,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import axios from 'axios';
 
 import { useAuthStore } from "@/stores/auth";
+import type { userInterface } from "@/stores/auth/interface";
 const authStore = useAuthStore();
 const { setUser } = authStore;
 
@@ -35,60 +36,32 @@ const password = ref('');
 const error = ref(null);
 
 
+onMounted(() => {
+  console.log('TestLogin mounted localStorage', localStorage); // TEST
+});
+
 
 // METHODS
-function handleSubmit() {
-  console.log('handleSubmit', email.value, password.value); // TEST
+function login() {
+  console.log('login', email.value, password.value); // TEST
 
   axios.post(`https://peaceful-symphony-bc24703d57.strapiapp.com/api/auth/local`, {
     identifier: email.value,
     password: password.value,
   })
     .then(response => {
-      console.log('handleSubmit, SUCCESS', response); // TEST
+      console.log('login, SUCCESS', response); // TEST
       setUser({
         jwt: response.data.jwt,
-        user: response.data.user,
-      })
+        id: response.data.user.id,
+        username: response.data.user.username,
+        email: response.data.user.email,
+        createdAt: response.data.user.createdAt,
+      } as userInterface)
     })
     .catch(error => {
-      console.log('handleSubmit, ERROR', error.response?.data?.error.message); // TEST
+      console.log('login, ERROR', error.response?.data?.error.message); // TEST
       error = error.response?.data?.error
     })
 }
-
-
-// import { mapMutations } from 'vuex'
-// export default {
-//   data() {
-//     return {
-//       email: '',
-//       password: '',
-//       err: null,
-//     }
-//   },
-//   methods: {
-//     async handleSubmit() {
-//       try {
-//         const { jwt, user } = await this.$http.$post('auth/local', {
-//           identifier: this.email,
-//           password: this.password,
-//         })
-//         this.setUser({
-//           jwt,
-//           id: user.id,
-//           username: user.username,
-//         })
-//         this.$router.push({
-//           path: '/',
-//         })
-//       } catch (err) {
-//         this.err = err.response?.data?.error
-//       }
-//     },
-//     ...mapMutations({
-//       setUser: 'auth/setUser',
-//     }),
-//   },
-// }
 </script>

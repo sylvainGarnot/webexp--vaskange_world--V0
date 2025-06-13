@@ -34,6 +34,7 @@ import { ref } from "vue";
 import axios from 'axios';
 
 import { useAuthStore } from "@/stores/auth";
+import type { userInterface } from "@/stores/auth/interface";
 const authStore = useAuthStore();
 const { setUser } = authStore;
 
@@ -59,8 +60,11 @@ function handleSubmit() {
     console.log('handleSubmit, SUCCESS', response); // TEST
     setUser({
       jwt: response.data.jwt,
-      user: response.data.user,
-    })
+      id: response.data.user.id,
+      username: response.data.user.username,
+      email: response.data.user.email,
+      createdAt: response.data.user.createdAt,
+    } as userInterface)
   })
   .catch(error => {
     console.log('handleSubmit, ERROR', error.response?.data?.error.message); // TEST

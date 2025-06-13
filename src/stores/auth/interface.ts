@@ -1,5 +1,7 @@
-export interface testInterface {
+export interface userInterface {
   id: string,
-  username: string,
   jwt: string,
+  username: string,
+  email: string,
+  createdAt: string,
 }
