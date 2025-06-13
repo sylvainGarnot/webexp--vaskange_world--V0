@@ -38,6 +38,17 @@ const error = ref(null);
 
 onMounted(() => {
   console.log('TestLogin mounted localStorage', localStorage); // TEST
+
+  if (localStorage.getItem('jwt')) {
+    setUser({
+      jwt: localStorage.getItem('jwt') || '',
+      id: localStorage.getItem('id') || '',
+      username: localStorage.getItem('username') || '',
+      email: localStorage.getItem('email') || '',
+      createdAt: localStorage.getItem('createdAt') || '',
+    } as userInterface);
+    console.log('TestLogin mounted, user already logged in'); // TEST
+  }
 });
 
 
