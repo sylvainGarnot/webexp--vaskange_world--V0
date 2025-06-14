@@ -3,7 +3,7 @@ import { readonly } from 'vue'; // TEST
 
 
 import { user } from './state'; // TEST
-import { setUser } from './action';
+import { setUser, logout, forgotPassword, resetPassword } from './action';
 
 
 export const useAuthStore = defineStore("Auth", () => {
@@ -12,5 +12,8 @@ export const useAuthStore = defineStore("Auth", () => {
     user: readonly(user),
 
     setUser,
+    logout,
+    forgotPassword,
+    resetPassword
   }
 })
